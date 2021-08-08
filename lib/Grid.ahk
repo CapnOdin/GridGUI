@@ -9,8 +9,6 @@ Class Grid {
 		this.arbitrator := new ExpanderArbitrator()
 		this.rows := new Rows()
 		this.columns := new Columns()
-		
-		this.bool := true
 	}
 	
 	AddCell(c) { ; adds the cell to all positionts it spands over
@@ -28,19 +26,27 @@ Class Grid {
 		return this.rows.GetMinHeight()
 	}
 	
+	RecalculateCells() {
+		this.columns.__ResetConstants()
+		for i, c in this.columns.columns {
+			c.__ResetConstants()
+		}
+		this.rows.__ResetConstants()
+		for i, r in this.rows.rows {
+			r.__ResetConstants()
+		}
+	}
+	
 	CalculatePositions(width, height) {
-		if(this.bool) {
-			this.arbitrator.ReCalculate() ; should not be done here
-			this.widths := this.columns.CalculateWidths(width, this.columns.expanders, this.columns.nonExpanders, this.columns.expandersMaxValue)
-			this.heights := this.rows.CalculateHeights(height, this.rows.expanders, this.rows.nonExpanders, this.rows.expandersMaxValue)
-			
-			;MsgBox, % ObjectToString(this.widths)
-			;MsgBox, % ObjectToString(this.heights)
-			for i, c in this.cells {
-				c.SetArea(this.widths, this.heights)
-				c.Update()
-			}
-			;this.bool := false
+		this.arbitrator.ReCalculate() ; should not be done here
+		this.widths := this.columns.CalculateWidths(width, this.columns.expanders, this.columns.nonExpanders, this.columns.expandersMaxValue)
+		this.heights := this.rows.CalculateHeights(height, this.rows.expanders, this.rows.nonExpanders, this.rows.expandersMaxValue)
+		
+		;MsgBox, % ObjectToString(this.widths)
+		;MsgBox, % ObjectToString(this.heights)
+		for i, c in this.cells {
+			c.SetArea(this.widths, this.heights)
+			c.Update()
 		}
 	}
 }
@@ -799,7 +805,7 @@ Class ExpanderDescriptor {
 
 
 Class Cell {
-	__New(pos, ctrl, exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C", border := 5) {
+	__New(pos, ctrl, exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C", borderX := 5, borderY := 5) {
 		this.gridpos := pos
 		this.ctrl := ctrl
 		this.exW := exW
@@ -807,7 +813,8 @@ Class Cell {
 		this.fillW := fillW
 		this.fillH := fillH
 		this.justifyOptions := justify
-		this.border := border
+		this.borderX := borderX
+		this.borderY := borderY
 		this.cPos := this.ctrl.ControlGetPos()
 		this.pos := this.ctrl.ControlGetPos()
 		;this.ctrl.callback := ObjBindMethod(this, "ToolTip")
@@ -818,11 +825,11 @@ Class Cell {
 	}
 	
 	GetNeededHeight() {
-		return this.exH || this.fillH ? 0 : (this.cPos.h + this.border * 2) / this.gridpos.h
+		return this.exH || this.fillH ? 0 : (this.cPos.h + this.borderY * 2) / this.gridpos.h
 	}
 	
 	GetNeededWidth() {
-		return this.exW || this.fillW ? 0 : (this.cPos.w + this.border * 2) / this.gridpos.w
+		return this.exW || this.fillW ? 0 : (this.cPos.w + this.borderX * 2) / this.gridpos.w
 	}
 	
 	GetExpansionWidthValue() {
@@ -921,8 +928,8 @@ Class Cell {
 	}
 	
 	SetSize(pos) {
-		w := this.exW || this.fillW ? pos.w - this.border * 2 : this.cPos.w
-		h := this.exH || this.fillH ? pos.h - this.border * 2 : this.cPos.h
+		w := this.exW || this.fillW ? pos.w - this.borderX * 2 : this.cPos.w
+		h := this.exH || this.fillH ? pos.h - this.borderY * 2 : this.cPos.h
 		
 		;w := pos.w - this.border
 		;h := pos.h - this.border
@@ -942,16 +949,16 @@ Class Cell {
 			jpos := this.Center(area, pos)
 		}
 		if(InStr(this.justifyOptions, "N")) {
-			jpos.y := area.y + this.border / 2
+			jpos.y := area.y + this.borderY
 		}
 		if(InStr(this.justifyOptions, "E")) {
-			jpos.x := area.x + area.w - pos.w - this.border / 2
+			jpos.x := area.x + area.w - pos.w - this.borderX
 		}
 		if(InStr(this.justifyOptions, "W")) {
-			jpos.x := area.x + this.border / 2
+			jpos.x := area.x + this.borderX
 		}
 		if(InStr(this.justifyOptions, "S")) {
-			jpos.y := area.y + area.h - pos.h - this.border / 2
+			jpos.y := area.y + area.h - pos.h - this.borderY
 		}
 		return jpos
 	}

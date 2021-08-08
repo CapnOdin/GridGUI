@@ -22,6 +22,10 @@ Class GUI Extends Window {
 		Gui, % this.hwnd ":Submit", % NoHide ? "NoHide" : ""
 	}
 	
+	Margin(x := "", y := "") {
+		Gui, % this.hwnd ":Margin", % x, % y
+	}
+	
 	GuiSize(pos) {
 		ToolTip, % "w: " pos.w "`nh: " pos.h
 	}
@@ -64,6 +68,8 @@ Class GridGUI Extends GUI {
 		this.grid := new Grid()
 		this.showGrid := showGrid
 		this.gridlines := [[], []]
+		this.margins := {x: 5, y: 5}
+		this.pos := new Position(0, 0)
 	}
 	
 	AddControl(x, y, type, options := "", text := "", exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C") {
@@ -78,7 +84,7 @@ Class GridGUI Extends GUI {
 		}
 		pos := this.__TranslateGridPos(x, y)
 		ctrl := new ArbitraryControl(this.hwnd, type, options, text)
-		this.grid.AddCell(new Cell(pos, ctrl, exW, exH, fillW, fillH, justify))
+		this.grid.AddCell(new Cell(pos, ctrl, exW, exH, fillW, fillH, justify, this.margins["x"], this.margins["y"]))
 		return ctrl
 	}
 	
@@ -98,7 +104,19 @@ Class GridGUI Extends GUI {
 		this.grid.AddCell(new Cell(pos, ctrl, exW, exH))
 	}
 	
+	Margin(x := "", y := "") {
+		this.margins["x"] := (x != "") ? x : this.margins["x"]
+		this.margins["y"] := (y != "") ? y : this.margins["y"]
+		for i, c in this.grid.cells {
+			c.borderX := this.margins["x"]
+			c.borderY := this.margins["y"]
+		}
+		this.grid.RecalculateCells()
+		this.grid.CalculatePositions(this.pos.w, this.pos.h)
+	}
+	
 	GuiSize(pos) {
+		this.pos := pos
 		this.grid.CalculatePositions(pos.w, pos.h)
 		;this.WinSet("Redraw", "")
 		if(this.showGrid) {
