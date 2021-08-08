@@ -26,7 +26,7 @@ Class Grid {
 		return this.rows.GetMinHeight()
 	}
 	
-	RecalculateCells() {
+	ResetConstants() {
 		this.columns.__ResetConstants()
 		for i, c in this.columns.columns {
 			c.__ResetConstants()

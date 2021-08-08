@@ -111,7 +111,7 @@ Class GridGUI Extends GUI {
 			c.borderX := this.margins["x"]
 			c.borderY := this.margins["y"]
 		}
-		this.grid.RecalculateCells()
+		this.grid.ResetConstants()
 		this.grid.CalculatePositions(this.pos.w, this.pos.h)
 	}
 	
