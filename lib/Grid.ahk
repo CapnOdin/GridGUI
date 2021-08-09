@@ -50,7 +50,7 @@ Class Grid {
 		}
 	}
 }
-
+/*
 ObjectToString(obj){
 	if(!IsObject(obj)){
 		return Util_IsNum(obj) ? obj : """" obj """"
@@ -62,6 +62,7 @@ ObjectToString(obj){
 	}
 	return SubStr(res, 1, -2) (bool ? "]" : "}")
 }
+*/
 
 Class ExpanderArbitrator {
 	__New() {
