@@ -1,65 +1,6 @@
 ﻿
-#Include %A_LineFile%\..\lib\Window.ahk
-#Include %A_LineFile%\..\lib\BoundFunc.ahk
+#Include %A_LineFile%\..\lib\Gui.ahk
 #Include %A_LineFile%\..\lib\Grid.ahk
-
-Class GUI Extends Window {
-	__New(title, options := "") {
-		this.title := title
-		Gui, New, % "+HwndHwnd " options, % this.title
-		Base.__New(Hwnd, [new GuiCallback(Window.WM_SIZE, new BoundFunc("GUI.__GuiSize", this))])
-	}
-	
-	Add(controlType, options := "", text := "") {
-		return new ArbitraryControl(this.hwnd, controlType, options, text)
-	}
-	
-	Show(options := "AutoSize") {
-		Gui, % this.hwnd ":Show", % options
-	}
-	
-	Submit(NoHide := False) {
-		Gui, % this.hwnd ":Submit", % NoHide ? "NoHide" : ""
-	}
-	
-	Margin(x := "", y := "") {
-		Gui, % this.hwnd ":Margin", % x, % y
-	}
-	
-	GuiSize(pos) {
-		ToolTip, % "w: " pos.w "`nh: " pos.h
-	}
-	
-	MinSize(x := "", y := "") {
-		Gui, % this.hwnd ": +MinSize" x (y != "" ? "x" y: "")
-	}
-	
-	Font(Options := "", FontName := "") {
-		Gui, % this.hwnd ":Font", % Options, % FontName
-	}
-	
-	Destroy() {
-		Gui, % this.hwnd ":Destroy"
-	}
-	
-	ControlGetFocus() {
-		GuiControlGet, CtrlClass, % this.hwnd ":Focus"
-		GuiControlGet, focused, % this.hwnd ":Hwnd", % CtrlClass
-		Return focused
-	}
-	
-	__GuiSize(wParam, lParam, msg, hwnd) {
-		Static SIZE_RESTORED := 0
-		if(this.hwnd = hwnd) {
-			if(this.resizeTimer) {
-				timer := this.resizeTimer
-				SetTimer, % timer, Off
-			}
-			timer := this.resizeTimer := new BoundFunc(this.__Class ".GuiSize", this, new Position(0, 0, lParam & 0xffff, lParam >> 16))
-			SetTimer, % timer, -50
-		}
-	}
-}
 
 Class GridGUI Extends GUI {
 
@@ -69,7 +10,6 @@ Class GridGUI Extends GUI {
 		this.showGrid := showGrid
 		this.gridlines := [[], []]
 		this.margins := {x: 5, y: 5}
-		this.pos := new Position(0, 0)
 	}
 	
 	AddControl(x, y, type, options := "", text := "", exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C") {
@@ -97,6 +37,8 @@ Class GridGUI Extends GUI {
 	
 	AutoSize() {
 		this.grid.CalculatePositions(this.grid.GetMinWidth(), this.grid.GetMinHeight())
+		this.pos.w := this.grid.GetMinWidth()
+		this.pos.h := this.grid.GetMinHeight()
 	}
 	
 	Add(x, y, ctrl, exW := 0, exH := 0) {
@@ -116,12 +58,19 @@ Class GridGUI Extends GUI {
 	}
 	
 	GuiSize(pos) {
-		this.pos := pos
+		Base.GuiSize(pos)
 		this.grid.CalculatePositions(pos.w, pos.h)
 		;this.WinSet("Redraw", "")
 		if(this.showGrid) {
-			ToolTip, % "w: " pos.w "`nh: " pos.h
+			ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")"
 			This.DrawGrid(pos)
+		}
+	}
+	
+	GuiMoved(pos) {
+		Base.GuiMoved(pos)
+		if(this.showGrid) {
+			ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")"
 		}
 	}
 	
