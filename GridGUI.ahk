@@ -1,6 +1,6 @@
 ﻿
-#Include %A_LineFile%\..\lib\Gui.ahk
-#Include %A_LineFile%\..\lib\Grid.ahk
+#Include %A_LineFile%\..\GridGUI-lib\Gui.ahk
+#Include %A_LineFile%\..\GridGUI-lib\Grid.ahk
 
 Class GridGUI Extends GUI {
 
