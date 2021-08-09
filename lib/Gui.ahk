@@ -4,8 +4,14 @@
 Class GUI Extends Window {
 	__New(title, options := "") {
 		this.title := title
+		this.__init()
 		Gui, New, % "+HwndHwnd " options, % this.title
 		Base.__New(Hwnd, [new GuiCallback(Window.WM_SIZE, new BoundFunc("GUI.__GuiSize", this)), new GuiCallback(Window.WM_MOVE, new BoundFunc("GUI.__GuiMoved", this))])
+		this.__CheckOptions(options)
+	}
+	
+	__init() {
+		this.DPIScale := true
 		this.pos := new Position(0, 0)
 	}
 	
@@ -80,6 +86,7 @@ Class GUI Extends Window {
 	}
 	
 	GuiSize(pos) {
+		pos := this.__DPIScale(pos, false)
 		this.pos.w := pos.w
 		this.pos.h := pos.h
 	}
@@ -87,6 +94,25 @@ Class GUI Extends Window {
 	GuiMoved(pos) {
 		this.pos.x := pos.x
 		this.pos.y := pos.y
+	}
+	
+	__DPIScale(pos, enlarge := true) {
+		scaledPos := pos.Copy()
+		if(this.DPIScale) {
+			scale := A_ScreenDPI / 96
+			if(enlarge) {
+				scaledPos.w := Round(scaledPos.w * scale)
+				scaledPos.h := Round(scaledPos.h * scale)
+			} else {
+				scaledPos.w := Round(scaledPos.w / scale)
+				scaledPos.h := Round(scaledPos.h / scale)
+			}
+		}
+		return scaledPos
+	}
+	
+	__CheckOptions(options) {
+		this.DPIScale := !(options ~= "i)-DPIScale")
 	}
 	
 	__GuiSize(wParam, lParam, msg, hwnd) {

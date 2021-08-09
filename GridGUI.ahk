@@ -36,9 +36,9 @@ Class GridGUI Extends GUI {
 	}
 	
 	AutoSize() {
-		this.grid.CalculatePositions(this.grid.GetMinWidth(), this.grid.GetMinHeight())
 		this.pos.w := this.grid.GetMinWidth()
 		this.pos.h := this.grid.GetMinHeight()
+		this.grid.CalculatePositions(this.pos.w, this.pos.h)
 	}
 	
 	Add(x, y, ctrl, exW := 0, exH := 0) {
@@ -59,11 +59,11 @@ Class GridGUI Extends GUI {
 	
 	GuiSize(pos) {
 		Base.GuiSize(pos)
-		this.grid.CalculatePositions(pos.w, pos.h)
+		this.grid.CalculatePositions(this.pos.w, this.pos.h)
 		;this.WinSet("Redraw", "")
 		if(this.showGrid) {
-			ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")"
-			This.DrawGrid(pos)
+			ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")`nRSize: (" pos.w ", " pos.h ")"
+			This.DrawGrid(this.pos)
 		}
 	}
 	
@@ -92,7 +92,7 @@ Class GridGUI Extends GUI {
 			}
 		}
 		
-		size := pos ? pos : this.WinGetPos()
+		size := pos ? pos : this.pos
 		x := 0
 		for i, width in this.grid.widths {
 			x += width
