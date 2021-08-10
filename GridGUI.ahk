@@ -4,7 +4,7 @@
 
 Class GridGUI Extends GUI {
 
-	__New(title, options := "", showGrid := false) {
+	__New(title := "", options := "", showGrid := false) {
 		Base.__New(title, options)
 		this.grid := new Grid()
 		this.showGrid := showGrid

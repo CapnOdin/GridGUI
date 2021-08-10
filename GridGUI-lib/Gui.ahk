@@ -2,7 +2,7 @@
 #Include %A_LineFile%\..\BoundFunc.ahk
 
 Class GUI Extends Window {
-	__New(title, options := "") {
+	__New(title := "", options := "") {
 		this.title := title
 		this.__init()
 		Gui, New, % "+HwndHwnd " options, % this.title
