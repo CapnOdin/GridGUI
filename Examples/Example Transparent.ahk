@@ -3,7 +3,7 @@
 myGUI := new GridGUI()
 myGUI.Color("EEAA99")
 myGUI.Options("+AlwaysOnTop +ToolWindow -Caption -border")
-myGUI.AddControl(1, 1, "Picture", "w500 h-1", "Images\bottom.jpg")
+myGUI.Add(1, 1, "Picture", "w500 h-1", "Images\bottom.jpg")
 myGUI.WinSet("TransColor", "EEAA99")
 myGUI.AutoSize()
 myGUI.Show("x" 500 " y" 500)
