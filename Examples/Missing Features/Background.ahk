@@ -3,7 +3,7 @@
 
 myGui := new GridGUI("Grid Test", "resize")
 
-myGui.AddControl("0-4", "0-5", "Picture", , "background.png", 1, 1)
+myGui.AddControl("0-4", "0-5", "Picture", , "..\Images\background.png", 1, 1)
 
 myGui.AddControl("1-3", 1, "Edit", , , 1)
 myGui.AddControl(1, 2, "Button", , "Button")
