@@ -12,7 +12,7 @@ Class GridGUI Extends GUI {
 		this.margins := {x: 5, y: 5}
 	}
 	
-	AddControl(x, y, type, options := "", text := "", exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C") {
+	Add(x, y, type, options := "", text := "", exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C") {
 		if(IsObject(options)) {
 			text :=		options.HasKey("text") ?	options["text"] :		text
 			exW :=		options.HasKey("exW") ?		options["exW"] :		exW
@@ -39,11 +39,6 @@ Class GridGUI Extends GUI {
 		this.pos.w := this.grid.GetMinWidth()
 		this.pos.h := this.grid.GetMinHeight()
 		this.grid.CalculatePositions(this.pos.w, this.pos.h)
-	}
-	
-	Add(x, y, ctrl, exW := 0, exH := 0) {
-		pos := this.__TranslateGridPos(x, y)
-		this.grid.AddCell(new Cell(pos, ctrl, exW, exH))
 	}
 	
 	Margin(x := "", y := "") {
