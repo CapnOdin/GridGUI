@@ -53,7 +53,9 @@ Class Window {
 	}
 	
 	WinSet(SubCommand, Value) {
+		pre := this.__DetectHidden()
 		WinSet, % SubCommand, % Value, % "ahk_id " this.hwnd
+		DetectHiddenWindows, % pre
 	}
 	
 	ControlGetFocus() {
@@ -67,6 +69,12 @@ Class Window {
 	
 	ToStr(indent := "") {
 		return indent "Hwnd:`t" this.hwnd "`n" indent "Pos:`n" this.WinGetPos().ToStr("`t")
+	}
+	
+	__DetectHidden() {
+		detectState := A_DetectHiddenWindows
+		DetectHiddenWindows, On
+		return detectState
 	}
 }
 
