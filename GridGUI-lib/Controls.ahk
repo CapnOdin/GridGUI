@@ -2,12 +2,13 @@
 #Include %A_LineFile%\..\Position.ahk
 
 Class ControlClass {
-	__New(hwnd, type, callback := False) {
+	__New(hwnd, type, options := "", callback := False) {
 		this.hwnd := hwnd
 		this.type := type
 		this.callback := callback
 		this.GuiControl("+g", ObjBindMethod(this, "__Callback"))
 		this.vVar := this.GuiControlGet()
+		this.__ParseOptions(options)
 	}
 	
 	GuiControl(subCommand, value) {
@@ -39,6 +40,13 @@ Class ControlClass {
 		}
 	}
 	
+	__ParseOptions(options) {
+		RegExMatch(options, "Oi)w(\d+)", match)
+		this.initialWidth := match[1]
+		RegExMatch(options, "Oi)h(\d+)", match)
+		this.initialHeight := match[1]
+	}
+	
 	ToStr(indent := "") {
 		return indent "Hwnd`t:" this.hwnd "`n" indent "Type:`n" this.type
 	}
@@ -47,20 +55,20 @@ Class ControlClass {
 Class ArbitraryControl Extends ControlClass {
 	__New(guiHwnd, type, options := "", text := "") {
 		Gui, % guiHwnd ":Add", % type, % "+HwndHwnd " options, % text
-		Base.__New(Hwnd, type)
+		Base.__New(Hwnd, type, options)
 	}
 }
 
 Class ButtonControl Extends ControlClass {
 	__New(guiHwnd, options := "", text := "") {
 		Gui, % guiHwnd ":Add", Button, % "+HwndHwnd " options, % text
-		Base.__New(Hwnd, "Button")
+		Base.__New(Hwnd, "Button", options)
 	}
 }
 
 Class EditControl Extends ControlClass {
 	__New(guiHwnd, options := "", text := "") {
 		Gui, % guiHwnd ":Add", Edit, % "+HwndHwnd " options, % text
-		Base.__New(Hwnd, "Edit")
+		Base.__New(Hwnd, "Edit", options)
 	}
 }

@@ -826,11 +826,11 @@ Class Cell {
 	}
 	
 	GetNeededHeight() {
-		return this.exH || this.fillH ? 0 : (this.cPos.h + this.borderY * 2) / this.gridpos.h
+		return this.exH || this.fillH ? (this.ctrl.initialHeight ? (this.ctrl.initialHeight + this.borderY * 2) / this.gridpos.h : 0) : (this.cPos.h + this.borderY * 2) / this.gridpos.h
 	}
 	
 	GetNeededWidth() {
-		return this.exW || this.fillW ? 0 : (this.cPos.w + this.borderX * 2) / this.gridpos.w
+		return this.exW || this.fillW ? (this.ctrl.initialWidth ? (this.ctrl.initialWidth + this.borderX * 2) / this.gridpos.w : 0) : (this.cPos.w + this.borderX * 2) / this.gridpos.w
 	}
 	
 	GetExpansionWidthValue() {
@@ -929,8 +929,18 @@ Class Cell {
 	}
 	
 	SetSize(pos) {
-		w := this.exW || this.fillW ? pos.w - this.borderX * 2 : this.cPos.w
-		h := this.exH || this.fillH ? pos.h - this.borderY * 2 : this.cPos.h
+		if(this.ctrl.initialWidth) {
+			w := this.fillW ? Max(pos.w - this.borderX * 2, this.ctrl.initialWidth) : this.ctrl.initialWidth
+			;MsgBox, % w "   " this.ctrl.initialWidth
+		} else {
+			w := this.exW || this.fillW ? pos.w - this.borderX * 2 : this.cPos.w
+		}
+		if(this.ctrl.initialHeight) {
+			h := this.fillH ? Max(pos.h - this.borderY * 2, this.ctrl.initialHeight) : this.ctrl.initialHeight
+			;MsgBox, % h "   " this.ctrl.initialHeight
+		} else {
+			h := this.exH || this.fillH ? pos.h - this.borderY * 2 : this.cPos.h
+		}
 		
 		;w := pos.w - this.border
 		;h := pos.h - this.border
