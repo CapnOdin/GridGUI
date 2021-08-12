@@ -28,6 +28,19 @@ Class GridGUI Extends GUI {
 		return ctrl
 	}
 	
+	AddControl(x, y, ctrl, exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C") {
+		if(IsObject(exW)) {
+			exH :=		options.HasKey("exH") ?		options["exH"] :		exH
+			fillW :=	options.HasKey("fillW") ?	options["fillW"] :		fillW
+			fillH :=	options.HasKey("fillH") ?	options["fillH"] :		fillH
+			justify :=	options.HasKey("justify") ?	options["justify"] :	justify
+			exW :=		options.HasKey("exW") ?		options["exW"] :		0
+		}
+		pos := this.__TranslateGridPos(x, y)
+		this.grid.AddCell(new Cell(pos, ctrl, exW, exH, fillW, fillH, justify, this.margins["x"], this.margins["y"]))
+		return ctrl
+	}
+	
 	Show(options := "AutoSize") {
 		if(options = "AutoSize") {
 			options := "w" this.grid.GetMinWidth() " h" this.grid.GetMinHeight()
