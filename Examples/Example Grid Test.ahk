@@ -57,7 +57,7 @@ loop 10 {
 }
 */
 
-myGui.Add("2-9", "2-9", "Button", , , 1, 1)
+myGui.Add("2-9", "2-9", "Button", , , 1, 1, 1, 1)
 
 myGui.Show("w500 h500")
 return

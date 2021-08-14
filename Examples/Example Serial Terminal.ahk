@@ -19,8 +19,8 @@ console.Run("filter timestamp {""$(Get-Date -Format o): $_""}")
 Sleep, 100
 console.Run("clear")
 
-cmdline :=		myGui.add("1-16", 1, "Edit", , , 1)
-				myGui.AddControl("1-16", 2, console, 1, 1)
+cmdline :=		myGui.add("1-16", 1, "Edit", , , 1, , 1)
+				myGui.AddControl("1-16", 2, console, 1, 1, 1, 1)
 
 bt_connect :=	myGui.add(1, 3, "Button", "w100", "Connect")
 

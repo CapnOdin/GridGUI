@@ -42,8 +42,8 @@
 
 
 prompt := new GridGUI("Promt", "Resize")
-bt := prompt.Add(1, 1, "Button", , "Display GUI", 1)
-ed := prompt.Add(1, 2, "Edit", "Multi", , 1, 1)
+bt := prompt.Add(1, 1, "Button", , "Display GUI", 1, , 1)
+ed := prompt.Add(1, 2, "Edit", "Multi", , 1, 1, 1, 1)
 bt.Callback := Func("ButtonClicked").Bind(ed)
 prompt.Show("w200 h200")
 prompt.AutoSize()

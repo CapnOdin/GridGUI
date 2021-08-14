@@ -37,7 +37,7 @@ return
 				column := 1
 				row++
 			}
-			myGui.AddControl(column, row, window, 1, 1)
+			myGui.AddControl(column, row, window, 1, 1, 1, 1)
 			myGui.ReDraw()
 		}
 	}

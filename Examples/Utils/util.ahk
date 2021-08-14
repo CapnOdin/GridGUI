@@ -98,11 +98,11 @@ MakeGridGuiVersion(ggui, cellgroups) {
 		if(type = "F") {
 			ggui.Add(strrow, strcolumn, "Button", , type)
 		} else if(type = "W") {
-			ggui.Add(strrow, strcolumn, "Button", , type, 1)
+			ggui.Add(strrow, strcolumn, "Button", , type, 1, , 1)
 		} else if(type = "H") {
-			ggui.Add(strrow, strcolumn, "Button", , type, , 1)
+			ggui.Add(strrow, strcolumn, "Button", , type, , 1, , 1)
 		} else {
-			ggui.Add(strrow, strcolumn, "Button", , type, 1, 1)
+			ggui.Add(strrow, strcolumn, "Button", , type, 1, 1, 1, 1)
 		}
 	}
 }
