@@ -1,14 +1,14 @@
 ﻿
-#Include %A_ScriptDir%\..\..\GridGUI.ahk
+#Include %A_ScriptDir%\..\GridGUI.ahk
 
 myGui := new GridGUI("Grid Test", "resize")
 
 myGui.Add("1-2", 1, "Text", , "Find what?", , , , , "CW")
 myGui.Add("1-2", 2, "Text", , "Replace with?", , , , , "CW")
-myGui.Add("3-8", 1, "Edit", "Multi", , , , 1)
-myGui.Add("3-8", 2, "Edit", "Multi", , , , 1)
+myGui.Add("3-9", 1, "Edit", "Multi", , 1, , 1)
+myGui.Add("3-9", 2, "Edit", "Multi", , 1, , 1)
 
-myGui.Add("1-6", "3-8", "GroupBox", , "Options", , , 1, 1, "C")
+myGui.Add("1-6", "3-8", "GroupBox", "w40 h40", "Options", , , 1, 1, "C")
 
 myGui.Add(2, 4, "Checkbox", , "&Case Sensitive", , , , , "CW")
 myGui.Add(2, 5, "Checkbox", , "Replace &All?", , , , , "CW")
@@ -23,7 +23,7 @@ myGui.Add(5, 6, "Checkbox", , "Show Original?", , , , , "CW")
 myGui.Add(8, 4, "Button", , "&Update Content", , , 1, , "CW")
 myGui.Add(8, 5, "Button", , "&Copy", , , 1, , "CW")
 
-myGui.Add("1-8", 9, "Edit", "Multi", , , 1, 1)
+myGui.Add("1-9", 9, "Edit", "Multi", , 1, 1, 1, 1)
 myGui.Show()
 return
 
