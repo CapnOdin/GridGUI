@@ -19,7 +19,10 @@ myGui.Add(6,		3,	"Button",	{text:"&Update Content",	justify:"CW"})
 myGui.Add(6,		4,	"Button",	{text:"&Copy",	fillW:1,	justify:"CW"})
 
 myGui.Add("1-7",	7,	"Edit",		{options:"Multi", exW:1, exH:1})
+myGui.AutoSize()
+myGui.MinSize()
 myGui.Show()
+
 return
 
 GuiClose:

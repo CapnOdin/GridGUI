@@ -22,6 +22,7 @@ myGui.Add(7,		3, "Button",	,			"&Update Content",		,	, , 	, "CW")
 myGui.Add(7,		4, "Button",	,			"&Copy",				,	, 1,	, "CW")
 
 myGui.Add("1-7",	7, "Edit",		"Multi",	,						1,	1)
+myGui.AutoSize()
 myGui.Show("w480 h600")
 myGui.MinSize()
 

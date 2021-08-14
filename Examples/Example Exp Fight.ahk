@@ -8,6 +8,7 @@ loop 5 {
 	myGui.Add(A_Index, 3, "Button", , "x", 0, 0, 0, 0, "W")
 	myGui.Add(A_Index, 4, "Button", , "x", 0, 0, 0, 0, "E")
 }
+myGui.AutoSize()
 myGui.Show()
 return
 
