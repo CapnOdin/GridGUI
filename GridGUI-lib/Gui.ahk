@@ -1,22 +1,22 @@
 ﻿#Include %A_LineFile%\..\Window.ahk
 #Include %A_LineFile%\..\BoundFunc.ahk
 
-Class GUI Extends Window {
+Class GUI Extends GridGUI.Window {
 	__New(title := "", options := "") {
 		this.title := title
 		this.__init()
 		Gui, New, % "+HwndHwnd " options, % this.title
-		Base.__New(Hwnd, [new GuiCallback(Window.WM_SIZE, new BoundFunc("GUI.__GuiSize", this)), new GuiCallback(Window.WM_MOVE, new BoundFunc("GUI.__GuiMoved", this))])
+		Base.__New(Hwnd, [new GridGUI.GuiCallback(GridGUI.Window.WM_SIZE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiSize", this)), new GridGUI.GuiCallback(GridGUI.Window.WM_MOVE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiMoved", this))])
 		this.__CheckOptions(options)
 	}
 	
 	__init() {
 		this.DPIScale := true
-		this.pos := new Position(0, 0)
+		this.pos := new GridGUI.Position(0, 0)
 	}
 	
 	Add(controlType, options := "", text := "") {
-		return new ArbitraryControl(this.hwnd, controlType, options, text)
+		return new GridGUI.ArbitraryControl(this.hwnd, controlType, options, text)
 	}
 	
 	Show(options := "AutoSize") {
@@ -121,7 +121,7 @@ Class GUI Extends Window {
 				timer := this.resizeTimer
 				SetTimer, % timer, Off
 			}
-			timer := this.resizeTimer := new BoundFunc(this.__Class ".GuiSize", this, new Position(0, 0, lParam & 0xffff, lParam >> 16))
+			timer := this.resizeTimer := new GridGUI.BoundFunc(this.__Class ".GuiSize", this, new GridGUI.Position(0, 0, lParam & 0xffff, lParam >> 16))
 			SetTimer, % timer, -50
 		}
 	}
@@ -132,7 +132,7 @@ Class GUI Extends Window {
 				timer := this.movedTimer
 				SetTimer, % timer, Off
 			}
-			timer := this.movedTimer := new BoundFunc(this.__Class ".GuiMoved", this, new Position(lParam & 0xffff, lParam >> 16))
+			timer := this.movedTimer := new GridGUI.BoundFunc(this.__Class ".GuiMoved", this, new GridGUI.Position(lParam & 0xffff, lParam >> 16))
 			SetTimer, % timer, -50
 		}
 	}

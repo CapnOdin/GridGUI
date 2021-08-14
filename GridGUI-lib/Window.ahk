@@ -23,16 +23,16 @@ Class Window {
 	}
 	
 	WinShow() {
-		WinShow, WinTitle, % "ahk_id " this.hwnd
+		WinShow, % "ahk_id " this.hwnd
 	}
 	
 	WinHide() {
-		WinHide, WinTitle, % "ahk_id " this.hwnd
+		WinHide, % "ahk_id " this.hwnd
 	}
 	
 	WinGetPos() {
 		WinGetPos, x, y, w, h, % "ahk_id " this.hwnd
-		return new Position(x, y, w, h)
+		return new GridGUI.Position(x, y, w, h)
 	}
 	
 	WinMove(x := "", y := "", w := "", h := "") {

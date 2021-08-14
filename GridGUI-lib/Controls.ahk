@@ -1,16 +1,16 @@
 ﻿#Include %A_LineFile%\..\Control.ahk
 
-Class ArbitraryControl Extends GuiControlClass {
+Class ArbitraryControl Extends GridGUI.GuiControlClass {
 	__New(guiHwnd, type, options := "", text := "") {
 		Gui, % guiHwnd ":Add", % type, % "+HwndHwnd " options, % text
 		Base.__New(Hwnd, type, options)
 	}
 }
 
-Class WindowControl Extends ControlClass {
+Class WindowControl Extends GridGUI.ControlClass {
 	__New(guiHwnd, hwnd, options := "") {
-		this.window := new Window(hwnd)
-		this.hwnd := hwnd
+		Base.__New(hwnd)
+		this.window := new GridGUI.Window(hwnd)
 		this.type := "Window"
 		this.guiHwnd := guiHwnd
 		this.__SetUpWindow()
@@ -27,14 +27,14 @@ Class WindowControl Extends ControlClass {
 		DetectHiddenWindows, On
 		; Apply necessary style changes.
 		this.window.WinSet("Style", "-" (WS_POPUP|WS_CAPTION|WS_THICKFRAME))
-		this.window.WinSet("Style", "+" WS_CHILD)
+		this.window.WinSet("Style", "+"	WS_CHILD)
 		this.window.WinSet("ExStyle", "-" WS_EX_CLIENTEDGE)
-
+		
 		; Put the window into the Gui.
 		DllCall("SetParent", "uint", this.hwnd, "uint", this.guiHwnd)
 		
 		WM_PARENTNOTIFY := 0x0210
-		OnMessage(WM_PARENTNOTIFY, new BoundFunc("WindowControl.__CheckIfClicked", this))
+		OnMessage(WM_PARENTNOTIFY, new GridGUI.BoundFunc("GridGUI.WindowControl.__CheckIfClicked", this))
 	}
 	
 	Control(subCommand, value) {
@@ -55,13 +55,13 @@ Class WindowControl Extends ControlClass {
 		y := NumGet(ConsoleRect, 4, "UInt")
 		w := NumGet(ConsoleRect, 8, "UInt")
 		h := NumGet(ConsoleRect, 12, "UInt")
-		return new Position(x, y, w, h)
+		return new GridGUI.Position(x, y, w, h)
 	}
 	
 	__CheckIfClicked(wParam, lParam, msg, hwnd) {
 		static WM_LBUTTONDOWN := 0x0201
 		if(wParam & 0xffff = WM_LBUTTONDOWN) {
-			click_pos := new Position(lParam & 0xffff, lParam >> 16)
+			click_pos := new GridGUI.Position(lParam & 0xffff, lParam >> 16)
 			if(this.ControlGetPos().Contains(click_pos)) {
 				this.ControlFocus()
 			}

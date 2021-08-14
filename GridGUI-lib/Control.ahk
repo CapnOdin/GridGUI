@@ -7,7 +7,7 @@ Class ControlClass {
 	
 	ControlGetPos() {
 		ControlGetPos, x, y, w, h, , % "ahk_id " this.hwnd
-		return new Position(x, y, w, h)
+		return new GridGUI.Position(x, y, w, h)
 	}
 	
 	Control(subCommand, value) {
@@ -49,7 +49,7 @@ Class ControlClass {
 	}
 }
 
-Class GuiControlClass Extends ControlClass {
+Class GuiControlClass Extends GridGUI.ControlClass {
 	__New(hwnd, type, options := "", callback := False) {
 		Base.__New(hwnd)
 		this.type := type

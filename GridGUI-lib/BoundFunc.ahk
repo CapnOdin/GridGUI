@@ -34,9 +34,8 @@ Class BoundFunc {
 			namesegments := StrSplit(this.function.Name, ".")
 			requiredClass := namesegments[namesegments.Length() - 1]
 			recived := arguments[1].__Class
-			;if(requiredClass != recived) {
 			if(!this.__IsInstanceOf(arguments[1], requiredClass)) {
-				throw Exception("An Instance is Required for Bound Methods", -1, "Expected an instance of """ requiredClass """ as second argument, but got " (recived ? "an instance of """ recived """" : "no object") ".")
+				throw Exception("An Instance is Required for Bound Methods", -1, "Expected an instance of """ requiredClass """ as second argument, but got " (recived ? "an instance of """ this.__GetInstanceType(arguments[1]) """" : "no object") ".")
 			}
 		}
 		this.Arguments := arguments
@@ -44,12 +43,22 @@ Class BoundFunc {
 	
 	__IsInstanceOf(object, class) {
 		While(object.__Class) {
-			if(object.__Class = class) {
+			classnameParts := StrSplit(object.__Class, ".")
+			if(classnameParts[classnameParts.Length()] = class) {
 				return True
 			}
 			object := object.Base
 		}
 		return False
+	}
+	
+	__GetInstanceType(object) {
+		typePath := ""
+		While(object.__Class) {
+			typePath .= object.__Class "."
+			object := object.Base
+		}
+		return SubStr(typePath, 1, -1)
 	}
 	
 	__Get(key) {

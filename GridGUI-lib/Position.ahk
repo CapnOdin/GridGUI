@@ -8,7 +8,7 @@ Class Position {
 	}
 	
 	Middle() {
-		return new Position(this.x + this.w / 2, this.y + this.h / 2)
+		return new GridGUI.Position(this.x + this.w / 2, this.y + this.h / 2)
 	}
 	
 	Equal(pos) {
@@ -63,7 +63,7 @@ Class Position {
 	}
 	
 	Copy() {
-		return new Position(this.x, this.y, this.w, this.h)
+		return new GridGUI.Position(this.x, this.y, this.w, this.h)
 	}
 	
 	ToStr(indent := "") {
