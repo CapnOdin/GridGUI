@@ -132,7 +132,7 @@ UpdateCOMports() {
 	port.GuiControl("", "|" SelectString(JoinKey("|", ports), port.vVar))
 }
 
-Class ConsoleControl Extends WindowControl {
+Class ConsoleControl Extends GridGUI.WindowControl {
 	__New(guiHwnd, options := "", text := "") {
 		Base.__New(guiHwnd, this.__StrartConsole(options), options)
 	}
