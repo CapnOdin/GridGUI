@@ -1,4 +1,4 @@
-﻿;v1.0.0
+﻿;v1.1.0
 
 Class GridGUI {
 	#Include %A_LineFile%\..\GridGUI-lib\Gui.ahk

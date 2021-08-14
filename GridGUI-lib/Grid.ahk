@@ -499,16 +499,21 @@ Class Column {
 	}
 	
 	Add(c) {
-		this.cells[c.gridpos.y] := c
+		if(!this.cells.HasKey(c.gridpos.y)) {
+			this.cells[c.gridpos.y]:= []
+		}
+		this.cells[c.gridpos.y].Push(c)
 		this.__ResetConstants()
 	}
 	
 	CalculateConstants() {
-		for i, c in this.cells {
-			this.__CalculateMinWidth(c)
-			this.__CalculateExpanders(c)
-			this.__CalculateNonExpanders(c)
-			this.__CalculateConfligtingExpanders(c)
+		for i, overlappinCells in this.cells {
+			for i, c in overlappinCells {
+				this.__CalculateMinWidth(c)
+				this.__CalculateExpanders(c)
+				this.__CalculateNonExpanders(c)
+				this.__CalculateConfligtingExpanders(c)
+			}
 		}
 		this.catched := True
 	}
@@ -597,11 +602,13 @@ Class Column {
 			return smallestConExpW
 		}
 		*/
-		for i, c in this.cells {
-			if(c.exW) {
-				w := this.GetMinWidth() + c.GetExpandedWidth(this.index, width, expanders, nonExpanders, expandersMaxValue)
-				if(maxWidth < w) {
-					maxWidth := w
+		for i, overlappinCells in this.cells {
+			for i, c in overlappinCells {
+				if(c.exW) {
+					w := this.GetMinWidth() + c.GetExpandedWidth(this.index, width, expanders, nonExpanders, expandersMaxValue)
+					if(maxWidth < w) {
+						maxWidth := w
+					}
 				}
 			}
 		}
@@ -617,16 +624,21 @@ Class Row {
 	}
 	
 	Add(c) {
-		this.cells[c.gridpos.x] := c
+		if(!this.cells.HasKey(c.gridpos.x)) {
+			this.cells[c.gridpos.x]:= []
+		}
+		this.cells[c.gridpos.x].Push(c)
 		this.__ResetConstants()
 	}
 	
 	CalculateConstants() {
-		for i, c in this.cells {
-			this.__CalculateMinHeight(c)
-			this.__CalculateExpanders(c)
-			this.__CalculateNonExpanders(c)
-			this.__CalculateConfligtingExpanders(c)
+		for i, overlappinCells in this.cells {
+			for i, c in overlappinCells {
+				this.__CalculateMinHeight(c)
+				this.__CalculateExpanders(c)
+				this.__CalculateNonExpanders(c)
+				this.__CalculateConfligtingExpanders(c)
+			}
 		}
 		this.catched := True
 	}
@@ -715,11 +727,13 @@ Class Row {
 			return smallestConExpH
 		}
 		*/
-		for i, c in this.cells {
-			if(c.exH) {
-				h := this.GetMinHeight() + c.GetExpandedHeight(this.index, height, expanders, nonExpanders, expandersMaxValue)
-				if(maxHeight < h) {
-					maxHeight := h
+		for i, overlappinCells in this.cells {
+			for i, c in overlappinCells {
+				if(c.exH) {
+					h := this.GetMinHeight() + c.GetExpandedHeight(this.index, height, expanders, nonExpanders, expandersMaxValue)
+					if(maxHeight < h) {
+						maxHeight := h
+					}
 				}
 			}
 		}
@@ -872,13 +886,13 @@ Class Cell {
 			w := this.fillW ? Max(pos.w - this.borderX * 2, this.ctrl.initialWidth) : this.ctrl.initialWidth
 			;MsgBox, % w "   " this.ctrl.initialWidth
 		} else {
-			w := this.exW || this.fillW ? pos.w - this.borderX * 2 : this.cPos.w
+			w := this.fillW ? pos.w - this.borderX * 2 : this.cPos.w
 		}
 		if(this.ctrl.initialHeight) {
 			h := this.fillH ? Max(pos.h - this.borderY * 2, this.ctrl.initialHeight) : this.ctrl.initialHeight
 			;MsgBox, % h "   " this.ctrl.initialHeight
 		} else {
-			h := this.exH || this.fillH ? pos.h - this.borderY * 2 : this.cPos.h
+			h := this.fillH ? pos.h - this.borderY * 2 : this.cPos.h
 		}
 		
 		;w := pos.w - this.border
