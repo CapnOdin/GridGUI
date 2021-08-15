@@ -20,7 +20,7 @@ myGui.Add(4, 6, "Checkbox", , "Full Regex", , , , , "CW")
 myGui.Add(5, 6, "Checkbox", , "Show Original?", , , , , "CW")
 
 
-myGui.Add(8, 4, "Button", , "&Update Content", , , 1, , "CW")
+myGui.Add(8, 4, "Button", , "&Update Content", , , , , "CW")
 myGui.Add(8, 5, "Button", , "&Copy", , , 1, , "CW")
 
 myGui.Add("1-9", 9, "Edit", "Multi", , 1, 1, 1, 1)
