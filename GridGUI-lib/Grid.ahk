@@ -346,7 +346,7 @@ Class Columns {
 					current := sortedExpWidths[size - (A_Index - 1)]
 					if(current[2] != current[3]) {
 						if(current[2] - diff < current[3]) {
-							reduction += current[3] - current[2]
+							reduction += current[2] - current[3]
 							sumExpandedWidths -= current[3] - current[2]
 							current[2] := current[3]
 							
@@ -374,7 +374,7 @@ Class Columns {
 			widths[i] := c.CalculateWidth(width - reserved, expanders, nonExpanders, expandersMaxValue)
 			if(c.expanders && Round(widths[i] - c.GetMinWidth(), 3)) {
 				expandedWidths.Push([i, widths[i], c.GetMinWidth()])
-				sumExpandedWidths += widths[i]
+				sumExpandedWidths += widths[i] - c.GetMinWidth()
 			}
 		}
 		sum := GridGUI.Util.Sum(widths)
@@ -450,7 +450,7 @@ Class Rows {
 					current := sortedExpHeights[size - (A_Index - 1)]
 					if(current[2] != current[3]) {
 						if(current[2] - diff < current[3]) {
-							reduction += current[3] - current[2]
+							reduction += current[2] - current[3]
 							sumExpandedHeights -= current[3] - current[2]
 							current[2] := current[3]
 							
@@ -477,7 +477,7 @@ Class Rows {
 			heights[i] := r.CalculateHeight(height - reserved, expanders, nonExpanders, expandersMaxValue)
 			if(r.expanders && Round(heights[i] - r.GetMinHeight(), 3)) {
 				expandedHeights.Push([i, heights[i], r.GetMinHeight()])
-				sumExpandedHeights += heights[i]
+				sumExpandedHeights += heights[i] - r.GetMinHeight()
 			}
 		}
 		sum := GridGUI.Util.Sum(heights)
