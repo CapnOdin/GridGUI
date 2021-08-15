@@ -20,7 +20,7 @@ ContainsErrors(mygui, logfun := "") {
 	return false
 }
 
-GetRandomCellGroup(area, used) {
+GetRandomCellGroup(area, used, nonOverlapping := true) {
 	loop 100 {
 		y1 := Random(area.y, area.h)
 		y2 := Random(area.y, area.h)
@@ -33,7 +33,7 @@ GetRandomCellGroup(area, used) {
 		py2 := Max(y1, y2)
 		pos := new GridGUI.Position(px1, py1, px2 - px1, py2 - py1)
 		postest := new GridGUI.Position(px1 - 1, py1 - 1, px2 - px1 + 1, py2 - py1 + 1)
-		if(pos.Area() > 0 && Available(postest, used)) {
+		if(pos.Area() > 0 && (!nonOverlapping || Available(postest, used))) {
 			return [pos, GetType()]
 		}
 	}
