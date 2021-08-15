@@ -20,14 +20,21 @@ ExitApp
 Return
 
 DoTest(iteration, area, iterations := 10, destroyOnSuccess := false) {
+	Static timerfun := Func("IsStuck"), pretimerobj := ""
 	cellgroups := []
 	loop % iterations {
-		cellGroupDefinition := GetRandomCellGroup(area, cellgroups)
+		;cellGroupDefinition := GetRandomCellGroup(area, cellgroups, true) ; no overlapping controls 
+		cellGroupDefinition := GetRandomCellGroup(area, cellgroups, false) ; overlapping controls 
 		if(cellGroupDefinition) {
 			cellgroups.Push(cellGroupDefinition)
 		}
 	}
-
+	if(pretimerobj) {
+		SetTimer, % pretimerobj, Off
+	}
+	pretimerobj := timerfun.Bind(iteration, cellgroups)
+	SetTimer, % pretimerobj, -2000
+	
 	gw := 30
 
 	;myGui := new GridGUI.GUI("title", "Resize")
@@ -66,6 +73,11 @@ DoTest(iteration, area, iterations := 10, destroyOnSuccess := false) {
 		myGGui.Destroy()
 		return true
 	}
+}
+
+IsStuck(iteration, cellgroups) {
+	errorF.Write(iteration " Stuck`n")
+	errorF.Write(ToCsv(cellgroups) "`n`n`n")
 }
 
 ToCsv(cellgroups) {
