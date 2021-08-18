@@ -2,12 +2,16 @@
 #Include %A_LineFile%\..\BoundFunc.ahk
 
 Class GUI Extends GridGUI.Window {
-	__New(title := "", options := "") {
+	__New(title := "", options := "", hwnd := "") {
 		this.title := title
-		this.__init()
-		Gui, New, % "+HwndHwnd " options, % this.title
-		Base.__New(Hwnd, [new GridGUI.GuiCallback(GridGUI.Window.WM_SIZE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiSize", this)), new GridGUI.GuiCallback(GridGUI.Window.WM_MOVE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiMoved", this))])
-		this.__CheckOptions(options)
+		if(!hwnd) {
+			this.__init()
+			Gui, New, % "+HwndHwnd " options, % this.title
+			this.__CheckOptions(options)
+			Base.__New(Hwnd, [new GridGUI.GuiCallback(GridGUI.Window.WM_SIZE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiSize", this)), new GridGUI.GuiCallback(GridGUI.Window.WM_MOVE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiMoved", this))])
+		} else {
+			Base.__New(Hwnd)
+		}
 	}
 	
 	__init() {
@@ -83,6 +87,18 @@ Class GUI Extends GridGUI.Window {
 		GuiControlGet, CtrlClass, % this.hwnd ":Focus"
 		GuiControlGet, focused, % this.hwnd ":Hwnd", % CtrlClass
 		Return focused
+	}
+	
+	ListView(hwnd) {
+		prev := A_DefaultListView
+		Gui, % this.hwnd ":ListView", % hwnd
+		return prev
+	}
+	
+	TreeView(hwnd) {
+		prev := A_DefaultTreeView
+		Gui, % this.hwnd ":TreeView", % hwnd
+		return prev
 	}
 	
 	GuiSize(pos) {
