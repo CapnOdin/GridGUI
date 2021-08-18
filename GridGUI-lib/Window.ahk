@@ -47,6 +47,10 @@ Class Window {
 		WinActivate, % "ahk_id " this.hwnd
 	}
 	
+	WinActive() {
+		return WinActive("ahk_id " this.hwnd)
+	}
+	
 	WinGet(SubCommand) {
 		WinGet, OutputVar, % SubCommand, % "ahk_id " this.hwnd
 		return OutputVar
