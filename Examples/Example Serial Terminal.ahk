@@ -1,5 +1,6 @@
-﻿
-#Include %A_ScriptDir%\..\GridGUI.ahk
+﻿#SingleInstance Off
+
+#Include <GridGUI>
 SetBatchLines, -1
 
 WM_DEVICECHANGE := 0x0219
@@ -12,7 +13,7 @@ Global plinkprocess := 0
 
 ports := GetCOMports()
 
-myGui := new GridGUI("Serial Terminal", "resize")
+myGui := new GridGUI("Serial Terminal", "resize -DPIScale")
 console := new ConsoleControl(myGui.hwnd) ; "/q /k echo off" ;  & powershell -NoExit
 console.Run("filter timestamp {""$(Get-Date -Format o): $_""}")
 ;console.Run("filter timestamp {""$([DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()),$(Get-Date -Format o): $_""}")
@@ -64,12 +65,14 @@ return
 
 GuiClose:
 OnExit:
-	Process, Close, % plinkprocess
+	if(plinkprocess) {
+		Process, Close, % plinkprocess
+	}
 	Process, Close, % console.pid ; May be a bit forceful? No effect if it already closed.
 	ExitApp
+return
 
 SendCommand(cmdline, console) {
-	;console.GuiControl(StrReplace(cmdline.vVar, "`n") "`n")
 	console.run(cmdline.vVar)
 	cmdline.GuiControl("", "")
 }
@@ -84,17 +87,12 @@ ConnectPressed(console, port, baudrate, flowcontrol, parity, stopbits, databits,
 		command .= " | timestamp"
 	}
 	if(log.vVar) {
-		command .= " | tee " A_Now ".log"
+		command .= " | tee """ A_Now " - " port.vVar ".log"""
 	}
 	
 	console.run(command)
 	
-	start := A_TickCount
-	While(!(plinkprocess := getProcess("plink.exe"))) {
-		if(A_TickCount - start > 1000) {
-			Break
-		}
-	}
+	plinkprocess := WaitForProcess("i)plink\.exe", "i)\Q\\.\" port.vVar "\E")
 }
 
 getProcess(name) {
@@ -102,18 +100,27 @@ getProcess(name) {
 	return ErrorLevel
 }
 
-/*
-GetRunningPlink() {
+WaitForProcess(name := "", cmdline := "", timeout := 5000) {
+	start := A_TickCount
+	pid := ""
+	while(A_TickCount - start < timeout) {
+		processes := GetRunningProcess(name, cmdline)
+		if(processes.Count()) {
+			processes._NewEnum().Next(pid)
+			return pid
+		}
+	}
+}
+
+GetRunningProcess(name := "", cmdline := "") {
 	map := {}
 	for proc in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Process") {
-		if(proc.Name = "plink") {
-			lst[proc.ProcessId] = ""
-			MsgBox, % proc.ProcessId
+		if((!name || proc.Name ~= name) && (!cmdline || proc.CommandLine ~= cmdline)) {
+			map[proc.ProcessId] := proc
 		}
 	}
 	return map
 }
-*/
 
 GetCOMports() {
 	portmap := {}
@@ -129,7 +136,7 @@ GetCOMports() {
 
 UpdateCOMports() {
 	Global port
-	port.GuiControl("", "|" SelectString(JoinKey("|", ports), port.vVar))
+	port.GuiControl("", "|" SelectString(JoinKey("|", GetCOMports()), port.vVar))
 }
 
 Class ConsoleControl Extends GridGUI.WindowControl {
@@ -252,7 +259,7 @@ WM_DEVICECHANGE(wParam, lParam) {										; http://msdn.com/library/aa363480(vs
 }
 
 SelectString(Haystack, Needle) {
-	return RegExReplace(Haystack, Needle "|?", Needle "||")
+	return RegExReplace(Haystack, Needle "\|?", Needle "||")
 }
 
 JoinKey(sep, obj) {
