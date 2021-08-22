@@ -1,8 +1,9 @@
-﻿;v1.1.1
-
+﻿
 Class GridGUI {
 	#Include %A_LineFile%\..\GridGUI-lib\Gui.ahk
 	#Include %A_LineFile%\..\GridGUI-lib\Grid.ahk
+	#Include %A_LineFile%\..\GridGUI-lib\Version.ahk
+	
 	__New(title := "", options := "", showGrid := false) {
 		return new GridGUI.GridGUIClass(title, options, showGrid)
 	}
