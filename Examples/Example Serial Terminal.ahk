@@ -1,6 +1,6 @@
 ﻿#SingleInstance Off
 
-#Include <GridGUI>
+#Include %A_ScriptDir%\..\GridGUI.ahk
 SetBatchLines, -1
 
 WM_DEVICECHANGE := 0x0219
