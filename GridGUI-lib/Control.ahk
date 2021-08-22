@@ -68,6 +68,13 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 		return OutputVar
 	}
 	
+	Options(options) {
+		options := this.__ParseOptions(options)
+		if(options) {
+			GuiControl, % options, % this.hwnd
+		}
+	}
+	
 	Draw(pos) {
 		this.GuiControl("MoveDraw", "x" pos.x " y" pos.y " w" pos.w " h" pos.h)
 	}
@@ -80,10 +87,21 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 	}
 	
 	__ParseOptions(options) {
-		RegExMatch(options, "Oi)w(\d+)", match)
-		this.initialWidth := match[1]
-		RegExMatch(options, "Oi)h(\d+)", match)
-		this.initialHeight := match[1]
+		if(RegExMatch(options, "Oi)\bw(\d+)\b", match)) {
+			this.initialWidth := match[1]
+		}
+		if(RegExMatch(options, "Oi)\bh(\d+)\b", match)) {
+			this.initialHeight := match[1]
+		}
+		if(RegExMatch(options, "Oi)\+?\bg(\w+)\b", match)) {
+			this.callback := ObjBindMethod(this, "__glabel", match[1])
+			options := RegExReplace(options, "Oi)\+?\bg(\w+)")
+		}
+		return options
+	}
+	
+	__glabel(label) {
+		Gosub, % label
 	}
 	
 	ToStr(indent := "") {
