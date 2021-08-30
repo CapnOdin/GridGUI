@@ -10,7 +10,7 @@ Class ArbitraryControl Extends GridGUI.GuiControlClass {
 Class ListviewControl Extends GridGUI.ArbitraryControl {
 	__New(guiHwnd, options := "", text := "") {
 		Base.__New(guiHwnd, "ListView", options, text)
-		this.gui := GridGUI.GUI(, , guiHwnd)
+		this.gui := new GridGUI.GUI(, , guiHwnd)
 	}
 	
 	; Adds a new row to the bottom of the list.
@@ -206,7 +206,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	__New(guiHwnd, options := "") {
 		Base.__New(guiHwnd, "TreeView", options)
-		this.gui := GridGUI.GUI(, , guiHwnd)
+		this.gui := new GridGUI.GUI(, , guiHwnd)
 	}
 	
 	; Adds a new item to the TreeView.
