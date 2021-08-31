@@ -928,15 +928,11 @@ Class Cell {
 	}
 	
 	ToolTip() {
-		ToolTip, % this.ToStr2()
-	}
-	
-	ToStr2(indent := "") {
-		return indent "GridPos:`n" this.gridpos.ToStr(indent "`t") "`n" indent "Pos:`n" this.pos.ToStr(indent "`t") "`n" indent "Type:`t" this.ctrl.type "`n" indent "Expand W:`t" this.exW "`n" indent "Expand H:`t" this.exH "`n" indent "OtherExp W:`t" this.othersW "`n" indent "OtherExp H:`t" this.othersH 
+		ToolTip, % this.ToStr()
 	}
 	
 	ToStr(indent := "") {
-		return indent "GridPos:`n" this.gridpos.ToStr()
+		return indent "GridPos:`n" this.gridpos.ToStr(indent "`t") "`n" indent "Pos:`n" this.pos.ToStr(indent "`t") "`n" indent "Type:`t" this.ctrl.type "`n" indent "Expand W:`t" this.exW "`n" indent "Expand H:`t" this.exH "`n" indent "OtherExp W:`t" this.othersW "`n" indent "OtherExp H:`t" this.othersH 
 	}
 }
 
