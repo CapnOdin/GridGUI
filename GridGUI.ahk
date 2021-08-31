@@ -47,6 +47,23 @@ Class GridGUI {
 			return ctrl
 		}
 		
+		GetCellGroupsAt(GridPos) {
+			return this.grid.columns.columns[GridPos.x].cells[GridPos.y]
+			;return this.grid.rows.rows[GridPos.y].cells[GridPos.x]
+		}
+		
+		GetCellGroup(Ctrl) {
+			for i, cell in this.grid.cells {
+				if(ctrl.hwnd = cell.ctrl.hwnd) {
+					return cell
+				}
+			}
+		}
+		
+		GetNewestCellGroup() {
+			return this.grid.cells[this.grid.cells.Length()]
+		}
+		
 		Show(options := "AutoSize") {
 			if(options = "AutoSize") {
 				options := "w" this.grid.GetMinWidth() " h" this.grid.GetMinHeight()
