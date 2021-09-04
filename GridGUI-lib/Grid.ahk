@@ -769,7 +769,7 @@ Class Cell {
 		this.justifyOptions := justify
 		this.borderX := borderX
 		this.borderY := borderY
-		this.cPos := GridGUI.Util.DPIScale(this.ctrl.ControlGetPos(), false)
+		this.cPos := this.ctrl.ControlGetPos()
 		this.pos := this.ctrl.ControlGetPos()
 		;this.ctrl.callback := ObjBindMethod(this, "ToolTip")
 		this.othersW := 0

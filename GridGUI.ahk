@@ -28,10 +28,8 @@ Class GridGUI {
 				justify :=	options.HasKey("justify") ?	options["justify"] :	justify
 				options :=	options.HasKey("options") ?	options["options"] :	""
 			}
-			pos := this.__TranslateGridPos(x, y)
 			ctrl := new GridGUI.ArbitraryControl(this.hwnd, type, options, text)
-			this.grid.AddCell(new GridGUI.Cell(pos, ctrl, exW, exH, fillW, fillH, justify, this.margins["x"], this.margins["y"]))
-			return ctrl
+			return this.AddControl(x, y, ctrl, exW, exH, fillW, fillH, justify)
 		}
 		
 		AddControl(x, y, ctrl, exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C") {
@@ -43,7 +41,9 @@ Class GridGUI {
 				exW :=		exW.HasKey("exW") ?		exW["exW"] :		0
 			}
 			pos := this.__TranslateGridPos(x, y)
-			this.grid.AddCell(new GridGUI.Cell(pos, ctrl, exW, exH, fillW, fillH, justify, this.margins["x"], this.margins["y"]))
+			gridCell := new GridGUI.Cell(pos, ctrl, exW, exH, fillW, fillH, justify, this.margins["x"], this.margins["y"])
+			gridCell.cPos := this.__DPIScale(gridCell.cPos, false)
+			this.grid.AddCell(gridCell)
 			return ctrl
 		}
 		
