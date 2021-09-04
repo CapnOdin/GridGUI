@@ -115,14 +115,7 @@ Class GUI Extends GridGUI.Window {
 	__DPIScale(pos, enlarge := true) {
 		scaledPos := pos.Copy()
 		if(this.DPIScale) {
-			scale := A_ScreenDPI / 96
-			if(enlarge) {
-				scaledPos.w := Round(scaledPos.w * scale)
-				scaledPos.h := Round(scaledPos.h * scale)
-			} else {
-				scaledPos.w := Round(scaledPos.w / scale)
-				scaledPos.h := Round(scaledPos.h / scale)
-			}
+			scaledPos := GridGUI.Util.DPIScale(scaledPos, enlarge)
 		}
 		return scaledPos
 	}

@@ -769,7 +769,7 @@ Class Cell {
 		this.justifyOptions := justify
 		this.borderX := borderX
 		this.borderY := borderY
-		this.cPos := this.ctrl.ControlGetPos()
+		this.cPos := GridGUI.Util.DPIScale(this.ctrl.ControlGetPos(), false)
 		this.pos := this.ctrl.ControlGetPos()
 		;this.ctrl.callback := ObjBindMethod(this, "ToolTip")
 		this.othersW := 0
@@ -1007,5 +1007,18 @@ Class Util {
 			val += v
 		}
 		return val
+	}
+	
+	DPIScale(pos, enlarge := true) {
+		scaledPos := pos.Copy()
+		scale := A_ScreenDPI / 96
+		if(enlarge) {
+			scaledPos.w := Round(scaledPos.w * scale)
+			scaledPos.h := Round(scaledPos.h * scale)
+		} else {
+			scaledPos.w := Round(scaledPos.w / scale)
+			scaledPos.h := Round(scaledPos.h / scale)
+		}
+		return scaledPos
 	}
 }
