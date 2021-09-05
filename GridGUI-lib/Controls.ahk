@@ -203,6 +203,45 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	}
 }
 
+class RadioGroupControl {
+	RadioButtons := []
+	Checked := {}
+	
+	__New(guiHwnd, callback := false) {
+		this.guiHwnd := guiHwnd
+		this.callback := callback
+	}
+	
+	New(options := "", text := "", guiHwnd := false) {
+		guiHwnd := guiHwnd ? guiHwnd : this.guiHwnd
+		ctrl := new GridGUI.ArbitraryControl(guiHwnd, "Radio", options " Group", text)
+		ctrl.callback := ObjBindMethod(this, "__Callback", ctrl)
+		this.RadioButtons.Push(ctrl)
+		if(options ~= "i)Checked(?!0)") {
+			this.__Callback(ctrl)
+		}
+		return ctrl
+	}
+	
+	Check(index) {
+		this.RadioButtons[index].GuiControl("", 1)
+		this.__Callback(this.RadioButtons[index])
+	}
+	
+	__Callback(ctrl) {
+		for i, rb in this.RadioButtons {
+			if(rb.hwnd = ctrl.hwnd) {
+				this.Checked := {"index": i, "ctrl": ctrl, "text": ctrl.GuiControlGet("", "Text")}
+			} else {
+				rb.GuiControl("", 0)
+			}
+		}
+		if(this.callback) {
+			this.callback.Call(this.Checked)
+		}
+	}
+}
+
 Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	__New(guiHwnd, options := "") {
 		Base.__New(guiHwnd, "TreeView", options)
