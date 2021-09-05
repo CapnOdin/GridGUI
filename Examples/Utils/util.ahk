@@ -124,3 +124,23 @@ Util_IsNum(Num){
 		return 1
 	return 0
 }
+
+RegExMatchAll(Haystack, NeedleRegEx, StartingPosition := 1) {
+	res := [], match := "", length := StrLen(Haystack)
+	pos := StartingPosition
+	while(pos := RegExMatch(Haystack, NeedleRegEx, match, pos + getMatchLength(match))) {
+		if(getMatchLength(match)) {
+			res.Push({"match" : match, "pos" : pos})
+		} else {
+			pos++
+		}
+		if(length < pos) {
+			Break
+		}
+	}
+	return res
+}
+
+getMatchLength(match) {
+	return StrLen(IsObject(match) ? match[0] : match)
+}
