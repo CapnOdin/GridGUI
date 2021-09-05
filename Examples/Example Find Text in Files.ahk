@@ -13,11 +13,14 @@ SBt := myGui.Add(3, 2, "Button", "Default", "Search", , , , , "CW")
 
 lv_files := new GridGUI.ListviewControl(myGui.hwnd, , "File Names|Line Num|Line|Path")
 myGui.AddControl("1-3", 3, lv_files, 1, 1, 1, 1)
-myGui.Add("1-3", 4, "StatusBar", , , , , 1)
 
-SBt.callback := Func("SearchCallback").Bind(lv_files, SEd, FEd)
+sbar := new GridGUI.StatusBarControl(myGui.hwnd)
+myGui.AddControl("1-3", 4, sbar, , , 1)
+myGui.GetNewestCellGroup().borderY := 0
 
-SB_SetParts(60, 40)
+SBt.callback := Func("SearchCallback").Bind(lv_files, SEd, FEd, sbar)
+
+sbar.SetParts(60, 40)
 myGui.Show("w700 h700")
 return
 
@@ -30,25 +33,25 @@ return
 	;^a::lv_files.SetSelection()
 #If
 
-SearchCallback(lstview, term, path) {
+SearchCallback(lstview, term, path, sbar) {
 	Static s := new Sleepy()
 	term := term.vVar
 	path := path.vVar
-	SB_SetText("", 3)
+	sbar.SetText("", 3)
 	s.Start()
 	lstview.Delete()
 	files := GetFilesInFolder(path, , "r")
-	count := Search(lstview, term, files)
+	count := Search(lstview, term, files, sbar)
 	elapsed := s.Elapsed()
 	lstview.ModifyCol(, "AutoHdr")
 	lstview.ModifyCol(1, "AutoHdr")
-	SB_SetText("`tCompleted", 1)
-	SB_SetText("Found " count " occurrences in " Round(elapsed / 1000, 3) " seconds", 3)
+	sbar.SetText("`tCompleted", 1)
+	sbar.SetText("Found " count " occurrences in " Round(elapsed / 1000, 3) " seconds", 3)
 }
 
-Search(lstview, term, files) {
-	SB_SetText("`tSearching", 1)
-	SB_SetText("`t`t0.0%", 2)
+Search(lstview, term, files, sbar) {
+	sbar.SetText("`tSearching", 1)
+	sbar.SetText("`t`t0.0%", 2)
 	length := files.Length()
 	count := 0
 	progress := 0
@@ -63,7 +66,7 @@ Search(lstview, term, files) {
 		}
 		currentProgress := Round(A_Index / length * 100, 1)
 		if(currentProgress != progress) {
-			SB_SetText("`t`t" Round(A_Index / length * 100, 1) "%", 2)
+			sbar.SetText("`t`t" Round(A_Index / length * 100, 1) "%", 2)
 			progress := currentProgress
 		}
 	}

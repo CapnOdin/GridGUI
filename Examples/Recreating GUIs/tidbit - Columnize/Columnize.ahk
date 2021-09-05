@@ -85,7 +85,8 @@ myGui.Font("bold s14")
 myGui.Add("1-8",	25,			"Button", 		{text:"UPDATE",	options:"h25", fillW:1})
 
 myGui.Font("norm s10")
-myGui.Add("1-9",	26,			"StatusBar", 	{text:"",	options:"", exW:1, fillW:1})
+stBar := new GridGUI.StatusBarControl(myGui.hwnd)
+myGui.AddControl("1-9",	26,		stBar, 			{text:"",	options:"", exW:1, fillW:1})
 
 myGui.Font("s10", "Courier New")
 myGui.Add(9,		"1-11",		"Edit",			{text:GetText(),	options:"+Multi +HScroll",				exW:1, exH:0, fillW:1, fillH:1})
@@ -110,10 +111,10 @@ lv.ModifyCol(1, "AutoHdr")
 lv.ModifyCol(2, "AutoHdr")
 myGui.Show("w1127 h747")
 myGui.MinSize()
-SB_SetParts(myGui.Pos["w"] // 3, myGui.Pos["w"] // 3)
-SB_SetText("Input: 17 Lines 1125 Characters", 1)
-SB_SetText("Output: 25 Lines 2749 Characters", 2)
-SB_SetText("1.3 (Saturday. March 9. 2019)", 3)
+stBar.SetParts(myGui.Pos["w"] // 3, myGui.Pos["w"] // 3)
+stBar.SetText("Input: 17 Lines 1125 Characters", 1)
+stBar.SetText("Output: 25 Lines 2749 Characters", 2)
+stBar.SetText("1.3 (Saturday. March 9. 2019)", 3)
 
 
 MenuHandler:
