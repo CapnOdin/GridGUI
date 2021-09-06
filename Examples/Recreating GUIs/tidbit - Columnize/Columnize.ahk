@@ -9,88 +9,106 @@ Menu, MyMenuBar, Add, &About, :FileMenu
 myGui.Menu("MyMenuBar")
 myGui.Margin(1, 1)
 
-;x1-9 y1-26
+;x1-11 y1-26
 myGui.Font("cRed")
-myGui.Add("1-8",	"1-12",		"GroupBox",		{text:"Options", 		fillW:1, fillH:1})
-myGui.Add("1-8",	"13-20",	"GroupBox",		{text:"Border & Lines", fillW:1, fillH:1})
-myGui.Add("1-8",	"21-24",	"GroupBox",		{text:"Column manager", fillW:1, fillH:1})
+myGui.Add("1-10",	"1-12",		"GroupBox",		{text:"Options", 		fillW:1, fillH:1})
+myGui.Add("1-10",	"13-20",	"GroupBox",		{text:"Border & Lines", fillW:1, fillH:1})
+myGui.Add("1-10",	"21-24",	"GroupBox",		{text:"Column manager", fillW:1, fillH:1})
 ; Workaround for controling the padding in the GroupBoxs
 myGui.Add(1,		1,			"Text",			{options:"w10 h20 +BackgroundTrans"})
-myGui.Add(8,		1,			"Text",			{options:"w10 h20 +BackgroundTrans"})
+myGui.Add(10,		1,			"Text",			{options:"w10 h20 +BackgroundTrans"})
 myGui.Add(1,		12,			"Text",			{options:"w10 h5 +BackgroundTrans"})
-myGui.Add(8,		12,			"Text",			{options:"w10 h5 +BackgroundTrans"})
+myGui.Add(10,		12,			"Text",			{options:"w10 h5 +BackgroundTrans"})
 myGui.Add(1,		13,			"Text",			{options:"w10 h20 +BackgroundTrans"})
-myGui.Add(8,		13,			"Text",			{options:"w10 h20 +BackgroundTrans"})
+myGui.Add(10,		13,			"Text",			{options:"w10 h20 +BackgroundTrans"})
 myGui.Add(1,		20,			"Text",			{options:"w10 h5 +BackgroundTrans"})
-myGui.Add(8,		20,			"Text",			{options:"w10 h5 +BackgroundTrans"})
+myGui.Add(10,		20,			"Text",			{options:"w10 h5 +BackgroundTrans"})
 myGui.Add(1,		21,			"Text",			{options:"w10 h20 +BackgroundTrans"})
-myGui.Add(8,		21,			"Text",			{options:"w10 h20 +BackgroundTrans"})
+myGui.Add(10,		21,			"Text",			{options:"w10 h20 +BackgroundTrans"})
 myGui.Add(1,		24,			"Text",			{options:"w10 h5 +BackgroundTrans"})
-myGui.Add(8,		24,			"Text",			{options:"w10 h5 +BackgroundTrans"})
+myGui.Add(10,		24,			"Text",			{options:"w10 h5 +BackgroundTrans"})
 myGui.Font("cDefault")
 
 ;Options
 myGui.Add("2-5",	2,			"Checkbox", 	{text:"Auto update?",		options:"Checked",	justify:"WC"})
 myGui.Add("2-5",	3,			"Checkbox", 	{text:"Recursive?",								justify:"WC"})
 myGui.Add("2-4",	4,			"Checkbox", 	{text:"Is CSV?",			options:"Checked",	justify:"WC"})
-myGui.Add("5-7",	4,			"Checkbox", 	{text:"Is String?",			options:"Checked",	justify:"WC"})
+myGui.Add("5-9",	4,			"Checkbox", 	{text:"Is String?",			options:"Checked",	justify:"WC"})
 myGui.Add("2-3",	5,			"Text", 		{text:"Delimiter",								justify:"WC"})
-myGui.Add("4-7",	5,			"Edit", 		{text:"",		fillW:1,	options:"Disabled"})
+myGui.Add("4-9",	5,			"Edit", 		{text:"",		fillW:1,	options:"Disabled"})
+myGui.GetNewestCellGroup().borderX := 0
+
 myGui.Add("2-3",	6,			"Text", 		{text:"Header",									justify:"WC"})
-myGui.Add("4-7",	6,			"Edit", 		{text:"1",		fillW:1})
-myGui.Add("4-7",	6,			"UpDown",		{							options:"Range1-10",justify:"EC"})
+myGui.Add("4-8",	6,			"Edit", 		{text:"1",		fillW:1})
+myGui.GetNewestCellGroup().borderX := 0
+myGui.Add(9,		6,			"UpDown",		{							options:"Range1-11",justify:"WC"})
+myGui.GetNewestCellGroup().borderX := 0
+
 myGui.Add("2-3",	7,			"Text", 		{text:"Rows",									justify:"WC"})
-myGui.Add("4-7",	7,			"Edit", 		{text:"3",		fillW:1})
-myGui.Add("4-7",	7,			"UpDown",		{							options:"Range1-10",justify:"EC"})
+myGui.Add("4-8",	7,			"Edit", 		{text:"3",		fillW:1})
+myGui.GetNewestCellGroup().borderX := 0
+myGui.Add("8-9",	7,			"UpDown",		{							options:"Range1-11",justify:"EC"})
+myGui.GetNewestCellGroup().borderX := 0
+
 myGui.Add("2-3",	8,			"Text", 		{text:"Wrap",									justify:"WC"})
-myGui.Add("4-7",	8,			"Edit", 		{text:"0",		fillW:1})
-myGui.Add("4-7",	8,			"UpDown",		{							options:"Range0-10",justify:"EC"})
+myGui.Add("4-8",	8,			"Edit", 		{text:"0",		fillW:1})
+myGui.GetNewestCellGroup().borderX := 0
+myGui.Add(9,		8,			"UpDown",		{							options:"Range0-11",justify:"EC"})
+myGui.GetNewestCellGroup().borderX := 0
+
 myGui.Add("2-3",	9,			"Text", 		{text:"Padding",								justify:"WC"})
-myGui.Add("4-7",	9,			"Edit", 		{text:"",		fillW:1})
+myGui.Add("4-9",	9,			"Edit", 		{text:"",		fillW:1})
+myGui.GetNewestCellGroup().borderX := 0
+
 myGui.Add("2-3",	10,			"Text", 		{text:"L/R pad",								justify:"WC"})
 myGui.Add("4-5",	10,			"Edit", 		{text:"1",		fillW:1})
-myGui.Add("4-5",	10,			"UpDown",		{							options:"Range1-10",justify:"EC"})
-myGui.Add("6-7",	10,			"Edit", 		{text:"1",		fillW:1})
-myGui.Add("6-7",	10,			"UpDown",		{							options:"Range1-10",justify:"EC"})
+myGui.GetNewestCellGroup().borderX := 0
+myGui.Add(6,		10,			"UpDown",		{							options:"Range1-11",justify:"WC"})
+myGui.GetNewestCellGroup().borderX := 0
+myGui.Add("7-8",	10,			"Edit", 		{text:"1",		fillW:1})
+myGui.GetNewestCellGroup().borderX := 0
+myGui.Add(9,		10,			"UpDown",		{							options:"Range1-11",justify:"EC"})
+myGui.GetNewestCellGroup().borderX := 0
+
 myGui.Add("2-5",	11,			"Checkbox", 	{text:"Use borders?",		options:"Checked",	justify:"WC"})
 
 ;Border & Lines
 myGui.Add(2,		14,			"Edit", 		{text:",", options:"w25"})
 myGui.Add("3-5",	14,			"Edit", 		{text:"-", fillW:1})
-myGui.Add(6,		14,			"Edit", 		{text:"-", options:"w25"})
-myGui.Add(7,		14,			"Edit", 		{text:",", options:"w25"})
+myGui.Add("6-7",	14,			"Edit", 		{text:"-", fillW:1})
+myGui.Add("8-9",	14,			"Edit", 		{text:",", fillW:1})
 myGui.Add(2,		15,			"Edit", 		{text:"|", options:"w25"})
 myGui.Add("3-5",	15,			"Edit", 		{text:"=", fillW:1})
-myGui.Add(6,		15,			"Edit", 		{text:"=", options:"w25"})
-myGui.Add(7,		15,			"Edit", 		{text:"|", options:"w25"})
+myGui.Add("6-7",	15,			"Edit", 		{text:"=", fillW:1})
+myGui.Add("8-9",	15,			"Edit", 		{text:"|", fillW:1})
 myGui.Add(2,		16,			"Edit", 		{text:"|", options:"w25"})
-myGui.Add(6,		16,			"Edit", 		{text:"|", options:"w25"})
-myGui.Add(7,		16,			"Edit", 		{text:"|", options:"w25"})
+myGui.Add("6-7",	16,			"Edit", 		{text:"|", fillW:1})
+myGui.Add("8-9",	16,			"Edit", 		{text:"|", fillW:1})
 myGui.Add(2,		17,			"Edit", 		{text:"|", options:"w25"})
 myGui.Add("3-5",	17,			"Edit", 		{text:"-", fillW:1})
-myGui.Add(6,		17,			"Edit", 		{text:"|", options:"w25"})
-myGui.Add(7,		17,			"Edit", 		{text:"|", options:"w25"})
+myGui.Add("6-7",	17,			"Edit", 		{text:"|", fillW:1})
+myGui.Add("8-9",	17,			"Edit", 		{text:"|", fillW:1})
 myGui.Add(2,		18,			"Edit", 		{text:"'", options:"w25"})
 myGui.Add("3-5",	18,			"Edit", 		{text:"-", fillW:1})
-myGui.Add(6,		18,			"Edit", 		{text:"-", options:"w25"})
-myGui.Add(7,		18,			"Edit", 		{text:"'", options:"w25"})
+myGui.Add("6-7",	18,			"Edit", 		{text:"-", fillW:1})
+myGui.Add("8-9",	18,			"Edit", 		{text:"'", fillW:1})
 myGui.Add("2-3",	19,			"Text", 		{text:"Presets:"})
-myGui.Add("4-7",	19,			"DDL", 			{text:"Simple||",	fillW:1})
+myGui.Add("4-9",	19,			"DDL", 			{text:"Simple||",	fillW:1})
 
 ;Column manager
 myGui.Add("2-6",	22,			"Button", 		{text:"Get columns",	options:"", fillW:1})
 lv := new GridGUI.ListviewControl(myGui.hwnd, "Checked", "Hide?|Justify")
-myGui.AddControl("2-7",	23,		lv, 			{exH:1, fillW:1, fillH:1})
+myGui.AddControl("2-9",	23,		lv, 			{exH:1, fillW:1, fillH:1})
 myGui.Font("bold s14")
-myGui.Add("1-8",	25,			"Button", 		{text:"UPDATE",	options:"h25", fillW:1})
+myGui.Add("1-10",	25,			"Button", 		{text:"UPDATE",	options:"h25", fillW:1})
 
 myGui.Font("norm s10")
 stBar := new GridGUI.StatusBarControl(myGui.hwnd)
-myGui.AddControl("1-9",	26,		stBar, 			{text:"",	options:"", exW:1, fillW:1})
+myGui.AddControl("1-11",	26,		stBar, 			{text:"",	options:"", exW:1, fillW:1})
 
 myGui.Font("s10", "Courier New")
-myGui.Add(9,		"1-11",		"Edit",			{text:GetText(),	options:"+Multi +HScroll",				exW:1, exH:0, fillW:1, fillH:1})
-myGui.Add(9,		"12-25",	"Edit",			{text:GetTable(),	options:"+ReadOnly +Multi +HScroll",	exW:1, exH:0, fillW:1, fillH:1})
+myGui.Add(11,		"1-11",		"Edit",			{text:GetText(),	options:"+Multi +HScroll",				exW:1, exH:0, fillW:1, fillH:1})
+myGui.Add(11,		"12-25",	"Edit",			{text:GetTable(),	options:"+ReadOnly +Multi +HScroll",	exW:1, exH:0, fillW:1, fillH:1})
 
 myGui.AutoSize()
 lv.ModifyCol(1, "Checked")
