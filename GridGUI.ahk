@@ -12,6 +12,10 @@ Class GridGUI {
 
 		__New(title := "", options := "", showGrid := false) {
 			Base.__New(title, options)
+			this.__Init(showGrid)
+		}
+		
+		__Init(showGrid) {
 			this.grid := new GridGUI.Grid()
 			this.showGrid := showGrid
 			this.gridlines := [[], []]
@@ -74,7 +78,7 @@ Class GridGUI {
 		AutoSize() {
 			this.pos.w := this.grid.GetMinWidth()
 			this.pos.h := this.grid.GetMinHeight()
-			this.grid.CalculatePositions(this.pos.w, this.pos.h)
+			this.Draw(this.pos)
 		}
 		
 		Margin(x := "", y := "") {
@@ -89,16 +93,21 @@ Class GridGUI {
 		
 		ReDraw() {
 			this.grid.ResetConstants()
-			this.grid.CalculatePositions(this.pos.w, this.pos.h)
+			this.Draw(this.pos)
+		}
+		
+		Draw(pos) {
+			area := pos.copy(), area.x := 0, area.y := 0
+			this.grid.CalculatePositions(area)
 		}
 		
 		GuiSize(pos) {
 			Base.GuiSize(pos)
-			this.grid.CalculatePositions(this.pos.w, this.pos.h)
-			;this.WinSet("Redraw", "")
+			this.Draw(this.pos)
 			if(this.showGrid) {
 				ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")`nRSize: (" pos.w ", " pos.h ")"
-				This.DrawGrid(this.pos)
+				area := this.pos.copy(), area.x := 0, area.y := 0
+				This.DrawGrid(area)
 			}
 		}
 		
@@ -113,32 +122,32 @@ Class GridGUI {
 			return new GridGUI.ArbitraryControl(this.hwnd, controlType, options, text)
 		}
 		
-		DrawGrid(pos) {
+		DrawGrid(area) {
 			if(!this.gridlines[1].Length()) {
-				for i, width in this.grid.widths {
+				loop % this.grid.widths.Count() + 1 {
 					ctrl := this.__Add("Progress", "h2")
 					ctrl.GuiControl("+Background777777", "")
 					this.gridlines[1].Push(ctrl)
 				}
-				for i, height in this.grid.heights {
+				loop % this.grid.heights.Count() + 1 {
 					ctrl := this.__Add("Progress", "w2")
 					ctrl.GuiControl("+Background777777", "")
 					this.gridlines[2].Push(ctrl)
 				}
 			}
 			
-			size := pos ? pos : this.pos
+			area := area ? area : this.pos
 			x := 0
+			this.gridlines[1][1].GuiControl("Move", "x" area.x + x " y" area.y " w" 2 " h" area.h)
 			for i, width in this.grid.widths {
 				x += width
-				this.gridlines[1][A_Index].GuiControl("Move", "x" x " y" 0 " w" 2 " h" size.h)
-				;[1][i].Draw(new GridGUI.Position(x, 0, 2, size.h))
+				this.gridlines[1][A_Index + 1].GuiControl("Move", "x" area.x + x " y" area.y " w" 2 " h" area.h)
 			}
 			y := 0
+			this.gridlines[2][1].GuiControl("Move", "x" area.x " y" area.y + y " w" area.w " h" 2)
 			for i, height in this.grid.heights {
 				y += height
-				this.gridlines[2][A_Index].GuiControl("Move", "x" 0 " y" y " w" size.w " h" 2)
-				;lines[2][i].Draw(new GridGUI.Position(0, y, size.w, 2))
+				this.gridlines[2][A_Index + 1].GuiControl("Move", "x" area.x " y" area.y + y " w" area.w " h" 2)
 			}
 		}
 		
@@ -154,6 +163,38 @@ Class GridGUI {
 				y := SubStr(y, 1, pos - 1)
 			}
 			return new GridGUI.Position(x, y, w, h)
+		}
+	}
+	
+	Class SubGrid Extends GridGUI.GridGUIClass {
+	
+		__New(guiHwnd, area := false, DPIScale := true, showGrid := false) {
+			this.hwnd := guiHwnd
+			this.__Init(area, showGrid)
+			this.DPIScale := DPIScale
+		}
+		
+		__Init(area, showGrid) {
+			Base.__Init(showGrid)
+			this.pos := area ? area : new GridGUI.Position(0, 0, 0, 0)
+			if(this.pos.w) {
+				this.initialWidth := this.pos.w
+			}
+			if(this.pos.h) {
+				this.initialHeight := this.pos.h
+			}
+		}
+		
+		Draw(area) {
+			this.pos := area
+			this.grid.CalculatePositions(area)
+			if(this.showGrid) {
+				This.DrawGrid(this.pos)
+			}
+		}
+		
+		ControlGetPos() {
+			return this.pos
 		}
 	}
 }
