@@ -81,6 +81,9 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 	
 	__Callback(arg*) {
 		this.vVar := this.GuiControlGet()
+		if(this._Callback) {
+			this._Callback.Call(arg*)
+		}
 		if(this.callback) {
 			this.callback.Call(arg*)
 		}

@@ -297,7 +297,7 @@ Class TabControl Extends GridGUI.ArbitraryControl {
 		this.showGrid := showGrid
 		this.__ParseTabLst(text)
 		this.DPIScale := DPIScale
-		this.callback := ObjBindMethod(this, "ReDraw")
+		this._Callback := ObjBindMethod(this, "ReDraw")
 	}
 	
 	Draw(pos) {
