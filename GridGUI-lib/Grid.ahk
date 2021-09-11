@@ -37,15 +37,15 @@ Class Grid {
 		}
 	}
 	
-	CalculatePositions(width, height) {
+	CalculatePositions(area) {
 		this.arbitrator.ReCalculate() ; should not be done here
-		this.widths := this.columns.CalculateWidths(width, this.columns.expanders, this.columns.nonExpanders, this.columns.expandersMaxValue)
-		this.heights := this.rows.CalculateHeights(height, this.rows.expanders, this.rows.nonExpanders, this.rows.expandersMaxValue)
+		this.widths := this.columns.CalculateWidths(area.w, this.columns.expanders, this.columns.nonExpanders, this.columns.expandersMaxValue)
+		this.heights := this.rows.CalculateHeights(area.h, this.rows.expanders, this.rows.nonExpanders, this.rows.expandersMaxValue)
 		
 		;MsgBox, % ObjectToString(this.widths)
 		;MsgBox, % ObjectToString(this.heights)
 		for i, c in this.cells {
-			c.SetArea(this.widths, this.heights)
+			c.SetArea(area, this.widths, this.heights)
 			c.Update()
 		}
 	}
@@ -861,10 +861,10 @@ Class Cell {
 		return index
 	}
 	
-	SetArea(widths, heights) {
+	SetArea(offset, widths, heights) {
 		this.pos := new GridGUI.Position(0, 0, 0, 0)
-		this.pos.x := this.__Sum(widths, 1, this.gridpos.x - 1)
-		this.pos.y := this.__Sum(heights, 1, this.gridpos.y - 1)
+		this.pos.x := offset.x + this.__Sum(widths, 1, this.gridpos.x - 1)
+		this.pos.y := offset.y + this.__Sum(heights, 1, this.gridpos.y - 1)
 		this.pos.w := this.__Sum(widths, this.gridpos.x, this.gridpos.x + this.gridpos.w - 1)
 		this.pos.h := this.__Sum(heights, this.gridpos.y, this.gridpos.y + this.gridpos.h - 1)
 	}
