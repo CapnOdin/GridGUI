@@ -5,7 +5,7 @@ Class GUI Extends GridGUI.Window {
 	__New(title := "", options := "", hwnd := "") {
 		this.title := title
 		if(!hwnd) {
-			this.__init()
+			this.__GuiInit()
 			Gui, New, % "+HwndHwnd " options, % this.title
 			this.__CheckOptions(options)
 			Base.__New(Hwnd, [new GridGUI.GuiCallback(GridGUI.Window.WM_SIZE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiSize", this)), new GridGUI.GuiCallback(GridGUI.Window.WM_MOVE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiMoved", this))])
@@ -14,7 +14,7 @@ Class GUI Extends GridGUI.Window {
 		}
 	}
 	
-	__init() {
+	__GuiInit() {
 		this.DPIScale := true
 		this.pos := new GridGUI.Position(0, 0)
 	}
