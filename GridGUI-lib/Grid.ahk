@@ -1,8 +1,6 @@
 
 #Include %A_LineFile%\..\Controls.ahk
 
-;#Include  <Jxon>
-
 Class Grid {
 	__New() {
 		this.cells := []
@@ -12,10 +10,13 @@ Class Grid {
 	}
 	
 	AddCell(c) { ; adds the cell to all positionts it spands over
+		pre := A_BatchLines
+		SetBatchLines, -1
 		this.cells.Push(c)
 		this.arbitrator.Add(c)
 		this.columns.Add(c)
 		this.rows.Add(c)
+		SetBatchLines, % pre
 	}
 	
 	GetMinWidth() {
@@ -38,6 +39,8 @@ Class Grid {
 	}
 	
 	CalculatePositions(area) {
+		pre := A_BatchLines
+		SetBatchLines, -1
 		this.arbitrator.ReCalculate() ; should not be done here
 		this.widths := this.columns.CalculateWidths(area.w, this.columns.expanders, this.columns.nonExpanders, this.columns.expandersMaxValue)
 		this.heights := this.rows.CalculateHeights(area.h, this.rows.expanders, this.rows.nonExpanders, this.rows.expandersMaxValue)
@@ -48,21 +51,9 @@ Class Grid {
 			c.SetArea(area, this.widths, this.heights)
 			c.Update()
 		}
+		SetBatchLines, % pre
 	}
 }
-/*
-ObjectToString(obj){
-	if(!IsObject(obj)){
-		return Util_IsNum(obj) ? obj : """" obj """"
-	}
-	bool := obj.Length()
-	res .= bool ? "[" : "{"
-	for key, value in obj {
-		res .= (!bool ? """" (IsObject(key) ? StrReplace(StrReplace(key.gridpos.ToStr(), "`n", "-"), ":", "") :  key) """ : " : "") ObjectToString(value) ", "
-	}
-	return SubStr(res, 1, -2) (bool ? "]" : "}")
-}
-*/
 
 Class ExpanderArbitrator {
 	__New() {
@@ -230,46 +221,6 @@ Class ExpanderArbitrator {
 		return c.exW || c.exH
 	}
 	
-	IntercectXOne(lst, c) {
-		for i, expander in lst {
-			if(c.gridpos.__OverlapX(expander.gridpos)) {
-				return true
-			}
-		}
-		return false
-	}
-	
-	IntercectYOne(lst, c) {
-		for i, expander in lst {
-			if(c.gridpos.__OverlapY(expander.gridpos)) {
-				return true
-			}
-		}
-		return false
-	}
-	
-	IsInWidthConflictWithOne(obj, c) {
-		for expander in lst {
-			if(this.IsInWidthConflictWith(c, expander)) {
-				return true
-			}
-		}
-		return false
-	}
-	
-	IsInHeightConflictWithOne(obj, c) {
-		for expander in lst {
-			if(this.IsInHeightConflictWith(c, expander)) {
-				return true
-			}
-		}
-		return false
-	}
-	
-	IsInConflictWith(c1, c2) {
-		return this.IsInWidthConflictWith(c1, c2) || this.IsInHeightConflictWith(c1, c2)
-	}
-	
 	IsInWidthConflictWith(c1, c2) {
 		return c1.exW && c2.exW && !c1.gridpos.__OverlapX(c2.gridpos)
 	}
@@ -297,6 +248,7 @@ Class Columns {
 	}
 	
 	__ResetConstants() {
+		this.fixedWidths := {}
 		this.minWidths := {}
 		this.expanders := {}
 		this.expandersMaxValue := {}
@@ -307,13 +259,22 @@ Class Columns {
 	CalculateConstants() {
 		if(!this.catched) {
 			for i, c in this.columns {
+				this.fixedWidths[i] := c.GetFixedWidth()
 				this.minWidths[i] := c.GetMinWidth()
 				this.expanders[i] := c.GetExpanders()
 				this.expandersMaxValue[i] := c.GetExpanderMaxValue()
 				this.nonExpanders[i] := c.GetNonExpanders()
 			}
+			;MsgBox, % "Min:`n" Jxon_Dump(this.minWidths, 4) "`n`n" "Fixed:`n" Jxon_Dump(this.fixedWidths, 4)
 		}
 		this.catched := True
+	}
+	
+	GetFixedWidth() {
+		if(!this.catched) {
+			this.CalculateConstants()
+		}
+		return GridGUI.Util.Sum(this.fixedWidths)
 	}
 	
 	GetMinWidth() {
@@ -330,7 +291,7 @@ Class Columns {
 		size := expandedWidths.Length()
 		fixed := 0
 		;MsgBox, % sumExpandedWidths " && " excessWidth " - " reduction "`n" Jxon_Dump(sortedExpWidths, 4)
-		While(Round(sumExpandedWidths) > 0 && 0 < Round(excessWidth - reduction)) {
+		While(Round(sumExpandedWidths) > 0 && 0 < Round(excessWidth - reduction) && stuck != size) {
 			;ToolTip, % (sumExpandedWidths > 0) " && " (0 < excessWidth - reduction)
 			;MsgBox, % Jxon_Dump(sortedExpWidths, 4)
 			;ToolTip, % sumExpandedWidths " && " excessWidth - reduction "`n" Jxon_Dump(sortedExpWidths, 4), , 17
@@ -342,6 +303,7 @@ Class Columns {
 				diff := (excessWidth - reduction) / (i - fixed)
 			}
 			if(diff) {
+				stuck := 0
 				loop % i {
 					current := sortedExpWidths[size - (A_Index - 1)]
 					if(current[2] != current[3]) {
@@ -355,32 +317,39 @@ Class Columns {
 							sumExpandedWidths -= diff
 							reduction += diff
 						}
+					} else {
+						stuck += 1
 					}
 				}
 			}
 		}
 		;MsgBox, % sumExpandedWidths " && " excessWidth " - " reduction "`n" Jxon_Dump(sortedExpWidths, 4)
 		for i, expWidth in sortedExpWidths {
-			widths[expWidth[1]] := expWidth[2]
+			widths[expWidth[1]] := Max(expWidth[2], expWidth[3])
 		}
 	}
 	
 	CalculateWidths(width, expanders, nonExpanders, expandersMaxValue) {
 		widths := {}
-		reserved := this.GetMinWidth()
+		reserved := this.GetFixedWidth()
 		expandedWidths := []
 		sumExpandedWidths := 0
 		for i, c in this.columns {
 			widths[i] := c.CalculateWidth(width - reserved, expanders, nonExpanders, expandersMaxValue)
-			if(c.expanders && Round(widths[i] - c.GetMinWidth(), 3)) {
-				expandedWidths.Push([i, widths[i], c.GetMinWidth()])
-				sumExpandedWidths += widths[i] - c.GetMinWidth()
+			if(c.expanders && Round(widths[i] - c.GetFixedWidth(), 3)) {
+				;if(widths[i] > c.GetMinWidth()) {
+					expandedWidths.Push([i, widths[i], c.GetMinWidth()])
+					sumExpandedWidths += widths[i] - c.GetMinWidth()
+				;} else {
+				;	widths[i] := c.GetMinWidth()
+				;}
 			}
 		}
 		sum := GridGUI.Util.Sum(widths)
 		if(sum > width) {
 			this.ReduceToGuiSize(widths, expandedWidths, sumExpandedWidths, Round(sum - width))
 		}
+		;MsgBox, % "Min:`n" Jxon_Dump(this.minWidths, 4) "`n`n" "Fixed:`n" Jxon_Dump(this.fixedWidths, 4)  "`n`n" "Widths:`n" Jxon_Dump(widths, 4)
 		return widths
 	}
 }
@@ -404,6 +373,7 @@ Class Rows {
 	}
 	
 	__ResetConstants() {
+		this.fixedHeights := {}
 		this.minHeights := {}
 		this.expanders := {}
 		this.expandersMaxValue := {}
@@ -414,13 +384,22 @@ Class Rows {
 	CalculateConstants() {
 		if(!this.catched) {
 			for i, r in this.rows {
+				this.fixedHeights[i] := r.GetFixedHeight()
 				this.minHeights[i] := r.GetMinHeight()
 				this.expanders[i] := r.GetExpanders()
 				this.expandersMaxValue[i] := r.GetExpanderMaxValue()
 				this.nonExpanders[i] := r.GetNonExpanders()
 			}
+			;MsgBox, % "Min:`n" Jxon_Dump(this.minHeights, 4) "`n`n" "Fixed:`n" Jxon_Dump(this.fixedHeights, 4)
 		}
 		this.catched := True
+	}
+	
+	GetFixedHeight() {
+		if(!this.catched) {
+			this.CalculateConstants()
+		}
+		return GridGUI.Util.Sum(this.fixedHeights)
 	}
 	
 	GetMinHeight() {
@@ -436,7 +415,7 @@ Class Rows {
 		reduction := 0
 		size := sortedExpHeights.Length()
 		fixed := 0
-		While(Round(sumExpandedHeights) > 0 && 0 < Round(excessHeight - reduction)) {
+		While(Round(sumExpandedHeights) > 0 && 0 < Round(excessHeight - reduction) && stuck != size) {
 			;MsgBox, % Jxon_Dump(sortedExpHeights, 4)
 			;MsgBox, % sumExpandedHeights " && " excessHeight " - " reduction "`n" Jxon_Dump(sortedExpHeights, 4)
 			i := Min(A_Index, size)
@@ -446,6 +425,7 @@ Class Rows {
 				diff := (excessHeight - reduction) / (i - fixed)
 			}
 			if(diff) {
+				stuck := 0
 				loop % i {
 					current := sortedExpHeights[size - (A_Index - 1)]
 					if(current[2] != current[3]) {
@@ -459,25 +439,31 @@ Class Rows {
 							sumExpandedHeights -= diff
 							reduction += diff
 						}
+					} else {
+						stuck += 1
 					}
 				}
 			}
 		}
 		for i, expHeight in sortedExpHeights {
-			heights[expHeight[1]] := expHeight[2]
+			heights[expHeight[1]] := Max(expHeight[2], expHeight[3])
 		}
 	}
 	
 	CalculateHeights(height, expanders, nonExpanders, expandersMaxValue) {
 		heights := {}
-		reserved := this.GetMinHeight()
+		reserved := this.GetFixedHeight()
 		expandedHeights := []
 		sumExpandedHeights := 0
 		for i, r in this.rows {
 			heights[i] := r.CalculateHeight(height - reserved, expanders, nonExpanders, expandersMaxValue)
-			if(r.expanders && Round(heights[i] - r.GetMinHeight(), 3)) {
-				expandedHeights.Push([i, heights[i], r.GetMinHeight()])
-				sumExpandedHeights += heights[i] - r.GetMinHeight()
+			if(r.expanders && Round(heights[i] - r.GetFixedHeight(), 3)) {
+				;if(heights[i] >  r.GetMinHeight()) {
+					expandedHeights.Push([i, heights[i], r.GetMinHeight()])
+					sumExpandedHeights += heights[i] - r.GetMinHeight()
+				;} else {
+				;	heights[i] := r.GetMinHeight()
+				;}
 			}
 		}
 		sum := GridGUI.Util.Sum(heights)
@@ -509,6 +495,7 @@ Class Column {
 	CalculateConstants() {
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
+				this.__CalculateFixedWidth(c)
 				this.__CalculateMinWidth(c)
 				this.__CalculateExpanders(c)
 				this.__CalculateNonExpanders(c)
@@ -519,12 +506,20 @@ Class Column {
 	}
 	
 	__ResetConstants() {
+		this.fixedWidth := 0
 		this.minWidth := 0
 		this.expanders := 0
 		this.expanderMaxValue := 0
 		this.nonExpanders := 0
 		this.catched := False
 		this.confligtingExpanders := {}
+	}
+	
+	__CalculateFixedWidth(c) {
+		w := c.GetFixedWidth()
+		if(this.fixedWidth < w) {
+			this.fixedWidth := w
+		}
 	}
 	
 	__CalculateMinWidth(c) {
@@ -558,6 +553,13 @@ Class Column {
 		}
 	}
 	
+	GetFixedWidth() {
+		if(!this.catched) {
+			this.CalculateConstants()
+		}
+		return this.fixedWidth
+	}
+	
 	GetMinWidth() {
 		if(!this.catched) {
 			this.CalculateConstants()
@@ -587,25 +589,11 @@ Class Column {
 	}
 	
 	CalculateWidth(width, expanders, nonExpanders, expandersMaxValue) {
-		maxWidth := this.minWidth
-		/*
-		smallestConExpW := width
-		for key, cExpandersWithArear in this.confligtingExpanders {
-			for i, confligtingExpander in cExpandersWithArear {
-				w := confligtingExpander.GetExpandedWidth(this.index, width, expanders, nonExpanders, expandersMaxValue)
-				if(w && smallestConExpW > w) {
-					smallestConExpW := w
-				}
-			}
-		}
-		if(smallestConExpW != width) {
-			return smallestConExpW
-		}
-		*/
+		maxWidth := this.fixedWidth
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
 				if(c.exW) {
-					w := this.GetMinWidth() + c.GetExpandedWidth(this.index, width, expanders, nonExpanders, expandersMaxValue)
+					w := this.GetFixedWidth() + c.GetExpandedWidth(this.index, width, expanders, nonExpanders, expandersMaxValue)
 					if(maxWidth < w) {
 						maxWidth := w
 					}
@@ -634,6 +622,7 @@ Class Row {
 	CalculateConstants() {
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
+				this.__CalculateFixedHeight(c)
 				this.__CalculateMinHeight(c)
 				this.__CalculateExpanders(c)
 				this.__CalculateNonExpanders(c)
@@ -644,6 +633,7 @@ Class Row {
 	}
 	
 	__ResetConstants() {
+		this.fixedHeight := 0
 		this.minHeight := 0
 		this.expanders := 0
 		this.expanderMaxValue := 0
@@ -652,10 +642,17 @@ Class Row {
 		this.confligtingExpanders := {}
 	}
 	
+	__CalculateFixedHeight(c) {
+		h := c.GetFixedHeight()
+		if(this.fixedHeight < h) {
+			this.fixedHeight := h
+		}
+	}
+	
 	__CalculateMinHeight(c) {
-		w := c.GetNeededHeight()
-		if(this.minHeight < w) {
-			this.minHeight := w
+		h := c.GetNeededHeight()
+		if(this.minHeight < h) {
+			this.minHeight := h
 		}
 	}
 	
@@ -681,6 +678,13 @@ Class Row {
 			}
 			this.confligtingExpanders[key].Push(c)
 		}
+	}
+	
+	GetFixedHeight() {
+		if(!this.catched) {
+			this.CalculateConstants()
+		}
+		return this.fixedHeight
 	}
 	
 	GetMinHeight() {
@@ -712,25 +716,11 @@ Class Row {
 	}
 	
 	CalculateHeight(height, expanders, nonExpanders, expandersMaxValue) {
-		maxHeight := this.minHeight
-		/*
-		smallestConExpH := height
-		for key, cExpandersWithArear in this.confligtingExpanders {
-			for i, confligtingExpander in cExpandersWithArear {
-				h := confligtingExpander.GetExpandedHeight(this.index, height, expanders, nonExpanders, expandersMaxValue)
-				if(h && smallestConExpH > h) {
-					smallestConExpH := h
-				}
-			}
-		}
-		if(smallestConExpH != height) {
-			return smallestConExpH
-		}
-		*/
+		maxHeight := this.fixedHeight
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
 				if(c.exH) {
-					h := this.GetMinHeight() + c.GetExpandedHeight(this.index, height, expanders, nonExpanders, expandersMaxValue)
+					h := this.GetFixedHeight() + c.GetExpandedHeight(this.index, height, expanders, nonExpanders, expandersMaxValue)
 					if(maxHeight < h) {
 						maxHeight := h
 					}
@@ -740,23 +730,6 @@ Class Row {
 		return maxHeight
 	}
 }
-
-Class ExpanderDescriptor {
-	__New(c) {
-		this.gridpos := c.gridpos
-		this.exW := c.exW
-		this.exH := c.exH
-	}
-	
-	IsInWidthConflictWith(c) {
-		return this.exW && c.exW && this.gridpos.__OverlapY(c.gridpos)
-	}
-	
-	IsInHeightConflictWith(c) {
-		return this.exH && c.exH && this.gridpos.__OverlapX(c.gridpos)
-	}
-}
-
 
 Class Cell {
 	__New(pos, ctrl, exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C", borderX := 5, borderY := 5) {
@@ -778,12 +751,28 @@ Class Cell {
 		this.hasHConfligts := false
 	}
 	
+	GetFixedHeight() {
+		return this.exH || this.fillH ? (this.ctrl.initialHeight ? (this.ctrl.initialHeightVal + (this.ctrl.initialHeightVal ? this.borderY * 2 : 0)) / this.gridpos.h : 0) : (this.cPos.h + this.borderY * 2) / this.gridpos.h
+	}
+	
+	GetFixedWidth() {
+		return this.exW || this.fillW ? (this.ctrl.initialWidth ? (this.ctrl.initialWidthVal + (this.ctrl.initialWidthVal ? this.borderX * 2 : 0)) / this.gridpos.w : 0) : (this.cPos.w + this.borderX * 2) / this.gridpos.w
+	}
+	
 	GetNeededHeight() {
-		return this.exH || this.fillH ? (this.ctrl.initialHeight ? (this.ctrl.initialHeight + this.borderY * 2) / this.gridpos.h : 0) : (this.cPos.h + this.borderY * 2) / this.gridpos.h
+		if(this.ctrl.initialHeight) {
+			return this.ctrl.initialHeightVal ? (this.ctrl.initialHeightVal + this.borderY * 2) / this.gridpos.h : 0
+		}
+		return (this.cPos.h + this.borderY * 2) / this.gridpos.h
+		;return ((this.ctrl.initialHeight ? this.ctrl.initialHeightVal : this.cPos.h) + this.borderY * 2) / this.gridpos.h
 	}
 	
 	GetNeededWidth() {
-		return this.exW || this.fillW ? (this.ctrl.initialWidth ? (this.ctrl.initialWidth + this.borderX * 2) / this.gridpos.w : 0) : (this.cPos.w + this.borderX * 2) / this.gridpos.w
+		if(this.ctrl.initialWidth) {
+			return this.ctrl.initialWidthVal ? (this.ctrl.initialWidthVal + this.borderX * 2) / this.gridpos.w : 0
+		}
+		return (this.cPos.w + this.borderX * 2) / this.gridpos.w
+		;return ((this.ctrl.initialWidth ? this.ctrl.initialWidthVal : this.cPos.w) + this.borderX * 2) / this.gridpos.w
 	}
 	
 	GetExpansionWidthValue() {
@@ -798,15 +787,9 @@ Class Cell {
 		if(index != this.__FindLeastUsedRowColumn(this.gridpos.w, this.gridpos.x, nonExpanders, expanders)) {
 			return 0
 		}
-		;others := this.__GetOtherExpanders(this.gridpos.x, this.gridpos.x + this.gridpos.w - 1, expandersMaxValue)
-		;others := GridGUI.Util.Sum(expanders) - this.exW
 		if(this.exW) {
-			;CoordMode, ToolTip, Screen
-			;ToolTip, % Util_ObjectToString(expanders) "`n" others "`n" (width / ((others + this.exW) / this.exW)) / this.gridpos.w, 0, 0, 2
-			;MsgBox, % Util_ObjectToString(expanders) "`n" Util_ObjectToString(expandersMaxValue) "`n" others "`n" this.exW "`n" width / ((others + this.exW) / (this.exW))
 			;MsgBox, % Util_ObjectToString(expanders) "`n" Util_ObjectToString(expandersMaxValue) "`n" this.othersW "`n" this.exW "`n" width * this.exW / (this.othersW + this.exW)
 		}
-		;return width / ((others + this.exW * this.gridpos.w) / (this.exW * this.gridpos.w))
 		return width * this.exW / (this.othersW + this.exW)
 	}
 	
@@ -814,29 +797,10 @@ Class Cell {
 		if(index != this.__FindLeastUsedRowColumn(this.gridpos.h, this.gridpos.y, nonExpanders, expanders)) {
 			return 0
 		}
-		;others := this.__GetOtherExpanders(this.gridpos.y, this.gridpos.y + this.gridpos.h - 1, expandersMaxValue)
-		;others := GridGUI.Util.Sum(expanders) - this.exH
 		if(this.exH) {
-			;CoordMode, ToolTip, Screen
-			;ToolTip, % Util_ObjectToString(expanders) "`n" others "`n" (height / ((others + this.exH) / this.exH)) / this.gridpos.h, 0, 0, 2
-			;MsgBox, % Util_ObjectToString(expanders) "`n" others "`n" this.exH * this.gridpos.h "`n" height / ((others + this.exH * this.gridpos.h) / (this.exH * this.gridpos.h))
-			;MsgBox, % Util_ObjectToString(expanders) "`n" others "`n" this.exH "`n" height / ((others + this.exH) / (this.exH))
 			;MsgBox, % Util_ObjectToString(expanders) "`n" Util_ObjectToString(expandersMaxValue) "`n" this.othersH "`n" this.exH "`n" height * this.exH / (this.othersH + this.exH)
 		}
-		;return height / ((others + this.exH * this.gridpos.h) / (this.exH * this.gridpos.h))
 		return height * this.exH / (this.othersH + this.exH)
-	}
-	
-	__GetOtherExpanders(start, end, expanders) {
-		others := 0
-		
-		for i, e in expanders {
-			if(i < start || i > end) {
-				others += e
-				;others += (e ? 1 : 0)
-			}
-		}
-		return others
 	}
 	
 	__FindLeastUsedRowColumn(size, start, nonExpanders, expanders) {
@@ -878,25 +842,20 @@ Class Cell {
 	}
 	
 	Update() {
-		this.ctrl.Draw(this.Justify(this.pos, this.SetSize(this.pos)))
+		this.ctrl.Draw(this.Justify(this.pos, this.SetCtrlSize(this.pos)))
 	}
 	
-	SetSize(pos) {
+	SetCtrlSize(pos) {
 		if(this.ctrl.initialWidth) {
-			w := this.fillW ? Max(pos.w - this.borderX * 2, this.ctrl.initialWidth) : this.ctrl.initialWidth
-			;MsgBox, % w "   " this.ctrl.initialWidth
+			w := this.fillW ? Max(pos.w - this.borderX * 2, this.ctrl.initialWidthVal) : this.ctrl.initialWidthVal
 		} else {
 			w := this.fillW ? pos.w - this.borderX * 2 : this.cPos.w
 		}
 		if(this.ctrl.initialHeight) {
-			h := this.fillH ? Max(pos.h - this.borderY * 2, this.ctrl.initialHeight) : this.ctrl.initialHeight
-			;MsgBox, % h "   " this.ctrl.initialHeight
+			h := this.fillH ? Max(pos.h - this.borderY * 2, this.ctrl.initialHeightVal) : this.ctrl.initialHeightVal
 		} else {
 			h := this.fillH ? pos.h - this.borderY * 2 : this.cPos.h
 		}
-		
-		;w := pos.w - this.border
-		;h := pos.h - this.border
 		return new GridGUI.Position(this.pos.x, this.pos.y, w, h)
 	}
 	
