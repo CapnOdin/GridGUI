@@ -6,7 +6,7 @@ myGui.Add("1-3", 1, "Edit", , , 1, , 1)
 myGui.GetNewestCellGroup().borderX := 0
 myGui.Add(1, 2, "Button", , "Button")
 myGui.GetNewestCellGroup().borderX := 0
-myGui.Add(2, 2, "Edit", , , 1, , 1)
+myGui.Add(2, 2, "Edit", "w0", , 1, , 1)
 myGui.GetNewestCellGroup().borderX := 0
 ctrl := myGui.Add(3, "2-3", "ActiveX", "w113 h43", "shell explorer")
 oWB := ctrl.vVar

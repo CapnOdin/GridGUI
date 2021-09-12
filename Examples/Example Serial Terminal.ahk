@@ -14,7 +14,7 @@ Global plinkprocess := 0
 ports := GetCOMports()
 
 myGui := new GridGUI("Serial Terminal", "resize -DPIScale")
-console := new ConsoleControl(myGui.hwnd) ; "/q /k echo off" ;  & powershell -NoExit
+console := new ConsoleControl(myGui.hwnd, "w0 h0") ; "/q /k echo off" ;  & powershell -NoExit
 console.Run("filter timestamp {""$(Get-Date -Format o): $_""}")
 ;console.Run("filter timestamp {""$([DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()),$(Get-Date -Format o): $_""}")
 Sleep, 100
@@ -48,7 +48,7 @@ baudrate :=		myGui.add(16, 3, "DropDownList", "w70", "300|1200|2400|4800|9600|19
 bt_connect.Callback := Func("ConnectPressed").Bind(console, port, baudrate, flowcontrol, parity, stopbits, databits, chb_time, chb_log)
 
 myGui.AutoSize()
-myGui.MinSize(myGui.pos.w, myGui.pos.h)
+myGui.MinSize(myGui.pos.w, 800)
 myGui.Show("h800")
 
 OnMessage(WM_DEVICECHANGE, Func("WM_DEVICECHANGE"))
@@ -140,11 +140,11 @@ UpdateCOMports() {
 }
 
 Class ConsoleControl Extends GridGUI.WindowControl {
-	__New(guiHwnd, options := "", text := "") {
-		Base.__New(guiHwnd, this.__StrartConsole(options), options)
+	__New(guiHwnd, options := "") {
+		Base.__New(guiHwnd, this.__StrartConsole(), options)
 	}
 	
-	__StrartConsole(options) {
+	__StrartConsole() {
 		; Launch hidden cmd.exe and store process ID in pid.
 		Run, % "powershell", , Hide, pid
 

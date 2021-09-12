@@ -13,6 +13,8 @@ bt1.Callback := Func("ToolTip").Bind("You pressed button 1")
 bt2.Callback := Func("ShowEditText").Bind(ed)
 btc.Options("+gGuiClose")
 
+myGui.AutoSize()
+myGui.MinSize()
 myGui.Show()
 return
 
