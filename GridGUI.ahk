@@ -1,11 +1,18 @@
-﻿
-Class GridGUI {
+﻿Class GridGUI {
 	#Include %A_LineFile%\..\GridGUI-lib\Gui.ahk
 	#Include %A_LineFile%\..\GridGUI-lib\Grid.ahk
 	#Include %A_LineFile%\..\GridGUI-lib\Version.ahk
 	
 	__New(title := "", options := "", showGrid := false) {
 		return new GridGUI.GridGUIClass(title, options, showGrid)
+	}
+	
+	Area(w, h, x := 0, y := 0) {
+		return new GridGUI.Position(x, y, w, h)
+	}
+	
+	Pos(x, y, w := 0, h := 0) {
+		return new GridGUI.Position(x, y, w, h)
 	}
 
 	Class GridGUIClass Extends GridGUI.GUI {
@@ -118,19 +125,15 @@ Class GridGUI {
 			}
 		}
 		
-		__Add(controlType, options := "", text := "") {
-			return new GridGUI.ArbitraryControl(this.hwnd, controlType, options, text)
-		}
-		
 		DrawGrid(area) {
 			if(!this.gridlines[1].Length()) {
 				loop % this.grid.widths.Count() + 1 {
-					ctrl := this.__Add("Progress", "h2")
+					ctrl := Base.Add("Progress", "h2")
 					ctrl.GuiControl("+Background777777", "")
 					this.gridlines[1].Push(ctrl)
 				}
 				loop % this.grid.heights.Count() + 1 {
-					ctrl := this.__Add("Progress", "w2")
+					ctrl := Base.Add("Progress", "w2")
 					ctrl.GuiControl("+Background777777", "")
 					this.gridlines[2].Push(ctrl)
 				}
@@ -178,10 +181,12 @@ Class GridGUI {
 			Base.__Init(showGrid)
 			this.pos := area ? area : new GridGUI.Position(0, 0, 0, 0)
 			if(this.pos.w) {
-				this.initialWidth := this.pos.w
+				this.initialWidth := true
+				this.initialWidthVal := this.pos.w
 			}
 			if(this.pos.h) {
-				this.initialHeight := this.pos.h
+				this.initialHeight := true
+				this.initialHeightVal := this.pos.h
 			}
 		}
 		
