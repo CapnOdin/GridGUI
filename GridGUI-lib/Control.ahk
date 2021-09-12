@@ -44,6 +44,22 @@ Class ControlClass {
 		ControlMove, , % pos.x, % pos.y, % pos.w, % pos.h, % "ahk_id " this.hwnd
 	}
 	
+	__ParseOptions(options) {
+		if(RegExMatch(options, "Oi)\bw(\d+)\b", match)) {
+			this.initialWidth := true
+			this.initialWidthVal := match[1]
+		}
+		if(RegExMatch(options, "Oi)\bh(\d+)\b", match)) {
+			this.initialHeight := true
+			this.initialHeightVal := match[1]
+		}
+		if(RegExMatch(options, "Oi)\+?\bg(\w+)\b", match)) {
+			this.callback := ObjBindMethod(this, "__glabel", match[1])
+			options := RegExReplace(options, "Oi)\+?\bg(\w+)")
+		}
+		return options
+	}
+	
 	ToStr(indent := "") {
 		return indent "Hwnd`t:" this.hwnd
 	}
@@ -87,20 +103,6 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 		if(this.callback) {
 			this.callback.Call(arg*)
 		}
-	}
-	
-	__ParseOptions(options) {
-		if(RegExMatch(options, "Oi)\bw(\d+)\b", match)) {
-			this.initialWidth := match[1]
-		}
-		if(RegExMatch(options, "Oi)\bh(\d+)\b", match)) {
-			this.initialHeight := match[1]
-		}
-		if(RegExMatch(options, "Oi)\+?\bg(\w+)\b", match)) {
-			this.callback := ObjBindMethod(this, "__glabel", match[1])
-			options := RegExReplace(options, "Oi)\+?\bg(\w+)")
-		}
-		return options
 	}
 	
 	__glabel(label) {
