@@ -291,13 +291,16 @@ Class StatusBarControl Extends GridGUI.ArbitraryControl {
 Class TabControl Extends GridGUI.ArbitraryControl {
 	tabs := []
 
-	__New(guiHwnd, options := "", text := "", DPIScale := true, showGrid := false) {
+	__New(guiHwnd, options := "", text := "", preDrawOtherTabs := true, DPIScale := true, showGrid := false) {
 		Base.__New(guiHwnd, "Tab3", options " AltSubmit", text)
 		this.guiHwnd := guiHwnd
 		this.showGrid := showGrid
+		this.preDrawOtherTabs := preDrawOtherTabs
 		this.__ParseTabLst(text)
 		this.DPIScale := DPIScale
-		this._Callback := ObjBindMethod(this, "ReDraw")
+		if(!this.preDrawOtherTabs) {
+			this._Callback := ObjBindMethod(this, "DrawSelectedTab")
+		}
 	}
 	
 	Draw(pos) {
@@ -311,9 +314,16 @@ Class TabControl Extends GridGUI.ArbitraryControl {
 			this.disArea := GridGUI.Util.DPIScale(this.disArea, false)
 		}
 		this.tabs[this.vVar].Draw(this.disArea)
+		if(this.preDrawOtherTabs) {
+			for i, tab in this.tabs {
+				if(i != this.vVar) {
+					tab.Draw(this.disArea)
+				}
+			}
+		}
 	}
 	
-	ReDraw() {
+	DrawSelectedTab() {
 		this.tabs[this.vVar].Draw(this.disArea)
 	}
 	
@@ -498,6 +508,7 @@ Class WindowControl Extends GridGUI.ControlClass {
 		this.type := "Window"
 		this.guiHwnd := guiHwnd
 		this.__SetUpWindow()
+		this.__ParseOptions(options)
 	}
 	
 	__SetUpWindow() {
