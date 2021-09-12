@@ -5,7 +5,15 @@ Class ControlClass {
 		this.hwnd := hwnd
 	}
 	
+	__Init() {
+		this.initialWidth :=		false
+		this.initialWidthVal :=		false
+		this.initialHeight :=		false
+		this.initialHeightVal :=	false
+	}
+	
 	ControlGetPos() {
+		local x, y, w, h
 		ControlGetPos, x, y, w, h, , % "ahk_id " this.hwnd
 		return new GridGUI.Position(x, y, w, h)
 	}
@@ -15,11 +23,13 @@ Class ControlClass {
 	}
 	
 	ControlGet(subCommand, value) {
+		local OutputVar
 		ControlGet, OutputVar, % subCommand, % value, , % "ahk_id " this.hwnd
 		return OutputVar
 	}
 	
 	ControlGetText() {
+		local OutputVar
 		ControlGetText, OutputVar, , % "ahk_id " this.hwnd
 		return OutputVar
 	}
@@ -45,6 +55,7 @@ Class ControlClass {
 	}
 	
 	__ParseOptions(options) {
+		local match
 		if(RegExMatch(options, "Oi)\bw(\d+)\b", match)) {
 			this.initialWidth := true
 			this.initialWidthVal := match[1]
@@ -52,10 +63,6 @@ Class ControlClass {
 		if(RegExMatch(options, "Oi)\bh(\d+)\b", match)) {
 			this.initialHeight := true
 			this.initialHeightVal := match[1]
-		}
-		if(RegExMatch(options, "Oi)\+?\bg(\w+)\b", match)) {
-			this.callback := ObjBindMethod(this, "__glabel", match[1])
-			options := RegExReplace(options, "Oi)\+?\bg(\w+)")
 		}
 		return options
 	}
@@ -67,7 +74,9 @@ Class ControlClass {
 
 Class GuiControlClass Extends GridGUI.ControlClass {
 	__New(hwnd, type, options := "", callback := False) {
+		local Base
 		Base.__New(hwnd)
+		this.__Init()
 		this.type := type
 		this.callback := callback
 		this.GuiControl("+g", ObjBindMethod(this, "__Callback"))
@@ -80,6 +89,7 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 	}
 	
 	GuiControlGet(subCommand := "", value := "") {
+		local OutputVar
 		GuiControlGet, OutputVar, % SubCommand, % this.hwnd, % value
 		return OutputVar
 	}
@@ -93,6 +103,16 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 	
 	Draw(pos) {
 		this.GuiControl("MoveDraw", "x" pos.x " y" pos.y " w" pos.w " h" pos.h)
+	}
+	
+	__ParseOptions(options) {
+		local Base, match
+		options := Base.__ParseOptions(options)
+		if(RegExMatch(options, "Oi)\+?\bg(\w+)\b", match)) {
+			this.callback := ObjBindMethod(this, "__glabel", match[1])
+			options := RegExReplace(options, "Oi)\+?\bg(\w+)")
+		}
+		return options
 	}
 	
 	__Callback(arg*) {

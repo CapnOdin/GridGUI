@@ -10,6 +10,7 @@ Class Grid {
 	}
 	
 	AddCell(c) { ; adds the cell to all positionts it spands over
+		local pre
 		pre := A_BatchLines
 		SetBatchLines, -1
 		this.cells.Push(c)
@@ -28,6 +29,7 @@ Class Grid {
 	}
 	
 	ResetConstants() {
+		local i, c, r
 		this.columns.__ResetConstants()
 		for i, c in this.columns.columns {
 			c.__ResetConstants()
@@ -39,6 +41,7 @@ Class Grid {
 	}
 	
 	CalculatePositions(area) {
+		local pre, i, c
 		pre := A_BatchLines
 		SetBatchLines, -1
 		this.arbitrator.ReCalculate() ; should not be done here
@@ -88,6 +91,7 @@ Class ExpanderArbitrator {
 	}
 	
 	InitCheck(c) {
+		local i, expander
 		for i, expander in this.Expanders {
 			this.CheckOverlapping(c, expander)
 			this.CheckConflicts(c, expander)
@@ -126,6 +130,7 @@ Class ExpanderArbitrator {
 	}
 	
 	Reduce() {
+		local c, expanders, i, expander, reduced
 		for c, expanders in this.ConflictLst["W"] {
 			reduced := {}
 			for i, expander in expanders {
@@ -165,6 +170,7 @@ Class ExpanderArbitrator {
 	}
 	
 	Update(c) {
+		local expander, exW, exH
 		for expander, exW in this.ReducedConflict["W"][c] {
 			c.othersW += exW
 		}
@@ -175,6 +181,7 @@ Class ExpanderArbitrator {
 	}
 	
 	ReCalculate() {
+		local i, expander
 		if(!this.IsReduced) {
 			this.SortConflicts()
 			this.Reduce()
@@ -205,6 +212,7 @@ Class ExpanderArbitrator {
 	}
 	
 	SortConflicts() {
+		local c
 		Static sortBySize := ObjBindMethod(GridGUI.Util, "BySize")
 		for c in this.ConflictLst["W"] {
 			;MsgBox, % GridGUI.Util.prettyPrint(Jxon_Dump(GridGUI.Util.ConvertStObjToObjOfStr(this.ConflictLst["W"][c])) "`n`n" Jxon_Dump(GridGUI.Util.ConvertStObjToObjOfStr((Sort(this.ConflictLst["W"][c], ObjBindMethod(GridGUI.Util, "BySize"))))))
@@ -237,6 +245,7 @@ Class Columns {
 	}
 	
 	Add(c) {
+		local index
 		loop % c.gridpos.w {
 			index := c.gridpos.x + A_Index - 1
 			if(!this.columns.HasKey(index)) {
@@ -257,6 +266,7 @@ Class Columns {
 	}
 	
 	CalculateConstants() {
+		local i, c
 		if(!this.catched) {
 			for i, c in this.columns {
 				this.fixedWidths[i] := c.GetFixedWidth()
@@ -285,11 +295,13 @@ Class Columns {
 	}
 	
 	ReduceToGuiSize(widths, expandedWidths, sumExpandedWidths, excessWidth) {
+		local sortedExpWidths, reduction, size, fixed, stuck, index, diff, current, i, expWidth
 		Static sortBySecoundValue := ObjBindMethod(GridGUI.Util, "BySecoundValue")
 		sortedExpWidths := GridGUI.Util.Sort(expandedWidths, sortBySecoundValue)
 		reduction := 0
 		size := expandedWidths.Length()
 		fixed := 0
+		stuck := 0
 		;MsgBox, % sumExpandedWidths " && " excessWidth " - " reduction "`n" Jxon_Dump(sortedExpWidths, 4)
 		While(Round(sumExpandedWidths) > 0 && 0 < Round(excessWidth - reduction) && stuck != size) {
 			;ToolTip, % (sumExpandedWidths > 0) " && " (0 < excessWidth - reduction)
@@ -330,6 +342,7 @@ Class Columns {
 	}
 	
 	CalculateWidths(width, expanders, nonExpanders, expandersMaxValue) {
+		local widths, reserved, expandedWidths, sumExpandedWidths, i, c, sum
 		widths := {}
 		reserved := this.GetFixedWidth()
 		expandedWidths := []
@@ -362,6 +375,7 @@ Class Rows {
 	}
 	
 	Add(c) {
+		local index
 		loop % c.gridpos.h {
 			index := c.gridpos.y + A_Index - 1
 			if(!this.rows.HasKey(index)) {
@@ -382,6 +396,7 @@ Class Rows {
 	}
 	
 	CalculateConstants() {
+		local i, r
 		if(!this.catched) {
 			for i, r in this.rows {
 				this.fixedHeights[i] := r.GetFixedHeight()
@@ -410,11 +425,13 @@ Class Rows {
 	}
 	
 	ReduceToGuiSize(heights, expandedHeights, sumExpandedHeights, excessHeight) {
+		local sortedExpHeights, reduction, size, fixed, stuck, index, diff, current, i, expHeight
 		Static sortBySecoundValue := ObjBindMethod(GridGUI.Util, "BySecoundValue")
 		sortedExpHeights := GridGUI.Util.Sort(expandedHeights, sortBySecoundValue)
 		reduction := 0
 		size := sortedExpHeights.Length()
 		fixed := 0
+		stuck := 0
 		While(Round(sumExpandedHeights) > 0 && 0 < Round(excessHeight - reduction) && stuck != size) {
 			;MsgBox, % Jxon_Dump(sortedExpHeights, 4)
 			;MsgBox, % sumExpandedHeights " && " excessHeight " - " reduction "`n" Jxon_Dump(sortedExpHeights, 4)
@@ -451,6 +468,7 @@ Class Rows {
 	}
 	
 	CalculateHeights(height, expanders, nonExpanders, expandersMaxValue) {
+		local heights, reserved, expandedHeights, sumExpandedHeights, i, r, sum
 		heights := {}
 		reserved := this.GetFixedHeight()
 		expandedHeights := []
@@ -493,6 +511,7 @@ Class Column {
 	}
 	
 	CalculateConstants() {
+		local i, overlappinCells, c
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
 				this.__CalculateFixedWidth(c)
@@ -516,6 +535,7 @@ Class Column {
 	}
 	
 	__CalculateFixedWidth(c) {
+		local w
 		w := c.GetFixedWidth()
 		if(this.fixedWidth < w) {
 			this.fixedWidth := w
@@ -523,6 +543,7 @@ Class Column {
 	}
 	
 	__CalculateMinWidth(c) {
+		local w
 		w := c.GetNeededWidth()
 		if(this.minWidth < w) {
 			this.minWidth := w
@@ -530,6 +551,7 @@ Class Column {
 	}
 	
 	__CalculateExpanders(c) {
+		local expValue
 		expValue := c.GetExpansionWidthValue()
 		this.expanders += expValue
 		if(this.expanderMaxValue < expValue) {
@@ -544,6 +566,7 @@ Class Column {
 	}
 	
 	__CalculateConfligtingExpanders(c) {
+		local key
 		if(c.hasWConfligts) {
 			key := Format("#{:05}", c.gridpos.area())
 			if(!this.confligtingExpanders.HasKey(key)) {
@@ -589,6 +612,7 @@ Class Column {
 	}
 	
 	CalculateWidth(width, expanders, nonExpanders, expandersMaxValue) {
+		local maxWidth, i, overlappinCells, c, w
 		maxWidth := this.fixedWidth
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
@@ -620,6 +644,7 @@ Class Row {
 	}
 	
 	CalculateConstants() {
+		local i, overlappinCells, c
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
 				this.__CalculateFixedHeight(c)
@@ -643,6 +668,7 @@ Class Row {
 	}
 	
 	__CalculateFixedHeight(c) {
+		local h
 		h := c.GetFixedHeight()
 		if(this.fixedHeight < h) {
 			this.fixedHeight := h
@@ -650,6 +676,7 @@ Class Row {
 	}
 	
 	__CalculateMinHeight(c) {
+		local h
 		h := c.GetNeededHeight()
 		if(this.minHeight < h) {
 			this.minHeight := h
@@ -657,6 +684,7 @@ Class Row {
 	}
 	
 	__CalculateExpanders(c) {
+		local expValue
 		expValue := c.GetExpansionHeightValue()
 		this.expanders += expValue
 		if(this.expanderMaxValue < expValue) {
@@ -671,6 +699,7 @@ Class Row {
 	}
 	
 	__CalculateConfligtingExpanders(c) {
+		local key
 		if(c.hasHConfligts) {
 			key := Format("{:05}", c.gridpos.area())
 			if(!this.confligtingExpanders.HasKey(key)) {
@@ -716,6 +745,7 @@ Class Row {
 	}
 	
 	CalculateHeight(height, expanders, nonExpanders, expandersMaxValue) {
+		local maxHeight, i, overlappinCells, c, h
 		maxHeight := this.fixedHeight
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
@@ -804,6 +834,7 @@ Class Cell {
 	}
 	
 	__FindLeastUsedRowColumn(size, start, nonExpanders, expanders) {
+		local smallest, index, i, largest
 		smallest := nonExpanders[start]
 		index := start
 		loop % size - 1 {
@@ -834,6 +865,7 @@ Class Cell {
 	}
 	
 	__Sum(obj, start, end) {
+		local val
 		val := 0
 		loop % end - start + 1  {
 			val += obj[start + A_Index - 1]
@@ -846,6 +878,7 @@ Class Cell {
 	}
 	
 	SetCtrlSize(pos) {
+		local w, h
 		if(this.ctrl.initialWidth) {
 			w := this.fillW ? Max(pos.w - this.borderX * 2, this.ctrl.initialWidthVal) : this.ctrl.initialWidthVal
 		} else {
@@ -860,6 +893,7 @@ Class Cell {
 	}
 	
 	Center(area, pos) {
+		local dw, dh
 		dw := (area.w - pos.w) // 2
 		dh := (area.h - pos.h) // 2
 		;MsgBox, % new GridGUI.Position(this.pos.x + dw, this.pos.y + dh, this.cPos.w, this.cPos.h).ToStr()
@@ -867,6 +901,7 @@ Class Cell {
 	}
 	
 	Justify(area, pos) {
+		local jpos
 		jpos := new GridGUI.Position(area.x, area.y, pos.w, pos.h)
 		if(InStr(this.justifyOptions, "C")) {
 			jpos := this.Center(area, pos)
@@ -897,26 +932,31 @@ Class Cell {
 
 Class Util {
 	BySize(pos) {
+		local z
 		z := Max(5 - Log(pos.Area()), 0)
 		return GridGUI.Util.AddZeros(z) pos.Area()
 	}
 
 	ByExW(c) {
+		local z
 		z := Max(5 - Log(c.exW), 0)
 		return GridGUI.Util.AddZeros(z) c.exW
 	}
 
 	ByExH(c) {
+		local z
 		z := Max(5 - Log(c.exH), 0)
 		return GridGUI.Util.AddZeros(z) c.exH
 	}
 
 	BySecoundValue(lst) {
+		local z
 		z := Max(5 - Log(lst[2]), 0)
 		return GridGUI.Util.AddZeros(z) lst[2]
 	}
 
 	AddZeros(z) {
+		local
 		res := ""
 		loop % z {
 			res .= "0"
@@ -925,6 +965,7 @@ Class Util {
 	}
 
 	Sort(obj, fun) {
+		local
 		lst := {}
 		for i, val in obj {
 			key := fun.Call(val)
@@ -944,6 +985,7 @@ Class Util {
 	}
 
 	ConvertStObjToObjOfStr(obj) {
+		local conversion, i, v, key, val
 		conversion := {}
 		if(!IsObject(obj)) {
 			return obj
@@ -961,6 +1003,7 @@ Class Util {
 	}
 	
 	Sum(obj) {
+		local
 		val := 0
 		for i, v in obj {
 			val += v
@@ -969,6 +1012,7 @@ Class Util {
 	}
 	
 	DPIScale(pos, enlarge := true) {
+		local
 		scaledPos := pos.Copy()
 		scale := A_ScreenDPI / 96
 		if(enlarge) {

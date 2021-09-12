@@ -2,6 +2,7 @@
 
 Class ArbitraryControl Extends GridGUI.GuiControlClass {
 	__New(guiHwnd, type, options := "", text := "") {
+		local Base
 		Gui, % guiHwnd ":Add", % type, % "+HwndHwnd " options, % text
 		Base.__New(Hwnd, type, options)
 	}
@@ -9,12 +10,14 @@ Class ArbitraryControl Extends GridGUI.GuiControlClass {
 
 Class ListviewControl Extends GridGUI.ArbitraryControl {
 	__New(guiHwnd, options := "", text := "") {
+		local Base
 		Base.__New(guiHwnd, "ListView", options, text)
 		this.gui := new GridGUI.GUI(, , guiHwnd)
 	}
 	
 	; Adds a new row to the bottom of the list.
 	Add(Options := "", Fields*) {
+		local prev, rowIndex
 		prev := this.__SetCurrentLV()
 		rowIndex := LV_Add(Options, Fields*)
 		this.__ResetCurrentLV(prev)
@@ -23,6 +26,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Inserts a new row at the specified row number.
 	Insert(RowNumber, Options := "", Cols*) {
+		local prev, rowIndex
 		prev := this.__SetCurrentLV()
 		rowIndex := LV_Insert(RowNumber, Options, Cols*)
 		this.__ResetCurrentLV(prev)
@@ -31,6 +35,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Modifies the attributes and/or text of a row.
 	Modify(RowNumber, Options := "", NewCols*) {
+		local prev, bool
 		prev := this.__SetCurrentLV()
 		bool := LV_Modify(RowNumber, Options, NewCols*)
 		this.__ResetCurrentLV(prev)
@@ -39,6 +44,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Deletes the specified row or all rows.
 	Delete(RowNumber*) {
+		local prev, bool
 		prev := this.__SetCurrentLV()
 		bool := LV_Delete(RowNumber*)
 		this.__ResetCurrentLV(prev)
@@ -47,6 +53,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Modifies the attributes and/or text of the specified column and its header.
 	ModifyCol(args*) { ; ColumnNumber := "", Options := "", ColumnTitle := ""
+		local prev, bool
 		prev := this.__SetCurrentLV()
 		bool := LV_ModifyCol(args*) ; ColumnNumber, Options, ColumnTitle
 		this.__ResetCurrentLV(prev)
@@ -55,6 +62,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Inserts a new column at the specified column number.
 	InsertCol(ColumnNumber, Options := "", ColumnTitle := "") {
+		local prev, columnIndex
 		prev := this.__SetCurrentLV()
 		columnIndex := LV_InsertCol(ColumnNumber, Options, ColumnTitle)
 		this.__ResetCurrentLV(prev)
@@ -63,6 +71,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Deletes the specified column and all of the contents beneath it.
 	DeleteCol(ColumnNumber) {
+		local prev, bool
 		prev := this.__SetCurrentLV()
 		bool := LV_DeleteCol(ColumnNumber)
 		this.__ResetCurrentLV(prev)
@@ -71,6 +80,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the total number of rows or columns.
 	GetCount(Mode := "") {
+		local prev, count
 		prev := this.__SetCurrentLV()
 		count := LV_GetCount(Mode)
 		this.__ResetCurrentLV(prev)
@@ -79,6 +89,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the row number of the next selected, checked, or focused row.
 	GetNext(StartingRowNumber := "", RowType := "") {
+		local prev, rowIndex
 		prev := this.__SetCurrentLV()
 		rowIndex := LV_GetNext(StartingRowNumber, RowType)
 		this.__ResetCurrentLV(prev)
@@ -86,6 +97,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Retrieves the text at the specified row and column.
 	GetText(ByRef OutputVar, RowNumber, ColumnNumber := "") {
+		local prev, bool
 		prev := this.__SetCurrentLV()
 		bool := LV_GetText(OutputVar, RowNumber, ColumnNumber)
 		this.__ResetCurrentLV(prev)
@@ -94,6 +106,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Sets or replaces an ImageList for displaying icons.
 	SetImageList(ImageListID, IconType := "") {
+		local prev, prevImageListID
 		prev := this.__SetCurrentLV()
 		prevImageListID := LV_SetImageList(ImageListID, IconType)
 		this.__ResetCurrentLV(prev)
@@ -102,6 +115,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the selected rows.
 	GetSelection() {
+		local prev, selection, num_of_columns, i, row
 		prev := this.__SetCurrentLV()
 		selection := []
 		num_of_columns := LV_GetCount("Column")
@@ -119,6 +133,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Adds an array of rows
 	AddArray(lst) {
+		local prev, i, v
 		prev := this.__SetCurrentLV()
 		this.Redraw(0)
 		for i, v in lst {
@@ -181,6 +196,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	}
 	
 	__SetCurrentLV() {
+		local gui, lv
 		gui := this.gui.hwnd
 		lv := this.hwnd
 		if(A_DefaultGui != this.gui.hwnd) {
@@ -213,6 +229,7 @@ class RadioGroupControl {
 	}
 	
 	New(options := "", text := "", guiHwnd := false) {
+		local ctrl
 		guiHwnd := guiHwnd ? guiHwnd : this.guiHwnd
 		ctrl := new GridGUI.ArbitraryControl(guiHwnd, "Radio", options " Group", text)
 		ctrl.callback := ObjBindMethod(this, "__Callback", ctrl)
@@ -229,6 +246,7 @@ class RadioGroupControl {
 	}
 	
 	__Callback(ctrl) {
+		local i, rb
 		for i, rb in this.RadioButtons {
 			if(rb.hwnd = ctrl.hwnd) {
 				this.Checked := {"index": i, "ctrl": ctrl, "text": ctrl.GuiControlGet("", "Text")}
@@ -244,12 +262,14 @@ class RadioGroupControl {
 
 Class StatusBarControl Extends GridGUI.ArbitraryControl {
 	__New(guiHwnd, options := "", text := "") {
+		local Base
 		Base.__New(guiHwnd, "StatusBar", options, text)
 		this.gui := new GridGUI.GUI(, , guiHwnd)
 	}
 	
 	; Displays NewText in the specified part of the status bar.
 	SetText(NewText, PartNumber := 1, Style := 0) {
+		local prev, bool
 		prev := this.__SetDefaultGui()
 		bool := SB_SetText(NewText, PartNumber, Style)
 		this.__ResetDefaultGui(prev)
@@ -258,6 +278,7 @@ Class StatusBarControl Extends GridGUI.ArbitraryControl {
 	
 	; Divides the bar into multiple sections according to the specified widths (in pixels).
 	SetParts(Widths*) {
+		local prev, bool
 		prev := this.__SetDefaultGui()
 		bool := SB_SetParts(Widths*)
 		this.__ResetDefaultGui(prev)
@@ -266,6 +287,7 @@ Class StatusBarControl Extends GridGUI.ArbitraryControl {
 	
 	; Displays a small icon to the left of the text in the specified part.
 	SetIcon(Filename, IconNumber := 1, PartNumber := 1) {
+		local prev, hIcon
 		prev := this.__SetDefaultGui()
 		hIcon := SB_SetIcon(Filename, IconNumber, PartNumber)
 		this.__ResetDefaultGui(prev)
@@ -273,6 +295,7 @@ Class StatusBarControl Extends GridGUI.ArbitraryControl {
 	}
 	
 	__SetDefaultGui() {
+		local gui
 		gui := this.gui.hwnd
 		if(A_DefaultGui != this.gui.hwnd) {
 			gui := A_DefaultGui
@@ -292,6 +315,7 @@ Class TabControl Extends GridGUI.ArbitraryControl {
 	tabs := []
 
 	__New(guiHwnd, options := "", text := "", preDrawOtherTabs := true, DPIScale := true, showGrid := false) {
+		local Base
 		Base.__New(guiHwnd, "Tab3", options " AltSubmit", text)
 		this.guiHwnd := guiHwnd
 		this.showGrid := showGrid
@@ -304,6 +328,7 @@ Class TabControl Extends GridGUI.ArbitraryControl {
 	}
 	
 	Draw(pos) {
+		local Base, i, tab
 		Base.Draw(pos)
 		this.disArea := this.GetDisplayArea()
 		this.disArea.w -= this.disArea.x
@@ -328,6 +353,7 @@ Class TabControl Extends GridGUI.ArbitraryControl {
 	}
 	
 	__ParseTabLst(tablst) {
+		local i, tabName
 		for i, tabName in StrSplit(tablst, "|") {
 			if(tabName) {
 				this.tabs.Push(new GridGUI.TabControl.Tab(this.guiHwnd, i, tabName, this.DPIScale, this.showGrid))
@@ -336,6 +362,7 @@ Class TabControl Extends GridGUI.ArbitraryControl {
 	}
 	
 	GetDisplayArea() {
+		local RECT
 		Static TCM_ADJUSTRECT := 0x1328
 		VarSetCapacity(RECT, 16, 0)
 		;NumPut(area.x,	RECT, 0, "int")
@@ -374,12 +401,14 @@ Class TabControl Extends GridGUI.ArbitraryControl {
 
 Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	__New(guiHwnd, options := "") {
+		local Base
 		Base.__New(guiHwnd, "TreeView", options)
 		this.gui := new GridGUI.GUI(, , guiHwnd)
 	}
 	
 	; Adds a new item to the TreeView.
 	Add(Name, ParentItemID := "", Options := "") {
+		local prev, id
 		prev := this.__SetCurrentTV()
 		id := TV_Add(Name, ParentItemID, Options)
 		this.__ResetCurrentTV(prev)
@@ -388,6 +417,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	;Modifies the attributes and/or name of an item.
 	Modify(ItemID, args*) { ; Options := "", NewName := ""
+		local prev, id
 		prev := this.__SetCurrentTV()
 		id := TV_Modify(ItemID, args*)
 		this.__ResetCurrentTV(prev)
@@ -396,6 +426,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Deletes the specified item or all items.
 	Delete(ItemID := "") {
+		local prev, bool
 		prev := this.__SetCurrentTV()
 		bool := TV_Delete(ItemID)
 		this.__ResetCurrentTV(prev)
@@ -404,6 +435,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the selected item's ID number.
 	GetSelection() {
+		local prev, id
 		prev := this.__SetCurrentTV()
 		id := TV_GetSelection()
 		this.__ResetCurrentTV(prev)
@@ -412,6 +444,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the total number of items in the control.
 	GetCount() {
+		local prev, count
 		prev := this.__SetCurrentTV()
 		count := TV_GetCount()
 		this.__ResetCurrentTV(prev)
@@ -420,6 +453,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	;Returns the specified item's parent as an item ID.
 	GetParent(ItemID) {
+		local prev, parentID
 		prev := this.__SetCurrentTV()
 		parentID := TV_GetParent(ItemID)
 		this.__ResetCurrentTV(prev)
@@ -428,6 +462,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the ID number of the specified item's first/top child.
 	GetChild(ParentItemID) {
+		local prev, childID
 		prev := this.__SetCurrentTV()
 		childID := TV_GetChild(ParentItemID)
 		this.__ResetCurrentTV(prev)
@@ -436,6 +471,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the ID number of the sibling above the specified item.
 	GetPrev(ItemID) {
+		local prev, siblingID
 		prev := this.__SetCurrentTV()
 		siblingID := TV_GetPrev(ItemID)
 		this.__ResetCurrentTV(prev)
@@ -444,6 +480,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the ID number of the next item below the specified item.
 	GetNext(ItemID := "", ItemType := "") {
+		local prev, id
 		prev := this.__SetCurrentTV()
 		id := TV_GetNext(ItemID, ItemType)
 		this.__ResetCurrentTV(prev)
@@ -452,6 +489,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Retrieves the text/name of the specified item.
 	GetText(ByRef OutputVar, ItemID) {
+		local prev, id
 		prev := this.__SetCurrentTV()
 		id := TV_GetText(OutputVar, ItemID)
 		this.__ResetCurrentTV(prev)
@@ -460,6 +498,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	
 	; Returns the ID number of the specified item if it has the specified attribute.
 	Get(ItemID, Attribute) {
+		local prev, id
 		prev := this.__SetCurrentTV()
 		id := TV_Get(ItemID, Attribute)
 		this.__ResetCurrentTV(prev)
@@ -468,6 +507,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 
 	; Sets or replaces an ImageList for displaying icons.
 	SetImageList(ImageListID, IconType := "") {
+		local prev, prevImageListID
 		prev := this.__SetCurrentTV()
 		prevImageListID := TV_SetImageList(ImageListID, IconType)
 		this.__ResetCurrentTV(prev)
@@ -479,6 +519,7 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 	}
 	
 	__SetCurrentTV() {
+		local gui, tv
 		gui := this.gui.hwnd
 		tv := this.hwnd
 		if(A_DefaultGui != this.gui.hwnd) {
@@ -503,7 +544,9 @@ Class TreeviewControl Extends GridGUI.ArbitraryControl {
 
 Class WindowControl Extends GridGUI.ControlClass {
 	__New(guiHwnd, hwnd, options := "") {
+		local Base
 		Base.__New(hwnd)
+		this.__Init()
 		this.window := new GridGUI.Window(hwnd)
 		this.type := "Window"
 		this.guiHwnd := guiHwnd
@@ -519,6 +562,8 @@ Class WindowControl Extends GridGUI.ControlClass {
 				,	WS_EX_CLIENTEDGE := 0x200
 		; Styles we want to add to the window:
 				,	WS_CHILD := 0x40000000
+		; Events we want to propagate:
+				,	WM_PARENTNOTIFY := 0x0210
 		DetectHiddenWindows, On
 		; Apply necessary style changes.
 		this.window.WinSet("Style", "-" (WS_POPUP|WS_CAPTION|WS_THICKFRAME))
@@ -528,7 +573,6 @@ Class WindowControl Extends GridGUI.ControlClass {
 		; Put the window into the Gui.
 		DllCall("SetParent", "uint", this.hwnd, "uint", this.guiHwnd)
 		
-		WM_PARENTNOTIFY := 0x0210
 		OnMessage(WM_PARENTNOTIFY, new GridGUI.BoundFunc("GridGUI.WindowControl.__CheckIfClicked", this))
 	}
 	
@@ -541,6 +585,7 @@ Class WindowControl Extends GridGUI.ControlClass {
 	}
 	
 	ControlGetPos() {
+		local hwndDesktop, ConsoleRect, x, y, w, h
 		hwndDesktop := WinExist("Program Manager ahk_class Progman")
 		VarSetCapacity(ConsoleRect, 16)
 		DllCall("GetWindowRect", "uint", this.hwnd, "uint", &ConsoleRect)
@@ -554,6 +599,7 @@ Class WindowControl Extends GridGUI.ControlClass {
 	}
 	
 	__CheckIfClicked(wParam, lParam, msg, hwnd) {
+		local click_pos
 		static WM_LBUTTONDOWN := 0x0201
 		if(wParam & 0xffff = WM_LBUTTONDOWN) {
 			click_pos := new GridGUI.Position(lParam & 0xffff, lParam >> 16)

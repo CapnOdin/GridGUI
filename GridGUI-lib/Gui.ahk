@@ -3,6 +3,7 @@
 
 Class GUI Extends GridGUI.Window {
 	__New(title := "", options := "", hwnd := "") {
+		local Base
 		this.title := title
 		if(!hwnd) {
 			this.__GuiInit()
@@ -84,18 +85,21 @@ Class GUI Extends GridGUI.Window {
 	}
 	
 	ControlGetFocus() {
+		local CtrlClass, focused
 		GuiControlGet, CtrlClass, % this.hwnd ":Focus"
 		GuiControlGet, focused, % this.hwnd ":Hwnd", % CtrlClass
 		Return focused
 	}
 	
 	ListView(hwnd) {
+		local prev
 		prev := A_DefaultListView
 		Gui, % this.hwnd ":ListView", % hwnd
 		return prev
 	}
 	
 	TreeView(hwnd) {
+		local prev
 		prev := A_DefaultTreeView
 		Gui, % this.hwnd ":TreeView", % hwnd
 		return prev
@@ -113,6 +117,7 @@ Class GUI Extends GridGUI.Window {
 	}
 	
 	__DPIScale(pos, enlarge := true) {
+		local scaledPos
 		scaledPos := pos.Copy()
 		if(this.DPIScale) {
 			scaledPos := GridGUI.Util.DPIScale(scaledPos, enlarge)
@@ -125,6 +130,7 @@ Class GUI Extends GridGUI.Window {
 	}
 	
 	__GuiSize(wParam, lParam, msg, hwnd) {
+		local timer
 		if(this.hwnd = hwnd) {
 			if(this.resizeTimer) {
 				timer := this.resizeTimer
@@ -136,6 +142,7 @@ Class GUI Extends GridGUI.Window {
 	}
 	
 	__GuiMoved(wParam, lParam, msg, hwnd) {
+		local timer
 		if(this.hwnd = hwnd) {
 			if(this.movedTimer) {
 				timer := this.movedTimer

@@ -26,6 +26,7 @@ Class MyClass {
 
 Class BoundFunc {
 	__New(fun, arguments*) {
+		local namesegments, requiredClass, recived
 		this.function := IsObject(fun) ? fun : Func(fun)
 		if(!IsFunc(this.function)) {
 			throw Exception("Function not Found", -1, """" fun """ is not a function.")
@@ -42,6 +43,7 @@ Class BoundFunc {
 	}
 	
 	__IsInstanceOf(object, class) {
+		local classnameParts
 		While(object.__Class) {
 			classnameParts := StrSplit(object.__Class, ".")
 			if(classnameParts[classnameParts.Length()] = class) {
@@ -53,6 +55,7 @@ Class BoundFunc {
 	}
 	
 	__GetInstanceType(object) {
+		local typePath
 		typePath := ""
 		While(object.__Class) {
 			typePath .= object.__Class "."
@@ -69,6 +72,7 @@ Class BoundFunc {
 	}
 	
 	Call(arguments*) {
+		local numOfArguments, args
 		numOfArguments := this.Arguments.Length() + arguments.Length()
 		if(this.function.MinParams <= numOfArguments && numOfArguments <= this.function.MaxParams) {
 			args := Array(this.Arguments*)

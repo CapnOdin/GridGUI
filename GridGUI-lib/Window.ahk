@@ -15,6 +15,7 @@ Class Window {
 	}
 	
 	__Setup() {
+		local i, callback
 		if(IsObject(this.callbacks)) {
 			for i, callback in this.callbacks {
 				OnMessage(callback.msgNum, callback.function)
@@ -31,6 +32,7 @@ Class Window {
 	}
 	
 	WinGetPos() {
+		local x, y, w, h
 		WinGetPos, x, y, w, h, % "ahk_id " this.hwnd
 		return new GridGUI.Position(x, y, w, h)
 	}
@@ -52,18 +54,19 @@ Class Window {
 	}
 	
 	WinGet(SubCommand) {
+		local OutputVar
 		WinGet, OutputVar, % SubCommand, % "ahk_id " this.hwnd
 		return OutputVar
 	}
 	
 	WinSet(SubCommand, Value) {
-		pre := this.__DetectHidden()
+		local pre := this.__DetectHidden()
 		WinSet, % SubCommand, % Value, % "ahk_id " this.hwnd
 		DetectHiddenWindows, % pre
 	}
 	
 	ControlGetFocus() {
-		CtrlHwnd := ""
+		local CtrlHwnd := "", CtrlClass := ""
 		ControlGetFocus, CtrlClass, % "ahk_id " this.hwnd
 		if(CtrlClass) {
 			ControlGet, CtrlHwnd, Hwnd, , % CtrlClass, % "ahk_id " this.hwnd
@@ -76,7 +79,7 @@ Class Window {
 	}
 	
 	__DetectHidden() {
-		detectState := A_DetectHiddenWindows
+		local detectState := A_DetectHiddenWindows
 		DetectHiddenWindows, On
 		return detectState
 	}

@@ -18,6 +18,7 @@
 	Class GridGUIClass Extends GridGUI.GUI {
 
 		__New(title := "", options := "", showGrid := false) {
+			local Base
 			Base.__New(title, options)
 			this.__Init(showGrid)
 		}
@@ -30,6 +31,7 @@
 		}
 		
 		Add(x, y, type, options := "", text := "", exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C") {
+			local ctrl
 			if(IsObject(options)) {
 				text :=		options.HasKey("text") ?	options["text"] :		text
 				exW :=		options.HasKey("exW") ?		options["exW"] :		exW
@@ -44,6 +46,7 @@
 		}
 		
 		AddControl(x, y, ctrl, exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C") {
+			local pos, gridCell
 			if(IsObject(exW)) {
 				exH :=		exW.HasKey("exH") ?		exW["exH"] :		exH
 				fillW :=	exW.HasKey("fillW") ?	exW["fillW"] :		fillW
@@ -64,6 +67,7 @@
 		}
 		
 		GetCellGroup(Ctrl) {
+			local i, cell
 			for i, cell in this.grid.cells {
 				if(ctrl.hwnd = cell.ctrl.hwnd) {
 					return cell
@@ -76,6 +80,7 @@
 		}
 		
 		Show(options := "AutoSize") {
+			local Base
 			if(options = "AutoSize") {
 				options := "w" this.grid.GetMinWidth() " h" this.grid.GetMinHeight()
 			}
@@ -89,11 +94,12 @@
 		}
 		
 		Margin(x := "", y := "") {
+			local i, cell
 			this.margins["x"] := (x != "") ? x : this.margins["x"]
 			this.margins["y"] := (y != "") ? y : this.margins["y"]
-			for i, c in this.grid.cells {
-				c.borderX := this.margins["x"]
-				c.borderY := this.margins["y"]
+			for i, cell in this.grid.cells {
+				cell.borderX := this.margins["x"]
+				cell.borderY := this.margins["y"]
 			}
 			this.ReDraw()
 		}
@@ -104,11 +110,13 @@
 		}
 		
 		Draw(pos) {
+			local area
 			area := pos.copy(), area.x := 0, area.y := 0
 			this.grid.CalculatePositions(area)
 		}
 		
 		GuiSize(pos) {
+			local Base, area
 			Base.GuiSize(pos)
 			this.Draw(this.pos)
 			if(this.showGrid) {
@@ -119,6 +127,7 @@
 		}
 		
 		GuiMoved(pos) {
+			local Base
 			Base.GuiMoved(pos)
 			if(this.showGrid) {
 				ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")"
@@ -126,6 +135,7 @@
 		}
 		
 		DrawGrid(area) {
+			local Base, ctrl, x, y, i, width, height
 			if(!this.gridlines[1].Length()) {
 				loop % this.grid.widths.Count() + 1 {
 					ctrl := Base.Add("Progress", "h2")
@@ -155,6 +165,7 @@
 		}
 		
 		__TranslateGridPos(x, y) {
+			local w, h, pos
 			w := 1
 			h := 1
 			if(pos := InStr(x, "-")) {
@@ -178,6 +189,7 @@
 		}
 		
 		__Init(area, showGrid) {
+			local Base
 			Base.__Init(showGrid)
 			this.pos := area ? area : new GridGUI.Position(0, 0, 0, 0)
 			if(this.pos.w) {

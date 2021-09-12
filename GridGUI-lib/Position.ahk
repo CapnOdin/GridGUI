@@ -20,7 +20,7 @@ Class Position {
 	}
 	
 	Contains(pos) {
-		com := this.Compare(pos)
+		local com := this.Compare(pos)
 		return  Round(com[1] - pos.w, 5) = 0 &&  Round(com[2] - pos.h, 5) = 0
 	}
 	
@@ -29,12 +29,12 @@ Class Position {
 	}
 	
 	Touch(pos) {
-		com := this.Compare(pos)
+		local com := this.Compare(pos)
 		return com[1] >= 0 && com[2] >= 0 && (!com[1] || !com[2])
 	}
 	
 	Disjoint(pos) {
-		com := this.Compare(pos)
+		local com := this.Compare(pos)
 		return com[1] < 0 && com[2] < 0
 	}
 	
