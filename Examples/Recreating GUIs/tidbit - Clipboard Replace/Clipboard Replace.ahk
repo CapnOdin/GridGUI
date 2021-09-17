@@ -2,6 +2,8 @@
 #Include %A_ScriptDir%\..\..\..\GridGUI.ahk
 
 myGui := new GridGUI("Grid Test", "resize")
+myGui.GuiClose := GridGUI.ExitApp
+
 Menu, FileMenu, Add, Script Icon, MenuHandler
 Menu, MyMenuBar, Add, &Referances, :FileMenu
 myGui.Menu("MyMenuBar")
@@ -29,6 +31,3 @@ myGui.MinSize()
 
 MenuHandler:
 return
-
-GuiClose:
-	ExitApp

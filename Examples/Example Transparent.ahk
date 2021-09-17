@@ -1,6 +1,8 @@
 #Include %A_ScriptDir%\..\GridGUI.ahk
 
 myGUI := new GridGUI()
+myGui.GuiClose := GridGUI.ExitApp
+
 myGUI.Color("EEAA99")
 myGUI.Options("+AlwaysOnTop +ToolWindow -Caption -border")
 myGUI.Add(1, 1, "Picture", "w500 h-1", "Images\bottom.jpg")
@@ -16,6 +18,3 @@ return
 		myGUI.Show()
 	}
 return
-
-GuiClose:
-	ExitApp

@@ -2,6 +2,8 @@
 #Include %A_ScriptDir%\..\..\..\GridGUI.ahk
 
 myGui := new GridGUI("Columnize", "resize")
+myGui.GuiClose := GridGUI.ExitApp
+
 Menu, FileMenu, Add, Script Icon, MenuHandler
 Menu, MyMenuBar, Add, &File, :FileMenu
 Menu, MyMenuBar, Add, &Tools, :FileMenu
@@ -134,12 +136,8 @@ stBar.SetText("Input: 17 Lines 1125 Characters", 1)
 stBar.SetText("Output: 25 Lines 2749 Characters", 2)
 stBar.SetText("1.3 (Saturday. March 9. 2019)", 3)
 
-
 MenuHandler:
 return
-
-GuiClose:
-	ExitApp
 
 GetText() {
 	str := "

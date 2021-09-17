@@ -1,6 +1,8 @@
 #Include %A_ScriptDir%\..\GridGUI.ahk
 
 myGui := new GridGUI("Grid Test", "resize")
+myGui.GuiClose := GridGUI.ExitApp
+
 RG1 := new GridGUI.RadioGroupControl(myGui.hwnd)
 RG2 := new GridGUI.RadioGroupControl(myGui.hwnd)
 
@@ -25,9 +27,6 @@ myGui.Show()
 Sleep, 100
 ShowSelected(myGui, 1, RG1.Checked)
 return
-
-GuiClose:
-	ExitApp
 
 CheckNextRadioButton(gr1, gr2) {
 	gr1.Check(Mod(gr1.Checked["index"], 3) + 1)

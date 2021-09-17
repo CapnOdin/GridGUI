@@ -4,6 +4,8 @@
 args := {Options: "w0 h0", exW: 1, exH: 1, fillW: true, fillH: true}
 
 myGui := new GridGUI("Tab Example", "resize")
+myGui.GuiClose := GridGUI.ExitApp
+
 tab := new GridGUI.TabControl(myGui.hwnd, , "Name 1|Name 2|Name 3|Name 4")
 myGui.AddControl(1, 1, tab, args)
 
@@ -38,6 +40,3 @@ myGui.AutoSize()
 myGui.Show("w300 h300")
 myGui.MinSize()
 return
-
-GuiClose:
-	ExitApp

@@ -3,6 +3,7 @@
 SetBatchLines, -1
 
 myGui := new GridGUI("Text to Find", "resize")
+myGui.GuiClose := GridGUI.ExitApp
 
 FEd := myGui.Add(1, 1, "Edit", , , 1, , 1)
 FBt := myGui.Add(3, 1, "Button", , "Files", , , 1, , "CW")
@@ -22,10 +23,6 @@ SBt.callback := Func("SearchCallback").Bind(lv_files, SEd, FEd, sbar)
 
 sbar.SetParts(60, 40)
 myGui.Show("w700 h700")
-return
-
-GuiClose:
-	ExitApp
 return
 
 #If myGui.WinActive() && myGui.ControlGetFocus() = lv_files.hwnd

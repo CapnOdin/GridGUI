@@ -4,6 +4,7 @@ SetBatchLines, -1
 CoordMode, Mouse, Screen
 
 myGui := new GridGUI("Window Grid", "resize")
+myGui.GuiClose := GridGUI.ExitApp
 myGui.Show("w800 h800")
 column := 0
 row := 1
@@ -42,6 +43,3 @@ return
 		}
 	}
 Return
-
-GuiClose:
-	ExitApp

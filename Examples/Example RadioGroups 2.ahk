@@ -2,6 +2,9 @@
 
 myGui1 := new GridGUI("Grid Test", "resize")
 myGui2 := new GridGUI("Grid Test", "resize")
+myGui1.GuiClose := GridGUI.ExitApp
+myGui2.GuiClose := GridGUI.ExitApp
+
 RG := new GridGUI.RadioGroupControl(myGui1.hwnd)
 
 myGui1.AddControl(1, 1, RG.New(, "G1 Radio 1"))
@@ -21,6 +24,3 @@ myGui2.MinSize()
 myGui2.Show()
 myGui2.Show("x" myGui1.pos.x + myGui1.pos.w)
 return
-
-GuiClose:
-	ExitApp

@@ -15,7 +15,7 @@ loop 3 {
 }
 myGui2.Show("w500 h500")
 myGui2.WinMove(pos.x + pos.w / 2, pos.y)
-return
 
-GuiClose:
-	ExitApp
+myGui.GuiClose := GridGUI.ExitApp
+myGui2.GuiClose := GridGUI.ExitApp
+return

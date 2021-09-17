@@ -2,6 +2,7 @@
 #Include %A_ScriptDir%\..\GridGUI.ahk
 
 myGui := new GridGUI("Sub Grids", "resize")
+myGui.GuiClose := GridGUI.ExitApp
 
 subGrid1 := new GridGUI.SubGrid(myGui.hwnd, new GridGUI.Position(0, 0, 50, 50), , true)
 
@@ -25,6 +26,3 @@ myGui.AutoSize()
 myGui.Show("w300 h300")
 myGui.MinSize()
 return
-
-GuiClose:
-	ExitApp

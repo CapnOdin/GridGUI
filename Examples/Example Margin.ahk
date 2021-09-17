@@ -2,6 +2,8 @@
 #Include %A_ScriptDir%\..\GridGUI.ahk
 
 myGui := new GridGUI("Grid Test", "resize")
+myGui.GuiClose := GridGUI.ExitApp
+
 myGui.Add("1-3", 1, "Edit", , , 1, , 1)
 myGui.Add(1, 2, "Button", , "Button")
 myGui.Add(2, 2, "Edit", "w0", , 1, , 1)
@@ -13,11 +15,7 @@ myGui.Add(2, 3, "Button", , "Button Button")
 myGui.Add("1-3", 4, "Button", , "Button", 1, , 1)
 myGui.AutoSize()
 myGui.Show()
-
 return
 
 +::myGui.Margin(myGui.margins["x"] + 1, myGui.margins["y"] + 1)
 -::myGui.Margin(myGui.margins["x"] - 1, myGui.margins["y"] - 1)
-
-GuiClose:
-	ExitApp

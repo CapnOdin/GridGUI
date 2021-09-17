@@ -2,6 +2,7 @@
 #Include %A_ScriptDir%\..\GridGUI.ahk
 
 myGui := new GridGUI("Grid Test", "resize")
+myGui.GuiClose := GridGUI.ExitApp
 
 oWB := myGui.Add(3, "2-3", "ActiveX", "w113 h43", "shell explorer").vVar
 oWB.Navigate("about:<!DOCTYPE HTML><html><body style=""{margin:0;}""><img src=""https://i.imgur.com/FlGrIY3.gif""></body></html>")
@@ -17,6 +18,3 @@ myGui.Add(2, "3-4", "Button", , "Button Button", , 1)
 myGui.Add("1-3", 5, "Button", , "Button", 1, , 1)
 myGui.Show()
 return
-
-GuiClose:
-	ExitApp

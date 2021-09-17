@@ -2,6 +2,7 @@
 #Include %A_ScriptDir%\..\GridGUI.ahk
 
 myGui := new GridGUI("Grid Test", "resize")
+myGui.GuiClose := GridGUI.ExitApp
 
 myGui.Add(1,		1,		"Button", , "Button1")
 myGui.Add(1,		2,		"Button", , "Button2")
@@ -12,6 +13,3 @@ myGui.Add(3,		"1-2",	"Button", , "Button6", 1, 1, 1, 1)
 
 myGui.Show()
 return
-
-GuiClose:
-	ExitApp
