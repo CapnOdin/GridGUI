@@ -2,10 +2,14 @@
 #Include %A_LineFile%\..\Position.ahk
 
 Class Window {
-	Static		WM_SIZE		:= 0x0005
-			,	WM_SIZING	:= 0x0214
-			,	WM_MOVE		:= 0x0003
-			,	WM_DESTROY	:= 0x0002
+	Static		WM_SIZE			:= 0x0005
+			,	WM_MOVE			:= 0x0003
+			,	WM_CLOSE		:= 0x0010
+			,	WM_ACTIVATE		:= 0x0006
+			;,	WM_SHOWWINDOW	:= 0x0018
+			,	WM_CONTEXTMENU	:= 0x007B
+			,	WM_SYSCOMMAND	:= 0x0112
+			,	WM_DROPFILES	:= 0x0233
 
 
 	__New(hwnd, callbacks := False) {

@@ -14,7 +14,9 @@
 	Pos(x, y, w := 0, h := 0) {
 		return new GridGUI.Position(x, y, w, h)
 	}
-
+	
+	static ExitApp := ObjBindMethod(GridGUI, "__ExitApp")
+	
 	Class GridGUIClass Extends GridGUI.GUI {
 
 		__New(title := "", options := "", showGrid := false) {
@@ -115,9 +117,9 @@
 			this.grid.CalculatePositions(area)
 		}
 		
-		GuiSize(pos) {
+		_GuiSize(pos) {
 			local Base, area
-			Base.GuiSize(pos)
+			Base._GuiSize(pos)
 			this.Draw(this.pos)
 			if(this.showGrid) {
 				ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")`nRSize: (" pos.w ", " pos.h ")"
@@ -126,9 +128,9 @@
 			}
 		}
 		
-		GuiMoved(pos) {
+		_GuiMoved(pos) {
 			local Base
-			Base.GuiMoved(pos)
+			Base._GuiMoved(pos)
 			if(this.showGrid) {
 				ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")"
 			}
@@ -213,5 +215,9 @@
 		ControlGetPos() {
 			return this.pos
 		}
+	}
+	
+	__ExitApp() {
+		ExitApp
 	}
 }

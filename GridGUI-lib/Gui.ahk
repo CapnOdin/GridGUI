@@ -6,10 +6,15 @@ Class GUI Extends GridGUI.Window {
 		local Base
 		this.title := title
 		if(!hwnd) {
-			this.__GuiInit()
 			Gui, New, % "+HwndHwnd " options, % this.title
 			this.__CheckOptions(options)
-			Base.__New(Hwnd, [new GridGUI.GuiCallback(GridGUI.Window.WM_SIZE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiSize", this)), new GridGUI.GuiCallback(GridGUI.Window.WM_MOVE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiMoved", this))])
+			Base.__New(Hwnd, [new GridGUI.GuiCallback(GridGUI.Window.WM_SIZE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiSize", this))
+							, new GridGUI.GuiCallback(GridGUI.Window.WM_MOVE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiMoved", this))
+							, new GridGUI.GuiCallback(GridGUI.Window.WM_ACTIVATE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiActivate", this))
+							, new GridGUI.GuiCallback(GridGUI.Window.WM_CONTEXTMENU, new GridGUI.BoundFunc("GridGUI.GUI.__GuiContextMenu", this))
+							, new GridGUI.GuiCallback(GridGUI.Window.WM_SYSCOMMAND, new GridGUI.BoundFunc("GridGUI.GUI.__SysCommand", this))
+							, new GridGUI.GuiCallback(GridGUI.Window.WM_DROPFILES, new GridGUI.BoundFunc("GridGUI.GUI.__GuiDropFiles", this))])
+			this.__GuiInit()
 		} else {
 			Base.__New(Hwnd)
 		}
@@ -18,6 +23,12 @@ Class GUI Extends GridGUI.Window {
 	__GuiInit() {
 		this.DPIScale := true
 		this.pos := new GridGUI.Position(0, 0)
+		this.GuiSize		:= false
+		this.GuiMoved		:= false
+		this.GuiClose		:= false
+		this.GuiActivate	:= false
+		this.GuiContextMenu	:= false
+		this.DropTarges := {}
 	}
 	
 	Add(controlType, options := "", text := "") {
@@ -105,15 +116,26 @@ Class GUI Extends GridGUI.Window {
 		return prev
 	}
 	
-	GuiSize(pos) {
+	RegisterDropTarget(ctrl, Callback) {
+		DllCall("shell32\DragAcceptFiles", "Ptr", ctrl.hwnd, "Int", 1)
+		this.DropTarges[ctrl.hwnd] := Callback
+	}
+	
+	_GuiSize(pos) {
 		pos := this.__DPIScale(pos, false)
 		this.pos.w := pos.w
 		this.pos.h := pos.h
+		if(this.GuiSize) {
+			this.GuiSize.Call(this.pos)
+		}
 	}
 	
-	GuiMoved(pos) {
+	_GuiMoved(pos) {
 		this.pos.x := pos.x
 		this.pos.y := pos.y
+		if(this.GuiMoved) {
+			this.GuiMoved.Call(this.pos)
+		}
 	}
 	
 	__DPIScale(pos, enlarge := true) {
@@ -129,6 +151,50 @@ Class GUI Extends GridGUI.Window {
 		this.DPIScale := !(options ~= "i)-DPIScale")
 	}
 	
+	__GuiActivate(wParam, lParam, msg, hwnd) {
+		if(this.hwnd = hwnd) {
+			if(this.GuiActivate) {
+				this.GuiActivate.Call(wParam)
+			}
+		}
+	}
+	
+	__GuiContextMenu(wParam, lParam, msg, hwnd) {
+		local pos
+		if(this.hwnd = hwnd) {
+			if(this.GuiContextMenu) {
+				pos := this.WinGetPos()
+				this.GuiContextMenu.Call(new GridGUI.Position((lParam & 0xffff) - pos.x, (lParam >> 16) - pos.y), wParam)
+			}
+		}
+	}
+	
+	__GuiDropFiles(hDrop, lParam, msg, hwnd) {
+		local num_of_files, files, len
+		Static DragQueryFile := "Shell32.dll\DragQueryFile" (A_IsUnicode ? "W" : "A")
+		num_of_files := DllCall(DragQueryFile, "Ptr", hDrop, "UInt", -1, "Ptr", 0, "UInt", 0, "UInt")
+		files := []
+		loop % num_of_files {
+			len := DllCall(DragQueryFile, "Ptr", hDrop, "UInt", A_Index - 1, "Ptr", 0, "UInt", 0, "UInt") + 1
+			VarSetCapacity(buffer, len * (A_IsUnicode ? 2 : 1), 0)
+			DllCall(DragQueryFile, "Ptr", hDrop, "UInt", A_Index - 1, "Str", buffer, "UInt", len, "UInt")
+			files.Push(buffer)
+		}
+		DllCall("Shell32.dll\DragFinish", "Ptr", hDrop)
+		this.DropTarges[hwnd].Call(files)
+	}
+	
+	__SysCommand(wParam, lParam, msg, hwnd) {
+		static SC_CLOSE := 0xf060
+		if(this.hwnd = hwnd) {
+			if(wParam = SC_CLOSE) {
+				if(this.GuiClose) {
+					this.GuiClose.Call()
+				}
+			}
+		}
+	}
+	
 	__GuiSize(wParam, lParam, msg, hwnd) {
 		local timer
 		if(this.hwnd = hwnd) {
@@ -136,7 +202,7 @@ Class GUI Extends GridGUI.Window {
 				timer := this.resizeTimer
 				SetTimer, % timer, Off
 			}
-			timer := this.resizeTimer := new GridGUI.BoundFunc(this.__Class ".GuiSize", this, new GridGUI.Position(0, 0, lParam & 0xffff, lParam >> 16))
+			timer := this.resizeTimer := new GridGUI.BoundFunc(this.__Class "._GuiSize", this, new GridGUI.Position(0, 0, lParam & 0xffff, lParam >> 16))
 			SetTimer, % timer, -50
 		}
 	}
@@ -148,7 +214,7 @@ Class GUI Extends GridGUI.Window {
 				timer := this.movedTimer
 				SetTimer, % timer, Off
 			}
-			timer := this.movedTimer := new GridGUI.BoundFunc(this.__Class ".GuiMoved", this, new GridGUI.Position(lParam & 0xffff, lParam >> 16))
+			timer := this.movedTimer := new GridGUI.BoundFunc(this.__Class "._GuiMoved", this, new GridGUI.Position(lParam & 0xffff, lParam >> 16))
 			SetTimer, % timer, -50
 		}
 	}
