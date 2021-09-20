@@ -17,6 +17,8 @@
 	
 	static ExitApp := ObjBindMethod(GridGUI, "__ExitApp")
 	
+	static Background := "+" GridGUI.ControlClass.WS_CLIPSIBLINGS
+	
 	Class GridGUIClass Extends GridGUI.GUI {
 
 		__New(title := "", options := "", showGrid := false) {
@@ -60,7 +62,22 @@
 			gridCell := new GridGUI.Cell(pos, ctrl, exW, exH, fillW, fillH, justify, this.margins["x"], this.margins["y"])
 			gridCell.cPos := this.__DPIScale(gridCell.cPos, false)
 			this.grid.AddCell(gridCell)
+			this.__OnAdd()
 			return ctrl
+		}
+		
+		RemoveCell(Cell) {
+			this.grid.RemoveCell(Cell)
+			this.DropTarges.Delete(Cell.ctrl.hwnd)
+			Cell.DestroyCtrl()
+		}
+		
+		RemoveCellByCtrl(Ctrl) {
+			this.RemoveCell(this.GetCellGroup(Ctrl))
+		}
+		
+		RemoveCellByPos(GridPos) {
+			this.RemoveCell(this.GetCellGroupsAt(GridPos))
 		}
 		
 		GetCellGroupsAt(GridPos) {
@@ -124,7 +141,7 @@
 			if(this.showGrid) {
 				ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")`nRSize: (" pos.w ", " pos.h ")"
 				area := this.pos.copy(), area.x := 0, area.y := 0
-				This.DrawGrid(area)
+				This.__DrawGrid(area)
 			}
 		}
 		
@@ -136,7 +153,7 @@
 			}
 		}
 		
-		DrawGrid(area) {
+		__DrawGrid(area) {
 			local Base, ctrl, x, y, i, width, height
 			if(!this.gridlines[1].Length()) {
 				loop % this.grid.widths.Count() + 1 {
@@ -185,14 +202,14 @@
 	Class SubGrid Extends GridGUI.GridGUIClass {
 	
 		__New(guiHwnd, area := false, DPIScale := true, showGrid := false) {
+			local Base
 			this.hwnd := guiHwnd
-			this.__Init(area, showGrid)
+			Base.__Init(showGrid)
+			this.__Init(area)
 			this.DPIScale := DPIScale
 		}
 		
-		__Init(area, showGrid) {
-			local Base
-			Base.__Init(showGrid)
+		__Init(area) {
 			this.pos := area ? area : new GridGUI.Position(0, 0, 0, 0)
 			if(this.pos.w) {
 				this.initialWidth := true
@@ -208,7 +225,7 @@
 			this.pos := area
 			this.grid.CalculatePositions(area)
 			if(this.showGrid) {
-				This.DrawGrid(this.pos)
+				This.__DrawGrid(this.pos)
 			}
 		}
 		

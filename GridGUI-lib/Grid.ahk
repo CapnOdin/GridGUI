@@ -7,16 +7,33 @@ Class Grid {
 		this.arbitrator := new GridGUI.ExpanderArbitrator()
 		this.rows := new GridGUI.Rows()
 		this.columns := new GridGUI.Columns()
+		this.ResetConstants()
 	}
 	
 	AddCell(c) { ; adds the cell to all positionts it spands over
 		local pre
+		Critical
 		pre := A_BatchLines
 		SetBatchLines, -1
 		this.cells.Push(c)
 		this.arbitrator.Add(c)
 		this.columns.Add(c)
 		this.rows.Add(c)
+		SetBatchLines, % pre
+	}
+	
+	RemoveCell(c) {
+		local pre, index, i, cell
+		Critical
+		pre := A_BatchLines
+		SetBatchLines, -1
+		index := GridGUI.Util.FindIndex(this.cells, c)
+		if(index) {
+			this.columns.Remove(c)
+			this.rows.Remove(c)
+			this.arbitrator.Remove(c)
+			this.cells.RemoveAt(index)
+		}
 		SetBatchLines, % pre
 	}
 	
@@ -30,14 +47,17 @@ Class Grid {
 	
 	ResetConstants() {
 		local i, c, r
-		this.columns.__ResetConstants()
+		this.widths := []
+		this.heights := []
 		for i, c in this.columns.columns {
 			c.__ResetConstants()
 		}
-		this.rows.__ResetConstants()
 		for i, r in this.rows.rows {
 			r.__ResetConstants()
 		}
+		this.columns.__ResetConstants()
+		this.rows.__ResetConstants()
+		this.arbitrator.IsReduced := False
 	}
 	
 	CalculatePositions(area) {
@@ -48,8 +68,6 @@ Class Grid {
 		this.widths := this.columns.CalculateWidths(area.w, this.columns.expanders, this.columns.nonExpanders, this.columns.expandersMaxValue)
 		this.heights := this.rows.CalculateHeights(area.h, this.rows.expanders, this.rows.nonExpanders, this.rows.expandersMaxValue)
 		
-		;MsgBox, % ObjectToString(this.widths)
-		;MsgBox, % ObjectToString(this.heights)
 		for i, c in this.cells {
 			c.SetArea(area, this.widths, this.heights)
 			c.Update()
@@ -70,10 +88,19 @@ Class ExpanderArbitrator {
 	
 	Add(c) {
 		if(this.IsExpander(c)) {
-			this.IsReduced := false
 			this.Init(c)
 			this.InitCheck(c)
 			this.Expanders.Push(c)
+			this.IsReduced := false
+		}
+	}
+	
+	Remove(c) {
+		if(this.IsExpander(c)) {
+			this.UnInitCheck(c)
+			this.UnInit(c)
+			GridGUI.Util.RemoveValue(this.Expanders, c)
+			this.IsReduced := false
 		}
 	}
 	
@@ -96,6 +123,36 @@ Class ExpanderArbitrator {
 			this.CheckOverlapping(c, expander)
 			this.CheckConflicts(c, expander)
 			;this.Update(c)
+		}
+	}
+	
+	UnInit(c) {
+		this.Overlapping["W"].Delete(c)
+		this.Overlapping["H"].Delete(c)
+		this.ReducedConflict["W"].Delete(c)
+		this.ReducedConflict["H"].Delete(c)
+		this.ConflictLst["W"].Delete(c)
+		this.ConflictLst["H"].Delete(c)
+		this.ConflictMap["W"].Delete(c)
+		this.ConflictMap["H"].Delete(c)
+		this.Ignore["W"].Delete(c)
+		this.Ignore["H"].Delete(c)
+	}
+	
+	UnInitCheck(c) {
+		for i, cell in this.ConflictLst["W"][c] {
+			GridGUI.Util.RemoveValue(this.ConflictLst["W"][cell], c)
+			this.ConflictMap["W"][cell].Delete(c)
+		}
+		for i, cell in this.ConflictLst["H"][c] {
+			GridGUI.Util.RemoveValue(this.ConflictLst["H"][cell], c)
+			this.ConflictMap["H"][cell].Delete(c)
+		}
+		for cell in this.Overlapping["W"][c] {
+			this.Overlapping["W"][cell].Delete(c)
+		}
+		for cell in this.Overlapping["H"][c] {
+			this.Overlapping["H"][cell].Delete(c)
 		}
 	}
 	
@@ -191,22 +248,14 @@ Class ExpanderArbitrator {
 				expander.othersH := 0
 				this.Update(expander)
 			}
+			
 			/*
 			res := ""
-			;res .= RegExReplace(ObjectToString(this.Overlapping), "\s", "") "`n`n`n"
-			;res .= RegExReplace(ObjectToString(this.Conflict), "\s", "")
-			
-			res .= "Overlapping:`n"
-			res .= Jxon_Dump(GridGUI.Util.ConvertStObjToObjOfStr(this.Overlapping), 4)
-			res .= "`n`n`nConflict:`n"
-			res .= Jxon_Dump(GridGUI.Util.ConvertStObjToObjOfStr(this.Conflict), 4)
-			res .= "`n`n`nIgnore:`n"
-			res .= Jxon_Dump(GridGUI.Util.ConvertStObjToObjOfStr(this.Ignore), 4)
-			
-			res := RegExReplace(res, "\\n", "`t")
-			res := RegExReplace(res, "\\t", "")
-			
-			FileOpen("output.json", "w").Write(res)
+			res .= "ReducedConflict:`n"
+			res .= Jxon_Dump(GridGUI.Util.ConvertStObjToObjOfStr(this.ReducedConflict), 4)
+			res .= "`nExpanders:`n"
+			res .= Jxon_Dump(GridGUI.Util.ConvertStObjToObjOfStr(this.Expanders), 4)
+			FileOpen("output" counter++ ".json", "w").Write(GridGUI.Util.prettyPrint(res))
 			*/
 		}
 	}
@@ -252,6 +301,20 @@ Class Columns {
 				this.columns[index] := new GridGUI.Column(index)
 			}
 			this.columns[index].Add(c)
+		}
+		this.__ResetConstants()
+	}
+	
+	Remove(c) {
+		local index
+		loop % c.gridpos.w {
+			index := c.gridpos.w + c.gridpos.x - A_Index
+			if(this.columns.HasKey(index)) {
+				this.columns[index].Remove(c)
+				if(!this.columns[index].cells.Count()) {
+					this.columns.Delete(index)
+				}
+			}
 		}
 		this.__ResetConstants()
 	}
@@ -386,6 +449,21 @@ Class Rows {
 		this.__ResetConstants()
 	}
 	
+	Remove(c) {
+		local index
+		loop % c.gridpos.h {
+			index := c.gridpos.h + c.gridpos.y - A_Index
+			;MsgBox, % c.gridpos.ToStr() "`n`n" index
+			if(this.rows.HasKey(index)) {
+				this.rows[index].Remove(c)
+				if(!this.rows[index].cells.Count()) {
+					this.rows.Delete(index)
+				}
+			}
+		}
+		this.__ResetConstants()
+	}
+	
 	__ResetConstants() {
 		this.fixedHeights := {}
 		this.minHeights := {}
@@ -504,9 +582,20 @@ Class Column {
 	
 	Add(c) {
 		if(!this.cells.HasKey(c.gridpos.y)) {
-			this.cells[c.gridpos.y]:= []
+			this.cells[c.gridpos.y] := []
 		}
 		this.cells[c.gridpos.y].Push(c)
+		this.__ResetConstants()
+	}
+	
+	Remove(c) {
+		local i, cell
+		if(this.cells.HasKey(c.gridpos.y)) {
+			GridGUI.Util.RemoveValue(this.cells[c.gridpos.y], c)
+			if(!this.cells[c.gridpos.y].Count()) {
+				this.cells.Delete(c.gridpos.y)
+			}
+		}
 		this.__ResetConstants()
 	}
 	
@@ -637,9 +726,20 @@ Class Row {
 	
 	Add(c) {
 		if(!this.cells.HasKey(c.gridpos.x)) {
-			this.cells[c.gridpos.x]:= []
+			this.cells[c.gridpos.x] := []
 		}
 		this.cells[c.gridpos.x].Push(c)
+		this.__ResetConstants()
+	}
+	
+	Remove(c) {
+		local i, cell
+		if(this.cells.HasKey(c.gridpos.x)) {
+			GridGUI.Util.RemoveValue(this.cells[c.gridpos.x], c)
+			if(!this.cells[c.gridpos.x].Count()) {
+				this.cells.Delete(c.gridpos.x)
+			}
+		}
 		this.__ResetConstants()
 	}
 	
@@ -928,6 +1028,14 @@ Class Cell {
 	ToStr(indent := "") {
 		return indent "GridPos:`n" this.gridpos.ToStr(indent "`t") "`n" indent "Pos:`n" this.pos.ToStr(indent "`t") "`n" indent "Type:`t" this.ctrl.type "`n" indent "Expand W:`t" this.exW "`n" indent "Expand H:`t" this.exH "`n" indent "OtherExp W:`t" this.othersW "`n" indent "OtherExp H:`t" this.othersH 
 	}
+	
+	DestroyCtrl() {
+		DllCall("DestroyWindow", "UInt", this.ctrl.hwnd)
+	}
+	
+	__Delete() {
+		this.DestroyCtrl()
+	}
 }
 
 Class Util {
@@ -991,8 +1099,8 @@ Class Util {
 			return obj
 		}
 		for i, v in obj {
-			key := (IsObject(i) && i.__Class == Cell.__Class) ? i.gridpos.ToStr() : i
-			val := (IsObject(v) && v.__Class == Cell.__Class) ? v.gridpos.ToStr() : v
+			key := (IsObject(i) && i.__Class == GridGUI.Cell.__Class) ? i.gridpos.ToStr() : i
+			val := (IsObject(v) && v.__Class == GridGUI.Cell.__Class) ? v.gridpos.ToStr() : v
 			conversion[key] := GridGUI.Util.ConvertStObjToObjOfStr(val)
 		}
 		return conversion
@@ -1023,5 +1131,23 @@ Class Util {
 			scaledPos.h := Round(scaledPos.h / scale)
 		}
 		return scaledPos
+	}
+	
+	FindIndex(lst, val, fun := False) {
+		local
+		for i, v in lst {
+			if(fun ? fun.Call(v, val) : (v = val)) {
+				return i
+			}
+		}
+	}
+	
+	RemoveValue(lst, val, fun := False) {
+		local index
+		if((index := GridGUI.Util.FindIndex(lst, val, fun)) != "") {
+			lst.RemoveAt(index)
+			return True
+		}
+		return False
 	}
 }
