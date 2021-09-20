@@ -13,7 +13,8 @@ Class GUI Extends GridGUI.Window {
 							, new GridGUI.GuiCallback(GridGUI.Window.WM_ACTIVATE, new GridGUI.BoundFunc("GridGUI.GUI.__GuiActivate", this))
 							, new GridGUI.GuiCallback(GridGUI.Window.WM_CONTEXTMENU, new GridGUI.BoundFunc("GridGUI.GUI.__GuiContextMenu", this))
 							, new GridGUI.GuiCallback(GridGUI.Window.WM_SYSCOMMAND, new GridGUI.BoundFunc("GridGUI.GUI.__SysCommand", this))
-							, new GridGUI.GuiCallback(GridGUI.Window.WM_DROPFILES, new GridGUI.BoundFunc("GridGUI.GUI.__GuiDropFiles", this))])
+							, new GridGUI.GuiCallback(GridGUI.Window.WM_DROPFILES, new GridGUI.BoundFunc("GridGUI.GUI.__GuiDropFiles", this))
+							, new GridGUI.GuiCallback(GridGUI.Window.WM_PAINT, new GridGUI.BoundFunc("GridGUI.GUI.__OnPaint", this))])
 			this.__GuiInit()
 		} else {
 			Base.__New(Hwnd)
@@ -29,10 +30,20 @@ Class GUI Extends GridGUI.Window {
 		this.GuiActivate	:= false
 		this.GuiContextMenu	:= false
 		this.DropTarges := {}
+		this.ForgroundCtrls := []
+		this.BackgroundCtrls := []
 	}
 	
 	Add(controlType, options := "", text := "") {
-		return new GridGUI.ArbitraryControl(this.hwnd, controlType, options, text)
+		local ctrl
+		ctrl := new GridGUI.ArbitraryControl(this.hwnd, controlType, options, text)
+		this.__OnAdd()
+		return ctrl
+	}
+	
+	__OnAdd() {
+		this.__RaiseForgoundCtrls()
+		this.__LowerBackgoundCtrls()
 	}
 	
 	Show(options := "AutoSize") {
@@ -121,6 +132,38 @@ Class GUI Extends GridGUI.Window {
 		this.DropTarges[ctrl.hwnd] := Callback
 	}
 	
+	RegisterForground(ctrl) {
+		ctrl.ZOrder(True)
+		this.ForgroundCtrls.Push(ctrl)
+	}
+	
+	RegisterBackground(ctrl) {
+		ctrl.Options(GridGUI.Background)
+		ctrl.ZOrder(False)
+		this.BackgroundCtrls.Push(ctrl)
+	}
+	
+	__ReDrawForgoundCtrls() {
+		local i, ctrl
+		for i, ctrl in this.ForgroundCtrls {
+			ctrl.ReDraw()
+		}
+	}
+	
+	__RaiseForgoundCtrls() {
+		local i, ctrl
+		for i, ctrl in this.ForgroundCtrls {
+			ctrl.ZOrder(True)
+		}
+	}
+	
+	__LowerBackgoundCtrls() {
+		local i, ctrl
+		for i, ctrl in this.BackgroundCtrls {
+			ctrl.ZOrder(False)
+		}
+	}
+	
 	_GuiSize(pos) {
 		pos := this.__DPIScale(pos, false)
 		this.pos.w := pos.w
@@ -149,6 +192,20 @@ Class GUI Extends GridGUI.Window {
 	
 	__CheckOptions(options) {
 		this.DPIScale := !(options ~= "i)-DPIScale")
+	}
+	
+	__OnPaint(wParam, lParam, msg, hwnd) {
+		local timer
+		if(this.hwnd = hwnd) {
+			if(this.ForgroundCtrls.Count()) {
+				if(this.reDrawTimer) {
+					timer := this.reDrawTimer
+					SetTimer, % timer, Off
+				}
+				timer := this.reDrawTimer := new GridGUI.BoundFunc("GridGUI.GUI.__ReDrawForgoundCtrls", this)
+				SetTimer, % timer, -10
+			}
+		}
 	}
 	
 	__GuiActivate(wParam, lParam, msg, hwnd) {

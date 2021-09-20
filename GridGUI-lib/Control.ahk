@@ -1,6 +1,8 @@
 ﻿#Include %A_LineFile%\..\Position.ahk
 
 Class ControlClass {
+	Static WS_CLIPSIBLINGS := 0x4000000
+
 	__New(hwnd) {
 		this.hwnd := hwnd
 	}
@@ -54,6 +56,10 @@ Class ControlClass {
 		ControlMove, , % pos.x, % pos.y, % pos.w, % pos.h, % "ahk_id " this.hwnd
 	}
 	
+	Options(options) {
+		this.Control("Style", options)
+	}
+	
 	__ParseOptions(options) {
 		local match
 		if(RegExMatch(options, "Oi)\bw(\d+)\b", match)) {
@@ -103,6 +109,22 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 	
 	Draw(pos) {
 		this.GuiControl("MoveDraw", "x" pos.x " y" pos.y " w" pos.w " h" pos.h)
+	}
+	
+	ReDraw() {
+		local style
+		static RDW_ALLCHILDREN:=0x80, RDW_ERASE:=0x4, RDW_ERASENOW:=0x200, RDW_FRAME:=0x400
+			, RDW_INTERNALPAINT:=0x2, RDW_INVALIDATE:=0x1, RDW_NOCHILDREN:=0x40, RDW_NOERASE:=0x20
+			, RDW_NOFRAME:=0x800, RDW_NOINTERNALPAINT:=0x10, RDW_UPDATENOW:=0x100, RDW_VALIDATE:=0x8
+		
+		style := RDW_INVALIDATE | RDW_ERASE  | RDW_FRAME | RDW_ERASENOW | RDW_UPDATENOW | RDW_ALLCHILDREN
+		return DllCall("RedrawWindow", "UInt", this.hwnd, "UInt", 0, "UInt", 0, "UInt", style)
+	}
+	
+	ZOrder(top := True, topmost := False) {
+		Static HWND_TOP := 0, HWND_BOTTOM := 1, HWND_TOPMOST := -1
+			, SWP_NOMOVE := 0x0002, SWP_NOSIZE := 0x0001, SWP_NOCOPYBITS := 0x0100, SWP_SHOWWINDOW := 0x0040, SWP_NOSENDCHANGING := 0x0400, SWP_NOREDRAW := 0x0008
+		DllCall("SetWindowPos", "UInt", this.hwnd, "UInt", topmost ? HWND_TOPMOST : (top ? HWND_TOP : HWND_BOTTOM), "UInt", 0, "UInt", 0, "UInt", 0, "UInt", 0, "UInt", SWP_NOMOVE | SWP_NOSIZE)
 	}
 	
 	__ParseOptions(options) {

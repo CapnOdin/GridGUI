@@ -4,8 +4,9 @@
 Class Window {
 	Static		WM_SIZE			:= 0x0005
 			,	WM_MOVE			:= 0x0003
-			,	WM_CLOSE		:= 0x0010
 			,	WM_ACTIVATE		:= 0x0006
+			,	WM_PAINT		:= 0x000F
+			,	WM_CLOSE		:= 0x0010
 			;,	WM_SHOWWINDOW	:= 0x0018
 			,	WM_CONTEXTMENU	:= 0x007B
 			,	WM_SYSCOMMAND	:= 0x0112
