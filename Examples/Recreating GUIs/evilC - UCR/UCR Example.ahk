@@ -17,16 +17,17 @@ myGui.Add("2-4", 2, "DropDownList", , , 1, , 1)
 myGui.Add(5, 2, "Button", , "Add")
 
 myGui.Add("1-5", "3-9", "Progress", , , 2.3, 1, 2.3, 1).GuiControl("+Background777777", "")
-myGui.grid.cells[myGui.grid.cells.count()].borderX := 0
-myGui.grid.cells[myGui.grid.cells.count()].borderY := 0
+myGui.GetNewestCellGroup().borderX := 0
+myGui.GetNewestCellGroup().borderY := 0
 
 myGui.Add("1-5", "9", "Progress", , , , , 1, 1).GuiControl("+BackgroundA7A8A8", "")
-myGui.grid.cells[myGui.grid.cells.count()].borderX := 0
-myGui.grid.cells[myGui.grid.cells.count()].borderY := 0
+myGui.GetNewestCellGroup().borderX := 0
+myGui.GetNewestCellGroup().borderY := 0
 
 myGui.Add(1, 9, "Text", "BackgroundTrans", "Save Status:", , , , , "CW")
 myGui.Add(2, 9, "Text", "cRed BackgroundTrans", "You have unsaved changes", , , , , "CE")
-myGui.Add(3, 9, "Button", "BackgroundTrans", "Save Settings", , , , , "CW")
+ctrl := myGui.Add(3, 9, "Button", "BackgroundTrans", "Save Settings", , , , , "CW")
+myGui.RegisterForground(ctrl)
 
 myGui.Add("6-7", 1, "Text", , "Profile ToolBox", , , , , "C")
 myGui.Add("6-7", "2-3", "TreeView", , , , 1, 1, 1, "C")
@@ -35,7 +36,7 @@ TV_Add("Global")
 TV_Add("Default")
 TV_Add("Profile 1")
 
-checkbox := myGui.Add("6-7", 6, "Checkbox", "Center", "Profile Inherits Plugins`nfrom parent", , , , , "CW")
+myGui.Add("6-7", 6, "Checkbox", "Center", "Profile Inherits Plugins`nfrom parent", , , , , "CW")
 myGui.Add(6, 7, "Button", , "Add", 1, , 1, , "C")
 myGui.Add(6, 8, "Button", , "Rename", 1, , 1, , "C")
 myGui.Add(6, 9, "Button", , "Copy", 1, , 1, , "C")
