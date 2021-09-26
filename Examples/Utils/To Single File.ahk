@@ -7,6 +7,9 @@ AddIncludedScripts(path, alreadyIncluded := "") {
 	if(!alreadyIncluded) {
 		alreadyIncluded := {}
 	}
+	if(!FileExist(path)) {
+		MsgBox, % "Unable to find file: " path
+	}
 	source := FileOpen(path, "r `n").Read()
 	for i, match in RegExMatchAll(source, "imO `n)#Include\s+(?:(?:%A_ScriptDir%)|(?:%A_LineFile%))?(.+\.ahk)\s*$") {
 		SplitPath, % match["match"][1], name
