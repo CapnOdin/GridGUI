@@ -76,8 +76,8 @@
 			this.RemoveCell(this.GetCellGroup(Ctrl))
 		}
 		
-		RemoveCellByPos(GridPos) {
-			this.RemoveCell(this.GetCellGroupsAt(GridPos))
+		RemoveCellByPos(GridPos, index := 1) {
+			this.RemoveCell(this.GetCellGroupsAt(GridPos)[index])
 		}
 		
 		GetCellGroupsAt(GridPos) {
