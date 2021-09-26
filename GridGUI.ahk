@@ -211,14 +211,10 @@
 		
 		__Init(area) {
 			this.pos := area ? area : new GridGUI.Position(0, 0, 0, 0)
-			if(this.pos.w) {
-				this.initialWidth := true
-				this.initialWidthVal := this.pos.w
-			}
-			if(this.pos.h) {
-				this.initialHeight := true
-				this.initialHeightVal := this.pos.h
-			}
+			this.initialWidth := this.pos.w != 0
+			this.initialHeight := this.pos.h != 0
+			this.initialWidthVal := this.pos.w
+			this.initialHeightVal := this.pos.h
 		}
 		
 		Draw(area) {
