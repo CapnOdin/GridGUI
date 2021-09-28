@@ -52,7 +52,7 @@ AddFunction(name, json) {
 		}
 	}
 	if(json["returns"]) {
-		mkdocs .= "`n**returns**:`n`n> **desc**: " json["returns"]["desc"] "`n`n> **type**: " json["returns"]["type"]
+		mkdocs .= "`n`n**returns**:`n`n> **desc**: " json["returns"]["desc"] "`n`n> **type**: " json["returns"]["type"]
 	}
 	return mkdocs
 }
