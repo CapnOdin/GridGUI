@@ -79,29 +79,29 @@ nav:
         
     - Examples:
         - Examples:
-        - One:                  Examples\Example 1.md
-        - Background:           Examples\Example Background.md
-        - CellGroups:           Examples\Example CellGroups.md
-        - Exp Fight:            Examples\Example Exp Fight.md
-        - Expanding Buttons:    Examples\Example Expanding Buttons.md
-        - Expansion Battle 1:   Examples\Example Expansion Battle 1.md
-        - Find Text in Files:   Examples\Example Find Text in Files.md
-        - Grid Button:          Examples\Example Grid Button.md
-        - Grid Game:            Examples\Example Grid Game.md
-        - Grid Test:            Examples\Example Grid Test.md
-        - GroupBox Simple:      Examples\Example GroupBox Simple.md
-        - GroupBox:             Examples\Example GroupBox.md
-        - Gui Events:           Examples\Example Gui Events.md
-        - Keyword Arguments:    Examples\Example Keyword Arguments.md
-        - Margin:               Examples\Example Margin.md
-        - RadioGroups 2:        Examples\Example RadioGroups 2.md
-        - RadioGroups:          Examples\Example RadioGroups.md
-        - Serial Terminal:      Examples\Example Serial Terminal.md
-        - SubGrids:             Examples\Example SubGrids.md
-        - Tabs:                 Examples\Example Tabs.md
-        - Transparent:          Examples\Example Transparent.md
-        - Unicode:              Examples\Example Unicode.md
-        - User Input:           Examples\Example User Input.md
-        - Window Grid:          Examples\Example Window Grid.md
+        - One:                  Examples/Example 1.md
+        - Background:           Examples/Example Background.md
+        - CellGroups:           Examples/Example CellGroups.md
+        - Exp Fight:            Examples/Example Exp Fight.md
+        - Expanding Buttons:    Examples/Example Expanding Buttons.md
+        - Expansion Battle 1:   Examples/Example Expansion Battle 1.md
+        - Find Text in Files:   Examples/Example Find Text in Files.md
+        - Grid Button:          Examples/Example Grid Button.md
+        - Grid Game:            Examples/Example Grid Game.md
+        - Grid Test:            Examples/Example Grid Test.md
+        - GroupBox Simple:      Examples/Example GroupBox Simple.md
+        - GroupBox:             Examples/Example GroupBox.md
+        - Gui Events:           Examples/Example Gui Events.md
+        - Keyword Arguments:    Examples/Example Keyword Arguments.md
+        - Margin:               Examples/Example Margin.md
+        - RadioGroups 2:        Examples/Example RadioGroups 2.md
+        - RadioGroups:          Examples/Example RadioGroups.md
+        - Serial Terminal:      Examples/Example Serial Terminal.md
+        - SubGrids:             Examples/Example SubGrids.md
+        - Tabs:                 Examples/Example Tabs.md
+        - Transparent:          Examples/Example Transparent.md
+        - Unicode:              Examples/Example Unicode.md
+        - User Input:           Examples/Example User Input.md
+        - Window Grid:          Examples/Example Window Grid.md
     - Changelog: Changelog.md
 
