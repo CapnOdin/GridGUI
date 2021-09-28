@@ -33,6 +33,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -61,6 +62,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -69,6 +71,7 @@
 
 ####__SetUpWindow
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -91,6 +94,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -99,6 +103,7 @@
 
 ####ControlFocus
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -107,6 +112,7 @@
 
 ####ControlGetPos
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -123,6 +129,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -139,6 +146,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 

@@ -7,6 +7,7 @@
 
 ####__DetectHidden
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -29,6 +30,7 @@
 > **desc**: 
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: 
@@ -37,6 +39,7 @@
 
 ####__Setup
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -45,6 +48,7 @@
 
 ####ControlGetFocus
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -61,6 +65,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -69,6 +74,7 @@
 
 ####WinActivate
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -77,6 +83,7 @@
 
 ####WinActive
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -85,6 +92,7 @@
 
 ####WinExist
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -101,6 +109,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -109,6 +118,7 @@
 
 ####WinGetPos
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -117,6 +127,7 @@
 
 ####WinHide
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -151,6 +162,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -173,6 +185,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -181,6 +194,7 @@
 
 ####WinShow
 **desc**: 
+
 **returns**:
 
 > **desc**: 

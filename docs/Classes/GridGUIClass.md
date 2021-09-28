@@ -81,6 +81,7 @@ A class representing a gui with a grid.
 > **desc**: Whether or not to show a grid for the control that where placed on the gui before it was shown the first time.
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: Returns a new instance of `GridGUI.GridGUIClass`
@@ -103,6 +104,7 @@ A class representing a gui with a grid.
 > **desc**: The Rows that the cell spands over. When more than one row is wanted seperate the start and end rows with a hyphen, e.g. "2-5".
 
 > **type**: string|number
+
 **returns**:
 
 > **desc**: Returns the translated position as a point with a width and a height.
@@ -197,6 +199,7 @@ A class representing a gui with a grid.
 > **type**: string
 
 > **default**: C
+
 **returns**:
 
 > **desc**: Returns the added control
@@ -257,6 +260,7 @@ A class representing a gui with a grid.
 > **type**: string
 
 > **default**: C
+
 **returns**:
 
 > **desc**: Returns the contols that the method was called with.
@@ -287,6 +291,7 @@ A class representing a gui with a grid.
 > **desc**: The control used to match the right `GridGUI.Cell`
 
 > **type**: GridGUI.GuiControlClass
+
 **returns**:
 
 > **desc**: Returns the found `GridGUI.Cell`
@@ -303,6 +308,7 @@ A class representing a gui with a grid.
 > **desc**: The grid position where the `GridGUI.Cell`s are retrived from.
 
 > **type**: GridGUI.Position
+
 **returns**:
 
 > **desc**: returns the array of `GridGUI.Cell`s at `GridPos`
@@ -311,6 +317,7 @@ A class representing a gui with a grid.
 
 ####GetNewestCellGroup
 **desc**: Retrieves the most recently added `GridGUI.Cell`.
+
 **returns**:
 
 > **desc**: Retruns the most recent `GridGUI.Cell`.

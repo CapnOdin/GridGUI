@@ -15,6 +15,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -31,6 +32,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -65,6 +67,7 @@
 > **desc**: 
 
 > **type**: number
+
 **returns**:
 
 > **desc**: 
@@ -99,6 +102,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -115,6 +119,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -131,6 +136,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -139,6 +145,7 @@
 
 ####Area
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -155,6 +162,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -171,6 +179,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -179,6 +188,7 @@
 
 ####Copy
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -195,6 +205,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -211,6 +222,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -227,6 +239,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -235,6 +248,7 @@
 
 ####Middle
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -251,6 +265,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -267,6 +282,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 

@@ -90,6 +90,7 @@ A class that allows a `GridGUI.GridGUIClass` to be added to the `GridGUI.GridGUI
 > **desc**: Whether or not to show a debug grid for the `GridGUI.Cell`s that where placed in the GridGUI.SubGrid.grid` before `GridGUI.SubGrid.Draw` was called the first time.
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: Returns a new instance of `GridGUI.SubGrid`
@@ -98,6 +99,7 @@ A class that allows a `GridGUI.GridGUIClass` to be added to the `GridGUI.GridGUI
 
 ####ControlGetPos
 **desc**: Retrives the position of the subgrid. Needed in providing the interface required to be managed by a `GridGUI.Cell` instance.
+
 **returns**:
 
 > **desc**: The last position that `GridGUI.SubGrid.Draw` was called with.

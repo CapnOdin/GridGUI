@@ -7,6 +7,7 @@
 
 ####__New
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -23,6 +24,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -45,6 +47,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -67,6 +70,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -83,6 +87,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -99,6 +104,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -115,6 +121,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -137,6 +144,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -159,6 +167,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -167,6 +176,7 @@
 
 ####ReCalculate
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -175,6 +185,7 @@
 
 ####Reduce
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -191,6 +202,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -199,6 +211,7 @@
 
 ####SortConflicts
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -215,6 +228,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -231,6 +245,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -247,6 +262,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 

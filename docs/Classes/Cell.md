@@ -7,6 +7,7 @@
 
 ####__Delete
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -41,6 +42,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -111,6 +113,7 @@
 > **type**: number
 
 > **default**: 5
+
 **returns**:
 
 > **desc**: 
@@ -139,6 +142,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -161,6 +165,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -169,6 +174,7 @@
 
 ####DestroyCtrl
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -209,6 +215,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -249,6 +256,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -257,6 +265,7 @@
 
 ####GetExpansionHeightValue
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -265,6 +274,7 @@
 
 ####GetExpansionWidthValue
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -273,6 +283,7 @@
 
 ####GetFixedHeight
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -281,6 +292,7 @@
 
 ####GetFixedWidth
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -289,6 +301,7 @@
 
 ####GetNeededHeight
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -297,6 +310,7 @@
 
 ####GetNeededWidth
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -319,6 +333,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -347,6 +362,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -363,6 +379,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -371,6 +388,7 @@
 
 ####ToolTip
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -387,6 +405,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -395,6 +414,7 @@
 
 ####Update
 **desc**: 
+
 **returns**:
 
 > **desc**: 

@@ -48,6 +48,7 @@ A class used as a namespace to protect the lib and a user's script from unintent
 > **desc**: Whether or not to show a debug grid for the `GridGUI.Cell`s that where placed in the `GridGUI.GridGUIClass.grid` before `GridGUI.GridGUIClass.Draw` was called the first time.
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: Returns a new instance of `GridGUI.GridGUIClass`
@@ -82,6 +83,7 @@ A class used as a namespace to protect the lib and a user's script from unintent
 > **desc**: The y coordinate of the top left corner of the area
 
 > **type**: number
+
 **returns**:
 
 > **desc**: A new Position instance
@@ -116,6 +118,7 @@ A class used as a namespace to protect the lib and a user's script from unintent
 > **desc**: The height of the area spanning from the top left corner at (x, y) to the bottom right corner
 
 > **type**: number
+
 **returns**:
 
 > **desc**: A new Position instance

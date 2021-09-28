@@ -27,6 +27,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -43,6 +44,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -51,6 +53,7 @@
 
 ####__SetDefaultGui
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -83,6 +86,7 @@
 > **type**: number
 
 > **default**: 1
+
 **returns**:
 
 > **desc**: 
@@ -113,6 +117,7 @@
 > **desc**: 
 
 > **type**: number
+
 **returns**:
 
 > **desc**: 

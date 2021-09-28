@@ -15,6 +15,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -37,6 +38,7 @@
 > **desc**: 
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: 
@@ -71,6 +73,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -105,6 +108,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -139,6 +143,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -147,6 +152,7 @@
 
 ####__GuiInit
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -181,6 +187,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -215,6 +222,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -223,6 +231,7 @@
 
 ####__LowerBackgoundCtrls
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -251,6 +260,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -259,6 +269,7 @@
 
 ####__OnAdd
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -293,6 +304,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -301,6 +313,7 @@
 
 ####__RaiseForgoundCtrls
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -309,6 +322,7 @@
 
 ####__ReDrawForgoundCtrls
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -343,6 +357,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -359,6 +374,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -375,6 +391,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -403,6 +420,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -425,6 +443,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -433,6 +452,7 @@
 
 ####ControlGetFocus
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -441,6 +461,7 @@
 
 ####Default
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -449,6 +470,7 @@
 
 ####Destroy
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -465,6 +487,7 @@
 > **desc**: 
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: 
@@ -487,6 +510,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -495,6 +519,7 @@
 
 ####Hide
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -511,6 +536,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -533,6 +559,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -541,6 +568,7 @@
 
 ####Maximize
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -557,6 +585,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -565,6 +594,7 @@
 
 ####Minimize
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -587,6 +617,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -603,6 +634,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -619,6 +651,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -641,6 +674,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -657,6 +691,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -665,6 +700,7 @@
 
 ####Restore
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -683,6 +719,7 @@
 > **type**: string
 
 > **default**: AutoSize
+
 **returns**:
 
 > **desc**: 
@@ -699,6 +736,7 @@
 > **desc**: 
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: 
@@ -715,6 +753,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 

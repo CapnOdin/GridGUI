@@ -45,6 +45,7 @@
 > **desc**: 
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: 
@@ -61,6 +62,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -77,6 +79,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -85,6 +88,7 @@
 
 ####DrawSelectedTab
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -93,6 +97,7 @@
 
 ####GetDisplayArea
 **desc**: 
+
 **returns**:
 
 > **desc**: 

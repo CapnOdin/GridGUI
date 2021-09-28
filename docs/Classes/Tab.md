@@ -39,6 +39,7 @@
 > **desc**: 
 
 > **type**: bool
+
 **returns**:
 
 > **desc**: 
@@ -111,6 +112,7 @@
 > **type**: string
 
 > **default**: C
+
 **returns**:
 
 > **desc**: 
@@ -171,6 +173,7 @@
 > **type**: string
 
 > **default**: C
+
 **returns**:
 
 > **desc**: 
@@ -187,6 +190,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 

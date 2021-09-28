@@ -7,6 +7,7 @@
 
 ####__New
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -15,6 +16,7 @@
 
 ####__ResetConstants
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -31,6 +33,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -39,6 +42,7 @@
 
 ####CalculateConstants
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -73,6 +77,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -81,6 +86,7 @@
 
 ####GetFixedHeight
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -89,6 +95,7 @@
 
 ####GetMinHeight
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -123,6 +130,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -139,6 +147,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 

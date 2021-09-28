@@ -7,6 +7,7 @@
 
 ####__Init
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -23,6 +24,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -39,6 +41,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -61,6 +64,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -99,6 +103,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 
@@ -107,6 +112,7 @@
 
 ####ControlFocus
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -129,6 +135,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -137,6 +144,7 @@
 
 ####ControlGetPos
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -145,6 +153,7 @@
 
 ####ControlGetText
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -161,6 +170,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -177,6 +187,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -193,6 +204,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -209,6 +221,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -225,6 +238,7 @@
 > **desc**: 
 
 > **type**: string
+
 **returns**:
 
 > **desc**: 

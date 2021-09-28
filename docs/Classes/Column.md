@@ -15,6 +15,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -31,6 +32,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -47,6 +49,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -63,6 +66,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -79,6 +83,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -95,6 +100,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -103,6 +109,7 @@
 
 ####__ResetConstants
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -119,6 +126,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -127,6 +135,7 @@
 
 ####CalculateConstants
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -161,6 +170,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
@@ -169,6 +179,7 @@
 
 ####GetExpanderMaxValue
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -177,6 +188,7 @@
 
 ####GetExpanders
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -185,6 +197,7 @@
 
 ####GetFixedWidth
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -193,6 +206,7 @@
 
 ####GetMinWidth
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -201,6 +215,7 @@
 
 ####GetNonExpanders
 **desc**: 
+
 **returns**:
 
 > **desc**: 
@@ -217,6 +232,7 @@
 > **desc**: 
 
 > **type**: string|number|object
+
 **returns**:
 
 > **desc**: 
