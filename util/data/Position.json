@@ -1,0 +1,263 @@
+{
+	"Position": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__CompareX": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CompareY": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "x",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "y",
+						"type": "string|number|object"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "w",
+						"type": "number"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "h",
+						"type": "number"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__OneDimentionalCompare": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "min1",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "max1",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "min2",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "max2",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__OverlapX": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__OverlapY": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Area": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Compare": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Contains": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Copy": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Disjoint": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Equal": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Intersect": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Middle": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ToStr": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "indent",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Touch": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

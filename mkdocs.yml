@@ -1,0 +1,106 @@
+site_name: GridGUI
+repo_name: CapnOdin/GridGUI
+repo_url: https://github.com/CapnOdin/GridGUI
+edit_uri: null
+
+theme:
+    name: material
+    favicon: imgs/Gradient Icon.webp
+    logo: imgs/Gradient Icon.webp
+    highlightjs: true
+    hljs_languages:
+        - autohotkey
+    features:
+        - content.code.annotate
+        - content.tabs.link
+        # - header.autohide
+        - navigation.expand
+        # - navigation.indexes
+        - navigation.instant
+        - navigation.sections
+        - navigation.tabs
+        # - navigation.tabs.sticky
+        - navigation.top
+        - navigation.tracking
+        - search.highlight
+        - search.share
+        - search.suggest
+        # - toc.integrate
+
+
+extra_css:
+    - css/extra.css
+    - css/extra2.css
+
+extra_javascript:
+    - js/extra.js
+
+markdown_extensions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+    - attr_list
+    - md_in_html
+
+nav:
+    - Home: index.md
+    - How to Use: How to Use.md
+    - Class References:
+        - GUI:
+            - Classes/GridGUI.md
+            - Classes/GridGUIClass.md
+            - Classes/SubGrid.md
+            - Classes/GUI.md
+            - Classes/GuiCallback.md
+        - Controls:
+            - Classes/ControlClass.md
+            - Classes/GuiControlClass.md
+            - Classes/ArbitraryControl.md
+            - Classes/ListviewControl.md
+            - Classes/RadioGroupControl.md
+            - Classes/StatusBarControl.md
+            - Classes/TabControl.md
+            - Classes/TreeviewControl.md
+            - Classes/WindowControl.md
+        - Grid:
+            - Classes/Grid.md
+            - Classes/Cell.md
+            - Classes/Column.md
+            - Classes/Columns.md
+            - Classes/Row.md
+            - Classes/Rows.md
+            - Classes/ExpanderArbitrator.md
+        - Misc:
+            - Classes/BoundFunc.md
+            - Classes/Position.md
+            - Classes/Tab.md
+            - Classes/Util.md
+            - Classes/Window.md
+        
+    - Examples:
+        - One:                  Examples\Example 1.md
+        - Background:           Examples\Example Background.md
+        - CellGroups:           Examples\Example CellGroups.md
+        - Exp Fight:            Examples\Example Exp Fight.md
+        - Expanding Buttons:    Examples\Example Expanding Buttons.md
+        - Expansion Battle 1:   Examples\Example Expansion Battle 1.md
+        - Find Text in Files:   Examples\Example Find Text in Files.md
+        - Grid Button:          Examples\Example Grid Button.md
+        - Grid Game:            Examples\Example Grid Game.md
+        - Grid Test:            Examples\Example Grid Test.md
+        - GroupBox Simple:      Examples\Example GroupBox Simple.md
+        - GroupBox:             Examples\Example GroupBox.md
+        - Gui Events:           Examples\Example Gui Events.md
+        - Keyword Arguments:    Examples\Example Keyword Arguments.md
+        - Margin:               Examples\Example Margin.md
+        - RadioGroups 2:        Examples\Example RadioGroups 2.md
+        - RadioGroups:          Examples\Example RadioGroups.md
+        - Serial Terminal:      Examples\Example Serial Terminal.md
+        - SubGrids:             Examples\Example SubGrids.md
+        - Tabs:                 Examples\Example Tabs.md
+        - Transparent:          Examples\Example Transparent.md
+        - Unicode:              Examples\Example Unicode.md
+        - User Input:           Examples\Example User Input.md
+        - Window Grid:          Examples\Example Window Grid.md
+    - Changelog: Changelog.md
+

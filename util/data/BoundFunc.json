@@ -1,0 +1,75 @@
+{
+	"BoundFunc": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__Get": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "key",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__GetInstanceType": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "object",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__IsInstanceOf": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "object",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "class",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ToStr": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "indent",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

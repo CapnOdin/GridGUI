@@ -1,0 +1,1618 @@
+{
+	"Cell": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__Delete": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__FindLeastUsedRowColumn": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "size",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "start",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "nonExpanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expanders",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "ctrl",
+						"type": "string|number|object"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "exW",
+						"type": "number"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "exH",
+						"type": "number"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "fillW",
+						"type": "number"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "fillH",
+						"type": "number"
+					},
+					{
+						"default": "C",
+						"desc": "",
+						"link": "",
+						"name": "justify",
+						"type": "string"
+					},
+					{
+						"default": 5,
+						"desc": "",
+						"link": "",
+						"name": "borderX",
+						"type": "number"
+					},
+					{
+						"default": 5,
+						"desc": "",
+						"link": "",
+						"name": "borderY",
+						"type": "number"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__Sum": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "obj",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "start",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "end",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Center": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "area",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"DestroyCtrl": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetExpandedHeight": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "height",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "nonExpanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expandersMaxValue",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetExpandedWidth": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "width",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "nonExpanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expandersMaxValue",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetExpansionHeightValue": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetExpansionWidthValue": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetFixedHeight": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetFixedWidth": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetNeededHeight": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetNeededWidth": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Justify": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "area",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetArea": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "offset",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "widths",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "heights",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetCtrlSize": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ToolTip": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ToStr": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "indent",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Update": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"Column": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__CalculateConfligtingExpanders": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CalculateExpanders": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CalculateFixedWidth": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CalculateMinWidth": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CalculateNonExpanders": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Add": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculateConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculateWidth": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "width",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "nonExpanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expandersMaxValue",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetExpanderMaxValue": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetExpanders": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetFixedWidth": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetMinWidth": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetNonExpanders": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Remove": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"Columns": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__New": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Add": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculateConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculateWidths": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "width",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "nonExpanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expandersMaxValue",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetFixedWidth": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetMinWidth": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ReduceToGuiSize": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "widths",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expandedWidths",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "sumExpandedWidths",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "excessWidth",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Remove": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"ExpanderArbitrator": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__New": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Add": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CheckConflicts": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expander",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CheckOverlapping": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expander",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Init": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"InitCheck": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"IsExpander": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"IsInHeightConflictWith": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c1",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "c2",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"IsInWidthConflictWith": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c1",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "c2",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ReCalculate": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Reduce": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Remove": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SortConflicts": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"UnInit": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"UnInitCheck": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Update": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"Grid": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__New": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"AddCell": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculatePositions": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "area",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetMinHeight": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetMinWidth": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"RemoveCell": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ResetConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"Row": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__CalculateConfligtingExpanders": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CalculateExpanders": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CalculateFixedHeight": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CalculateMinHeight": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CalculateNonExpanders": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Add": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculateConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculateHeight": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "height",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "nonExpanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expandersMaxValue",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetExpanderMaxValue": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetExpanders": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetFixedHeight": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetMinHeight": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetNonExpanders": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Remove": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"Rows": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__New": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Add": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculateConstants": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"CalculateHeights": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "height",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "nonExpanders",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expandersMaxValue",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetFixedHeight": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetMinHeight": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ReduceToGuiSize": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "heights",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "expandedHeights",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "sumExpandedHeights",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "excessHeight",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Remove": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"Util": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"AddZeros": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "z",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ByExH": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ByExW": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "c",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"BySecoundValue": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "lst",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"BySize": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ConvertStObjToObjOfStr": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "obj",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"DPIScale": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					},
+					{
+						"default": true,
+						"desc": "",
+						"link": "",
+						"name": "enlarge",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"FindIndex": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "lst",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "val",
+						"type": "string|number|object"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "fun",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"prettyPrint": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "str",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"RemoveValue": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "lst",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "val",
+						"type": "string|number|object"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "fun",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Sort": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "obj",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "fun",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Sum": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "obj",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

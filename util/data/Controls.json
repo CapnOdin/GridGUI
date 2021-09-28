@@ -1,0 +1,1230 @@
+{
+	"ArbitraryControl": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "type",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"ListviewControl": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetCurrentLV": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "previous",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__SetCurrentLV": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"AddArray": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "lst",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"DeleteCol": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ColumnNumber",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"FindItem": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string|number|object"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "number"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "partial",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetCount": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "Mode",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetNext": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "StartingRowNumber",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "RowType",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetSelection": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetText": {
+				"args": [
+					{
+						"default": "OutputVar",
+						"desc": "",
+						"link": "",
+						"name": "ByRef",
+						"type": "string"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "RowNumber",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ColumnNumber",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"InsertCol": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ColumnNumber",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "Options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ColumnTitle",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Redraw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "bool",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ScrollTo": {
+				"args": [
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "number"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "partial",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetImageList": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ImageListID",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "IconType",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"RadioGroupControl": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__Callback": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ctrl",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "callback",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Check": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"New": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"StatusBarControl": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetDefaultGui": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "previous",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__SetDefaultGui": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetIcon": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "Filename",
+						"type": "string|number|object"
+					},
+					{
+						"default": 1,
+						"desc": "",
+						"link": "",
+						"name": "IconNumber",
+						"type": "number"
+					},
+					{
+						"default": 1,
+						"desc": "",
+						"link": "",
+						"name": "PartNumber",
+						"type": "number"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetText": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "NewText",
+						"type": "string|number|object"
+					},
+					{
+						"default": 1,
+						"desc": "",
+						"link": "",
+						"name": "PartNumber",
+						"type": "number"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "Style",
+						"type": "number"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"TabControl": {
+		"classes": {
+			"Tab": {
+				"classes": {},
+				"members": {},
+				"methods": {
+					"__New": {
+						"args": [
+							{
+								"desc": "",
+								"link": "",
+								"name": "guiHwnd",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "index",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "tabName",
+								"type": "string|number|object"
+							},
+							{
+								"default": true,
+								"desc": "",
+								"link": "",
+								"name": "DPIScale",
+								"type": "bool"
+							},
+							{
+								"default": false,
+								"desc": "",
+								"link": "",
+								"name": "showGrid",
+								"type": "bool"
+							}
+						],
+						"desc": "",
+						"returns": {
+							"desc": "",
+							"type": ""
+						}
+					},
+					"Add": {
+						"args": [
+							{
+								"desc": "",
+								"link": "",
+								"name": "x",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "y",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "type",
+								"type": "string|number|object"
+							},
+							{
+								"default": "",
+								"desc": "",
+								"link": "",
+								"name": "options",
+								"type": "string"
+							},
+							{
+								"default": "",
+								"desc": "",
+								"link": "",
+								"name": "text",
+								"type": "string"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "exW",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "exH",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "fillW",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "fillH",
+								"type": "number"
+							},
+							{
+								"default": "C",
+								"desc": "",
+								"link": "",
+								"name": "justify",
+								"type": "string"
+							}
+						],
+						"desc": "",
+						"returns": {
+							"desc": "",
+							"type": ""
+						}
+					},
+					"AddControl": {
+						"args": [
+							{
+								"desc": "",
+								"link": "",
+								"name": "x",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "y",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "ctrl",
+								"type": "string|number|object"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "exW",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "exH",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "fillW",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "fillH",
+								"type": "number"
+							},
+							{
+								"default": "C",
+								"desc": "",
+								"link": "",
+								"name": "justify",
+								"type": "string"
+							}
+						],
+						"desc": "",
+						"returns": {
+							"desc": "",
+							"type": ""
+						}
+					},
+					"Draw": {
+						"args": [
+							{
+								"desc": "",
+								"link": "",
+								"name": "pos",
+								"type": "string|number|object"
+							}
+						],
+						"desc": "",
+						"returns": {
+							"desc": "",
+							"type": ""
+						}
+					}
+				}
+			}
+		},
+		"members": {},
+		"methods": {
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"default": true,
+						"desc": "",
+						"link": "",
+						"name": "preDrawOtherTabs",
+						"type": "bool"
+					},
+					{
+						"default": true,
+						"desc": "",
+						"link": "",
+						"name": "DPIScale",
+						"type": "bool"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "showGrid",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ParseTabLst": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "tablst",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Draw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"DrawSelectedTab": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetDisplayArea": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"TreeviewControl": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetCurrentTV": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "previous",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__SetCurrentTV": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Add": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "Name",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ParentItemID",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "Options",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Delete": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Get": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "Attribute",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetChild": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ParentItemID",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetCount": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetNext": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ItemType",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetParent": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetPrev": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetSelection": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetText": {
+				"args": [
+					{
+						"default": "OutputVar",
+						"desc": "",
+						"link": "",
+						"name": "ByRef",
+						"type": "string"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Redraw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "bool",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetImageList": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ImageListID",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "IconType",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	},
+	"WindowControl": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__CheckIfClicked": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "wParam",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "lParam",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "msg",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "hwnd",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "hwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__SetUpWindow": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Control": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "subCommand",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "value",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ControlFocus": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ControlGetPos": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ControlMove": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Draw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

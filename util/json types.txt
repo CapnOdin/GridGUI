@@ -1,0 +1,23 @@
+
+Variable:
+	"desc": "",
+	"type": "",
+	"default": "",
+	"meta": [],
+	"link": ""
+
+
+Function:
+	"desc": "",
+	"args": [
+		{	"name": "",
+			"desc": "",
+			"default": "",
+			"type": "",
+			"link": ""},
+	],
+	"returns": {
+		"desc": "",
+		"type": ""
+	}
+
