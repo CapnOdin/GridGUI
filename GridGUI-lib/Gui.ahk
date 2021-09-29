@@ -164,12 +164,12 @@ Class GUI Extends GridGUI.Window {
 		}
 	}
 	
-	_GuiSize(pos) {
+	_GuiSize(pos, resizeEvent := 0) {
 		pos := this.__DPIScale(pos, false)
 		this.pos.w := pos.w
 		this.pos.h := pos.h
 		if(this.GuiSize) {
-			this.GuiSize.Call(this.pos)
+			this.GuiSize.Call(this.pos, resizeEvent)
 		}
 	}
 	
@@ -211,7 +211,7 @@ Class GUI Extends GridGUI.Window {
 	__GuiActivate(wParam, lParam, msg, hwnd) {
 		if(this.hwnd = hwnd) {
 			if(this.GuiActivate) {
-				this.GuiActivate.Call(wParam)
+				this.GuiActivate.Call(wParam & 0xffff)
 			}
 		}
 	}
@@ -259,7 +259,7 @@ Class GUI Extends GridGUI.Window {
 				timer := this.resizeTimer
 				SetTimer, % timer, Off
 			}
-			timer := this.resizeTimer := new GridGUI.BoundFunc(this.__Class "._GuiSize", this, new GridGUI.Position(0, 0, lParam & 0xffff, lParam >> 16))
+			timer := this.resizeTimer := new GridGUI.BoundFunc(this.__Class "._GuiSize", this, new GridGUI.Position(0, 0, lParam & 0xffff, lParam >> 16), wParam)
 			SetTimer, % timer, -50
 		}
 	}

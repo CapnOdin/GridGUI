@@ -134,9 +134,9 @@
 			this.grid.CalculatePositions(area)
 		}
 		
-		_GuiSize(pos) {
+		_GuiSize(pos, resizeEvent := 0) {
 			local Base, area
-			Base._GuiSize(pos)
+			Base._GuiSize(pos, resizeEvent)
 			this.Draw(this.pos)
 			if(this.showGrid) {
 				ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")`nRSize: (" pos.w ", " pos.h ")"
