@@ -30,7 +30,7 @@ Class GUI Extends GridGUI.Window {
 		this.GuiActivate	:= false
 		this.GuiContextMenu	:= false
 		this.DropTarges := {}
-		this.ForgroundCtrls := []
+		this.ForegroundCtrls := []
 		this.BackgroundCtrls := []
 	}
 	
@@ -42,8 +42,8 @@ Class GUI Extends GridGUI.Window {
 	}
 	
 	__OnAdd() {
-		this.__RaiseForgoundCtrls()
-		this.__LowerBackgoundCtrls()
+		this.__RaiseForegroundCtrls()
+		this.__LowerBackgroundCtrls()
 	}
 	
 	Show(options := "AutoSize") {
@@ -132,9 +132,9 @@ Class GUI Extends GridGUI.Window {
 		this.DropTarges[ctrl.hwnd] := Callback
 	}
 	
-	RegisterForground(ctrl) {
+	RegisterForeground(ctrl) {
 		ctrl.ZOrder(True)
-		this.ForgroundCtrls.Push(ctrl)
+		this.ForegroundCtrls.Push(ctrl)
 	}
 	
 	RegisterBackground(ctrl) {
@@ -143,21 +143,21 @@ Class GUI Extends GridGUI.Window {
 		this.BackgroundCtrls.Push(ctrl)
 	}
 	
-	__ReDrawForgoundCtrls() {
+	__ReDrawForegroundCtrls() {
 		local i, ctrl
-		for i, ctrl in this.ForgroundCtrls {
+		for i, ctrl in this.ForegroundCtrls {
 			ctrl.ReDraw()
 		}
 	}
 	
-	__RaiseForgoundCtrls() {
+	__RaiseForegroundCtrls() {
 		local i, ctrl
-		for i, ctrl in this.ForgroundCtrls {
+		for i, ctrl in this.ForegroundCtrls {
 			ctrl.ZOrder(True)
 		}
 	}
 	
-	__LowerBackgoundCtrls() {
+	__LowerBackgroundCtrls() {
 		local i, ctrl
 		for i, ctrl in this.BackgroundCtrls {
 			ctrl.ZOrder(False)
@@ -197,12 +197,12 @@ Class GUI Extends GridGUI.Window {
 	__OnPaint(wParam, lParam, msg, hwnd) {
 		local timer
 		if(this.hwnd = hwnd) {
-			if(this.ForgroundCtrls.Count()) {
+			if(this.ForegroundCtrls.Count()) {
 				if(this.reDrawTimer) {
 					timer := this.reDrawTimer
 					SetTimer, % timer, Off
 				}
-				timer := this.reDrawTimer := new GridGUI.BoundFunc("GridGUI.GUI.__ReDrawForgoundCtrls", this)
+				timer := this.reDrawTimer := new GridGUI.BoundFunc("GridGUI.GUI.__ReDrawForegroundCtrls", this)
 				SetTimer, % timer, -10
 			}
 		}

@@ -27,7 +27,7 @@ myGui.GetNewestCellGroup().borderY := 0
 myGui.Add(1, 9, "Text", "BackgroundTrans", "Save Status:", , , , , "CW")
 myGui.Add(2, 9, "Text", "cRed BackgroundTrans", "You have unsaved changes", , , , , "CE")
 ctrl := myGui.Add(3, 9, "Button", "BackgroundTrans", "Save Settings", , , , , "CW")
-myGui.RegisterForground(ctrl)
+myGui.RegisterForeground(ctrl)
 
 myGui.Add("6-7", 1, "Text", , "Profile ToolBox", , , , , "C")
 myGui.Add("6-7", "2-3", "TreeView", , , , 1, 1, 1, "C")
