@@ -1,216 +1,248 @@
 {
 	"GUI": {
-		"classes": {},
-		"members": {},
+		"desc": "A class representing a GUI.",
+		"extends": "GridGUI.Window",
+		"members": {
+			"DPIScale": {
+				"desc": "Whether or not to correct for non standard dpi.",
+				"type": "bool",
+				"default": true,
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#DPIScale"
+			},
+			"pos": {
+				"desc": "The position of this GUI.",
+				"type": "GridGUI.Position",
+				"default": "GridGUI.Position(0, 0)",
+				"meta": ["object"]
+			},
+			"GuiSize": {
+				"desc": "The callback that will be called on `WM_SIZE`.",
+				"type": "Func|BoundFunc|false",
+				"default": false,
+				"meta": ["object"],
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#GuiSize"
+			},
+			"GuiMoved": {
+				"desc": "The callback that will be called on `WM_MOVE`.",
+				"type": "Func|BoundFunc|false",
+				"default": false,
+				"meta": ["object"],
+				"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move"
+			},
+			"GuiClose": {
+				"desc": "The callback that will be called on `WM_SYSCOMMAND` if `wParam` equals `SC_CLOSE`.",
+				"type": "Func|BoundFunc|false",
+				"default": false,
+				"meta": ["object"],
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#GuiClose"
+			},
+			"GuiActivate": {
+				"desc": "The callback that will be called on `WM_ACTIVATE`.",
+				"type": "Func|BoundFunc|false",
+				"default": false,
+				"meta": ["object"],
+				"link": "https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate"
+			},
+			"GuiContextMenu": {
+				"desc": "The callback that will be called on `WM_CONTEXTMENU`.",
+				"type": "Func|BoundFunc|false",
+				"default": false,
+				"meta": ["object"],
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#GuiContextMenu"
+			},
+			"DropTarges": {
+				"desc": "An object of hwnds mapping to callbacks that will be call on `WM_DROPFILES` if the event was on a control with the corresponding hwnd. To register a callback see `GridGUI.GUI.RegisterDropTarget`.",
+				"type": "object",
+				"default": "{}",
+				"meta": ["object"]
+			},
+			"ForegroundCtrls": {
+				"desc": "An array of controls that should be raised above all newly added controls and which are redrawn after other controls have been drawn. To register a foreground control see `GridGUI.GUI.RegisterForeground`.",
+				"type": "array",
+				"default": "[]",
+				"meta": ["object"]
+			},
+			"BackgroundCtrls": {
+				"desc": "An array of controls that should be lowered below all newly added controls and which have the style `WS_CLIPSIBLINGS` applied. To register a background control see `GridGUI.GUI.RegisterBackground`.",
+				"type": "array",
+				"default": "[]",
+				"meta": ["object"],
+				"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles"
+			}
+		},
 		"methods": {
 			"__CheckOptions": {
+				"desc": "Parses option strings for values that are used by the class and updated the instance based on the values.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string|number|object"
+						"desc": "An ahk GUI option string.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The `options` argument minus anything that class handles, currently only `gLabels` are removed.",
+					"type": "string"
 				}
 			},
 			"__DPIScale": {
+				"desc": "Scale a position by the dpi ratio, that is `A_ScreenDPI / 96`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The `GridGUI.Position` instance to scale.",
+						"type": "GridGUI.Position"
 					},
 					{
-						"default": true,
-						"desc": "",
-						"link": "",
 						"name": "enlarge",
+						"desc": "Whether to increase or decrease the size of `pos`.",
+						"default": true,
 						"type": "bool"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The scaled position.",
+					"type": "GridGUI.Position"
 				}
 			},
 			"__GuiActivate": {
+				"desc": "The internal callback on `WM_ACTIVATE` that calls the user defined `GridGUI.GUI.GuiActivate` if it evaluates to true. The callback is called with the low-order word of `wParam`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "wParam",
-						"type": "string|number|object"
+						"desc": "Low-order word is the active state of the changed window, the high-order word is whether the window was minimised. If the low-order word is **1** the window was activated, if it is **2** the window was activated by a mouse click and if it is **0** the window is deactivated.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "lParam",
-						"type": "string|number|object"
+						"desc": "The hwnd of the window where the active state of the window changed.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "msg",
-						"type": "string|number|object"
+						"desc": "WM_ACTIVATE (0x0006).",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the window or control that recieved the message.",
+						"type": "hwnd"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__GuiContextMenu": {
+				"desc": "The internal callback on `WM_CONTEXTMENU` that calls the user defined `GridGUI.GUI.GuiContextMenu` if it evaluates to true. The callback is called with the clicked coordinate as a `GridGUI.Position` and with the hwnd of the windows that was right-clicked.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "wParam",
-						"type": "string|number|object"
+						"desc": "The hwnd of the windows that was right-clicked.",
+						"type": "hwnd",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/menurc/wm-contextmenu"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "lParam",
-						"type": "string|number|object"
+						"desc": "The clicked coordinate. The low-order word is the x coordinate. The high-order word is the y coordinate.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/menurc/wm-contextmenu"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "msg",
-						"type": "string|number|object"
+						"desc": "WM_CONTEXTMENU (0x007B).",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the window or control that recieved the message.",
+						"type": "hwnd"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__GuiDropFiles": {
+				"desc": "The internal callback on `WM_DROPFILES` that calls the user defined `GridGUI.GUI.DropTarges` if the callback associated array has the `hwnd` argument as one of its key. The callback is called with an array of the dropped files.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hDrop",
-						"type": "string|number|object"
+						"desc": "A handle to an internal structure describing the dropped files.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/shell/wm-dropfiles"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "lParam",
-						"type": "string|number|object"
+						"desc": "Always zero.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/shell/wm-dropfiles"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "msg",
-						"type": "string|number|object"
+						"desc": "WM_DROPFILES (0x0233).",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the window or control that recieved the message.",
+						"type": "hwnd"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__GuiInit": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Initialises all the members of the GUI class."
 			},
 			"__GuiMoved": {
+				"desc": "The internal callback on `WM_MOVE` that calls `GridGUI.GUI._GuiMoved` with the new location as a `GridGUI.Position`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "wParam",
-						"type": "string|number|object"
+						"desc": "Unused.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "lParam",
-						"type": "string|number|object"
+						"desc": "The coordinate of the top left corner of the window. The low-order word is the x coordinate and the high-order word is the y coordinate.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "msg",
-						"type": "string|number|object"
+						"desc": "WM_MOVE (0x0003).",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the window or control that recieved the message.",
+						"type": "hwnd"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__GuiSize": {
+				"desc": "The internal callback on `WM_SIZE` that calls `GridGUI.GUI._GuiSize` with the new area as a `GridGUI.Position` where x and y are both zero and with the `wParam` argument.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "wParam",
-						"type": "string|number|object"
+						"desc": "The type of resizing that have occurred. **0** is normal resizing, **1** means that the window was minimised and **2** means that it was maximised.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "lParam",
-						"type": "string|number|object"
+						"desc": "The new area of the window. The low-order word is the width and the high-order word is the height.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "msg",
-						"type": "string|number|object"
+						"desc": "WM_SIZE (0x0005).",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the window or control that recieved the message.",
+						"type": "hwnd"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__LowerBackgoundCtrls": {
 				"desc": "",
@@ -257,84 +289,64 @@
 				}
 			},
 			"__OnPaint": {
+				"desc": "The internal callback on `WM_PAINT` that calls `GridGUI.GUI.__ReDrawForgoundCtrls` to fix issues with overlapping controls for controls registered in `GridGUI.GUI.ForegroundCtrls`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "wParam",
-						"type": "string|number|object"
+						"desc": "Unused.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/gdi/wm-paint"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "lParam",
-						"type": "string|number|object"
+						"desc": "Unused.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/gdi/wm-paint"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "msg",
-						"type": "string|number|object"
+						"desc": "WM_PAINT (0x000F).",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the window or control that recieved the message.",
+						"type": "hwnd"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__RaiseForgoundCtrls": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": ""
 			},
 			"__ReDrawForgoundCtrls": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": ""
 			},
 			"__SysCommand": {
+				"desc": "The internal callback on `WM_SYSCOMMAND` that calls the user defined `GridGUI.GUI.GuiClose` callback on `SC_CLOSE` if the callback variable evaluates to true.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "wParam",
-						"type": "string|number|object"
+						"desc": "The type of system command requested, see link for a list of values.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "lParam",
-						"type": "string|number|object"
+						"desc": "The coordinate of the mouse, if this message was triggered by a menu selection, otherwise the argument is unused. The low-order word is the x coordinate and the high-order word is the y coordinate.",
+						"type": "number",
+						"link": "https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "msg",
-						"type": "string|number|object"
+						"desc": "WM_SYSCOMMAND (0x0112).",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the window or control that recieved the message.",
+						"type": "hwnd"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"_GuiMoved": {
 				"args": [
@@ -344,27 +356,23 @@
 						"name": "pos",
 						"type": "string|number|object"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"_GuiSize": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "string|number|object",
+						"link": ""
+					},
+					{
+						"name": "resizeEvent",
+						"desc": "",
+						"type": "number",
+						"link": ""
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Add": {
 				"args": [
@@ -627,7 +635,7 @@
 					"type": ""
 				}
 			},
-			"RegisterForground": {
+			"RegisterForeground": {
 				"args": [
 					{
 						"desc": "",
