@@ -1,233 +1,267 @@
 #GUI
 <figure markdown="1">
-
+A class representing a GUI.
 </figure>
 ---
+##Members
+
+####BackgroundCtrls
+
+> **desc**: An array of controls that should be lowered below all newly added controls and which have the style `WS_CLIPSIBLINGS` applied. To register a background control see `GridGUI.GUI.RegisterBackground`.
+
+> **type**: array
+
+> **default**: []
+
+####DPIScale
+
+> **desc**: Whether or not to correct for non standard dpi.
+
+> **type**: bool
+
+####DropTarges
+
+> **desc**: An object of hwnds mapping to callbacks that will be call on `WM_DROPFILES` if the event was on a control with the corresponding hwnd. To register a callback see `GridGUI.GUI.RegisterDropTarget`.
+
+> **type**: object
+
+> **default**: {}
+
+####ForegroundCtrls
+
+> **desc**: An array of controls that should be raised above all newly added controls and which are redrawn after other controls have been drawn. To register a foreground control see `GridGUI.GUI.RegisterForeground`.
+
+> **type**: array
+
+> **default**: []
+
+####GuiActivate
+
+> **desc**: The callback that will be called on `WM_ACTIVATE`.
+
+> **type**: Func|BoundFunc|false
+
+####GuiClose
+
+> **desc**: The callback that will be called on `WM_SYSCOMMAND` if `wParam` equals `SC_CLOSE`.
+
+> **type**: Func|BoundFunc|false
+
+####GuiContextMenu
+
+> **desc**: The callback that will be called on `WM_CONTEXTMENU`.
+
+> **type**: Func|BoundFunc|false
+
+####GuiMoved
+
+> **desc**: The callback that will be called on `WM_MOVE`.
+
+> **type**: Func|BoundFunc|false
+
+####GuiSize
+
+> **desc**: The callback that will be called on `WM_SIZE`.
+
+> **type**: Func|BoundFunc|false
+
+####pos
+
+> **desc**: The position of this GUI.
+
+> **type**: GridGUI.Position
+
+> **default**: GridGUI.Position(0, 0)
+
 ##Methods
 
 ####__CheckOptions
-**desc**: 
+**desc**: Parses option strings for values that are used by the class and updated the instance based on the values.
 
 **args**:
 
 > **name**: options
 
-> **desc**: 
+> **desc**: An ahk GUI option string.
 
-> **type**: string|number|object
+> **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: The `options` argument minus anything that class handles, currently only `gLabels` are removed.
 
-> **type**: 
+> **type**: string
 
 ####__DPIScale
-**desc**: 
+**desc**: Scale a position by the dpi ratio, that is `A_ScreenDPI / 96`.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` instance to scale.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 > **name**: enlarge
 
-> **desc**: 
+> **desc**: Whether to increase or decrease the size of `pos`.
 
 > **type**: bool
 
 **returns**:
 
-> **desc**: 
+> **desc**: The scaled position.
 
-> **type**: 
+> **type**: GridGUI.Position
 
 ####__GuiActivate
-**desc**: 
+**desc**: The internal callback on `WM_ACTIVATE` that calls the user defined `GridGUI.GUI.GuiActivate` if it evaluates to true. The callback is called with the low-order word of `wParam`.
 
 **args**:
 
 > **name**: wParam
 
-> **desc**: 
+> **desc**: Low-order word is the active state of the changed window, the high-order word is whether the window was minimised. If the low-order word is **1** the window was activated, if it is **2** the window was activated by a mouse click and if it is **0** the window is deactivated.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: lParam
 
-> **desc**: 
+> **desc**: The hwnd of the window where the active state of the window changed.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: msg
 
-> **desc**: 
+> **desc**: WM_ACTIVATE (0x0006).
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: hwnd
 
 ####__GuiContextMenu
-**desc**: 
+**desc**: The internal callback on `WM_CONTEXTMENU` that calls the user defined `GridGUI.GUI.GuiContextMenu` if it evaluates to true. The callback is called with the clicked coordinate as a `GridGUI.Position` and with the hwnd of the windows that was right-clicked.
 
 **args**:
 
 > **name**: wParam
 
-> **desc**: 
+> **desc**: The hwnd of the windows that was right-clicked.
 
-> **type**: string|number|object
+> **type**: hwnd
 
 > **name**: lParam
 
-> **desc**: 
+> **desc**: The clicked coordinate. The low-order word is the x coordinate. The high-order word is the y coordinate.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: msg
 
-> **desc**: 
+> **desc**: WM_CONTEXTMENU (0x007B).
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: hwnd
 
 ####__GuiDropFiles
-**desc**: 
+**desc**: The internal callback on `WM_DROPFILES` that calls the user defined `GridGUI.GUI.DropTarges` if the callback associated array has the `hwnd` argument as one of its key. The callback is called with an array of the dropped files.
 
 **args**:
 
 > **name**: hDrop
 
-> **desc**: 
+> **desc**: A handle to an internal structure describing the dropped files.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: lParam
 
-> **desc**: 
+> **desc**: Always zero.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: msg
 
-> **desc**: 
+> **desc**: WM_DROPFILES (0x0233).
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: hwnd
 
 ####__GuiInit
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Initialises all the members of the GUI class.
 
 ####__GuiMoved
-**desc**: 
+**desc**: The internal callback on `WM_MOVE` that calls `GridGUI.GUI._GuiMoved` with the new location as a `GridGUI.Position`.
 
 **args**:
 
 > **name**: wParam
 
-> **desc**: 
+> **desc**: Unused.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: lParam
 
-> **desc**: 
+> **desc**: The coordinate of the top left corner of the window. The low-order word is the x coordinate and the high-order word is the y coordinate.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: msg
 
-> **desc**: 
+> **desc**: WM_MOVE (0x0003).
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: hwnd
 
 ####__GuiSize
-**desc**: 
+**desc**: The internal callback on `WM_SIZE` that calls `GridGUI.GUI._GuiSize` with the new area as a `GridGUI.Position` where x and y are both zero and with the `wParam` argument.
 
 **args**:
 
 > **name**: wParam
 
-> **desc**: 
+> **desc**: The type of resizing that have occurred. **0** is normal resizing, **1** means that the window was minimised and **2** means that it was maximised.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: lParam
 
-> **desc**: 
+> **desc**: The new area of the window. The low-order word is the width and the high-order word is the height.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: msg
 
-> **desc**: 
+> **desc**: WM_SIZE (0x0005).
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: hwnd
 
 ####__LowerBackgoundCtrls
 **desc**: 
@@ -277,92 +311,68 @@
 > **type**: 
 
 ####__OnPaint
-**desc**: 
+**desc**: The internal callback on `WM_PAINT` that calls `GridGUI.GUI.__ReDrawForgoundCtrls` to fix issues with overlapping controls for controls registered in `GridGUI.GUI.ForegroundCtrls`.
 
 **args**:
 
 > **name**: wParam
 
-> **desc**: 
+> **desc**: Unused.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: lParam
 
-> **desc**: 
+> **desc**: Unused.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: msg
 
-> **desc**: 
+> **desc**: WM_PAINT (0x000F).
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: hwnd
 
 ####__RaiseForgoundCtrls
 **desc**: 
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####__ReDrawForgoundCtrls
 **desc**: 
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####__SysCommand
-**desc**: 
+**desc**: The internal callback on `WM_SYSCOMMAND` that calls the user defined `GridGUI.GUI.GuiClose` callback on `SC_CLOSE` if the callback variable evaluates to true.
 
 **args**:
 
 > **name**: wParam
 
-> **desc**: 
+> **desc**: The type of system command requested, see link for a list of values.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: lParam
 
-> **desc**: 
+> **desc**: The coordinate of the mouse, if this message was triggered by a menu selection, otherwise the argument is unused. The low-order word is the x coordinate and the high-order word is the y coordinate.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: msg
 
-> **desc**: 
+> **desc**: WM_SYSCOMMAND (0x0112).
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: hwnd
 
 ####_GuiMoved
 **desc**: 
@@ -375,12 +385,6 @@
 
 > **type**: string|number|object
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####_GuiSize
 **desc**: 
 
@@ -392,11 +396,11 @@
 
 > **type**: string|number|object
 
-**returns**:
+> **name**: resizeEvent
 
 > **desc**: 
 
-> **type**: 
+> **type**: number
 
 ####Add
 **desc**: 
@@ -681,7 +685,7 @@
 
 > **type**: 
 
-####RegisterForground
+####RegisterForeground
 **desc**: 
 
 **args**:

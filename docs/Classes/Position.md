@@ -299,7 +299,7 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: string
 
 ####Touch
-**desc**: Check if a `GridGUI.Position` touches this position, but not overlap with it.
+**desc**: Check if a `GridGUI.Position` touches this position, but does not overlap with it.
 
 **args**:
 
@@ -311,7 +311,7 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 
 **returns**:
 
-> **desc**: Whether or not `pos` is touches this position.
+> **desc**: Whether or not `pos` is touching this position.
 
 > **type**: bool
 
