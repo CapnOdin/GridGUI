@@ -1,291 +1,317 @@
 #Position
 <figure markdown="1">
-
+Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` are given and a square when all four members are set.
 </figure>
 ---
+##Members
+
+####h
+
+> **desc**: The height of the square spanning the down from the top left corner consisting of `GridGUI.Position.x` and `GridGUI.Position.y`.
+
+> **type**: number
+
+####w
+
+> **desc**: The width of the square spanning to the right of the top left corner consisting of `GridGUI.Position.x` and `GridGUI.Position.y`.
+
+> **type**: number
+
+####x
+
+> **desc**: The x coordinate of the position, if the optional `GridGUI.Position.w` and `GridGUI.Position.h` are non zero then `GridGUI.Position.x` is the x coordinate of the top left corner of the square spanning `GridGUI.Position.w` and `GridGUI.Position.h` down towards the right.
+
+> **type**: number
+
+####y
+
+> **desc**: The y coordinate of the position, if the optional `GridGUI.Position.w` and `GridGUI.Position.h` are non zero then `GridGUI.Position.y` is the y coordinate of the top left corner of the square spanning `GridGUI.Position.w` and `GridGUI.Position.h` down towards the right.
+
+> **type**: number
+
 ##Methods
 
 ####__CompareX
-**desc**: 
+**desc**: Compares the relative position along the x-axis with another `GridGUI.Position`.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to compare with.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.
 
-> **type**: 
+> **type**: number
 
 ####__CompareY
-**desc**: 
+**desc**: Compares the relative position along the y-axis with another `GridGUI.Position`.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to compare with.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.
 
-> **type**: 
+> **type**: number
 
 ####__New
-**desc**: 
+**desc**: Constructor.
 
 **args**:
 
 > **name**: x
 
-> **desc**: 
+> **desc**: The x coordinate of the position, if the optional `GridGUI.Position.w` and `GridGUI.Position.h` are non zero then `GridGUI.Position.x` is the x coordinate of the top left corner of the square spanning `GridGUI.Position.w` and `GridGUI.Position.h` down towards the right.
 
 > **type**: string|number|object
 
 > **name**: y
 
-> **desc**: 
+> **desc**: The y coordinate of the position, if the optional `GridGUI.Position.w` and `GridGUI.Position.h` are non zero then `GridGUI.Position.y` is the y coordinate of the top left corner of the square spanning `GridGUI.Position.w` and `GridGUI.Position.h` down towards the right.
 
 > **type**: string|number|object
 
 > **name**: w
 
-> **desc**: 
+> **desc**: The width of the square spanning to the right of the top left corner consisting of `GridGUI.Position.x` and `GridGUI.Position.y`.
 
 > **type**: number
 
 > **name**: h
 
-> **desc**: 
+> **desc**: The height of the square spanning the down from the top left corner consisting of `GridGUI.Position.x` and `GridGUI.Position.y`.
 
 > **type**: number
 
 **returns**:
 
-> **desc**: 
+> **desc**: A new `GridGUI.Position` instance.
 
-> **type**: 
+> **type**: GridGUI.Position
 
 ####__OneDimentionalCompare
-**desc**: 
+**desc**: Compares the amount of overlap between two ranges.
 
 **args**:
 
 > **name**: min1
 
-> **desc**: 
+> **desc**: The minimum of the first range.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: max1
 
-> **desc**: 
+> **desc**: The maximum of the first range.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: min2
 
-> **desc**: 
+> **desc**: The minimum of the second range.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: max2
 
-> **desc**: 
+> **desc**: The maximum of the second range.
 
-> **type**: string|number|object
+> **type**: number
 
 **returns**:
 
-> **desc**: 
+> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.
 
-> **type**: 
+> **type**: number
 
 ####__OverlapX
-**desc**: 
+**desc**: Compares the amount of overlap along the x-axis with another `GridGUI.Position`.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to compare with.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: The amount of overlap.
 
-> **type**: 
+> **type**: number
 
 ####__OverlapY
-**desc**: 
+**desc**: Compares the amount of overlap along the y-axis with another `GridGUI.Position`.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to compare with.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: The amount of overlap.
 
-> **type**: 
+> **type**: number
 
 ####Area
-**desc**: 
+**desc**: Calculates the area of the square with sides `GridGUI.Position.w` and `GridGUI.Position.h`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The area.
 
-> **type**: 
+> **type**: number
 
 ####Compare
-**desc**: 
+**desc**: Compares the relative position along the x-axis and the y-axis with another `GridGUI.Position`.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to compare with.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: An array with the result of the two one dimensional comparisons. The result of the x-axis comparison is in index 1 and the result of the y-axis comparison is in index 2.
 
-> **type**: 
+> **type**: array
 
 ####Contains
-**desc**: 
+**desc**: Check if a `GridGUI.Position` is contained within the area of this position.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to perform the check on.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: Whether or not `pos` was contained within this position.
 
-> **type**: 
+> **type**: bool
 
 ####Copy
-**desc**: 
+**desc**: Copy Constructor.
 
 **returns**:
 
-> **desc**: 
+> **desc**: An identical copy of this position.
 
-> **type**: 
+> **type**: GridGUI.Position
 
 ####Disjoint
-**desc**: 
+**desc**: Check if a `GridGUI.Position` does not touch this position.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to perform the check on.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: Whether or not `pos` touches this position.
 
-> **type**: 
+> **type**: bool
 
 ####Equal
-**desc**: 
+**desc**: Check if a `GridGUI.Position` is identical to this position.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to compare with.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: Whether or not `pos` is identical to this position.
 
-> **type**: 
+> **type**: bool
 
 ####Intersect
-**desc**: 
+**desc**: Check if a `GridGUI.Position` overlaps with this position, that is that at least one corner of one of the two `GridGUI.Position` is within the other `GridGUI.Position`.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to perform the check on.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: Whether or not `pos` intersects with this position
 
-> **type**: 
+> **type**: bool
 
 ####Middle
-**desc**: 
+**desc**: Calculates the middle of this position.
 
 **returns**:
 
-> **desc**: 
+> **desc**: A new `GridGUI.Position` instance with `GridGUI.Position.x` and `GridGUI.Position.y` being the middle of this position.
 
-> **type**: 
+> **type**: GridGUI.Position
 
 ####ToStr
-**desc**: 
+**desc**: Converts the object to a string.
 
 **args**:
 
 > **name**: indent
 
-> **desc**: 
+> **desc**: The amount of indentation to add on each line.
 
 > **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: A string representing this position.
 
-> **type**: 
+> **type**: string
 
 ####Touch
-**desc**: 
+**desc**: Check if a `GridGUI.Position` touches this position, but not overlap with it.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The `GridGUI.Position` to perform the check on.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: Whether or not `pos` is touches this position.
 
-> **type**: 
+> **type**: bool
 
