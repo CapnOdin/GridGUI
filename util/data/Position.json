@@ -245,7 +245,7 @@
 				}
 			},
 			"Touch": {
-				"desc": "Check if a `GridGUI.Position` touches this position, but not overlap with it.",
+				"desc": "Check if a `GridGUI.Position` touches this position, but does not overlap with it.",
 				"args": [
 					{
 						"name": "pos",
@@ -254,7 +254,7 @@
 					}
 				],
 				"returns": {
-					"desc": "Whether or not `pos` is touches this position.",
+					"desc": "Whether or not `pos` is touching this position.",
 					"type": "bool"
 				}
 			}
