@@ -260,7 +260,7 @@
 						"name": "options",
 						"desc": "The gui option string that the GUI will be created with.",
 						"default": "",
-						"type": "string"
+						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options"
 					},
 					{
