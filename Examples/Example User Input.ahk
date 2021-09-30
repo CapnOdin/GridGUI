@@ -27,3 +27,7 @@ ToolTip(text) {
 ShowEditText(edit) {
 	ToolTip, % "You typed """ edit.vVar """ in the edit control"
 }
+
+GuiClose:
+	ExitApp
+return
