@@ -44,7 +44,7 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 
 **returns**:
 
-> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.
+> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
 
 > **type**: number
 
@@ -61,7 +61,7 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 
 **returns**:
 
-> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.
+> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
 
 > **type**: number
 
@@ -131,7 +131,7 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 
 **returns**:
 
-> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.
+> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
 
 > **type**: number
 

@@ -264,51 +264,39 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####__LowerBackgoundCtrls
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Lowers the z-order of all registered controls in `GridGUI.GUI.BackgroundCtrls`. To register controls as background controls see `GridGUI.GUI.RegisterBackground`.
 
 ####__New
-**desc**: 
+**desc**: Constructor.
 
 **args**:
 
 > **name**: title
 
-> **desc**: 
+> **desc**: The title of the newly created GUI.
 
 > **type**: string
 
 > **name**: options
 
-> **desc**: 
+> **desc**: The gui option string that the GUI will be created with.
 
 > **type**: string
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: If specified then no new GUI will be created and no `OnMessage` callbacks will be set up. Instead the `GridGUI.GUI` instance will work like a wrapper for the GUI that can be used to interact with it.
 
 > **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: A new `GridGUI.GUI` instance.
 
-> **type**: 
+> **type**: GridGUI.GUI
 
 ####__OnAdd
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Updates the z-order of registered controls. Called when a control is added to the GUI.
 
 ####__OnPaint
 **desc**: The internal callback on `WM_PAINT` that calls `GridGUI.GUI.__ReDrawForgoundCtrls` to fix issues with overlapping controls for controls registered in `GridGUI.GUI.ForegroundCtrls`.
@@ -340,10 +328,10 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####__RaiseForgoundCtrls
-**desc**: 
+**desc**: Raises the z-order of all registered controls in `GridGUI.GUI.ForegroundCtrls`. To register controls as background controls see `GridGUI.GUI.RegisterForeground`.
 
 ####__ReDrawForgoundCtrls
-**desc**: 
+**desc**: Redraws the controls registered with `GridGUI.GUI.RegisterForeground`. Called on `WM_PAINT`.
 
 ####__SysCommand
 **desc**: The internal callback on `WM_SYSCOMMAND` that calls the user defined `GridGUI.GUI.GuiClose` callback on `SC_CLOSE` if the callback variable evaluates to true.
@@ -375,64 +363,64 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####_GuiMoved
-**desc**: 
+**desc**: An internal callback used to update the x and y coordinate of `GridGUI.GUI.pos` and to call the user defined `GridGUI.GUI.GuiMoved` callback
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The new coordinate of the top left corner of the GUI. The width and height are both zero.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 ####_GuiSize
-**desc**: 
+**desc**: An internal callback used to update the width and height of `GridGUI.GUI.pos` and to call the user defined `GridGUI.GUI.GuiSize` callback
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The new area of the GUI. The x and y coordinate are both zero.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 > **name**: resizeEvent
 
-> **desc**: 
+> **desc**: A number indicating whether the GUI was maximised, minimised or neither that is passed on to the user defined `GridGUI.GUI.GuiSize` callback. See the link for what the numbers mean.
 
 > **type**: number
 
 ####Add
-**desc**: 
+**desc**: Adds most standard ahk controls to the GUI.
 
 **args**:
 
 > **name**: controlType
 
-> **desc**: 
+> **desc**: The type of the control. Can be `Text, Edit, UpDown, Picture, Button, Checkbox, DropDownList, ComboBox, ListBox, Link, Hotkey, DateTime, MonthCal, Slider, Progress, GroupBox and ActiveX`. For `Radio, ListView, TreeView, Tab3 and StatusBar` see [AdditionalControls](AdditionalControls)
 
-> **type**: string|number|object
+> **type**: string
 
 > **name**: options
 
-> **desc**: 
+> **desc**: The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.
 
 > **type**: string
 
 > **name**: text
 
-> **desc**: 
+> **desc**: The text that the control will be created with.
 
 > **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: The added control instance.
 
-> **type**: 
+> **type**: GridGUI.ArbitraryControl
 
 ####Color
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Color`
 
 **args**:
 
@@ -447,12 +435,6 @@ A class representing a GUI.
 > **desc**: 
 
 > **type**: string
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
 
 ####ControlGetFocus
 **desc**: 
@@ -473,7 +455,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Destroy
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Destroy`
 
 **returns**:
 
@@ -482,7 +464,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Flash
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Flash`
 
 **args**:
 
@@ -499,7 +481,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Font
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Font`
 
 **args**:
 
@@ -522,7 +504,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Hide
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Hide`
 
 **returns**:
 
@@ -548,7 +530,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Margin
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Margin`
 
 **args**:
 
@@ -571,7 +553,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Maximize
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Maximize`
 
 **returns**:
 
@@ -580,7 +562,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Menu
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Menu`
 
 **args**:
 
@@ -597,7 +579,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Minimize
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Minimize`
 
 **returns**:
 
@@ -606,7 +588,7 @@ A class representing a GUI.
 > **type**: 
 
 ####MinSize
-**desc**: 
+**desc**: A thin function wrapper for `Gui, MinSize`
 
 **args**:
 
@@ -703,7 +685,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Restore
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Restore`
 
 **returns**:
 
@@ -712,7 +694,7 @@ A class representing a GUI.
 > **type**: 
 
 ####Show
-**desc**: 
+**desc**: A thin function wrapper for `Gui, Show`
 
 **args**:
 
