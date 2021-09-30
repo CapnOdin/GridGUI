@@ -245,48 +245,38 @@
 				]
 			},
 			"__LowerBackgoundCtrls": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Lowers the z-order of all registered controls in `GridGUI.GUI.BackgroundCtrls`. To register controls as background controls see `GridGUI.GUI.RegisterBackground`."
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "title",
+						"desc": "The title of the newly created GUI.",
+						"default": "",
 						"type": "string"
 					},
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "options",
+						"desc": "The gui option string that the GUI will be created with.",
+						"default": "",
 						"type": "string"
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options"
 					},
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
+						"desc": "If specified then no new GUI will be created and no `OnMessage` callbacks will be set up. Instead the `GridGUI.GUI` instance will work like a wrapper for the GUI that can be used to interact with it.",
+						"default": "",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.GUI` instance.",
+					"type": "GridGUI.GUI"
 				}
 			},
 			"__OnAdd": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Updates the z-order of registered controls. Called when a control is added to the GUI."
 			},
 			"__OnPaint": {
 				"desc": "The internal callback on `WM_PAINT` that calls `GridGUI.GUI.__ReDrawForgoundCtrls` to fix issues with overlapping controls for controls registered in `GridGUI.GUI.ForegroundCtrls`.",
@@ -316,10 +306,10 @@
 				]
 			},
 			"__RaiseForgoundCtrls": {
-				"desc": ""
+				"desc": "Raises the z-order of all registered controls in `GridGUI.GUI.ForegroundCtrls`. To register controls as background controls see `GridGUI.GUI.RegisterForeground`."
 			},
 			"__ReDrawForgoundCtrls": {
-				"desc": ""
+				"desc": "Redraws the controls registered with `GridGUI.GUI.RegisterForeground`. Called on `WM_PAINT`."
 			},
 			"__SysCommand": {
 				"desc": "The internal callback on `WM_SYSCOMMAND` that calls the user defined `GridGUI.GUI.GuiClose` callback on `SC_CLOSE` if the callback variable evaluates to true.",
@@ -349,82 +339,76 @@
 				]
 			},
 			"_GuiMoved": {
+				"desc": "An internal callback used to update the x and y coordinate of `GridGUI.GUI.pos` and to call the user defined `GridGUI.GUI.GuiMoved` callback",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The new coordinate of the top left corner of the GUI. The width and height are both zero.",
+						"type": "GridGUI.Position"
 					}
 				]
 			},
 			"_GuiSize": {
+				"desc": "An internal callback used to update the width and height of `GridGUI.GUI.pos` and to call the user defined `GridGUI.GUI.GuiSize` callback",
 				"args": [
 					{
 						"name": "pos",
-						"desc": "",
-						"type": "string|number|object",
-						"link": ""
+						"desc": "The new area of the GUI. The x and y coordinate are both zero.",
+						"type": "GridGUI.Position"
 					},
 					{
 						"name": "resizeEvent",
-						"desc": "",
+						"desc": "A number indicating whether the GUI was maximised, minimised or neither that is passed on to the user defined `GridGUI.GUI.GuiSize` callback. See the link for what the numbers mean.",
 						"type": "number",
-						"link": ""
+						"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size"
 					}
 				]
 			},
 			"Add": {
+				"desc": "Adds most standard ahk controls to the GUI.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "controlType",
-						"type": "string|number|object"
-					},
-					{
-						"default": "",
-						"desc": "",
-						"link": "",
-						"name": "options",
+						"desc": "The type of the control. Can be `Text, Edit, UpDown, Picture, Button, Checkbox, DropDownList, ComboBox, ListBox, Link, Hotkey, DateTime, MonthCal, Slider, Progress, GroupBox and ActiveX`. For `Radio, ListView, TreeView, Tab3 and StatusBar` see [AdditionalControls](AdditionalControls)",
 						"type": "string"
 					},
 					{
+						"name": "options",
+						"desc": "The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.",
 						"default": "",
-						"desc": "",
-						"link": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
+					},
+					{
 						"name": "text",
+						"desc": "The text that the control will be created with.",
+						"default": "",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The added control instance.",
+					"type": "GridGUI.ArbitraryControl"
 				}
 			},
 			"Color": {
+				"desc": "A thin function wrapper for `Gui, Color`",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "WindowColor",
-						"type": "string"
+						"desc": "",
+						"default": "",
+						"type": "string",
+						"link": ""
 					},
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "ControlColor",
-						"type": "string"
+						"desc": "",
+						"default": "",
+						"type": "string",
+						"link": ""
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"ControlGetFocus": {
 				"desc": "",
@@ -441,13 +425,14 @@
 				}
 			},
 			"Destroy": {
-				"desc": "",
+				"desc": "A thin function wrapper for `Gui, Destroy`",
 				"returns": {
 					"desc": "",
 					"type": ""
 				}
 			},
 			"Flash": {
+				"desc": "A thin function wrapper for `Gui, Flash`",
 				"args": [
 					{
 						"default": false,
@@ -457,13 +442,13 @@
 						"type": "bool"
 					}
 				],
-				"desc": "",
 				"returns": {
 					"desc": "",
 					"type": ""
 				}
 			},
 			"Font": {
+				"desc": "A thin function wrapper for `Gui, Font`",
 				"args": [
 					{
 						"default": "",
@@ -480,14 +465,13 @@
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
 					"desc": "",
 					"type": ""
 				}
 			},
 			"Hide": {
-				"desc": "",
+				"desc": "A thin function wrapper for `Gui, Hide`",
 				"returns": {
 					"desc": "",
 					"type": ""
@@ -509,6 +493,7 @@
 				}
 			},
 			"Margin": {
+				"desc": "A thin function wrapper for `Gui, Margin`",
 				"args": [
 					{
 						"default": "",
@@ -525,20 +510,20 @@
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
 					"desc": "",
 					"type": ""
 				}
 			},
 			"Maximize": {
-				"desc": "",
+				"desc": "A thin function wrapper for `Gui, Maximize`",
 				"returns": {
 					"desc": "",
 					"type": ""
 				}
 			},
 			"Menu": {
+				"desc": "A thin function wrapper for `Gui, Menu`",
 				"args": [
 					{
 						"default": "",
@@ -548,20 +533,20 @@
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
 					"desc": "",
 					"type": ""
 				}
 			},
 			"Minimize": {
-				"desc": "",
+				"desc": "A thin function wrapper for `Gui, Minimize`",
 				"returns": {
 					"desc": "",
 					"type": ""
 				}
 			},
 			"MinSize": {
+				"desc": "A thin function wrapper for `Gui, MinSize`",
 				"args": [
 					{
 						"default": "",
@@ -578,7 +563,6 @@
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
 					"desc": "",
 					"type": ""
@@ -651,13 +635,14 @@
 				}
 			},
 			"Restore": {
-				"desc": "",
+				"desc": "A thin function wrapper for `Gui, Restore`",
 				"returns": {
 					"desc": "",
 					"type": ""
 				}
 			},
 			"Show": {
+				"desc": "A thin function wrapper for `Gui, Show`",
 				"args": [
 					{
 						"default": "AutoSize",
@@ -667,7 +652,6 @@
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
 					"desc": "",
 					"type": ""
