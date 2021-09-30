@@ -32,7 +32,7 @@
 					}
 				],
 				"returns": {
-					"desc": "Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.",
+					"desc": "Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.",
 					"type": "number"
 				}
 			},
@@ -46,7 +46,7 @@
 					}
 				],
 				"returns": {
-					"desc": "Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.",
+					"desc": "Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.",
 					"type": "number"
 				}
 			},
@@ -106,7 +106,7 @@
 					}
 				],
 				"returns": {
-					"desc": "Positive values are the amount of overlap, negative values are the distance and zero mean that the rangers are touching.",
+					"desc": "Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.",
 					"type": "number"
 				}
 			},
