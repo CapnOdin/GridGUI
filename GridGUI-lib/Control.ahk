@@ -1,4 +1,5 @@
 ﻿#Include %A_LineFile%\..\Position.ahk
+#Include %A_LineFile%\..\LOGFONT.ahk
 
 Class ControlClass {
 	Static WS_CLIPSIBLINGS := 0x4000000
@@ -79,15 +80,18 @@ Class ControlClass {
 }
 
 Class GuiControlClass Extends GridGUI.ControlClass {
-	__New(hwnd, type, options := "", callback := False) {
+	__New(hwnd, type, options := "", callback := False, DPIScale := true) {
 		local Base
 		Base.__New(hwnd)
 		this.__Init()
 		this.type := type
 		this.callback := callback
+		this.DPIScale := DPIScale
 		this.GuiControl("+g", ObjBindMethod(this, "__Callback"))
 		this.vVar := this.GuiControlGet()
 		this.__ParseOptions(options)
+		this.guiHwnd := DllCall("GetAncestor", "Ptr", this.hwnd, "UInt", 1, "Ptr")
+		this.logfont := new GridGUI.LOGFONT(this.hwnd, guiHwnd)
 	}
 	
 	GuiControl(subCommand, value) {
@@ -105,6 +109,26 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 		if(options) {
 			GuiControl, % options, % this.hwnd
 		}
+	}
+	
+	Font(Options := "", FontName := "") {
+		local dim
+		
+		GuiControl, % this.guiHwnd ":Font", % this.hwnd
+		logfont := new GridGUI.LOGFONT(this.hwnd, guiHwnd)
+		
+		Gui, % this.guiHwnd ":Font", % "norm " this.logfont.ToOptions(), % this.logfont.FaceName
+		Gui, % this.guiHwnd ":Font", % Options, % FontName
+		GuiControl, % this.guiHwnd ":Font", % this.hwnd
+		this.logfont.UpdateFont()
+		
+		dim := this.logfont.GetDimensionsInPixels(this.ControlGetText())
+		if(this.DPIScale) {
+			dim := GridGUI.Util.DPIScale(dim, false)
+		}
+		Base.__ParseOptions("w" dim.w " h" dim.h)
+		
+		Gui, % this.guiHwnd ":Font", %  "norm " logfont.ToOptions(), % logfont.FaceName
 	}
 	
 	Draw(pos) {
