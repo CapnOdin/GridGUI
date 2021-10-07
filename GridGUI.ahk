@@ -45,7 +45,7 @@
 				justify :=	options.HasKey("justify") ?	options["justify"] :	justify
 				options :=	options.HasKey("options") ?	options["options"] :	""
 			}
-			ctrl := new GridGUI.ArbitraryControl(this.hwnd, type, options, text)
+			ctrl := new GridGUI.ArbitraryControl(this.hwnd, type, options, text, this.DPIScale)
 			return this.AddControl(x, y, ctrl, exW, exH, fillW, fillH, justify)
 		}
 		

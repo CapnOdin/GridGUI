@@ -1,10 +1,10 @@
 ﻿#Include %A_LineFile%\..\Control.ahk
 
 Class ArbitraryControl Extends GridGUI.GuiControlClass {
-	__New(guiHwnd, type, options := "", text := "") {
+	__New(guiHwnd, type, options := "", text := "", DPIScale := true) {
 		local Base
 		Gui, % guiHwnd ":Add", % type, % "+HwndHwnd " options, % text
-		Base.__New(Hwnd, type, options)
+		Base.__New(Hwnd, type, options, DPIScale)
 	}
 }
 
@@ -351,6 +351,8 @@ Class TabControl Extends GridGUI.ArbitraryControl {
 	DrawSelectedTab() {
 		this.tabs[this.vVar].Draw(this.disArea)
 	}
+	
+	
 	
 	__ParseTabLst(tablst) {
 		local i, tabName
