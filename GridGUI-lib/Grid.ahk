@@ -1150,4 +1150,16 @@ Class Util {
 		}
 		return False
 	}
+	
+	RGBtoBGR(oldValue) {
+		return GridGUI.Util.BGRtoRGB(oldValue)
+	}
+	
+	BGRtoRGB(oldValue) {
+		local Value
+		Value := (oldValue & 0x00ff00)
+		Value += ((oldValue & 0xff0000) >> 16)
+		Value += ((oldValue & 0x0000ff) << 16)
+		return Value
+	}
 }
