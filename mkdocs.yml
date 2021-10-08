@@ -73,6 +73,7 @@ nav:
             - Classes/ExpanderArbitrator.md
         - Misc:
             - Classes/BoundFunc.md
+            - Classes/LOGFONT.md
             - Classes/Position.md
             - Classes/Tab.md
             - Classes/Util.md
@@ -86,6 +87,7 @@ nav:
         - Expanding Buttons:    Examples/Example Expanding Buttons.md
         - Expansion Battle 1:   Examples/Example Expansion Battle 1.md
         - Find Text in Files:   Examples/Example Find Text in Files.md
+        - Font:                 Examples/Example Font.md
         - Grid Button:          Examples/Example Grid Button.md
         - Grid Game:            Examples/Example Grid Game.md
         - Grid Test:            Examples/Example Grid Test.md

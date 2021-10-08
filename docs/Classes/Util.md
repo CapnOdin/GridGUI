@@ -22,6 +22,23 @@
 
 > **type**: 
 
+####BGRtoRGB
+**desc**: 
+
+**args**:
+
+> **name**: oldValue
+
+> **desc**: 
+
+> **type**: string|number|object
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
 ####ByExH
 **desc**: 
 
@@ -198,6 +215,23 @@
 > **desc**: 
 
 > **type**: bool
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
+####RGBtoBGR
+**desc**: 
+
+**args**:
+
+> **name**: oldValue
+
+> **desc**: 
+
+> **type**: string|number|object
 
 **returns**:
 

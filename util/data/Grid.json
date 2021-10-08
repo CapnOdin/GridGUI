@@ -1409,6 +1409,21 @@
 					"type": ""
 				}
 			},
+			"BGRtoRGB": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "oldValue",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
 			"ByExH": {
 				"args": [
 					{
@@ -1569,6 +1584,21 @@
 						"link": "",
 						"name": "fun",
 						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"RGBtoBGR": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "oldValue",
+						"type": "string|number|object"
 					}
 				],
 				"desc": "",

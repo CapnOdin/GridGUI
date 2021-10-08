@@ -34,6 +34,12 @@
 
 > **type**: string
 
+> **name**: DPIScale
+
+> **desc**: 
+
+> **type**: bool
+
 **returns**:
 
 > **desc**: 

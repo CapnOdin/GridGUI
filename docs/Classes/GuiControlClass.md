@@ -51,6 +51,12 @@
 
 > **type**: bool
 
+> **name**: DPIScale
+
+> **desc**: 
+
+> **type**: bool
+
 **returns**:
 
 > **desc**: 
@@ -84,6 +90,29 @@
 > **desc**: 
 
 > **type**: string|number|object
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
+####Font
+**desc**: 
+
+**args**:
+
+> **name**: Options
+
+> **desc**: 
+
+> **type**: string
+
+> **name**: FontName
+
+> **desc**: 
+
+> **type**: string
 
 **returns**:
 

@@ -141,8 +141,8 @@
 								"name": "options",
 								"desc": "The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.",
 								"default": "",
-								"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions",
-								"type": "string"
+								"type": "string",
+								"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
 							},
 							{
 								"name": "text",

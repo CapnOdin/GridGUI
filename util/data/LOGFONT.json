@@ -1,0 +1,147 @@
+{
+	"LOGFONT": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__GetColour": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__GetDC": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "Hwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ReleaseDC": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "hDC",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetData": {
+				"args": [
+					{
+						"default": "buff",
+						"desc": "",
+						"link": "",
+						"name": "ByRef",
+						"type": "string"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "amount",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetDimensionsInPixels": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "str",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"PixelHeight": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "str",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"PixelWidth": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "str",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ToOptions": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ToStr": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"UpdateFont": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

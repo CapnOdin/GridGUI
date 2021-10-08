@@ -1,6 +1,13 @@
 # Changelog
 
 ---
+## v1.1.10
+* Added support for setting the font of [GridGUI.GuiControlClass](Classes/GuiControlClass.md) using the new method [GridGUI.GuiControlClass.Font](/Classes/GuiControlClass/#font) and for changing the size of the control after applying the font, to avoid changing the size set the font on the GUI instance instead of the control and apply the font manually.
+* [GridGUI.GUI.GuiSize](/Classes/GUI/#guisize) callback is now called with a second argument that indicates if the GUI was minimized or maximized.
+* Fixed a bug where [GridGUI.Cell](Classes/Cell.md)s where not removed by [GridGUI.GridGUIClass.RemoveCellByPos](/Classes/GridGUIClass/#removecellbypos).
+* Added [GridGUI.Grid.Util.BGRtoRGB](/Classes/Util/#bgrtorgb) and [GridGUI.Grid.Util.RGBtoBGR](/Classes/Util/#rgbtobgr) .
+* Added a utility script that converts the lib to a single script.
+
 ## v1.1.9
 * Added support for removing controls from a GridGUI
 * Fixed a bug where overlapping controls were not clickable. For examples of how to make overlapping controls clickable see ([Example Background.ahk](https://github.com/CapnOdin/GridGUI/blob/master/Examples/Example%20Background.ahk), [UCR Example.ahk](https://github.com/CapnOdin/GridGUI/blob/master/Examples/Recreating%20GUIs/evilC%20-%20UCR/UCR%20Example.ahk))

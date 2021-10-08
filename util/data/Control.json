@@ -264,6 +264,13 @@
 						"link": "",
 						"name": "callback",
 						"type": "bool"
+					},
+					{
+						"default": true,
+						"desc": "",
+						"link": "",
+						"name": "DPIScale",
+						"type": "bool"
 					}
 				],
 				"desc": "",
@@ -294,6 +301,27 @@
 						"link": "",
 						"name": "pos",
 						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Font": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "Options",
+						"type": "string"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "FontName",
+						"type": "string"
 					}
 				],
 				"desc": "",
