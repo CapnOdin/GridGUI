@@ -1,439 +1,436 @@
 {
 	"ControlClass": {
-		"classes": {},
-		"members": {},
+		"desc": "A class representing a control that is part of a window.",
+		"members": {
+			"hwnd": {
+				"desc": "The hwnd of the associated control.",
+				"type": "hwnd"
+			},
+			"initialWidth": {
+				"desc": "Whether or not the control has had its width set using `GridGUI.ControlClass.__ParseOptions`.",
+				"type": "bool",
+				"default": false
+			},
+			"initialHeight": {
+				"desc": "Whether or not the control has had its height set using `GridGUI.ControlClass.__ParseOptions`.",
+				"type": "bool",
+				"default": false
+			},
+			"initialWidthVal": {
+				"desc": "The width value set using `GridGUI.ControlClass.__ParseOptions`.",
+				"type": "number|false",
+				"default": false
+			},
+			"initialHeightVal": {
+				"desc": "The height value set using `GridGUI.ControlClass.__ParseOptions`.",
+				"type": "number|false",
+				"default": false
+			}
+		},
 		"methods": {
 			"__Init": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Initialises the `GridGUI.ControlClass` members."
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the control.",
+						"type": "hwnd"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.ControlClass` instance.",
+					"type": "GridGUI.ControlClass"
 				}
 			},
 			"__ParseOptions": {
+				"desc": "Parses option strings for values that are used by the class and updated the instance based on the values.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string|number|object"
+						"desc": "The options that will be parsed, values handled by the lib will be acted on and removed.",
+						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The option string without the parts that the class handles.",
+					"type": "string"
 				}
 			},
 			"Control": {
+				"desc": "A thin function wrapper for `Control`.",
+				"link": "https://www.autohotkey.com/docs/commands/Control.htm",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "subCommand",
-						"type": "string|number|object"
+						"desc": "The subcommand to set for the control. See link for available subcommands.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Control.htm#SubCommands"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "value",
-						"type": "string|number|object"
+						"desc": "The value to apply to the subcommand. See link for values used in the subcommands.",
+						"type": "string|number",
+						"link": "https://www.autohotkey.com/docs/commands/Control.htm#SubCommands"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"ControlClick": {
+				"desc": "A thin function wrapper for `ControlClick`.",
+				"link": "https://www.autohotkey.com/docs/commands/ControlClick.htm",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string"
+						"desc": "The position to click at in the control, see link for the coordinate format.",
+						"default": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ControlClick.htm#Parameters"
 					},
 					{
-						"default": "LEFT",
-						"desc": "",
-						"link": "",
 						"name": "WhichButton",
+						"desc": "Which mouse button to click, see link for supported values.",
+						"default": "LEFT",
+						"link": "https://www.autohotkey.com/docs/commands/ControlClick.htm#Parameters",
 						"type": "string"
 					},
 					{
-						"default": 1,
-						"desc": "",
-						"link": "",
 						"name": "ClickCount",
+						"desc": "The number of click to perform.",
+						"default": 1,
 						"type": "number"
 					},
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "Options",
-						"type": "string"
+						"desc": "A option string to change how the click are performed, see link for supported options.",
+						"default": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ControlClick.htm#Parameters"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"ControlFocus": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "A thin function wrapper for `ControlFocus`.",
+				"link": "https://www.autohotkey.com/docs/commands/ControlFocus.htm"
 			},
 			"ControlGet": {
+				"desc": "A thin function wrapper for `ControlGet`.",
+				"link": "https://www.autohotkey.com/docs/commands/ControlGet.htm",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "subCommand",
-						"type": "string|number|object"
+						"desc": "The subcommand to retrieve from the control. See link for available subcommands.",
+						"default": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ControlGet.htm#SubCommands"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "value",
-						"type": "string|number|object"
+						"desc": "Used to specify what to retrieve when the subcommand is not specific enough.",
+						"default": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ControlGet.htm#SubCommands"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The retrieved value.",
+					"type": "any"
 				}
 			},
 			"ControlGetPos": {
-				"desc": "",
+				"desc": "A thin function wrapper for `ControlGetPos`, except that it returns a `GridGUI.Position` instance.",
+				"link": "https://www.autohotkey.com/docs/commands/ControlGetPos.htm",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The position and size of the control.",
+					"type": "GridGUI.Position"
 				}
 			},
 			"ControlGetText": {
-				"desc": "",
+				"desc": "A thin function wrapper for `ControlGetText`.",
+				"link": "https://www.autohotkey.com/docs/commands/ControlGetText.htm",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The text of the control.",
+					"type": "string"
 				}
 			},
 			"ControlMove": {
+				"desc": "A thin function wrapper for `ControlMove`, except that it takes a `GridGUI.Position` instance as argument.",
+				"link": "https://www.autohotkey.com/docs/commands/ControlMove.htm",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The position and size that the control should be moved and resized to.",
+						"type": "GridGUI.Position"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"ControlSend": {
+				"desc": "A thin function wrapper for `ControlSend`.",
+				"link": "https://www.autohotkey.com/docs/commands/ControlSend.htm",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "keys",
-						"type": "string|number|object"
+						"desc": "The sequence of keys to send, use `{keyname}` for non printable keys.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ControlSend.htm#Parameters"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"ControlSetText": {
+				"desc": "A thin function wrapper for `ControlSetText`.",
+				"link": "https://www.autohotkey.com/docs/commands/ControlSetText.htm",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "NewText",
-						"type": "string|number|object"
+						"desc": "The text to set the text of the control to.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ControlSetText.htm#Parameters"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Options": {
+				"desc": "Applies styles to the control using `Control, Style`.",
+				"link": "https://www.autohotkey.com/docs/commands/Control.htm#Style",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string|number|object"
+						"desc": "The style number string to apply. See link for available styles.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/misc/Styles.htm"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"ToStr": {
+				"desc": "Converts the object to a string.",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "indent",
+						"desc": "The amount of indentation to add on each line.",
+						"default": "",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A string representing this `GridGUI.ControlClass`.",
+					"type": "string"
 				}
 			}
 		}
 	},
 	"GuiControlClass": {
-		"classes": {},
-		"members": {},
+		"desc": "A class representing a control that is part of an ahk GUI.",
+		"members": {
+			"type": {
+				"desc": "The type of the control e.g. `Button`, `Edit` etc.",
+				"type": "string"
+			},
+			"callback": {
+				"desc": "A callback that will be called whenever a glabel would be called.",
+				"type": "Func|BoundFunc|false",
+				"default": false,
+				"meta": ["object"],
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Events"
+			},
+			"DPIScale": {
+				"desc": "Whether or not to scale unscaled values by DPI/96.",
+				"type": "bool",
+				"default": false
+			},
+			"vVar": {
+				"desc": "A variable containing the value of the control as returned by `GridGUI.GuiControlClass.GuiControlGet` when called with no arguments, it is updated when the glabel is fired.",
+				"type": "any",
+				"default": "The initial value of the control."
+			},
+			"guiHwnd": {
+				"desc": "The hwnd of the parent GUI.",
+				"type": "hwnd"
+			},
+			"logfont": {
+				"desc": "An instance of `GridGUI.LOGFONT` which hold information on the font and colour of the control.",
+				"type": "GridGUI.LOGFONT",
+				"meta": ["object"]
+			}
+		},
 		"methods": {
 			"__glabel": {
+				"desc": "An internal method used to allow a function callback to a label.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "label",
-						"type": "string|number|object"
+						"desc": "The name of a label that will be `GoSub`ed to.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Events"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the control.",
+						"type": "hwnd"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "type",
-						"type": "string|number|object"
-					},
-					{
-						"default": "",
-						"desc": "",
-						"link": "",
-						"name": "options",
+						"desc": "The type of the control.",
 						"type": "string"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
-						"name": "callback",
-						"type": "bool"
+						"name": "options",
+						"desc": "The ahk options string that the control was created with, used to set up min-size and glabel callback.",
+						"default": "",
+						"type": "string"
 					},
 					{
-						"default": true,
-						"desc": "",
-						"link": "",
+						"name": "callback",
+						"desc": "The callback to call whenever the glabel of the control would be called.",
+						"default": false,
+						"type": "Func|BoundFunc|false"
+					},
+					{
 						"name": "DPIScale",
+						"desc": "Whether or not to scale unscaled values by DPI/96.",
+						"default": true,
 						"type": "bool"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.GuiControlClass` instance.",
+					"type": "GridGUI.GuiControlClass"
 				}
 			},
 			"__ParseOptions": {
+				"desc": "Parses option strings for values that are used by the class and updated the instance based on the values.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string|number|object"
+						"desc": "The options that will be parsed, values handled by the lib will be acted on and removed.",
+						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The option string without the parts that the class handles.",
+					"type": "string"
 				}
 			},
 			"Draw": {
+				"desc": "Draws the control using `MoveDraw`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The position and size to draw the control with.",
+						"type": "GridGUI.Position"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Font": {
+				"desc": "Changes the font, style and colour of the control, without impacting other controls. After the font and style has been applied the min-size of the control is changed so that the text fits.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "Options",
-						"type": "string"
+						"desc": "Styling option string, see link for detail of what options are available.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Font"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "FontName",
-						"type": "string"
+						"desc": "The name of the font to apply.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/misc/FontsStandard.htm"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"GuiControl": {
+				"desc": "A thin function wrapper for `GuiControl`.",
+				"link": "https://www.autohotkey.com/docs/commands/GuiControl.htm",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "subCommand",
-						"type": "string|number|object"
+						"desc": "The subcommand to set for the control. See link for available subcommands.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/GuiControl.htm#SubCommands"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "value",
-						"type": "string|number|object"
+						"desc": "The value to apply to the subcommand. See link for values used in the subcommands.",
+						"type": "string|number|object",
+						"link": "https://www.autohotkey.com/docs/commands/GuiControl.htm#SubCommands"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"GuiControlGet": {
+				"desc": "A thin function wrapper for `GuiControlGet`.",
+				"link": "https://www.autohotkey.com/docs/commands/GuiControlGet.htm",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "subCommand",
-						"type": "string"
+						"desc": "The subcommand to retrieve from the control. See link for available subcommands.",
+						"default": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/GuiControlGet.htm#SubCommands"
 					},
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "value",
-						"type": "string"
+						"desc": "Used to specify what to retrieve when the subcommand is not specific enough.",
+						"default": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/GuiControlGet.htm#SubCommands"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The retrieved value.",
+					"type": "any"
 				}
 			},
 			"Options": {
+				"desc": "Applies options to the control using `GuiControl`.",
+				"link": "https://www.autohotkey.com/docs/commands/GuiControl.htm#options",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string|number|object"
+						"desc": "The ahk option string to apply. See link for available options.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"ReDraw": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Draws the control again, using options that work when drawing the control ontop of other controls."
 			},
 			"ToStr": {
+				"desc": "Converts the object to a string.",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "indent",
+						"desc": "The amount of indentation to add on each line.",
+						"default": "",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A string representing this `GridGUI.GuiControlClass`.",
+					"type": "string"
 				}
 			},
 			"ZOrder": {
+				"desc": "Changes the z-order of the control to either `bottom`, `top` or `topmost`.",
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowpos",
 				"args": [
 					{
-						"default": true,
-						"desc": "",
-						"link": "",
 						"name": "top",
+						"desc": "If true moved the control to the top of the z-order. If false moves the control to the bottom of the z-order.",
+						"default": true,
 						"type": "bool"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "topmost",
+						"desc": "If `true` moves the control to be above all other controls. If false sets the z-order based on `GridGUI.GuiControlClass.top`.",
+						"default": false,
 						"type": "bool"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			}
 		}
 	}
