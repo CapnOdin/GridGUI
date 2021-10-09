@@ -2,10 +2,10 @@
 
 ---
 ## v1.1.10
-* Added support for setting the font of [GridGUI.GuiControlClass](Classes/GuiControlClass.md) using the new method [GridGUI.GuiControlClass.Font](/Classes/GuiControlClass/#font) and for changing the size of the control after applying the font, to avoid changing the size set the font on the GUI instance instead of the control and apply the font manually.
-* [GridGUI.GUI.GuiSize](/Classes/GUI/#guisize) callback is now called with a second argument that indicates if the GUI was minimized or maximized.
-* Fixed a bug where [GridGUI.Cell](Classes/Cell.md)s where not removed by [GridGUI.GridGUIClass.RemoveCellByPos](/Classes/GridGUIClass/#removecellbypos).
-* Added [GridGUI.Grid.Util.BGRtoRGB](/Classes/Util/#bgrtorgb) and [GridGUI.Grid.Util.RGBtoBGR](/Classes/Util/#rgbtobgr) .
+* Added support for setting the font of [GridGUI.GuiControlClass](Classes/GuiControlClass.md) using the new method [GridGUI.GuiControlClass.Font](Classes/GuiControlClass.md#font) and for changing the size of the control after applying the font, to avoid changing the size set the font on the GUI instance instead of the control and apply the font manually.
+* [GridGUI.GUI.GuiSize](Classes/GUI.md#guisize) callback is now called with a second argument that indicates if the GUI was minimized or maximized.
+* Fixed a bug where [GridGUI.Cell](Classes/Cell.md)s where not removed by [GridGUI.GridGUIClass.RemoveCellByPos](Classes/GridGUIClass.md#removecellbypos).
+* Added [GridGUI.Grid.Util.BGRtoRGB](Classes/Util.md#bgrtorgb) and [GridGUI.Grid.Util.RGBtoBGR](Classes/Util.md#rgbtobgr) .
 * Added a utility script that converts the lib to a single script.
 
 ## v1.1.9
