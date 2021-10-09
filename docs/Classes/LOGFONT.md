@@ -1,168 +1,252 @@
 #LOGFONT
 <figure markdown="1">
-
+A class representing the font and colour of a control.
 </figure>
 ---
+##Members
+
+####_Colour
+
+> **desc**: The colour of the controls text in BGR format.
+
+> **type**: number
+
+####CharSet
+
+> **desc**: The char set of the font. See the link for details.
+
+> **type**: number
+
+####ClipPrecision
+
+> **desc**: How characters that are partially outside the bounds of the font are handled. See link for details.
+
+> **type**: number
+
+####Colour
+
+> **desc**: The colour of the controls text in RGB format as a hex string.
+
+> **type**: string
+
+####Escapement
+
+> **desc**: The angle between the text direction and the x-axis of the screen in 1/10 degree. See link for details.
+
+> **type**: number
+
+####FaceName
+
+> **desc**: The name of the font that was applied to the control. See the link for common fonts.
+
+> **type**: string
+
+####guiHwnd
+
+> **desc**: The hwnd of the parent window of the control associated with this instance.
+
+> **type**: hwnd|false
+
+####Height
+
+> **desc**: The height of the characters in the font. See link for details.
+
+> **type**: number
+
+####HFONT
+
+> **desc**: The handle to the font associated with the control.
+
+> **type**: HFONT
+
+####Hwnd
+
+> **desc**: The hwnd of the control that is associated with this instance.
+
+> **type**: hwnd
+
+####Italic
+
+> **desc**: Whether or not the font is italic.
+
+> **type**: bool
+
+####Orientation
+
+> **desc**: The angle between the bottom of the charats and the x-axis of the screen in 1/10 degree.
+
+> **type**: number
+
+####OutPrecision
+
+> **desc**: How precisely the drawn characters most match the set font characteristics. See link for details.
+
+> **type**: number
+
+####PitchAndFamily
+
+> **desc**: The two low-order bits specify the pitch of the font and the last four bits specify the family. See link for details.
+
+> **type**: number
+
+####Quality
+
+> **desc**: The quality of the font. See link for details.
+
+> **type**: number
+
+####StrikeOut
+
+> **desc**: Whether or not the font is drawn with a line through it.
+
+> **type**: bool
+
+####Underline
+
+> **desc**: Whether or not the font is drawn with a line underneath it.
+
+> **type**: bool
+
+####Weight
+
+> **desc**: How bold the text is. See link for details.
+
+> **type**: number
+
+####Width
+
+> **desc**: The average width of characters in the font. See link for details.
+
+> **type**: number
+
 ##Methods
 
 ####__GetColour
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Retrives the colour that the parent window would paint the text as returned by `WM_CTLCOLORSTATIC`.
 
 ####__GetDC
-**desc**: 
+**desc**: Retrives the DC handle of the associated control.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The DC handle of the associated control.
 
-> **type**: 
+> **type**: HDC
 
 ####__New
-**desc**: 
+**desc**: Constructor.
 
 **args**:
 
 > **name**: Hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the control that will be associated with this instance.
 
-> **type**: string|number|object
+> **type**: hwnd
 
 > **name**: guiHwnd
 
-> **desc**: 
+> **desc**: The hwnd of the parent window.
 
-> **type**: bool
+> **type**: hwnd|false
 
 **returns**:
 
-> **desc**: 
+> **desc**: A new `GridGUI.LOGFONT` instance.
 
-> **type**: 
+> **type**: GridGUI.LOGFONT
 
 ####__ReleaseDC
-**desc**: 
+**desc**: Releases a device context.
 
 **args**:
 
 > **name**: hDC
 
-> **desc**: 
+> **desc**: The handle to the device context that will be released.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: HDC
 
 ####GetData
-**desc**: 
+**desc**: Retrieves the font characteristics from the LOGFONT structure.
 
 **args**:
 
-> **name**: ByRef
+> **name**: buff
 
-> **desc**: 
+> **desc**: A buffer holding a LOGFONT struct.
+
+> **type**: pointer
+
+####GetDimensionsInPixels
+**desc**: Returns the bounding box of a string when written using the current font and style.
+
+**args**:
+
+> **name**: str
+
+> **desc**: The string to calculate the bounding box of.
 
 > **type**: string
 
-> **default**: buff
-
-> **name**: amount
-
-> **desc**: 
-
-> **type**: string|number|object
-
 **returns**:
 
-> **desc**: 
+> **desc**: The bounding box of `str`.
 
-> **type**: 
-
-####GetDimensionsInPixels
-**desc**: 
-
-**args**:
-
-> **name**: str
-
-> **desc**: 
-
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: GridGUI.Position
 
 ####PixelHeight
-**desc**: 
+**desc**: Returns the needed height in pixels of a string using the current font and style.
 
 **args**:
 
 > **name**: str
 
-> **desc**: 
+> **desc**: The string to calculate the height of.
 
-> **type**: string|number|object
+> **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: The needed height of `str`.
 
-> **type**: 
+> **type**: number
 
 ####PixelWidth
-**desc**: 
+**desc**: Returns the needed width in pixels of a string using the current font and style.
 
 **args**:
 
 > **name**: str
 
-> **desc**: 
+> **desc**: The string to calculate the width of.
 
-> **type**: string|number|object
+> **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: The needed width of `str`.
 
-> **type**: 
+> **type**: number
 
 ####ToOptions
-**desc**: 
+**desc**: Converts the font characteristics to a string that can be used in `Gui, Font`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The font characteristics as an ahk font option string.
 
-> **type**: 
+> **type**: string
 
 ####ToStr
-**desc**: 
+**desc**: Converts the object to a string.
 
 **returns**:
 
-> **desc**: 
+> **desc**: A string representing this `GridGUI.LOGFONT`.
 
-> **type**: 
+> **type**: string
 
 ####UpdateFont
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Retrieves the font from the control and the colour for the parent window.
 

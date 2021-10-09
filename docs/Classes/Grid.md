@@ -1,6 +1,6 @@
 #Grid
 <figure markdown="1">
-
+A class representing a grid with rows, columns and cells.
 </figure>
 ---
 ##Methods

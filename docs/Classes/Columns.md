@@ -1,6 +1,6 @@
 #Columns
 <figure markdown="1">
-
+A class managing a collection of `GridGUI.Column`s.
 </figure>
 ---
 ##Methods

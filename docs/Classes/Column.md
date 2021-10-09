@@ -1,6 +1,6 @@
 #Column
 <figure markdown="1">
-
+A class representing a grid column.
 </figure>
 ---
 ##Methods

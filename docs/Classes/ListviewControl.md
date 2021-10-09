@@ -1,6 +1,6 @@
 #ListviewControl
 <figure markdown="1">
-
+A class representing a ListView.
 </figure>
 ---
 ##Methods

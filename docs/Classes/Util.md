@@ -1,6 +1,6 @@
 #Util
 <figure markdown="1">
-
+A collection of utility methods used by this lib.
 </figure>
 ---
 ##Methods

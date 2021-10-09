@@ -420,329 +420,227 @@ A class representing a GUI.
 > **type**: GridGUI.ArbitraryControl
 
 ####Color
-**desc**: A thin function wrapper for `Gui, Color`
+**desc**: A thin method wrapper for `Gui, Color`.
 
 **args**:
 
 > **name**: WindowColor
 
-> **desc**: 
+> **desc**: The colour of the background of the GUI. See link for the supported format.
 
 > **type**: string
 
 > **name**: ControlColor
 
-> **desc**: 
+> **desc**: The colour of the background of controls that are added to the GUI in the future. See link for the supported format.
 
 > **type**: string
 
 ####ControlGetFocus
-**desc**: 
+**desc**: Retrives the hwnd of the control with input focus.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The hwnd of the focused control.
 
-> **type**: 
+> **type**: hwnd
 
 ####Default
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `Gui, Default`.
 
 ####Destroy
-**desc**: A thin function wrapper for `Gui, Destroy`
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `Gui, Destroy`.
 
 ####Flash
-**desc**: A thin function wrapper for `Gui, Flash`
+**desc**: A thin method wrapper for `Gui, Flash`, except that it used a bool instead of a string to indicate that the colour should be restored.
 
 **args**:
 
 > **name**: Off
 
-> **desc**: 
+> **desc**: If `false` the GUI flashes. If `true` the colour of the GUI is restored.
 
 > **type**: bool
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####Font
-**desc**: A thin function wrapper for `Gui, Font`
+**desc**: A thin method wrapper for `Gui, Font`
 
 **args**:
 
 > **name**: Options
 
-> **desc**: 
+> **desc**: Styling option string, see link for detail of what options are available.
 
 > **type**: string
 
 > **name**: FontName
 
-> **desc**: 
+> **desc**: The name of the font to apply.
 
 > **type**: string
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####Hide
-**desc**: A thin function wrapper for `Gui, Hide`
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `Gui, Hide`
 
 ####ListView
-**desc**: 
+**desc**: Changes the default `ListView` to the specified hwnd. See the link for what changing the default `ListView` does.
 
 **args**:
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the `ListView` to set as the default.
 
-> **type**: string|number|object
+> **type**: hwnd
 
 **returns**:
 
-> **desc**: 
+> **desc**: The hwnd of the `ListView` that was previously the default.
 
-> **type**: 
+> **type**: hwnd
 
 ####Margin
-**desc**: A thin function wrapper for `Gui, Margin`
+**desc**: A thin method wrapper for `Gui, Margin`
 
 **args**:
 
 > **name**: x
 
-> **desc**: 
+> **desc**: The horisontal margin of controls that are added to the GUI.
 
 > **type**: string
 
 > **name**: y
 
-> **desc**: 
+> **desc**: The vertical margin of controls that are added to the GUI.
 
 > **type**: string
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####Maximize
-**desc**: A thin function wrapper for `Gui, Maximize`
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `Gui, Maximize`
 
 ####Menu
-**desc**: A thin function wrapper for `Gui, Menu`
+**desc**: A thin method wrapper for `Gui, Menu`
 
 **args**:
 
 > **name**: MenuName
 
-> **desc**: 
+> **desc**: The name of the menu to attach to the GUI menu bar. Menues are made using the `Menu` command, see link for details.
 
 > **type**: string
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####Minimize
-**desc**: A thin function wrapper for `Gui, Minimize`
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `Gui, Minimize`
 
 ####MinSize
-**desc**: A thin function wrapper for `Gui, MinSize`
+**desc**: Sets the minsize of the GUI, that is the size that the GUI can't be reduced beyond by drag resizing.
 
 **args**:
 
 > **name**: x
 
-> **desc**: 
+> **desc**: The minimal width of the GUI. If `""` the min width is left unchanged.
 
 > **type**: string
 
 > **name**: y
 
-> **desc**: 
+> **desc**: The minimal height of the GUI. If `""` the min height is left unchanged.
 
 > **type**: string
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####Options
-**desc**: 
+**desc**: Applies styles and options to the GUI.
 
 **args**:
 
 > **name**: options
 
-> **desc**: 
+> **desc**: The ahk GUI style and option string to apply to the GUI. See link for supported styles and options.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: string
 
 ####RegisterBackground
-**desc**: 
+**desc**: Registers a control as a background control, that is their z-order is lowered below any current and future controls.
 
 **args**:
 
 > **name**: ctrl
 
-> **desc**: 
+> **desc**: The `GridGUI.GuiControlClass` instance that will be registered.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: GridGUI.GuiControlClass
 
 ####RegisterDropTarget
-**desc**: 
+**desc**: Registers a control as a file drag and drop target. Any registered control will have its callback called whenever files are dropped on the control.
 
 **args**:
 
 > **name**: ctrl
 
-> **desc**: 
+> **desc**: The `GridGUI.ControlClass` instance that will be registered.
 
-> **type**: string|number|object
+> **type**: GridGUI.ControlClass
 
 > **name**: Callback
 
-> **desc**: 
+> **desc**: The callback to call when files are dropped on the control.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: Func|BoundFunc
 
 ####RegisterForeground
-**desc**: 
+**desc**: Registers a control to be redrawn after all other controls as well as their z-order is raised above any current and future controls.
 
 **args**:
 
 > **name**: ctrl
 
-> **desc**: 
+> **desc**: The `GridGUI.GuiControlClass` instance that will be registered.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: GridGUI.GuiControlClass
 
 ####Restore
-**desc**: A thin function wrapper for `Gui, Restore`
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `Gui, Restore`
 
 ####Show
-**desc**: A thin function wrapper for `Gui, Show`
+**desc**: A thin method wrapper for `Gui, Show`
 
 **args**:
 
 > **name**: options
 
-> **desc**: 
+> **desc**: The options string describing how to show the GUI. See link for available options.
 
 > **type**: string
 
 > **default**: AutoSize
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####Submit
-**desc**: 
+**desc**: A thin method wrapper for `Gui, Submit`
 
 **args**:
 
 > **name**: NoHide
 
-> **desc**: 
+> **desc**: Whether or not to hide the GUI after submitting it.
 
 > **type**: bool
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####TreeView
-**desc**: 
+**desc**: Changes the default `TreeView` to the specified hwnd. See the link for what changing the default `TreeView` does.
 
 **args**:
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the `TreeView` to set as the default.
 
-> **type**: string|number|object
+> **type**: hwnd
 
 **returns**:
 
-> **desc**: 
+> **desc**: The hwnd of the `TreeView` that was previously the default.
 
-> **type**: 
+> **type**: hwnd
 

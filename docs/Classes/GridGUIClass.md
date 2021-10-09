@@ -31,14 +31,14 @@ A class representing a gui with a grid.
 
 ####showGrid
 
-> **desc**: Used to remmber what parameter the `GridGUI.GridGUIClass` instance was created with and to decide whether or not to move the debug grid when drawn.
+> **desc**: Used to remember what parameter the `GridGUI.GridGUIClass` instance was created with and to decide whether or not to move the debug grid when drawn.
 
 > **type**: bool
 
 ##Methods
 
 ####__DrawGrid
-**desc**: Moves the debug grid line controls to the apropriate locations.
+**desc**: Moves the debug grid line controls to the appropriate locations.
 
 **args**:
 
@@ -95,13 +95,13 @@ A class representing a gui with a grid.
 
 > **name**: x
 
-> **desc**: The Columns that the cell spands over. When more than one column is wanted seperate the start and end columns with a hyphen, e.g. "2-5".
+> **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
 
 > **type**: string|number
 
 > **name**: y
 
-> **desc**: The Rows that the cell spands over. When more than one row is wanted seperate the start and end rows with a hyphen, e.g. "2-5".
+> **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
 
 > **type**: string|number
 
@@ -140,13 +140,13 @@ A class representing a gui with a grid.
 
 > **name**: x
 
-> **desc**: The Columns that the cell spands over. When more than one column is wanted seperate the start and end columns with a hyphen, e.g. "2-5".
+> **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
 
 > **type**: string|number
 
 > **name**: y
 
-> **desc**: The Rows that the cell spands over. When more than one row is wanted seperate the start and end rows with a hyphen, e.g. "2-5".
+> **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
 
 > **type**: string|number
 
@@ -170,13 +170,13 @@ A class representing a gui with a grid.
 
 > **name**: exW
 
-> **desc**: How much of the excess width the cell should take up relative to the other width exspanding cells. Can be an object with keys the same names as the optional arguments that this method takes.
+> **desc**: How much of the excess width the cell should take up relative to the other width expanding cells. Can be an object with keys the same names as the optional arguments that this method takes.
 
 > **type**: number
 
 > **name**: exH
 
-> **desc**: How much of the excess height the cell should take up relative to the other height exspanding cells.
+> **desc**: How much of the excess height the cell should take up relative to the other height expanding cells.
 
 > **type**: number
 
@@ -194,7 +194,7 @@ A class representing a gui with a grid.
 
 > **name**: justify
 
-> **desc**: The position of the contorl with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+> **desc**: The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
 
 > **type**: string
 
@@ -213,13 +213,13 @@ A class representing a gui with a grid.
 
 > **name**: x
 
-> **desc**: The Columns that the cell spands over. When more than one column is wanted seperate the start and end columns with a hyphen, e.g. "2-5".
+> **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
 
 > **type**: string|number
 
 > **name**: y
 
-> **desc**: The Rows that the cell spands over. When more than one row is wanted seperate the start and end rows with a hyphen, e.g. "2-5".
+> **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
 
 > **type**: string|number
 
@@ -231,13 +231,13 @@ A class representing a gui with a grid.
 
 > **name**: exW
 
-> **desc**: How much of the excess width the cell should take up relative to the other width exspanding cells. Can be an object with keys the same names as the optional arguments that this method takes.
+> **desc**: How much of the excess width the cell should take up relative to the other width expanding cells. Can be an object with keys the same names as the optional arguments that this method takes.
 
 > **type**: number
 
 > **name**: exH
 
-> **desc**: How much of the excess height the cell should take up relative to the other height exspanding cells.
+> **desc**: How much of the excess height the cell should take up relative to the other height expanding cells.
 
 > **type**: number
 
@@ -255,7 +255,7 @@ A class representing a gui with a grid.
 
 > **name**: justify
 
-> **desc**: The position of the contorl with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+> **desc**: The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
 
 > **type**: string
 
@@ -263,12 +263,12 @@ A class representing a gui with a grid.
 
 **returns**:
 
-> **desc**: Returns the contols that the method was called with.
+> **desc**: Returns the control that the method was called with.
 
 > **type**: GridGUI.GuiControlClass
 
 ####AutoSize
-**desc**: Calculates the minimum size required to show all the controls in the grid and sets the `GridGUI.GUI.pos` to the calculated width and height, as well as updates the controls in the grid to their positions. Can be used to reduce the number of controls that a noticbly misplaced when the gui is drawn the first time if called before calling `GridGUI.GridGUIClass.Show`.
+**desc**: Calculates the minimum size required to show all the controls in the grid and sets the `GridGUI.GUI.pos` to the calculated width and height, as well as updates the controls in the grid to their positions. Can be used to reduce the number of controls that a noticeable misplaced when the gui is drawn the first time if called before calling `GridGUI.GridGUIClass.Show`.
 
 ####Draw
 **desc**: Calculates the new positions of the controls in the grid based on the settings of their `GridGUI.Cell` and moved them to their new positions.
@@ -305,7 +305,7 @@ A class representing a gui with a grid.
 
 > **name**: GridPos
 
-> **desc**: The grid position where the `GridGUI.Cell`s are retrived from.
+> **desc**: The grid position where the `GridGUI.Cell`s are retrieved from.
 
 > **type**: GridGUI.Position
 
@@ -373,7 +373,7 @@ A class representing a gui with a grid.
 
 > **name**: GridPos
 
-> **desc**: The grid position where the `GridGUI.Cell`s are retrived from.
+> **desc**: The grid position where the `GridGUI.Cell`s are retrieved from.
 
 > **type**: GridGUI.Position
 

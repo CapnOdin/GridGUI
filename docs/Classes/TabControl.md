@@ -1,6 +1,6 @@
 #TabControl
 <figure markdown="1">
-
+A class representing a Tab control.
 </figure>
 ---
 ##Methods

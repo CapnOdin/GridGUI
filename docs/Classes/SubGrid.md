@@ -43,7 +43,7 @@ A class that allows a `GridGUI.GridGUIClass` to be added to the `GridGUI.GridGUI
 
 ####pos
 
-> **desc**: The postion of the subgrid. Needed since a subgrid does not make its own gui and thus do not have the gui event callbacks.
+> **desc**: The position of the subgrid. Needed since a subgrid does not make its own gui and thus do not have the gui event callbacks.
 
 > **type**: GridGUI.Position
 
@@ -52,7 +52,7 @@ A class that allows a `GridGUI.GridGUIClass` to be added to the `GridGUI.GridGUI
 ##Methods
 
 ####__Init
-**desc**: Sets the min size of the subgrid and initalises the members that are required when managed by a `GridGUI.Cell` instance.
+**desc**: Sets the min size of the subgrid and initialises the members that are required when managed by a `GridGUI.Cell` instance.
 
 **args**:
 
@@ -93,12 +93,12 @@ A class that allows a `GridGUI.GridGUIClass` to be added to the `GridGUI.GridGUI
 
 **returns**:
 
-> **desc**: Returns a new instance of `GridGUI.SubGrid`
+> **desc**: Returns a new instance of `GridGUI.SubGrid`.
 
 > **type**: GridGUI.SubGrid
 
 ####ControlGetPos
-**desc**: Retrives the position of the subgrid. Needed in providing the interface required to be managed by a `GridGUI.Cell` instance.
+**desc**: Retrieves the position of the subgrid. Needed in providing the interface required to be managed by a `GridGUI.Cell` instance.
 
 **returns**:
 
@@ -113,7 +113,7 @@ A class that allows a `GridGUI.GridGUIClass` to be added to the `GridGUI.GridGUI
 
 > **name**: area
 
-> **desc**: The area that the controls in the grid will be sized to fit into if posible
+> **desc**: The area that the controls in the grid will be sized to fit into if possible.
 
 > **type**: GridGUI.Position
 

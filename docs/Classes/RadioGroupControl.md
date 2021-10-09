@@ -1,6 +1,6 @@
 #RadioGroupControl
 <figure markdown="1">
-
+A class representing a linked group of RadioButtons. Can not be added to a gui, use `GridGUI.RadioGroupControl.New` to added radio buttons to a GUI.
 </figure>
 ---
 ##Methods

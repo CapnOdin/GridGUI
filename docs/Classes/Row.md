@@ -1,6 +1,6 @@
 #Row
 <figure markdown="1">
-
+A class representing a grid row.
 </figure>
 ---
 ##Methods

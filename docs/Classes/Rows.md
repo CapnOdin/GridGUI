@@ -1,6 +1,6 @@
 #Rows
 <figure markdown="1">
-
+A class managing a collection of `GridGUI.Row`s.
 </figure>
 ---
 ##Methods

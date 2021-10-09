@@ -1,6 +1,6 @@
 #WindowControl
 <figure markdown="1">
-
+A class representing a window that can be included in a GUI.
 </figure>
 ---
 ##Methods

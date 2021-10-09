@@ -1,13 +1,13 @@
 #GridGUI
 <figure markdown="1">
-A class used as a namespace to protect the lib and a user's script from unintented name hijacking.
+A class used as a namespace to protect the lib and a user's script from unintended name hijacking.
 </figure>
 ---
 ##Members
 
 ####Background
 
-> **desc**: Used in the handeling of controls that have been registered as background
+> **desc**: Used in the handling of controls that have been registered as background
 
 > **type**: string
 
@@ -15,7 +15,7 @@ A class used as a namespace to protect the lib and a user's script from unintent
 
 ####ExitApp
 
-> **desc**: Allows quick access to setup a callback that terminates the script
+> **desc**: Allows quick access to set up a callback that terminates the script
 
 > **type**: bound function
 
@@ -24,10 +24,10 @@ A class used as a namespace to protect the lib and a user's script from unintent
 ##Methods
 
 ####__ExitApp
-**desc**: A convenience function wrapper for the command
+**desc**: A convenience function wrapper for the command.
 
 ####__New
-**desc**: A convenience constructor that maps to the GridGUIClass
+**desc**: A convenience constructor that maps to the GridGUIClass.
 
 **args**:
 
@@ -39,7 +39,7 @@ A class used as a namespace to protect the lib and a user's script from unintent
 
 > **name**: options
 
-> **desc**: The ahk gui options that the window will be created with
+> **desc**: The ahk gui options that the window will be created with.
 
 > **type**: string
 
@@ -51,77 +51,77 @@ A class used as a namespace to protect the lib and a user's script from unintent
 
 **returns**:
 
-> **desc**: Returns a new instance of `GridGUI.GridGUIClass`
+> **desc**: Returns a new instance of `GridGUI.GridGUIClass`.
 
 > **type**: GridGUI.GridGUIClass
 
 ####Area
-**desc**: A convenience function for making a Position that is used as an area
+**desc**: A convenience function for making a Position that is used as an area.
 
 **args**:
 
 > **name**: w
 
-> **desc**: The width of the area
+> **desc**: The width of the area.
 
 > **type**: number
 
 > **name**: h
 
-> **desc**: The height of the area
+> **desc**: The height of the area.
 
 > **type**: number
 
 > **name**: x
 
-> **desc**: The x coordinate of the top left corner of the area
+> **desc**: The x coordinate of the top left corner of the area.
 
 > **type**: number
 
 > **name**: y
 
-> **desc**: The y coordinate of the top left corner of the area
+> **desc**: The y coordinate of the top left corner of the area.
 
 > **type**: number
 
 **returns**:
 
-> **desc**: A new Position instance
+> **desc**: A new Position instance.
 
 > **type**: GridGUI.Position
 
 ####Pos
-**desc**: A convenience function for making a Position, saves writting "new"
+**desc**: A convenience function for making a Position, saves writting "new".
 
 **args**:
 
 > **name**: x
 
-> **desc**: The x coordinate of the position
+> **desc**: The x coordinate of the position.
 
 > **type**: number
 
 > **name**: y
 
-> **desc**: The y coordinate of the position
+> **desc**: The y coordinate of the position.
 
 > **type**: number
 
 > **name**: w
 
-> **desc**: The width of the area spanning from the top left corner at (x, y) to the bottom right corner
+> **desc**: The width of the area spanning from the top left corner at (x, y) to the bottom right corner.
 
 > **type**: number
 
 > **name**: h
 
-> **desc**: The height of the area spanning from the top left corner at (x, y) to the bottom right corner
+> **desc**: The height of the area spanning from the top left corner at (x, y) to the bottom right corner.
 
 > **type**: number
 
 **returns**:
 
-> **desc**: A new Position instance
+> **desc**: A new Position instance.
 
 > **type**: GridGUI.Position
 

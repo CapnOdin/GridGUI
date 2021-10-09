@@ -1,6 +1,6 @@
 #ArbitraryControl
 <figure markdown="1">
-
+A class representing most ahk GUI control types.
 </figure>
 ---
 ##Methods

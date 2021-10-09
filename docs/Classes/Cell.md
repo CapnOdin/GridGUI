@@ -1,6 +1,6 @@
 #Cell
 <figure markdown="1">
-
+A class representing a grid cell.
 </figure>
 ---
 ##Methods

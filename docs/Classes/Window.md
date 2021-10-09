@@ -1,203 +1,167 @@
 #Window
 <figure markdown="1">
-
+A class representing a window.
 </figure>
 ---
 ##Methods
 
 ####__DetectHidden
-**desc**: 
+**desc**: Enables the detection of hidden windows using other ahk commands.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The previous detect hidden windows state. Either `"On"` or `"Off"`.
 
-> **type**: 
+> **type**: string
 
 ####__New
-**desc**: 
+**desc**: Constructor.
 
 **args**:
 
 > **name**: hwnd
 
-> **desc**: 
+> **desc**: The hwnd of the window that the class instance should work on.
 
-> **type**: string|number|object
+> **type**: hwnd
 
 > **name**: callbacks
 
-> **desc**: 
+> **desc**: An array of `GridGUI.GuiCallback`s to set up.
 
-> **type**: bool
+> **type**: array|false
 
 **returns**:
 
-> **desc**: 
+> **desc**: A new `GridGUI.Window` instance.
 
-> **type**: 
+> **type**: GridGUI.Window
 
 ####__Setup
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Sets up the `GridGUI.GuiCallback`s that where passed to the constructor. They are set up using `OnMessage`
 
 ####ControlGetFocus
-**desc**: 
+**desc**: Retrieves the hwnd of the control with input focus in the window if any.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The hwnd of the control with input focus or an empty string if non where found.
 
-> **type**: 
+> **type**: hwnd|""
 
 ####ToStr
-**desc**: 
+**desc**: Converts the object to a string.
 
 **args**:
 
 > **name**: indent
 
-> **desc**: 
+> **desc**: The amount of indentation to add on each line.
 
 > **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: A string representing this window.
 
-> **type**: 
+> **type**: string
 
 ####WinActivate
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `WinActivate`.
 
 ####WinActive
-**desc**: 
+**desc**: A thin method wrapper for `WinActive`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The hwnd of the window associated with this class instance if it is the active window otherwise `false`.
 
-> **type**: 
+> **type**: hwnd|false
 
 ####WinExist
-**desc**: 
+**desc**: A thin method wrapper for `WinExist`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The hwnd of the window associated with this class instance if it exists otherwise `false`.
 
-> **type**: 
+> **type**: hwnd|false
 
 ####WinGet
-**desc**: 
+**desc**: A thin method wrapper for `WinGet`.
 
 **args**:
 
 > **name**: SubCommand
 
-> **desc**: 
+> **desc**: The subcommand to retrive from the window. See the link for available subcommands.
 
-> **type**: string|number|object
+> **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: The retrieved value.
 
-> **type**: 
+> **type**: any
 
 ####WinGetPos
-**desc**: 
+**desc**: A thin method wrapper for `WinGetPos`, except that it returns a `GridGUI.Position` instance.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The position and size of the window.
 
-> **type**: 
+> **type**: GridGUI.Position
 
 ####WinHide
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `WinHide`.
 
 ####WinMove
-**desc**: 
+**desc**: A thin method wrapper for `WinMove`.
 
 **args**:
 
 > **name**: x
 
-> **desc**: 
+> **desc**: The x coordinate that the top left corner of the window will be moved to. If left empty the x coordinate of the top left corner won't change.
 
 > **type**: string
 
 > **name**: y
 
-> **desc**: 
+> **desc**: The y coordinate that the top left corner of the window will be moved to. If left empty the y coordinate of the top left corner won't change.
 
 > **type**: string
 
 > **name**: w
 
-> **desc**: 
+> **desc**: The width the window should be resized to. If left empty the width won't change.
 
 > **type**: string
 
 > **name**: h
 
-> **desc**: 
+> **desc**: The height the window should be resized to. If left empty the height won't change.
 
 > **type**: string
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####WinSet
-**desc**: 
+**desc**: A thin method wrapper for `WinSet`, except it works even if the window is hidden.
 
 **args**:
 
 > **name**: SubCommand
 
-> **desc**: 
+> **desc**: The subCommand to set for the window. See link for available subcommands.
 
-> **type**: string|number|object
+> **type**: string
 
-> **name**: Value
+> **name**: value
 
-> **desc**: 
+> **desc**: The value to apply to the subcommand. See link for values used in the subcommands.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: string|number
 
 ####WinShow
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: A thin method wrapper for `WinShow`.
 

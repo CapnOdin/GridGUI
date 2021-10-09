@@ -1,6 +1,6 @@
 #ExpanderArbitrator
 <figure markdown="1">
-
+A class that try to find cells that conflict and resolve the conflicts.
 </figure>
 ---
 ##Methods
