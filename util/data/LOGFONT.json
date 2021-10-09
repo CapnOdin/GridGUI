@@ -1,146 +1,224 @@
 {
 	"LOGFONT": {
-		"classes": {},
-		"members": {},
+		"desc": "A class representing the font and colour of a control.",
+		"members": {
+			"Hwnd": {
+				"desc": "The hwnd of the control that is associated with this instance.",
+				"type": "hwnd"
+			},
+			"guiHwnd": {
+				"desc": "The hwnd of the parent window of the control associated with this instance.",
+				"type": "hwnd|false",
+				"default": false
+			},
+			"HFONT": {
+				"desc": "The handle to the font associated with the control.",
+				"type": "HFONT",
+				"default": 0
+			},
+			"Height": {
+				"desc": "The height of the characters in the font. See link for details.",
+				"type": "number",
+				"default": 0,
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members"
+			},
+			"Width": {
+				"desc": "The average width of characters in the font. See link for details.",
+				"type": "number",
+				"default": 0,
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members"
+			},
+			"Escapement": {
+				"desc": "The angle between the text direction and the x-axis of the screen in 1/10 degree. See link for details.",
+				"type": "number",
+				"default": 0,
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members"
+			},
+			"Orientation": {
+				"desc": "The angle between the bottom of the charats and the x-axis of the screen in 1/10 degree.",
+				"type": "number",
+				"default": 0
+			},
+			"Weight": {
+				"desc": "How bold the text is. See link for details.",
+				"type": "number",
+				"default": 0,
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Font"
+			},
+			"Italic": {
+				"desc": "Whether or not the font is italic.",
+				"type": "bool",
+				"default": false
+			},
+			"Underline": {
+				"desc": "Whether or not the font is drawn with a line underneath it.",
+				"type": "bool",
+				"default": false
+			},
+			"StrikeOut": {
+				"desc": "Whether or not the font is drawn with a line through it.",
+				"type": "bool",
+				"default": false
+			},
+			"CharSet": {
+				"desc": "The char set of the font. See the link for details.",
+				"type": "number",
+				"default": 0,
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members"
+			},
+			"OutPrecision": {
+				"desc": "How precisely the drawn characters most match the set font characteristics. See link for details.",
+				"type": "number",
+				"default": 0,
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members"
+			},
+			"ClipPrecision": {
+				"desc": "How characters that are partially outside the bounds of the font are handled. See link for details.",
+				"type": "number",
+				"default": 0,
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members"
+			},
+			"Quality": {
+				"desc": "The quality of the font. See link for details.",
+				"type": "number",
+				"default": 0,
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Font"
+			},
+			"PitchAndFamily": {
+				"desc": "The two low-order bits specify the pitch of the font and the last four bits specify the family. See link for details.",
+				"type": "number",
+				"default": 0,
+				"meta": ["composite"],
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members"
+			},
+			"Colour": {
+				"desc": "The colour of the controls text in RGB format as a hex string.",
+				"type": "string",
+				"default": ""
+			},
+			"_Colour": {
+				"desc": "The colour of the controls text in BGR format.",
+				"type": "number",
+				"default": 0
+			},
+			"FaceName": {
+				"desc": "The name of the font that was applied to the control. See the link for common fonts.",
+				"type": "string",
+				"link": "https://www.autohotkey.com/docs/misc/FontsStandard.htm"
+			}
+		},
 		"methods": {
 			"__GetColour": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Retrives the colour that the parent window would paint the text as returned by `WM_CTLCOLORSTATIC`."
 			},
 			"__GetDC": {
-				"desc": "",
+				"desc": "Retrives the DC handle of the associated control.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The DC handle of the associated control.",
+					"type": "HDC"
 				}
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "Hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the control that will be associated with this instance.",
+						"type": "hwnd"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "guiHwnd",
-						"type": "bool"
+						"desc": "The hwnd of the parent window.",
+						"default": false,
+						"type": "hwnd|false"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.LOGFONT` instance.",
+					"type": "GridGUI.LOGFONT"
 				}
 			},
 			"__ReleaseDC": {
+				"desc": "Releases a device context.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hDC",
-						"type": "string|number|object"
+						"desc": "The handle to the device context that will be released.",
+						"type": "HDC"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"GetData": {
+				"desc": "Retrieves the font characteristics from the LOGFONT structure.",
 				"args": [
 					{
-						"default": "buff",
-						"desc": "",
-						"link": "",
-						"name": "ByRef",
-						"type": "string"
-					},
-					{
-						"desc": "",
-						"link": "",
-						"name": "amount",
-						"type": "string|number|object"
+						"name": "buff",
+						"desc": "A buffer holding a LOGFONT struct.",
+						"type": "pointer",
+						"meta": ["ByRef"],
+						"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"GetDimensionsInPixels": {
+				"desc": "Returns the bounding box of a string when written using the current font and style.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "str",
-						"type": "string|number|object"
+						"desc": "The string to calculate the bounding box of.",
+						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The bounding box of `str`.",
+					"type": "GridGUI.Position"
 				}
 			},
 			"PixelHeight": {
+				"desc": "Returns the needed height in pixels of a string using the current font and style.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "str",
-						"type": "string|number|object"
+						"desc": "The string to calculate the height of.",
+						"type": "string"
 					}
 				],
-				"desc": "",
+				
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The needed height of `str`.",
+					"type": "number"
 				}
 			},
 			"PixelWidth": {
+				"desc": "Returns the needed width in pixels of a string using the current font and style.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "str",
-						"type": "string|number|object"
+						"desc": "The string to calculate the width of.",
+						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The needed width of `str`.",
+					"type": "number"
 				}
 			},
 			"ToOptions": {
-				"desc": "",
+				"desc": "Converts the font characteristics to a string that can be used in `Gui, Font`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The font characteristics as an ahk font option string.",
+					"type": "string"
 				}
 			},
 			"ToStr": {
-				"desc": "",
+				"desc": "Converts the object to a string.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A string representing this `GridGUI.LOGFONT`.",
+					"type": "string"
 				}
 			},
 			"UpdateFont": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Retrieves the font from the control and the colour for the parent window."
 			}
 		}
 	}
