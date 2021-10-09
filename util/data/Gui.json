@@ -392,300 +392,234 @@
 				}
 			},
 			"Color": {
-				"desc": "A thin function wrapper for `Gui, Color`",
+				"desc": "A thin method wrapper for `Gui, Color`.",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Color",
 				"args": [
 					{
 						"name": "WindowColor",
-						"desc": "",
+						"desc": "The colour of the background of the GUI. See link for the supported format.",
 						"default": "",
 						"type": "string",
-						"link": ""
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Color"
 					},
 					{
 						"name": "ControlColor",
-						"desc": "",
+						"desc": "The colour of the background of controls that are added to the GUI in the future. See link for the supported format.",
 						"default": "",
 						"type": "string",
-						"link": ""
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Color"
 					}
 				]
 			},
 			"ControlGetFocus": {
-				"desc": "",
+				"desc": "Retrives the hwnd of the control with input focus.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The hwnd of the focused control.",
+					"type": "hwnd"
 				}
 			},
 			"Default": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "A thin method wrapper for `Gui, Default`.",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Default"
 			},
 			"Destroy": {
-				"desc": "A thin function wrapper for `Gui, Destroy`",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "A thin method wrapper for `Gui, Destroy`.",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Destroy"
 			},
 			"Flash": {
-				"desc": "A thin function wrapper for `Gui, Flash`",
+				"desc": "A thin method wrapper for `Gui, Flash`, except that it used a bool instead of a string to indicate that the colour should be restored.",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Flash",
 				"args": [
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "Off",
+						"desc": "If `false` the GUI flashes. If `true` the colour of the GUI is restored.",
+						"default": false,
 						"type": "bool"
 					}
-				],
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Font": {
-				"desc": "A thin function wrapper for `Gui, Font`",
+				"desc": "A thin method wrapper for `Gui, Font`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Font",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "Options",
-						"type": "string"
+						"desc": "Styling option string, see link for detail of what options are available.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Font"
 					},
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "FontName",
-						"type": "string"
+						"desc": "The name of the font to apply.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/misc/FontsStandard.htm"
 					}
-				],
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Hide": {
-				"desc": "A thin function wrapper for `Gui, Hide`",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "A thin method wrapper for `Gui, Hide`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Hide"
 			},
 			"ListView": {
+				"desc": "Changes the default `ListView` to the specified hwnd. See the link for what changing the default `ListView` does.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#BuiltIn",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the `ListView` to set as the default.",
+						"type": "hwnd"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The hwnd of the `ListView` that was previously the default.",
+					"type": "hwnd"
 				}
 			},
 			"Margin": {
-				"desc": "A thin function wrapper for `Gui, Margin`",
+				"desc": "A thin method wrapper for `Gui, Margin`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Margin",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "x",
+						"desc": "The horisontal margin of controls that are added to the GUI.",
+						"default": "",
 						"type": "string"
 					},
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "y",
+						"desc": "The vertical margin of controls that are added to the GUI.",
+						"default": "",
 						"type": "string"
 					}
-				],
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Maximize": {
-				"desc": "A thin function wrapper for `Gui, Maximize`",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "A thin method wrapper for `Gui, Maximize`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Minimize"
 			},
 			"Menu": {
-				"desc": "A thin function wrapper for `Gui, Menu`",
+				"desc": "A thin method wrapper for `Gui, Menu`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Menu",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "MenuName",
-						"type": "string"
+						"desc": "The name of the menu to attach to the GUI menu bar. Menues are made using the `Menu` command, see link for details.",
+						"default": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Menu.htm"
 					}
-				],
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Minimize": {
-				"desc": "A thin function wrapper for `Gui, Minimize`",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "A thin method wrapper for `Gui, Minimize`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Minimize"
 			},
 			"MinSize": {
-				"desc": "A thin function wrapper for `Gui, MinSize`",
+				"desc": "Sets the minsize of the GUI, that is the size that the GUI can't be reduced beyond by drag resizing.",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "x",
+						"desc": "The minimal width of the GUI. If `\"\"` the min width is left unchanged.",
+						"default": "",
 						"type": "string"
 					},
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "y",
+						"desc": "The minimal height of the GUI. If `\"\"` the min height is left unchanged.",
+						"default": "",
 						"type": "string"
 					}
-				],
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Options": {
+				"desc": "Applies styles and options to the GUI.",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string|number|object"
+						"desc": "The ahk GUI style and option string to apply to the GUI. See link for supported styles and options.",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"RegisterBackground": {
+				"desc": "Registers a control as a background control, that is their z-order is lowered below any current and future controls.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "ctrl",
-						"type": "string|number|object"
+						"desc": "The `GridGUI.GuiControlClass` instance that will be registered.",
+						"type": "GridGUI.GuiControlClass"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"RegisterDropTarget": {
+				"desc": "Registers a control as a file drag and drop target. Any registered control will have its callback called whenever files are dropped on the control.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "ctrl",
-						"type": "string|number|object"
+						"desc": "The `GridGUI.ControlClass` instance that will be registered.",
+						"type": "GridGUI.ControlClass"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "Callback",
-						"type": "string|number|object"
+						"desc": "The callback to call when files are dropped on the control.",
+						"type": "Func|BoundFunc"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"RegisterForeground": {
+				"desc": "Registers a control to be redrawn after all other controls as well as their z-order is raised above any current and future controls.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "ctrl",
-						"type": "string|number|object"
+						"desc": "The `GridGUI.GuiControlClass` instance that will be registered.",
+						"type": "GridGUI.GuiControlClass"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Restore": {
-				"desc": "A thin function wrapper for `Gui, Restore`",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "A thin method wrapper for `Gui, Restore`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Minimize"
 			},
 			"Show": {
-				"desc": "A thin function wrapper for `Gui, Show`",
+				"desc": "A thin method wrapper for `Gui, Show`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Show",
 				"args": [
 					{
-						"default": "AutoSize",
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string"
+						"desc": "The options string describing how to show the GUI. See link for available options.",
+						"default": "AutoSize",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Show"
 					}
-				],
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Submit": {
+				"desc": "A thin method wrapper for `Gui, Submit`",
+				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Submit",
 				"args": [
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "NoHide",
+						"desc": "Whether or not to hide the GUI after submitting it.",
+						"default": false,
 						"type": "bool"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"TreeView": {
+				"desc": "Changes the default `TreeView` to the specified hwnd. See the link for what changing the default `TreeView` does.",
+				"link": "https://www.autohotkey.com/docs/commands/TreeView.htm#BuiltIn",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the `TreeView` to set as the default.",
+						"type": "hwnd"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The hwnd of the `TreeView` that was previously the default.",
+					"type": "hwnd"
 				}
 			}
 		}
