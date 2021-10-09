@@ -53,7 +53,18 @@
 	},
 	"Window": {
 		"desc": "A class representing a window.",
-		"members": {},
+		"members": {
+			"hwnd": {
+				"desc": "The hwnd of the associated window.",
+				"type": "hwnd"
+			},
+			"callbacks": {
+				"desc": "The array of `GridGUI.GuiCallback`s that the class instance was created with.",
+				"type": "array|false",
+				"default": false,
+				"meta": ["object"]
+			}
+		},
 		"methods": {
 			"__DetectHidden": {
 				"desc": "Enables the detection of hidden windows using other ahk commands.",
