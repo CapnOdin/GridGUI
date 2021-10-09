@@ -20,6 +20,7 @@ Class Grid {
 		this.columns.Add(c)
 		this.rows.Add(c)
 		SetBatchLines, % pre
+		Critical Off
 	}
 	
 	RemoveCell(c) {
@@ -35,6 +36,7 @@ Class Grid {
 			this.cells.RemoveAt(index)
 		}
 		SetBatchLines, % pre
+		Critical Off
 	}
 	
 	GetMinWidth() {
@@ -873,7 +875,8 @@ Class Cell {
 		this.borderX := borderX
 		this.borderY := borderY
 		this.cPos := this.ctrl.ControlGetPos()
-		this.pos := this.ctrl.ControlGetPos()
+		this.ctrlPos := this.cPos.Copy()
+		this.pos := this.cPos.Copy()
 		;this.ctrl.callback := ObjBindMethod(this, "ToolTip")
 		this.othersW := 0
 		this.othersH := 0
@@ -974,7 +977,8 @@ Class Cell {
 	}
 	
 	Update() {
-		this.ctrl.Draw(this.Justify(this.pos, this.SetCtrlSize(this.pos)))
+		this.ctrlPos := this.Justify(this.pos, this.SetCtrlSize(this.pos))
+		this.ctrl.Draw(this.ctrlPos)
 	}
 	
 	SetCtrlSize(pos) {
