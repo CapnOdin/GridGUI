@@ -1,7 +1,7 @@
 ﻿Class LOGFONT{
 	Static WM_GETFONT := 0x31, WM_CTLCOLORSTATIC := 0x0138, LONG := 4
 	
-	HFONT := 0, Hwnd
+	HFONT := 0, Hwnd := 0, guiHwnd := 0
 	
 	Height := 0, Width := 0, Escapement := 0, Orientation := 0, Weight := 0
 	
@@ -22,12 +22,12 @@
 		this.HFONT := DllCall("SendMessage", "Ptr", this.Hwnd, "UInt", this.WM_GETFONT, "Ptr", 0, "Ptr", 0, "Ptr")
 		amount := DllCall("GetObject", "Ptr", this.HFONT, "Int", 0, "Ptr", 0)
 		VarSetCapacity(buff, amount, 0)
-		amount := DllCall("GetObject", "Ptr", this.HFONT, "Int", amount, "Ptr", &buff)
-		this.GetData(buff, amount)
+		DllCall("GetObject", "Ptr", this.HFONT, "Int", amount, "Ptr", &buff)
+		this.GetData(buff)
 		this.__GetColour()
 	}
 	
-	GetData(ByRef buff, amount) {
+	GetData(ByRef buff) {
 		local offset
 		; Of Type LONG
 		this.Height			:= Abs(NumGet(buff, this.LONG * 0, "Int"))	; (0) Verified I think

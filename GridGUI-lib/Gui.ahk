@@ -103,7 +103,7 @@ Class GUI Extends GridGUI.Window {
 	}
 	
 	MinSize(x := "", y := "") {
-		Gui, % this.hwnd ": +MinSize" x (y != "" ? "x" y: "")
+		Gui, % this.hwnd ": +MinSize" x (y != "" ? "x" y : "")
 	}
 	
 	ControlGetFocus() {
