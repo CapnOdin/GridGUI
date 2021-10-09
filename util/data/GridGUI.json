@@ -1,6 +1,6 @@
 {
 	"GridGUI": {
-		"desc": "A class used as a namespace to protect the lib and a user's script from unintented name hijacking.",
+		"desc": "A class used as a namespace to protect the lib and a user's script from unintended name hijacking.",
 		"classes": {
 			"GridGUIClass": {
 				"extends": "GridGUI.GUI",
@@ -13,7 +13,7 @@
 						"meta": ["object"]
 					},
 					"showGrid": {
-						"desc": "Used to remmber what parameter the `GridGUI.GridGUIClass` instance was created with and to decide whether or not to move the debug grid when drawn.",
+						"desc": "Used to remember what parameter the `GridGUI.GridGUIClass` instance was created with and to decide whether or not to move the debug grid when drawn.",
 						"type": "bool",
 						"meta": ["const"]
 					},
@@ -33,7 +33,7 @@
 				},
 				"methods": {
 					"__DrawGrid": {
-						"desc": "Moves the debug grid line controls to the apropriate locations.",
+						"desc": "Moves the debug grid line controls to the appropriate locations.",
 						"args": [
 							{
 								"name": "area",
@@ -85,12 +85,12 @@
 						"args": [
 							{
 								"name": "x",
-								"desc": "The Columns that the cell spands over. When more than one column is wanted seperate the start and end columns with a hyphen, e.g. \"2-5\".",
+								"desc": "The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. \"2-5\".",
 								"type": "string|number"
 							},
 							{
 								"name": "y",
-								"desc": "The Rows that the cell spands over. When more than one row is wanted seperate the start and end rows with a hyphen, e.g. \"2-5\".",
+								"desc": "The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. \"2-5\".",
 								"type": "string|number"
 							}
 						],
@@ -124,12 +124,12 @@
 						"args": [
 							{
 								"name": "x",
-								"desc": "The Columns that the cell spands over. When more than one column is wanted seperate the start and end columns with a hyphen, e.g. \"2-5\".",
+								"desc": "The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. \"2-5\".",
 								"type": "string|number"
 							},
 							{
 								"name": "y",
-								"desc": "The Rows that the cell spands over. When more than one row is wanted seperate the start and end rows with a hyphen, e.g. \"2-5\".",
+								"desc": "The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. \"2-5\".",
 								"type": "string|number"
 							},
 							{
@@ -152,13 +152,13 @@
 							},
 							{
 								"name": "exW",
-								"desc": "How much of the excess width the cell should take up relative to the other width exspanding cells. Can be an object with keys the same names as the optional arguments that this method takes.",
+								"desc": "How much of the excess width the cell should take up relative to the other width expanding cells. Can be an object with keys the same names as the optional arguments that this method takes.",
 								"default": 0,
 								"type": "number"
 							},
 							{
 								"name": "exH",
-								"desc": "How much of the excess height the cell should take up relative to the other height exspanding cells.",
+								"desc": "How much of the excess height the cell should take up relative to the other height expanding cells.",
 								"default": 0,
 								"type": "number"
 							},
@@ -176,7 +176,7 @@
 							},
 							{
 								"name": "justify",
-								"desc": "The position of the contorl with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
+								"desc": "The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
 								"default": "C",
 								"type": "string"
 							}
@@ -191,12 +191,12 @@
 						"args": [
 							{
 								"name": "x",
-								"desc": "The Columns that the cell spands over. When more than one column is wanted seperate the start and end columns with a hyphen, e.g. \"2-5\".",
+								"desc": "The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. \"2-5\".",
 								"type": "string|number"
 							},
 							{
 								"name": "y",
-								"desc": "The Rows that the cell spands over. When more than one row is wanted seperate the start and end rows with a hyphen, e.g. \"2-5\".",
+								"desc": "The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. \"2-5\".",
 								"type": "string|number"
 							},
 							{
@@ -206,13 +206,13 @@
 							},
 							{
 								"name": "exW",
-								"desc": "How much of the excess width the cell should take up relative to the other width exspanding cells. Can be an object with keys the same names as the optional arguments that this method takes.",
+								"desc": "How much of the excess width the cell should take up relative to the other width expanding cells. Can be an object with keys the same names as the optional arguments that this method takes.",
 								"default": 0,
 								"type": "number"
 							},
 							{
 								"name": "exH",
-								"desc": "How much of the excess height the cell should take up relative to the other height exspanding cells.",
+								"desc": "How much of the excess height the cell should take up relative to the other height expanding cells.",
 								"default": 0,
 								"type": "number"
 							},
@@ -230,18 +230,18 @@
 							},
 							{
 								"name": "justify",
-								"desc": "The position of the contorl with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
+								"desc": "The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
 								"default": "C",
 								"type": "string"
 							}
 						],
 						"returns": {
-							"desc": "Returns the contols that the method was called with.",
+							"desc": "Returns the control that the method was called with.",
 							"type": "GridGUI.GuiControlClass"
 						}
 					},
 					"AutoSize": {
-						"desc": "Calculates the minimum size required to show all the controls in the grid and sets the `GridGUI.GUI.pos` to the calculated width and height, as well as updates the controls in the grid to their positions. Can be used to reduce the number of controls that a noticbly misplaced when the gui is drawn the first time if called before calling `GridGUI.GridGUIClass.Show`."
+						"desc": "Calculates the minimum size required to show all the controls in the grid and sets the `GridGUI.GUI.pos` to the calculated width and height, as well as updates the controls in the grid to their positions. Can be used to reduce the number of controls that a noticeable misplaced when the gui is drawn the first time if called before calling `GridGUI.GridGUIClass.Show`."
 					},
 					"Draw": {
 						"desc": "Calculates the new positions of the controls in the grid based on the settings of their `GridGUI.Cell` and moved them to their new positions.",
@@ -272,7 +272,7 @@
 						"args": [
 							{
 								"name": "GridPos",
-								"desc": "The grid position where the `GridGUI.Cell`s are retrived from.",
+								"desc": "The grid position where the `GridGUI.Cell`s are retrieved from.",
 								"type": "GridGUI.Position"
 							}
 						],
@@ -333,7 +333,7 @@
 						"args": [
 							{
 								"name": "GridPos",
-								"desc": "The grid position where the `GridGUI.Cell`s are retrived from.",
+								"desc": "The grid position where the `GridGUI.Cell`s are retrieved from.",
 								"type": "GridGUI.Position"
 							},
 							{
@@ -367,7 +367,7 @@
 						"type": "hwnd"
 					},
 					"pos": {
-						"desc": "The postion of the subgrid. Needed since a subgrid does not make its own gui and thus do not have the gui event callbacks.",
+						"desc": "The position of the subgrid. Needed since a subgrid does not make its own gui and thus do not have the gui event callbacks.",
 						"type": "GridGUI.Position",
 						"default": "GridGUI.Position(0, 0, 0, 0)",
 						"meta": ["object"]
@@ -400,7 +400,7 @@
 				},
 				"methods": {
 					"__Init": {
-						"desc": "Sets the min size of the subgrid and initalises the members that are required when managed by a `GridGUI.Cell` instance.",
+						"desc": "Sets the min size of the subgrid and initialises the members that are required when managed by a `GridGUI.Cell` instance.",
 						"args": [
 							{
 								"name": "area",
@@ -437,12 +437,12 @@
 							}
 						],
 						"returns": {
-							"desc": "Returns a new instance of `GridGUI.SubGrid`",
+							"desc": "Returns a new instance of `GridGUI.SubGrid`.",
 							"type": "GridGUI.SubGrid"
 						}
 					},
 					"ControlGetPos": {
-						"desc": "Retrives the position of the subgrid. Needed in providing the interface required to be managed by a `GridGUI.Cell` instance.",
+						"desc": "Retrieves the position of the subgrid. Needed in providing the interface required to be managed by a `GridGUI.Cell` instance.",
 						"returns": {
 							"desc": "The last position that `GridGUI.SubGrid.Draw` was called with.",
 							"type": "GridGUI.Position"
@@ -453,7 +453,7 @@
 						"args": [
 							{
 								"name": "area",
-								"desc": "The area that the controls in the grid will be sized to fit into if posible",
+								"desc": "The area that the controls in the grid will be sized to fit into if possible.",
 								"type": "GridGUI.Position"
 							}
 						]
@@ -463,14 +463,14 @@
 		},
 		"members": {
 			"Background": {
-				"desc": "Used in the handeling of controls that have been registered as background",
+				"desc": "Used in the handling of controls that have been registered as background",
 				"type": "string",
 				"default": "+WS_CLIPSIBLINGS",
 				"meta": ["static", "const"],
 				"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles"
 			},
 			"ExitApp": {
-				"desc": "Allows quick access to setup a callback that terminates the script",
+				"desc": "Allows quick access to set up a callback that terminates the script",
 				"type": "bound function",
 				"default": "GridGUI.__ExitApp",
 				"meta": ["static", "const"]
@@ -478,10 +478,10 @@
 		},
 		"methods": {
 			"__ExitApp": {
-				"desc": "A convenience function wrapper for the command"
+				"desc": "A convenience function wrapper for the command."
 			},
 			"__New": {
-				"desc": "A convenience constructor that maps to the GridGUIClass",
+				"desc": "A convenience constructor that maps to the GridGUIClass.",
 				"args": [
 					{
 						"name": "title",
@@ -491,7 +491,7 @@
 					},
 					{
 						"name": "options",
-						"desc": "The ahk gui options that the window will be created with",
+						"desc": "The ahk gui options that the window will be created with.",
 						"default": "",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options"
@@ -504,69 +504,69 @@
 					}
 				],
 				"returns": {
-					"desc": "Returns a new instance of `GridGUI.GridGUIClass`",
+					"desc": "Returns a new instance of `GridGUI.GridGUIClass`.",
 					"type": "GridGUI.GridGUIClass"
 				}
 			},
 			"Area": {
-				"desc": "A convenience function for making a Position that is used as an area",
+				"desc": "A convenience function for making a Position that is used as an area.",
 				"args": [
 					{
 						"name": "w",
-						"desc": "The width of the area",
+						"desc": "The width of the area.",
 						"type": "number"
 					},
 					{
 						"name": "h",
-						"desc": "The height of the area",
+						"desc": "The height of the area.",
 						"type": "number"
 					},
 					{
 						"name": "x",
-						"desc": "The x coordinate of the top left corner of the area",
+						"desc": "The x coordinate of the top left corner of the area.",
 						"default": 0,
 						"type": "number"
 					},
 					{
 						"name": "y",
-						"desc": "The y coordinate of the top left corner of the area",
+						"desc": "The y coordinate of the top left corner of the area.",
 						"default": 0,
 						"type": "number"
 					}
 				],
 				"returns": {
-					"desc": "A new Position instance",
+					"desc": "A new Position instance.",
 					"type": "GridGUI.Position"
 				}
 			},
 			"Pos": {
-				"desc": "A convenience function for making a Position, saves writting \"new\"",
+				"desc": "A convenience function for making a Position, saves writting \"new\".",
 				"args": [
 					{
 						"name": "x",
-						"desc": "The x coordinate of the position",
+						"desc": "The x coordinate of the position.",
 						"type": "number"
 					},
 					{
 						"name": "y",
-						"desc": "The y coordinate of the position",
+						"desc": "The y coordinate of the position.",
 						"type": "number"
 					},
 					{
 						"name": "w",
-						"desc": "The width of the area spanning from the top left corner at (x, y) to the bottom right corner",
+						"desc": "The width of the area spanning from the top left corner at (x, y) to the bottom right corner.",
 						"default": 0,
 						"type": "number"
 					},
 					{
 						"name": "h",
-						"desc": "The height of the area spanning from the top left corner at (x, y) to the bottom right corner",
+						"desc": "The height of the area spanning from the top left corner at (x, y) to the bottom right corner.",
 						"default": 0,
 						"type": "number"
 					}
 				],
 				"returns": {
-					"desc": "A new Position instance",
+					"desc": "A new Position instance.",
 					"type": "GridGUI.Position"
 				}
 			}
