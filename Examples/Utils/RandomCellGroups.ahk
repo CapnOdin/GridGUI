@@ -2,8 +2,12 @@
 #Include %A_ScriptDir%\util.ahk
 
 SetBatchLines, -1
+SetWinDelay, 0
 
-area := new GridGUI.Position(1, 1, 20, 20)
+global gw := 30
+
+area := GridGUI.Pos(1, 1, 20, 20)
+pixelArea := GridGUI.Pos(0, 0, 20 * gw, 20 * gw)
 
 Global errorF := FileOpen("errors.csv", "a")
 errors := 0
@@ -11,7 +15,7 @@ errors := 0
 CoordMode, ToolTip, Screen
 loop % 1000 {
 	ToolTip, % A_Index, 0, 0, 18
-	errors += DoTest(A_Index, area, , true)
+	errors += DoTest(A_Index, area, pixelArea, , true)
 	;f := Func("Test").Bind(test[1], test[2], test[3])
 	;SetTimer, % f, -1000
 }
@@ -19,7 +23,7 @@ MsgBox, % errors
 ExitApp
 Return
 
-DoTest(iteration, area, iterations := 10, destroyOnSuccess := false) {
+DoTest(iteration, area, pixelArea, iterations := 10, destroyOnSuccess := false) {
 	Static timerfun := Func("IsStuck"), pretimerobj := ""
 	cellgroups := []
 	loop % iterations {
@@ -34,8 +38,6 @@ DoTest(iteration, area, iterations := 10, destroyOnSuccess := false) {
 	}
 	pretimerobj := timerfun.Bind(iteration, cellgroups)
 	SetTimer, % pretimerobj, -2000
-	
-	gw := 30
 
 	;myGui := new GridGUI.GUI("title", "Resize")
 	;AddGrid(myGui, area, gw)
@@ -45,20 +47,31 @@ DoTest(iteration, area, iterations := 10, destroyOnSuccess := false) {
 
 	myGGui := new GridGUI("Grid Test", "resize")
 	MakeGridGuiVersion(myGGui, cellgroups)
-	myGGui.Show("NA")
-	myGGui.AutoSize()
-	myGGui.MinSize()
-	myGGui.Hide()
-
-	;pos := myGGui.WinGetPos()
 	
-	;myGGui.Show("x" pos.x + (area.w * gw) / 2 " w" area.w * gw " h" area.h * gw) ; " NA")
-	;mygui.Show(	"x" pos.x - (area.w * gw) / 2 " w" area.w * gw " h" area.h * gw) ; " NA")
+	myGGui.Show("w" pixelArea.w " h" pixelArea.h " NA")
 	
-	myGGui.Show("w" area.w * gw " h" area.h * gw " NA")
+	While(pixelArea.Area() != myGGui.Pos.Area() && !myGGui.grid.arbitrator.IsReduced) {
+		Sleep, 50
+	}
 	
+	/*
+	res1 := ""
+	for i, cell in myGGui.grid.cells {
+		res1 .= cell.ctrlPos.Area() "`n"
+	}
 	
-	WinWait, % "ahk_id " myGGui.Hwnd
+	loop 100 {
+		res := ""
+		for i, cell in myGGui.grid.cells {
+			res .= cell.ctrlPos.Area() "`n"
+		}
+		ToolTip, % res
+		Sleep, 25
+	}
+	
+	MsgBox, % res == res1
+	*/
+	
 	;return [mygui, myGGui, cellgroups]
 
 	if(destroyOnSuccess && !ContainsErrors(myGGui, Func("WriteToErrorFile"))) {
