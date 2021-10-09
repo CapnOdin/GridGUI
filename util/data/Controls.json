@@ -1,6 +1,6 @@
 {
 	"ArbitraryControl": {
-		"classes": {},
+		"desc": "A class representing most ahk GUI control types.",
 		"members": {},
 		"methods": {
 			"__New": {
@@ -48,7 +48,7 @@
 		}
 	},
 	"ListviewControl": {
-		"classes": {},
+		"desc": "A class representing a ListView.",
 		"members": {},
 		"methods": {
 			"__New": {
@@ -335,7 +335,7 @@
 		}
 	},
 	"RadioGroupControl": {
-		"classes": {},
+		"desc": "A class representing a linked group of RadioButtons. Can not be added to a gui, use `GridGUI.RadioGroupControl.New` to added radio buttons to a GUI.",
 		"members": {},
 		"methods": {
 			"__Callback": {
@@ -423,7 +423,7 @@
 		}
 	},
 	"StatusBarControl": {
-		"classes": {},
+		"desc": "A class representing a StatusBar.",
 		"members": {},
 		"methods": {
 			"__New": {
@@ -538,9 +538,10 @@
 		}
 	},
 	"TabControl": {
+		"desc": "A class representing a Tab control.",
 		"classes": {
 			"Tab": {
-				"classes": {},
+				"desc": "A class representing a tab of a Tab control with a subgrid.",
 				"members": {},
 				"methods": {
 					"__New": {
@@ -839,7 +840,7 @@
 		}
 	},
 	"TreeviewControl": {
-		"classes": {},
+		"desc": "A class representing a TreeView.",
 		"members": {},
 		"methods": {
 			"__New": {
@@ -1096,7 +1097,7 @@
 		}
 	},
 	"WindowControl": {
-		"classes": {},
+		"desc": "A class representing a window that can be included in a GUI.",
 		"members": {},
 		"methods": {
 			"__CheckIfClicked": {

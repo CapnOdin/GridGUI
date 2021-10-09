@@ -1,6 +1,6 @@
 {
 	"Cell": {
-		"classes": {},
+		"desc": "A class representing a grid cell.",
 		"members": {},
 		"methods": {
 			"__Delete": {
@@ -384,7 +384,7 @@
 		}
 	},
 	"Column": {
-		"classes": {},
+		"desc": "A class representing a grid column.",
 		"members": {},
 		"methods": {
 			"__CalculateConfligtingExpanders": {
@@ -592,7 +592,7 @@
 		}
 	},
 	"Columns": {
-		"classes": {},
+		"desc": "A class managing a collection of `GridGUI.Column`s.",
 		"members": {},
 		"methods": {
 			"__New": {
@@ -729,7 +729,7 @@
 		}
 	},
 	"ExpanderArbitrator": {
-		"classes": {},
+		"desc": "A class that try to find cells that conflict and resolve the conflicts.",
 		"members": {},
 		"methods": {
 			"__New": {
@@ -967,6 +967,7 @@
 		}
 	},
 	"Grid": {
+		"desc": "A class representing a grid with rows, columns and cells.",
 		"classes": {},
 		"members": {},
 		"methods": {
@@ -1046,7 +1047,7 @@
 		}
 	},
 	"Row": {
-		"classes": {},
+		"desc": "A class representing a grid row.",
 		"members": {},
 		"methods": {
 			"__CalculateConfligtingExpanders": {
@@ -1254,7 +1255,7 @@
 		}
 	},
 	"Rows": {
-		"classes": {},
+		"desc": "A class managing a collection of `GridGUI.Row`s.",
 		"members": {},
 		"methods": {
 			"__New": {
@@ -1391,7 +1392,7 @@
 		}
 	},
 	"Util": {
-		"classes": {},
+		"desc": "A collection of utility methods used by this lib.",
 		"members": {},
 		"methods": {
 			"AddZeros": {
