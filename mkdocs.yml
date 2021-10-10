@@ -1,7 +1,7 @@
 site_name: GridGUI
 repo_name: CapnOdin/GridGUI
 repo_url: https://github.com/CapnOdin/GridGUI
-edit_uri: null
+edit_uri: ""
 
 theme:
     name: material
