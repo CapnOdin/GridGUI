@@ -67,8 +67,8 @@ Class Grid {
 		pre := A_BatchLines
 		SetBatchLines, -1
 		this.arbitrator.ReCalculate() ; should not be done here
-		this.widths := this.columns.CalculateWidths(area.w, this.columns.expanders, this.columns.nonExpanders, this.columns.expandersMaxValue)
-		this.heights := this.rows.CalculateHeights(area.h, this.rows.expanders, this.rows.nonExpanders, this.rows.expandersMaxValue)
+		this.widths := this.columns.CalculateWidths(area.w, this.columns.expanders, this.columns.nonExpanders)
+		this.heights := this.rows.CalculateHeights(area.h, this.rows.expanders, this.rows.nonExpanders)
 		
 		for i, c in this.cells {
 			c.SetArea(area, this.widths, this.heights)
@@ -406,14 +406,14 @@ Class Columns {
 		}
 	}
 	
-	CalculateWidths(width, expanders, nonExpanders, expandersMaxValue) {
+	CalculateWidths(width, expanders, nonExpanders) {
 		local widths, reserved, expandedWidths, sumExpandedWidths, i, c, sum
 		widths := {}
 		reserved := this.GetFixedWidth()
 		expandedWidths := []
 		sumExpandedWidths := 0
 		for i, c in this.columns {
-			widths[i] := c.CalculateWidth(width - reserved, expanders, nonExpanders, expandersMaxValue)
+			widths[i] := c.CalculateWidth(width - reserved, expanders, nonExpanders)
 			if(c.expanders && Round(widths[i] - c.GetFixedWidth(), 3)) {
 				;if(widths[i] > c.GetMinWidth()) {
 					expandedWidths.Push([i, widths[i], c.GetMinWidth()])
@@ -547,14 +547,14 @@ Class Rows {
 		}
 	}
 	
-	CalculateHeights(height, expanders, nonExpanders, expandersMaxValue) {
+	CalculateHeights(height, expanders, nonExpanders) {
 		local heights, reserved, expandedHeights, sumExpandedHeights, i, r, sum
 		heights := {}
 		reserved := this.GetFixedHeight()
 		expandedHeights := []
 		sumExpandedHeights := 0
 		for i, r in this.rows {
-			heights[i] := r.CalculateHeight(height - reserved, expanders, nonExpanders, expandersMaxValue)
+			heights[i] := r.CalculateHeight(height - reserved, expanders, nonExpanders)
 			if(r.expanders && Round(heights[i] - r.GetFixedHeight(), 3)) {
 				;if(heights[i] >  r.GetMinHeight()) {
 					expandedHeights.Push([i, heights[i], r.GetMinHeight()])
@@ -702,13 +702,13 @@ Class Column {
 		return this.nonExpanders
 	}
 	
-	CalculateWidth(width, expanders, nonExpanders, expandersMaxValue) {
+	CalculateWidth(width, expanders, nonExpanders) {
 		local maxWidth, i, overlappinCells, c, w
 		maxWidth := this.fixedWidth
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
 				if(c.exW) {
-					w := this.GetFixedWidth() + c.GetExpandedWidth(this.index, width, expanders, nonExpanders, expandersMaxValue)
+					w := this.GetFixedWidth() + c.GetExpandedWidth(this.index, width, expanders, nonExpanders)
 					if(maxWidth < w) {
 						maxWidth := w
 					}
@@ -846,13 +846,13 @@ Class Row {
 		return this.nonExpanders
 	}
 	
-	CalculateHeight(height, expanders, nonExpanders, expandersMaxValue) {
+	CalculateHeight(height, expanders, nonExpanders) {
 		local maxHeight, i, overlappinCells, c, h
 		maxHeight := this.fixedHeight
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
 				if(c.exH) {
-					h := this.GetFixedHeight() + c.GetExpandedHeight(this.index, height, expanders, nonExpanders, expandersMaxValue)
+					h := this.GetFixedHeight() + c.GetExpandedHeight(this.index, height, expanders, nonExpanders)
 					if(maxHeight < h) {
 						maxHeight := h
 					}
@@ -864,7 +864,7 @@ Class Row {
 }
 
 Class Cell {
-	__New(pos, ctrl, exW := 0, exH := 0, fillW := 0, fillH := 0, justify := "C", borderX := 5, borderY := 5) {
+	__New(pos, ctrl, exW := 0, exH := 0, fillW := false, fillH := false, justify := "C", borderX := 5, borderY := 5) {
 		this.gridpos := pos
 		this.ctrl := ctrl
 		this.exW := exW
@@ -874,9 +874,9 @@ Class Cell {
 		this.justifyOptions := justify
 		this.borderX := borderX
 		this.borderY := borderY
-		this.cPos := this.ctrl.ControlGetPos()
-		this.ctrlPos := this.cPos.Copy()
-		this.pos := this.cPos.Copy()
+		this.ctrlInitialPos := this.ctrl.ControlGetPos()
+		this.ctrlPos := this.ctrlInitialPos.Copy()
+		this.pos := this.ctrlInitialPos.Copy()
 		;this.ctrl.callback := ObjBindMethod(this, "ToolTip")
 		this.othersW := 0
 		this.othersH := 0
@@ -885,27 +885,41 @@ Class Cell {
 	}
 	
 	GetFixedHeight() {
-		return this.exH || this.fillH ? (this.ctrl.initialHeight ? (this.ctrl.initialHeightVal + (this.ctrl.initialHeightVal ? this.borderY * 2 : 0)) / this.gridpos.h : 0) : (this.cPos.h + this.borderY * 2) / this.gridpos.h
+		;return this.exH || this.fillH ? (this.ctrl.initialHeight ? (this.ctrl.initialHeightVal + (this.ctrl.initialHeightVal ? this.borderY * 2 : 0)) / this.gridpos.h : 0) : ((this.ctrl.initialHeight ? this.ctrl.initialHeightVal : this.ctrlInitialPos.h) + this.borderY * 2) / this.gridpos.h
+		if(this.exH || this.fillH) {
+			if(this.ctrl.initialHeight) {
+				return (this.ctrl.initialHeightVal + (this.ctrl.initialHeightVal ? this.borderY * 2 : 0)) / this.gridpos.h
+			}
+			return 0
+		}
+		return ((this.ctrl.initialHeight ? this.ctrl.initialHeightVal : this.ctrlInitialPos.h) + this.borderY * 2) / this.gridpos.h
 	}
 	
 	GetFixedWidth() {
-		return this.exW || this.fillW ? (this.ctrl.initialWidth ? (this.ctrl.initialWidthVal + (this.ctrl.initialWidthVal ? this.borderX * 2 : 0)) / this.gridpos.w : 0) : (this.cPos.w + this.borderX * 2) / this.gridpos.w
+		;return this.exW || this.fillW ? (this.ctrl.initialWidth ? (this.ctrl.initialWidthVal + (this.ctrl.initialWidthVal ? this.borderX * 2 : 0)) / this.gridpos.w : 0) : ((this.ctrl.initialWidth ? this.ctrl.initialWidthVal : this.ctrlInitialPos.w) + this.borderX * 2) / this.gridpos.w
+		if(this.exW || this.fillW) {
+			if(this.ctrl.initialWidth) {
+				return (this.ctrl.initialWidthVal + (this.ctrl.initialWidthVal ? this.borderX * 2 : 0)) / this.gridpos.w
+			}
+			return 0
+		}
+		return ((this.ctrl.initialWidth ? this.ctrl.initialWidthVal : this.ctrlInitialPos.w) + this.borderX * 2) / this.gridpos.w
 	}
 	
 	GetNeededHeight() {
 		if(this.ctrl.initialHeight) {
 			return this.ctrl.initialHeightVal ? (this.ctrl.initialHeightVal + this.borderY * 2) / this.gridpos.h : 0
 		}
-		return (this.cPos.h + this.borderY * 2) / this.gridpos.h
-		;return ((this.ctrl.initialHeight ? this.ctrl.initialHeightVal : this.cPos.h) + this.borderY * 2) / this.gridpos.h
+		return (this.ctrlInitialPos.h + this.borderY * 2) / this.gridpos.h
+		;return ((this.ctrl.initialHeight ? this.ctrl.initialHeightVal : this.ctrlInitialPos.h) + this.borderY * 2) / this.gridpos.h
 	}
 	
 	GetNeededWidth() {
 		if(this.ctrl.initialWidth) {
 			return this.ctrl.initialWidthVal ? (this.ctrl.initialWidthVal + this.borderX * 2) / this.gridpos.w : 0
 		}
-		return (this.cPos.w + this.borderX * 2) / this.gridpos.w
-		;return ((this.ctrl.initialWidth ? this.ctrl.initialWidthVal : this.cPos.w) + this.borderX * 2) / this.gridpos.w
+		return (this.ctrlInitialPos.w + this.borderX * 2) / this.gridpos.w
+		;return ((this.ctrl.initialWidth ? this.ctrl.initialWidthVal : this.ctrlInitialPos.w) + this.borderX * 2) / this.gridpos.w
 	}
 	
 	GetExpansionWidthValue() {
@@ -916,7 +930,7 @@ Class Cell {
 		return this.exH ;/ this.gridpos.h
 	}
 	
-	GetExpandedWidth(index, width, expanders, nonExpanders, expandersMaxValue) {
+	GetExpandedWidth(index, width, expanders, nonExpanders) {
 		if(index != this.__FindLeastUsedRowColumn(this.gridpos.w, this.gridpos.x, nonExpanders, expanders)) {
 			return 0
 		}
@@ -926,7 +940,7 @@ Class Cell {
 		return width * this.exW / (this.othersW + this.exW)
 	}
 	
-	GetExpandedHeight(index, height, expanders, nonExpanders, expandersMaxValue) {
+	GetExpandedHeight(index, height, expanders, nonExpanders) {
 		if(index != this.__FindLeastUsedRowColumn(this.gridpos.h, this.gridpos.y, nonExpanders, expanders)) {
 			return 0
 		}
@@ -986,12 +1000,12 @@ Class Cell {
 		if(this.ctrl.initialWidth) {
 			w := this.fillW ? Max(pos.w - this.borderX * 2, this.ctrl.initialWidthVal) : this.ctrl.initialWidthVal
 		} else {
-			w := this.fillW ? pos.w - this.borderX * 2 : this.cPos.w
+			w := this.fillW ? pos.w - this.borderX * 2 : this.ctrlInitialPos.w
 		}
 		if(this.ctrl.initialHeight) {
 			h := this.fillH ? Max(pos.h - this.borderY * 2, this.ctrl.initialHeightVal) : this.ctrl.initialHeightVal
 		} else {
-			h := this.fillH ? pos.h - this.borderY * 2 : this.cPos.h
+			h := this.fillH ? pos.h - this.borderY * 2 : this.ctrlInitialPos.h
 		}
 		return new GridGUI.Position(this.pos.x, this.pos.y, w, h)
 	}
@@ -1000,7 +1014,7 @@ Class Cell {
 		local dw, dh
 		dw := (area.w - pos.w) // 2
 		dh := (area.h - pos.h) // 2
-		;MsgBox, % new GridGUI.Position(this.pos.x + dw, this.pos.y + dh, this.cPos.w, this.cPos.h).ToStr()
+		;MsgBox, % new GridGUI.Position(this.pos.x + dw, this.pos.y + dh, this.ctrlInitialPos.w, this.ctrlInitialPos.h).ToStr()
 		return new GridGUI.Position(area.x + dw, area.y + dh, pos.w, pos.h)
 	}
 	
