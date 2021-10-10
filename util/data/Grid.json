@@ -1,385 +1,402 @@
 {
 	"Cell": {
 		"desc": "A class representing a grid cell.",
-		"members": {},
+		"members": {
+			"gridpos": {
+				"desc": "The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a `GridGUI.GridGUIClass`.",
+				"type": "GridGUI.Position",
+				"meta": ["object"]
+			},
+			"ctrl": {
+				"desc": "The control that is managed by this cell. The control class needs to implement the two methods `ControlGetPos` and `Draw` as well as have the four members `initialWidth`, `initialHeight`, `initialWidthVal` and `initialHeightVal`.",
+				"type": "GridGUI.Control",
+				"meta": ["object"]
+			},
+			"exW": {
+				"desc": "The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.",
+				"type": "number",
+				"default": 0
+			},
+			"exH": {
+				"desc": "The vertical expansion weight of the cell. This is used to calculate the part of the additional GUI height that this cell should take.",
+				"type": "number",
+				"default": 0
+			},
+			"fillW": {
+				"desc": "Whether or not to set the width of the `GridGUI.Cell.ctrl` to the width of the cell.",
+				"type": "bool",
+				"default": false
+			},
+			"fillH": {
+				"desc": "Whether or not to set the height of the `GridGUI.Cell.ctrl` to the height of the cell.",
+				"type": "bool",
+				"default": false
+			},
+			"justifyOptions": {
+				"desc": "How the `GridGUI.Cell.ctrl` will be positioned in the cell when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
+				"type": "string",
+				"default": "C"
+			},
+			"borderX": {
+				"desc": "The horisontal border or margin of the cell that is the amount of additional width beyond what the `GridGUI.Cell.ctrl` needs that is taken up by the cell.",
+				"type": "number",
+				"default": 5
+			},
+			"borderY": {
+				"desc": "The vertical border or margin of the cell that is the amount of additional height beyond what the `GridGUI.Cell.ctrl` needs that is taken up by the cell.",
+				"type": "number",
+				"default": 5
+			},
+			"ctrlInitialPos": {
+				"desc": "The initial position and size of the `GridGUI.Cell.ctrl`. It is used as the min size of the `GridGUI.Cell.ctrl` if no min size is specified.",
+				"type": "GridGUI.Position",
+				"meta": ["object"]
+			},
+			"ctrlPos": {
+				"desc": "The position and size when the `GridGUI.Cell.ctrl` was last drawn.",
+				"type": "GridGUI.Position",
+				"meta": ["object"]
+			},
+			"pos": {
+				"desc": "The position and size of the cell.",
+				"type": "GridGUI.Position",
+				"meta": ["object"]
+			},
+			"othersW": {
+				"desc": "The combined horisontal expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI width that this cell should take.",
+				"type": "number",
+				"default": 0
+			},
+			"othersH": {
+				"desc": "The combined vertical expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI height that this cell should take.",
+				"type": "number",
+				"default": 0
+			},
+			"hasWConfligts": {
+				"desc": "Whether or not the cell needs to take any other cells into account when calculating its width.",
+				"type": "bool",
+				"default": false
+			},
+			"hasHConfligts": {
+				"desc": "Whether or not the cell needs to take any other cells into account when calculating its height.",
+				"type": "bool",
+				"default": false
+			}
+		},
 		"methods": {
 			"__Delete": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Destructor. Destroys the `GridGUI.Cell.ctrl`."
 			},
 			"__FindLeastUsedRowColumn": {
+				"desc": "Returns the index of the where there are the lest amount of cells with a fixed size or where there is the largest expansion weight.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "size",
-						"type": "string|number|object"
+						"desc": "How many indexes to check.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "start",
-						"type": "string|number|object"
+						"desc": "What index to start checking from.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "nonExpanders",
-						"type": "string|number|object"
+						"desc": "An array of how many fixed sized cells there are in either the columns or rows.",
+						"type": "array"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expanders",
-						"type": "string|number|object"
+						"desc": "An array of how many expanding cells there are in either the columns or rows.",
+						"type": "array"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "The found index.",
+					"type": "number"
+				},
+				"comment": "This is shit code. Why would it just overwrite the found index."
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a `GridGUI.GridGUIClass`.",
+						"type": "GridGUI.Position"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "ctrl",
-						"type": "string|number|object"
+						"desc": "The control that will be managed by this cell. The control class needs to implement the two methods `ControlGetPos` and `Draw` as well as have the four members `initialWidth`, `initialHeight`, `initialWidthVal` and `initialHeightVal`.",
+						"type": "GridGUI.Control"
 					},
 					{
-						"default": 0,
-						"desc": "",
-						"link": "",
 						"name": "exW",
+						"desc": "The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.",
+						"default": 0,
 						"type": "number"
 					},
 					{
-						"default": 0,
-						"desc": "",
-						"link": "",
 						"name": "exH",
+						"desc": "The vertical expansion weight of the cell. This is used to calculate the part of the additional GUI height that this cell should take.",
+						"default": 0,
 						"type": "number"
 					},
 					{
-						"default": 0,
-						"desc": "",
-						"link": "",
 						"name": "fillW",
-						"type": "number"
+						"desc": "Whether or not to set the width of the `GridGUI.Cell.ctrl` to the width of the cell.",
+						"default": false,
+						"type": "bool"
 					},
 					{
-						"default": 0,
-						"desc": "",
-						"link": "",
 						"name": "fillH",
-						"type": "number"
+						"desc": "Whether or not to set the height of the `GridGUI.Cell.ctrl` to the height of the cell.",
+						"default": false,
+						"type": "bool"
 					},
 					{
-						"default": "C",
-						"desc": "",
-						"link": "",
 						"name": "justify",
+						"desc": "How the `GridGUI.Cell.ctrl` will be positioned in the cell when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
+						"default": "C",
 						"type": "string"
 					},
 					{
-						"default": 5,
-						"desc": "",
-						"link": "",
 						"name": "borderX",
+						"desc": "The horisontal border or margin of the cell that is the amount of additional width beyond what the control needs that is taken up by the cell.",
+						"default": 5,
 						"type": "number"
 					},
 					{
-						"default": 5,
-						"desc": "",
-						"link": "",
 						"name": "borderY",
+						"desc": "The vertical border or margin of the cell that is the amount of additional height beyond what the control needs that is taken up by the cell.",
+						"default": 5,
 						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.Cell` instance.",
+					"type": "GridGUI.Cell"
 				}
 			},
 			"__Sum": {
+				"desc": "Calculates a partial sum of values in an array from a start index to an end index.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "obj",
-						"type": "string|number|object"
+						"desc": "The array to calculate the sum of.",
+						"type": "array"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "start",
-						"type": "string|number|object"
+						"desc": "The start index of the range to sum.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "end",
-						"type": "string|number|object"
+						"desc": "The end index of the range to sum.",
+						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The sum of the sub-array.",
+					"type": "number"
 				}
 			},
 			"Center": {
+				"desc": "Centres one area in another.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "area",
-						"type": "string|number|object"
+						"desc": "The area that should be centred in relation to.",
+						"type": "GridGUI.Position"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The area to centre.",
+						"type": "GridGUI.Position"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A copy of `pos` centred in `area`.",
+					"type": "GridGUI.Position"
 				}
 			},
 			"DestroyCtrl": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Destroys the `GridGUI.Cell.ctrl`."
 			},
 			"GetExpandedHeight": {
+				"desc": "Calculates the amount of the additional height that the cell should take up.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "index",
-						"type": "string|number|object"
+						"desc": "What index of the positions in the grid that the height is wanted for.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "height",
-						"type": "string|number|object"
+						"desc": "The unclaimed height of the GUI. That is the amount left after removing the combined height of all fixed size cells.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expanders",
-						"type": "string|number|object"
+						"desc": "The array of the sum of vertical expansion weights for each row.",
+						"type": "array"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "nonExpanders",
-						"type": "string|number|object"
-					},
-					{
-						"desc": "",
-						"link": "",
-						"name": "expandersMaxValue",
-						"type": "string|number|object"
+						"desc": "The array of the amount of fixed size cells in each row.",
+						"type": "array"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The calculated height.",
+					"type": "number"
 				}
 			},
 			"GetExpandedWidth": {
+				"desc": "Calculates the amount of the additional width that the cell should take up.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "index",
-						"type": "string|number|object"
+						"desc": "What index of the positions in the grid that the width is wanted for.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "width",
-						"type": "string|number|object"
+						"desc": "The unclaimed width of the GUI. That is the amount left after removing the combined width of all fixed size cells.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expanders",
-						"type": "string|number|object"
+						"desc": "The array of the sum of horisontal expansion weights for each column.",
+						"type": "array"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "nonExpanders",
-						"type": "string|number|object"
-					},
-					{
-						"desc": "",
-						"link": "",
-						"name": "expandersMaxValue",
-						"type": "string|number|object"
+						"desc": "The array of the amount of fixed size cells in each column.",
+						"type": "array"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The calculated width.",
+					"type": "number"
 				}
 			},
 			"GetExpansionHeightValue": {
-				"desc": "",
+				"desc": "Getter for `GridGUI.Cell.exH`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The vertical expansion weight.",
+					"type": "number"
 				}
 			},
 			"GetExpansionWidthValue": {
-				"desc": "",
+				"desc": "Getter for `GridGUI.Cell.exW`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The horisontal expansion weight.",
+					"type": "number"
 				}
 			},
 			"GetFixedHeight": {
-				"desc": "",
+				"desc": "Returns the fixed height of the cell.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The fixed height of the cell. For non vertically expanding and non vertically filling cells the min-height of the `GridGUI.Cell.ctrl` plus 2 times the vertical margin is returned. For vertically expanding and or vertically filling cells 0 is returned unless an min-height where specified in which case the min-height of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-height is 0 then 0 is returned.",
+					"type": "number"
 				}
 			},
 			"GetFixedWidth": {
-				"desc": "",
+				"desc": "Returns the fixed width of the cell.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the `GridGUI.Cell.ctrl` plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.",
+					"type": "number"
 				}
 			},
 			"GetNeededHeight": {
-				"desc": "",
+				"desc": "Returns the needed height of the cell.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The needed height of the cell. That is the min-height of the `GridGUI.Cell.ctrl` plus two times the vertical margin.",
+					"type": "number"
 				}
 			},
 			"GetNeededWidth": {
-				"desc": "",
+				"desc": "Returns the needed width of the cell.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The needed width of the cell. That is the min-width of the `GridGUI.Cell.ctrl` plus two times the horisontal margin.",
+					"type": "number"
 				}
 			},
 			"Justify": {
+				"desc": "Justifies an area within another area. That is places the area according to a set of rules within the larger area.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "area",
-						"type": "string|number|object"
+						"desc": "The area to position the other area within.",
+						"type": "GridGUI.Position"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The area to position in the larger area.",
+						"type": "GridGUI.Position"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A copy of `pos` that is justified within `area`.",
+					"type": "GridGUI.Position"
 				}
 			},
 			"SetArea": {
+				"desc": "Sets the position and size of the cell.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "offset",
-						"type": "string|number|object"
+						"desc": "The coordinate offset that the cell should be translated by. Used to support `GridGUI.SubGrid`s within a GUI, since the calculated positions are relative to the client area.",
+						"type": "GridGUI.Position"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "widths",
-						"type": "string|number|object"
+						"desc": "An array of the calculate width for each column.",
+						"type": "array"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "heights",
-						"type": "string|number|object"
+						"desc": "An array of the calculate height for each row.",
+						"type": "array"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"SetCtrlSize": {
+				"desc": "Calculates the size the `GridGUI.Cell.ctrl` should use given a specific cell size.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The size to fit the `GridGUI.Cell.ctrl` within.",
+						"type": "GridGUI.Position"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "An area sized according to the cell members to fit within `pos`.",
+					"type": "GridGUI.Position"
 				}
 			},
 			"ToolTip": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Shows a tooltip of the cell as a string."
 			},
 			"ToStr": {
+				"desc": "Converts the object to a string.",
 				"args": [
 					{
-						"default": "",
-						"desc": "",
-						"link": "",
 						"name": "indent",
+						"desc": "The amount of indentation to add on each line.",
+						"default": "",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A string representing this cell.",
+					"type": "string"
 				}
 			},
 			"Update": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Updates the position of the `GridGUI.Cell.ctrl` and draws it."
 			}
 		}
 	},
@@ -390,10 +407,9 @@
 			"__CalculateConfligtingExpanders": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -405,10 +421,9 @@
 			"__CalculateExpanders": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -420,10 +435,9 @@
 			"__CalculateFixedWidth": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -435,10 +449,9 @@
 			"__CalculateMinWidth": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -450,10 +463,9 @@
 			"__CalculateNonExpanders": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -463,11 +475,11 @@
 				}
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "index",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -487,10 +499,9 @@
 			"Add": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -509,27 +520,23 @@
 			"CalculateWidth": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "width",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expanders",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "nonExpanders",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expandersMaxValue",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -577,10 +584,9 @@
 			"Remove": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -596,6 +602,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"desc": "",
 				"returns": {
 					"desc": "",
@@ -612,10 +619,9 @@
 			"Add": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -634,27 +640,18 @@
 			"CalculateWidths": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "width",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expanders",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "nonExpanders",
-						"type": "string|number|object"
-					},
-					{
 						"desc": "",
-						"link": "",
-						"name": "expandersMaxValue",
 						"type": "string|number|object"
 					}
 				],
@@ -681,27 +678,23 @@
 			"ReduceToGuiSize": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "widths",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expandedWidths",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "sumExpandedWidths",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "excessWidth",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -714,10 +707,9 @@
 			"Remove": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -733,6 +725,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"desc": "",
 				"returns": {
 					"desc": "",
@@ -742,10 +735,9 @@
 			"Add": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -757,15 +749,13 @@
 			"CheckConflicts": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expander",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -778,15 +768,13 @@
 			"CheckOverlapping": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expander",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -799,10 +787,9 @@
 			"Init": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -814,10 +801,9 @@
 			"InitCheck": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -829,10 +815,9 @@
 			"IsExpander": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -844,16 +829,14 @@
 			"IsInHeightConflictWith": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c1",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "c2",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -865,16 +848,14 @@
 			"IsInWidthConflictWith": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c1",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "c2",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -900,10 +881,9 @@
 			"Remove": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -922,10 +902,9 @@
 			"UnInit": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -937,10 +916,9 @@
 			"UnInitCheck": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -952,10 +930,9 @@
 			"Update": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -972,6 +949,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"desc": "",
 				"returns": {
 					"desc": "",
@@ -981,10 +959,9 @@
 			"AddCell": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -996,10 +973,9 @@
 			"CalculatePositions": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "area",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Position"
 					}
 				],
 				"desc": "",
@@ -1025,10 +1001,9 @@
 			"RemoveCell": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1053,10 +1028,9 @@
 			"__CalculateConfligtingExpanders": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1068,10 +1042,9 @@
 			"__CalculateExpanders": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1083,10 +1056,9 @@
 			"__CalculateFixedHeight": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1098,10 +1070,9 @@
 			"__CalculateMinHeight": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1113,10 +1084,9 @@
 			"__CalculateNonExpanders": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1126,11 +1096,11 @@
 				}
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "index",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -1150,10 +1120,9 @@
 			"Add": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1172,27 +1141,18 @@
 			"CalculateHeight": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "height",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expanders",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "nonExpanders",
-						"type": "string|number|object"
-					},
-					{
 						"desc": "",
-						"link": "",
-						"name": "expandersMaxValue",
 						"type": "string|number|object"
 					}
 				],
@@ -1240,10 +1200,9 @@
 			"Remove": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1259,6 +1218,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"desc": "",
 				"returns": {
 					"desc": "",
@@ -1275,10 +1235,9 @@
 			"Add": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1297,27 +1256,18 @@
 			"CalculateHeights": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "height",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expanders",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "nonExpanders",
-						"type": "string|number|object"
-					},
-					{
 						"desc": "",
-						"link": "",
-						"name": "expandersMaxValue",
 						"type": "string|number|object"
 					}
 				],
@@ -1344,27 +1294,23 @@
 			"ReduceToGuiSize": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "heights",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "expandedHeights",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "sumExpandedHeights",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "excessHeight",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -1377,10 +1323,9 @@
 			"Remove": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1398,9 +1343,8 @@
 			"AddZeros": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "z",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -1413,9 +1357,8 @@
 			"BGRtoRGB": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "oldValue",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -1428,10 +1371,9 @@
 			"ByExH": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1443,10 +1385,9 @@
 			"ByExW": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "c",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Cell"
 					}
 				],
 				"desc": "",
@@ -1458,9 +1399,8 @@
 			"BySecoundValue": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "lst",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -1473,10 +1413,9 @@
 			"BySize": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Position"
 					}
 				],
 				"desc": "",
@@ -1488,9 +1427,8 @@
 			"ConvertStObjToObjOfStr": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "obj",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -1503,16 +1441,14 @@
 			"DPIScale": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "GridGUI.Position"
 					},
 					{
-						"default": true,
-						"desc": "",
-						"link": "",
 						"name": "enlarge",
+						"desc": "",
+						"default": true,
 						"type": "bool"
 					}
 				],
@@ -1525,23 +1461,20 @@
 			"FindIndex": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "lst",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "val",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "fun",
-						"type": "bool"
+						"desc": "",
+						"default": false,
+						"type": "Func|BoundFunc|false"
 					}
 				],
 				"desc": "",
@@ -1553,9 +1486,8 @@
 			"prettyPrint": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "str",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -1568,23 +1500,20 @@
 			"RemoveValue": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "lst",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "val",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "fun",
-						"type": "bool"
+						"desc": "",
+						"default": false,
+						"type": "Func|BoundFunc|false"
 					}
 				],
 				"desc": "",
@@ -1596,9 +1525,8 @@
 			"RGBtoBGR": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "oldValue",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
@@ -1611,16 +1539,14 @@
 			"Sort": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "obj",
+						"desc": "",
 						"type": "string|number|object"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "fun",
-						"type": "string|number|object"
+						"desc": "",
+						"type": "Func|BoundFunc"
 					}
 				],
 				"desc": "",
@@ -1632,9 +1558,8 @@
 			"Sum": {
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "obj",
+						"desc": "",
 						"type": "string|number|object"
 					}
 				],
