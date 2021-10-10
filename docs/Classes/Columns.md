@@ -32,7 +32,7 @@ A class managing a collection of `GridGUI.Column`s.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -67,12 +67,6 @@ A class managing a collection of `GridGUI.Column`s.
 > **type**: string|number|object
 
 > **name**: nonExpanders
-
-> **desc**: 
-
-> **type**: string|number|object
-
-> **name**: expandersMaxValue
 
 > **desc**: 
 
@@ -146,7 +140,7 @@ A class managing a collection of `GridGUI.Column`s.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 

@@ -3,6 +3,20 @@
 A class representing a window.
 </figure>
 ---
+##Members
+
+####callbacks
+
+> **desc**: The array of `GridGUI.GuiCallback`s that the class instance was created with.
+
+> **type**: array|false
+
+####hwnd
+
+> **desc**: The hwnd of the associated window.
+
+> **type**: hwnd
+
 ##Methods
 
 ####__DetectHidden

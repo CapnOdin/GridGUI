@@ -23,7 +23,7 @@ A class representing a grid with rows, columns and cells.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -40,7 +40,7 @@ A class representing a grid with rows, columns and cells.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
@@ -75,7 +75,7 @@ A class representing a grid with rows, columns and cells.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 

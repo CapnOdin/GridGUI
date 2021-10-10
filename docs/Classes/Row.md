@@ -14,7 +14,7 @@ A class representing a grid row.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -31,7 +31,7 @@ A class representing a grid row.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -48,7 +48,7 @@ A class representing a grid row.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -65,7 +65,7 @@ A class representing a grid row.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -82,7 +82,7 @@ A class representing a grid row.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -125,7 +125,7 @@ A class representing a grid row.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -160,12 +160,6 @@ A class representing a grid row.
 > **type**: string|number|object
 
 > **name**: nonExpanders
-
-> **desc**: 
-
-> **type**: string|number|object
-
-> **name**: expandersMaxValue
 
 > **desc**: 
 
@@ -231,7 +225,7 @@ A class representing a grid row.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 

@@ -48,7 +48,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -65,7 +65,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -99,7 +99,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
@@ -133,7 +133,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 > **name**: enlarge
 
@@ -168,7 +168,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: bool
+> **type**: Func|BoundFunc|false
 
 **returns**:
 
@@ -214,7 +214,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: bool
+> **type**: Func|BoundFunc|false
 
 **returns**:
 
@@ -254,7 +254,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: Func|BoundFunc
 
 **returns**:
 

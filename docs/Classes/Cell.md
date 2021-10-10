@@ -3,96 +3,194 @@
 A class representing a grid cell.
 </figure>
 ---
+##Members
+
+####borderX
+
+> **desc**: The horisontal border or margin of the cell that is the amount of additional width beyond what the `GridGUI.Cell.ctrl` needs that is taken up by the cell.
+
+> **type**: number
+
+> **default**: 5
+
+####borderY
+
+> **desc**: The vertical border or margin of the cell that is the amount of additional height beyond what the `GridGUI.Cell.ctrl` needs that is taken up by the cell.
+
+> **type**: number
+
+> **default**: 5
+
+####ctrl
+
+> **desc**: The control that is managed by this cell. The control class needs to implement the two methods `ControlGetPos` and `Draw` as well as have the four members `initialWidth`, `initialHeight`, `initialWidthVal` and `initialHeightVal`.
+
+> **type**: GridGUI.Control
+
+####ctrlInitialPos
+
+> **desc**: The initial position and size of the `GridGUI.Cell.ctrl`. It is used as the min size of the `GridGUI.Cell.ctrl` if no min size is specified.
+
+> **type**: GridGUI.Position
+
+####ctrlPos
+
+> **desc**: The position and size when the `GridGUI.Cell.ctrl` was last drawn.
+
+> **type**: GridGUI.Position
+
+####exH
+
+> **desc**: The vertical expansion weight of the cell. This is used to calculate the part of the additional GUI height that this cell should take.
+
+> **type**: number
+
+####exW
+
+> **desc**: The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
+
+> **type**: number
+
+####fillH
+
+> **desc**: Whether or not to set the height of the `GridGUI.Cell.ctrl` to the height of the cell.
+
+> **type**: bool
+
+####fillW
+
+> **desc**: Whether or not to set the width of the `GridGUI.Cell.ctrl` to the width of the cell.
+
+> **type**: bool
+
+####gridpos
+
+> **desc**: The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a `GridGUI.GridGUIClass`.
+
+> **type**: GridGUI.Position
+
+####hasHConfligts
+
+> **desc**: Whether or not the cell needs to take any other cells into account when calculating its height.
+
+> **type**: bool
+
+####hasWConfligts
+
+> **desc**: Whether or not the cell needs to take any other cells into account when calculating its width.
+
+> **type**: bool
+
+####justifyOptions
+
+> **desc**: How the `GridGUI.Cell.ctrl` will be positioned in the cell when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+
+> **type**: string
+
+> **default**: C
+
+####othersH
+
+> **desc**: The combined vertical expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI height that this cell should take.
+
+> **type**: number
+
+####othersW
+
+> **desc**: The combined horisontal expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI width that this cell should take.
+
+> **type**: number
+
+####pos
+
+> **desc**: The position and size of the cell.
+
+> **type**: GridGUI.Position
+
 ##Methods
 
 ####__Delete
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Destructor. Destroys the `GridGUI.Cell.ctrl`.
 
 ####__FindLeastUsedRowColumn
-**desc**: 
+**desc**: Returns the index of the where there are the lest amount of cells with a fixed size or where there is the largest expansion weight.
 
 **args**:
 
 > **name**: size
 
-> **desc**: 
+> **desc**: How many indexes to check.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: start
 
-> **desc**: 
+> **desc**: What index to start checking from.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: nonExpanders
 
-> **desc**: 
+> **desc**: An array of how many fixed sized cells there are in either the columns or rows.
 
-> **type**: string|number|object
+> **type**: array
 
 > **name**: expanders
 
-> **desc**: 
+> **desc**: An array of how many expanding cells there are in either the columns or rows.
 
-> **type**: string|number|object
+> **type**: array
 
 **returns**:
 
-> **desc**: 
+> **desc**: The found index.
 
-> **type**: 
+> **type**: number
 
 ####__New
-**desc**: 
+**desc**: Constructor.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a `GridGUI.GridGUIClass`.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 > **name**: ctrl
 
-> **desc**: 
+> **desc**: The control that will be managed by this cell. The control class needs to implement the two methods `ControlGetPos` and `Draw` as well as have the four members `initialWidth`, `initialHeight`, `initialWidthVal` and `initialHeightVal`.
 
-> **type**: string|number|object
+> **type**: GridGUI.Control
 
 > **name**: exW
 
-> **desc**: 
+> **desc**: The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
 
 > **type**: number
 
 > **name**: exH
 
-> **desc**: 
+> **desc**: The vertical expansion weight of the cell. This is used to calculate the part of the additional GUI height that this cell should take.
 
 > **type**: number
 
 > **name**: fillW
 
-> **desc**: 
+> **desc**: Whether or not to set the width of the `GridGUI.Cell.ctrl` to the width of the cell.
 
-> **type**: number
+> **type**: bool
 
 > **name**: fillH
 
-> **desc**: 
+> **desc**: Whether or not to set the height of the `GridGUI.Cell.ctrl` to the height of the cell.
 
-> **type**: number
+> **type**: bool
 
 > **name**: justify
 
-> **desc**: 
+> **desc**: How the `GridGUI.Cell.ctrl` will be positioned in the cell when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
 
 > **type**: string
 
@@ -100,7 +198,7 @@ A class representing a grid cell.
 
 > **name**: borderX
 
-> **desc**: 
+> **desc**: The horisontal border or margin of the cell that is the amount of additional width beyond what the control needs that is taken up by the cell.
 
 > **type**: number
 
@@ -108,7 +206,7 @@ A class representing a grid cell.
 
 > **name**: borderY
 
-> **desc**: 
+> **desc**: The vertical border or margin of the cell that is the amount of additional height beyond what the control needs that is taken up by the cell.
 
 > **type**: number
 
@@ -116,308 +214,272 @@ A class representing a grid cell.
 
 **returns**:
 
-> **desc**: 
+> **desc**: A new `GridGUI.Cell` instance.
 
-> **type**: 
+> **type**: GridGUI.Cell
 
 ####__Sum
-**desc**: 
+**desc**: Calculates a partial sum of values in an array from a start index to an end index.
 
 **args**:
 
 > **name**: obj
 
-> **desc**: 
+> **desc**: The array to calculate the sum of.
 
-> **type**: string|number|object
+> **type**: array
 
 > **name**: start
 
-> **desc**: 
+> **desc**: The start index of the range to sum.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: end
 
-> **desc**: 
+> **desc**: The end index of the range to sum.
 
-> **type**: string|number|object
+> **type**: number
 
 **returns**:
 
-> **desc**: 
+> **desc**: The sum of the sub-array.
 
-> **type**: 
+> **type**: number
 
 ####Center
-**desc**: 
+**desc**: Centres one area in another.
 
 **args**:
 
 > **name**: area
 
-> **desc**: 
+> **desc**: The area that should be centred in relation to.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The area to centre.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: A copy of `pos` centred in `area`.
 
-> **type**: 
+> **type**: GridGUI.Position
 
 ####DestroyCtrl
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Destroys the `GridGUI.Cell.ctrl`.
 
 ####GetExpandedHeight
-**desc**: 
+**desc**: Calculates the amount of the additional height that the cell should take up.
 
 **args**:
 
 > **name**: index
 
-> **desc**: 
+> **desc**: What index of the positions in the grid that the height is wanted for.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: height
 
-> **desc**: 
+> **desc**: The unclaimed height of the GUI. That is the amount left after removing the combined height of all fixed size cells.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: expanders
 
-> **desc**: 
+> **desc**: The array of the sum of vertical expansion weights for each row.
 
-> **type**: string|number|object
+> **type**: array
 
 > **name**: nonExpanders
 
-> **desc**: 
+> **desc**: The array of the amount of fixed size cells in each row.
 
-> **type**: string|number|object
-
-> **name**: expandersMaxValue
-
-> **desc**: 
-
-> **type**: string|number|object
+> **type**: array
 
 **returns**:
 
-> **desc**: 
+> **desc**: The calculated height.
 
-> **type**: 
+> **type**: number
 
 ####GetExpandedWidth
-**desc**: 
+**desc**: Calculates the amount of the additional width that the cell should take up.
 
 **args**:
 
 > **name**: index
 
-> **desc**: 
+> **desc**: What index of the positions in the grid that the width is wanted for.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: width
 
-> **desc**: 
+> **desc**: The unclaimed width of the GUI. That is the amount left after removing the combined width of all fixed size cells.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: expanders
 
-> **desc**: 
+> **desc**: The array of the sum of horisontal expansion weights for each column.
 
-> **type**: string|number|object
+> **type**: array
 
 > **name**: nonExpanders
 
-> **desc**: 
+> **desc**: The array of the amount of fixed size cells in each column.
 
-> **type**: string|number|object
-
-> **name**: expandersMaxValue
-
-> **desc**: 
-
-> **type**: string|number|object
+> **type**: array
 
 **returns**:
 
-> **desc**: 
+> **desc**: The calculated width.
 
-> **type**: 
+> **type**: number
 
 ####GetExpansionHeightValue
-**desc**: 
+**desc**: Getter for `GridGUI.Cell.exH`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The vertical expansion weight.
 
-> **type**: 
+> **type**: number
 
 ####GetExpansionWidthValue
-**desc**: 
+**desc**: Getter for `GridGUI.Cell.exW`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The horisontal expansion weight.
 
-> **type**: 
+> **type**: number
 
 ####GetFixedHeight
-**desc**: 
+**desc**: Returns the fixed height of the cell.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The fixed height of the cell. For non vertically expanding and non vertically filling cells the min-height of the `GridGUI.Cell.ctrl` plus 2 times the vertical margin is returned. For vertically expanding and or vertically filling cells 0 is returned unless an min-height where specified in which case the min-height of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-height is 0 then 0 is returned.
 
-> **type**: 
+> **type**: number
 
 ####GetFixedWidth
-**desc**: 
+**desc**: Returns the fixed width of the cell.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the `GridGUI.Cell.ctrl` plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
 
-> **type**: 
+> **type**: number
 
 ####GetNeededHeight
-**desc**: 
+**desc**: Returns the needed height of the cell.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The needed height of the cell. That is the min-height of the `GridGUI.Cell.ctrl` plus two times the vertical margin.
 
-> **type**: 
+> **type**: number
 
 ####GetNeededWidth
-**desc**: 
+**desc**: Returns the needed width of the cell.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The needed width of the cell. That is the min-width of the `GridGUI.Cell.ctrl` plus two times the horisontal margin.
 
-> **type**: 
+> **type**: number
 
 ####Justify
-**desc**: 
+**desc**: Justifies an area within another area. That is places the area according to a set of rules within the larger area.
 
 **args**:
 
 > **name**: area
 
-> **desc**: 
+> **desc**: The area to position the other area within.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The area to position in the larger area.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: A copy of `pos` that is justified within `area`.
 
-> **type**: 
+> **type**: GridGUI.Position
 
 ####SetArea
-**desc**: 
+**desc**: Sets the position and size of the cell.
 
 **args**:
 
 > **name**: offset
 
-> **desc**: 
+> **desc**: The coordinate offset that the cell should be translated by. Used to support `GridGUI.SubGrid`s within a GUI, since the calculated positions are relative to the client area.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 > **name**: widths
 
-> **desc**: 
+> **desc**: An array of the calculate width for each column.
 
-> **type**: string|number|object
+> **type**: array
 
 > **name**: heights
 
-> **desc**: 
+> **desc**: An array of the calculate height for each row.
 
-> **type**: string|number|object
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+> **type**: array
 
 ####SetCtrlSize
-**desc**: 
+**desc**: Calculates the size the `GridGUI.Cell.ctrl` should use given a specific cell size.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: 
+> **desc**: The size to fit the `GridGUI.Cell.ctrl` within.
 
-> **type**: string|number|object
+> **type**: GridGUI.Position
 
 **returns**:
 
-> **desc**: 
+> **desc**: An area sized according to the cell members to fit within `pos`.
 
-> **type**: 
+> **type**: GridGUI.Position
 
 ####ToolTip
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Shows a tooltip of the cell as a string.
 
 ####ToStr
-**desc**: 
+**desc**: Converts the object to a string.
 
 **args**:
 
 > **name**: indent
 
-> **desc**: 
+> **desc**: The amount of indentation to add on each line.
 
 > **type**: string
 
 **returns**:
 
-> **desc**: 
+> **desc**: A string representing this cell.
 
-> **type**: 
+> **type**: string
 
 ####Update
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Updates the position of the `GridGUI.Cell.ctrl` and draws it.
 

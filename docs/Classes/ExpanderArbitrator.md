@@ -23,7 +23,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -40,7 +40,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 > **name**: expander
 
@@ -63,7 +63,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 > **name**: expander
 
@@ -86,7 +86,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -103,7 +103,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -120,7 +120,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -137,13 +137,13 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 > **name**: c2
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -160,13 +160,13 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 > **name**: c2
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -201,7 +201,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -227,7 +227,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -244,7 +244,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
@@ -261,7 +261,7 @@ A class that try to find cells that conflict and resolve the conflicts.
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: GridGUI.Cell
 
 **returns**:
 
