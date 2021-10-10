@@ -3,233 +3,239 @@
 A class representing a grid row.
 </figure>
 ---
+##Members
+
+####catched
+
+> **desc**: Whether or not the members have already been calculate.
+
+> **type**: bool
+
+####cells
+
+> **desc**: A collection of arrays of `GridGUI.Cell`s indexed by the index of the columns they are placed on.
+
+> **type**: Associative Array
+
+> **default**: {}
+
+####confligtingExpanders
+
+> **desc**: A collection of cells that have vertical expansion conflicts.
+
+> **type**: Associative Array
+
+> **default**: {}
+
+####expanderMaxValue
+
+> **desc**: The largest vertical expansion weight in this row.
+
+> **type**: number
+
+####expanders
+
+> **desc**: The sum of all the vertical expansion weights of cells that are in this row.
+
+> **type**: number
+
+####fixedWidth
+
+> **desc**: The sum of the maximal fixed heights for each column, that is the sum of the largest fixed height for each array of overlapping cells in `GridGUI.Column.cells`.
+
+> **type**: number
+
+####index
+
+> **desc**: The index of the row in the grid.
+
+> **type**: number
+
+####minWidth
+
+> **desc**: The sum of the maximal minimal heights for each column, that is the sum of the largest minimal height for each array of overlapping cells in `GridGUI.Column.cells`.
+
+> **type**: number
+
+####nonExpanders
+
+> **desc**: The amount of cells with fixed size in this row.
+
+> **type**: number
+
 ##Methods
 
 ####__CalculateConfligtingExpanders
-**desc**: 
+**desc**: Updates `GridGUI.Row.confligtingExpanders` with the `GridGUI.Cell` for a cell if it has vertical conflicts.
 
 **args**:
 
 > **name**: c
 
-> **desc**: 
+> **desc**: The `GridGUI.Cell` to retrieve the value from.
 
 > **type**: GridGUI.Cell
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
 
 ####__CalculateExpanders
-**desc**: 
+**desc**: Updates `GridGUI.Row.expanders` with the result of `GridGUI.Cell.GetExpansionHeightValue` for a cell.
 
 **args**:
 
 > **name**: c
 
-> **desc**: 
+> **desc**: The `GridGUI.Cell` to retrieve the value from.
 
 > **type**: GridGUI.Cell
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
 
 ####__CalculateFixedHeight
-**desc**: 
+**desc**: Updates `GridGUI.Row.fixedHeight` with the result of `GridGUI.Cell.GetFixedHeight` for a cell if it is larger than the previous value.
 
 **args**:
 
 > **name**: c
 
-> **desc**: 
+> **desc**: The `GridGUI.Cell` to retrieve the value from.
 
 > **type**: GridGUI.Cell
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
 
 ####__CalculateMinHeight
-**desc**: 
+**desc**: Updates `GridGUI.Row.minHeight` with the result of `GridGUI.Cell.GetNeededHeight` for a cell if it is larger than the previous value.
 
 **args**:
 
 > **name**: c
 
-> **desc**: 
+> **desc**: The `GridGUI.Cell` to retrieve the value from.
 
 > **type**: GridGUI.Cell
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
 
 ####__CalculateNonExpanders
-**desc**: 
+**desc**: Increments `GridGUI.Row.nonExpanders` if the `GridGUI.Cell` does not expand vertically.
 
 **args**:
 
 > **name**: c
 
-> **desc**: 
+> **desc**: The `GridGUI.Cell` to retrieve the value from.
 
 > **type**: GridGUI.Cell
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####__New
-**desc**: 
+**desc**: Constructor.
 
 **args**:
 
 > **name**: index
 
-> **desc**: 
+> **desc**: The index of the row in the grid.
 
-> **type**: string|number|object
+> **type**: number
 
 **returns**:
 
-> **desc**: 
+> **desc**: A new `GridGUI.Row` instance.
 
-> **type**: 
+> **type**: GridGUI.Row
 
 ####__ResetConstants
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Resets the row members to their default values.
 
 ####Add
-**desc**: 
+**desc**: Adds a `GridGUI.Cell` to the row.
 
 **args**:
 
 > **name**: c
 
-> **desc**: 
+> **desc**: The `GridGUI.Cell` to added to the row.
 
 > **type**: GridGUI.Cell
 
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####CalculateConstants
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
+**desc**: Calculates the values for the members.
 
 ####CalculateHeight
-**desc**: 
+**desc**: Calculates the height of the row.
 
 **args**:
 
 > **name**: height
 
-> **desc**: 
+> **desc**: The height of the grid, that is the height of the GUI or subgrid.
 
-> **type**: string|number|object
+> **type**: number
 
 > **name**: expanders
 
-> **desc**: 
+> **desc**: An array of the sum of vertical expansion weights for each row.
 
-> **type**: string|number|object
+> **type**: array
 
 > **name**: nonExpanders
 
-> **desc**: 
+> **desc**: An array of the amount of fixed size cells in each row.
 
-> **type**: string|number|object
+> **type**: array
 
 **returns**:
 
-> **desc**: 
+> **desc**: The height of the row.
 
-> **type**: 
+> **type**: number
 
 ####GetExpanderMaxValue
-**desc**: 
+**desc**: Getter for `GridGUI.Row.expanderMaxValue`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The largest vertical expansion weight of a cell in the row.
 
-> **type**: 
+> **type**: number
 
 ####GetExpanders
-**desc**: 
+**desc**: Getter for `GridGUI.Row.expanders`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The sum of vertical expansion weight of cells in the row.
 
-> **type**: 
+> **type**: number
 
 ####GetFixedHeight
-**desc**: 
+**desc**: Getter for `GridGUI.Row.fixedHeight`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The largest fixed height of a cell in the row.
 
-> **type**: 
+> **type**: number
 
 ####GetMinHeight
-**desc**: 
+**desc**: Getter for `GridGUI.Row.minHeight`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The largest minimal height of a cell in the row.
 
-> **type**: 
+> **type**: number
 
 ####GetNonExpanders
-**desc**: 
+**desc**: Getter for `GridGUI.Row.nonExpanders`.
 
 **returns**:
 
-> **desc**: 
+> **desc**: The amount of cells with fixed height in the row.
 
-> **type**: 
+> **type**: number
 
 ####Remove
-**desc**: 
+**desc**: Removes a `GridGUI.Cell` from the row.
 
 **args**:
 
 > **name**: c
 
-> **desc**: 
+> **desc**: The `GridGUI.Cell` to remove from the row.
 
 > **type**: GridGUI.Cell
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
 
