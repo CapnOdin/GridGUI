@@ -4,6 +4,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
 						"desc": "",
@@ -52,6 +53,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
 						"desc": "",
@@ -354,6 +356,7 @@
 				}
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
 						"desc": "",
@@ -427,6 +430,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
 						"desc": "",
@@ -545,6 +549,7 @@
 				"members": {},
 				"methods": {
 					"__New": {
+						"desc": "Constructor.",
 						"args": [
 							{
 								"desc": "",
@@ -744,6 +749,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
 						"desc": "",
@@ -844,6 +850,7 @@
 		"members": {},
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
 						"desc": "",
@@ -1134,6 +1141,7 @@
 				}
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
 						"desc": "",
