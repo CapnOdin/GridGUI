@@ -417,28 +417,32 @@
 			"fixedWidth": {
 				"desc": "The maximal fixed width of the cells, that is the largest fixed width for a cell in `GridGUI.Column.cells`.",
 				"type": "number",
-				"default": 0
+				"default": 0,
+				"meta": ["cached"]
 			},
 			"minWidth": {
 				"desc": "The maximal minimal width for the cells, that is the largest minimal width for a cell in `GridGUI.Column.cells`.",
 				"type": "number",
 				"default": 0,
-				"meta": []
+				"meta": ["cached"]
 			},
 			"expanders": {
 				"desc": "The sum of all the horisontal expansion weights of cells that are in this column.",
 				"type": "number",
-				"default": 0
+				"default": 0,
+				"meta": ["cached"]
 			},
 			"expanderMaxValue": {
 				"desc": "The largest horisontal expansion weight in this column.",
 				"type": "number",
-				"default": 0
+				"default": 0,
+				"meta": ["cached"]
 			},
 			"nonExpanders": {
 				"desc": "The amount of cells with fixed size in this column.",
 				"type": "number",
-				"default": 0
+				"default": 0,
+				"meta": ["cached"]
 			},
 			"catched": {
 				"desc": "Whether or not the members have already been calculate.",
@@ -449,7 +453,7 @@
 				"desc": "A collection of cells that have horisontal expansion conflicts.",
 				"type": "Associative Array",
 				"default": "{}",
-				"meta": ["object"]
+				"meta": ["object", "cached"]
 			}
 		},
 		"methods": {
@@ -518,7 +522,7 @@
 				}
 			},
 			"__ResetConstants": {
-				"desc": "Resets the column members to their default values."
+				"desc": "Resets the cached `GridGUI.Column` members to their default values."
 			},
 			"Add": {
 				"desc": "Adds a `GridGUI.Cell` to the column.",
@@ -531,7 +535,7 @@
 				]
 			},
 			"CalculateConstants": {
-				"desc": "Calculates the values for the members."
+				"desc": "Calculates the values for the `GridGUI.Column` members that are cached."
 			},
 			"CalculateWidth": {
 				"desc": "Calculates the width of the column.",
@@ -606,124 +610,145 @@
 	},
 	"Columns": {
 		"desc": "A class managing a collection of `GridGUI.Column`s.",
-		"members": {},
+		"members": {
+			"columns": {
+				"desc": "A collection of the `GridGUI.Column`s where one or more `GridGUI.Cell`s have been placed. That is only used columns are generated.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object"]
+			},
+			"fixedWidths": {
+				"desc": "A collection of the fixed width of each `GridGUI.Column` in `GridGUI.Columns.columns`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"minWidths": {
+				"desc": "A collection of the min width of each `GridGUI.Column` in `GridGUI.Columns.columns`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"expanders": {
+				"desc": "A collection of the sum of horisontal `GridGUI.Cell` expansion weights of each `GridGUI.Column` in `GridGUI.Columns.columns`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"expandersMaxValue": {
+				"desc": "A collection of the maximum horisontal `GridGUI.Cell` expansion weight of each `GridGUI.Column` in `GridGUI.Columns.columns`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"nonExpanders": {
+				"desc": "A collection of the amount of horisontally fixed `GridGUI.Cell`s in each `GridGUI.Column` in `GridGUI.Columns.columns`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"catched": {
+				"desc": "Whether or not the members have already been calculate.",
+				"type": "bool",
+				"default": false
+			}
+		},
 		"methods": {
 			"__New": {
 				"desc": "Constructor.",
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.Columns` instance.",
+					"type": "GridGUI.Columns"
 				}
 			},
 			"__ResetConstants": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Resets the cached `GridGUI.Columns` members to their default values."
 			},
 			"Add": {
+				"desc": "Adds a `GridGUI.Cell` to the `GridGUI.Column`s that it spans over. If the `GridGUI.Column`s are not already in `GridGUI.Columns.columns` they are added before adding the cell.",
 				"args": [
 					{
 						"name": "c",
-						"desc": "",
+						"desc": "The `GridGUI.Cell` to add to the `GridGUI.Column`s.",
 						"type": "GridGUI.Cell"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"CalculateConstants": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Calculates the values for the `GridGUI.Columns` members that are cached."
 			},
 			"CalculateWidths": {
+				"desc": "Calculates the part of the available width that each `GridGUI.Column` in `GridGUI.Columns.columns` will get.",
 				"args": [
 					{
 						"name": "width",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The width of the grid. That is the width that the grid should fill.",
+						"type": "number"
 					},
 					{
 						"name": "expanders",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The member `GridGUI.Columns.expanders`",
+						"type": "associative array"
 					},
 					{
 						"name": "nonExpanders",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The member `GridGUI.Columns.nonExpanders`",
+						"type": "associative array"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The calculated widths of the `GridGUI.Column`s in `GridGUI.Columns.columns`.",
+					"type": "associative array"
 				}
 			},
 			"GetFixedWidth": {
-				"desc": "",
+				"desc": "Returns the sum of the fixed widths of the `GridGUI.Column`s in `GridGUI.Columns.columns`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The sum of the fixed widths of the `GridGUI.Column`s in `GridGUI.Columns.columns`.",
+					"type": "number"
 				}
 			},
 			"GetMinWidth": {
-				"desc": "",
+				"desc": "Returns the sum of the minimal widths of the `GridGUI.Column`s in `GridGUI.Columns.columns`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The sum of the minimal widths of the `GridGUI.Column`s in `GridGUI.Columns.columns`.",
+					"type": "number"
 				}
 			},
 			"ReduceToGuiSize": {
+				"desc": "Fixes miscalculations in the width of expanding `GridGUI.Cell`s by reducing their width down until they all fit in the available width or all have reach their min width. The reduction is done starting with the widest `GridGUI.Column` to the thinnest.",
 				"args": [
 					{
 						"name": "widths",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The calculated widths for the `GridGUI.Column`s in `GridGUI.Columns.columns`.",
+						"type": "associative array"
 					},
 					{
 						"name": "expandedWidths",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "An array of the widths of `GridGUI.Column`s with one or more horisontally expanding `GridGUI.Cell` if the current width in `widths` corresponding to the column is larger than the minimum of the column otherwise it wont be included in the `expandedWidths`",
+						"type": "array"
 					},
 					{
 						"name": "sumExpandedWidths",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The sum of the widths in `expandedWidths`.",
+						"type": "number"
 					},
 					{
 						"name": "excessWidth",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The amount of width that the sum of `widths` would exceed the width of the grid/gui.",
+						"type": "number"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Remove": {
+				"desc": "Removes a `GridGUI.Cell` from the `GridGUI.Column`s that it spans over. If the `GridGUI.Column`s are empty after removing the cell the column will be removed as well.",
 				"args": [
 					{
 						"name": "c",
-						"desc": "",
+						"desc": "The `GridGUI.Cell` to remove from the `GridGUI.Column`s.",
 						"type": "GridGUI.Cell"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			}
 		}
 	},
@@ -1061,40 +1086,43 @@
 			"fixedWidth": {
 				"desc": "The sum of the maximal fixed heights for each column, that is the sum of the largest fixed height for each array of overlapping cells in `GridGUI.Column.cells`.",
 				"type": "number",
-				"default": 0
+				"default": 0,
+				"meta": ["cached"]
 			},
 			"minWidth": {
 				"desc": "The sum of the maximal minimal heights for each column, that is the sum of the largest minimal height for each array of overlapping cells in `GridGUI.Column.cells`.",
 				"type": "number",
 				"default": 0,
-				"meta": []
+				"meta": ["cached"]
 			},
 			"expanders": {
 				"desc": "The sum of all the vertical expansion weights of cells that are in this row.",
 				"type": "number",
-				"default": 0
+				"default": 0,
+				"meta": ["cached"]
 			},
 			"expanderMaxValue": {
 				"desc": "The largest vertical expansion weight in this row.",
 				"type": "number",
-				"default": 0
+				"default": 0,
+				"meta": ["cached"]
 			},
 			"nonExpanders": {
 				"desc": "The amount of cells with fixed size in this row.",
 				"type": "number",
-				"default": 0
+				"default": 0,
+				"meta": ["cached"]
 			},
 			"catched": {
 				"desc": "Whether or not the members have already been calculate.",
 				"type": "bool",
-				"default": false,
-				"meta": []
+				"default": false
 			},
 			"confligtingExpanders": {
 				"desc": "A collection of cells that have vertical expansion conflicts.",
 				"type": "Associative Array",
 				"default": "{}",
-				"meta": ["object"]
+				"meta": ["object", "cached"]
 			}
 		},
 		"methods": {
@@ -1163,7 +1191,7 @@
 				}
 			},
 			"__ResetConstants": {
-				"desc": "Resets the row members to their default values."
+				"desc": "Resets the cached `GridGUI.Row` members to their default values."
 			},
 			"Add": {
 				"desc": "Adds a `GridGUI.Cell` to the row.",
@@ -1176,7 +1204,7 @@
 				]
 			},
 			"CalculateConstants": {
-				"desc": "Calculates the values for the members."
+				"desc": "Calculates the values for the `GridGUI.Row` members that are cached."
 			},
 			"CalculateHeight": {
 				"desc": "Calculates the height of the row.",
@@ -1251,124 +1279,145 @@
 	},
 	"Rows": {
 		"desc": "A class managing a collection of `GridGUI.Row`s.",
-		"members": {},
+		"members": {
+			"rows": {
+				"desc": "A collection of the `GridGUI.Row`s where one or more `GridGUI.Cell`s have been placed. That is only used rows are generated.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object"]
+			},
+			"fixedHeights": {
+				"desc": "A collection of the fixed height of each `GridGUI.Row` in `GridGUI.Rows.rows`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"minHeights": {
+				"desc": "A collection of the min height of each `GridGUI.Row` in `GridGUI.Rows.rows`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"expanders": {
+				"desc": "A collection of the sum of vertical `GridGUI.Cell` expansion weights of each `GridGUI.Row` in `GridGUI.Rows.rows`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"expandersMaxValue": {
+				"desc": "A collection of the maximum vertical `GridGUI.Cell` expansion weight of each `GridGUI.Row` in `GridGUI.Rows.rows`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"nonExpanders": {
+				"desc": "A collection of the amount of vertically fixed `GridGUI.Cell`s in each `GridGUI.Row` in `GridGUI.Rows.rows`.",
+				"type": "associative array",
+				"default": "{}",
+				"meta": ["object", "cached"]
+			},
+			"catched": {
+				"desc": "Whether or not the members have already been calculate.",
+				"type": "bool",
+				"default": false
+			}
+		},
 		"methods": {
 			"__New": {
 				"desc": "Constructor.",
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.Rows` instance.",
+					"type": "GridGUI.Rows"
 				}
 			},
 			"__ResetConstants": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Resets the cached `GridGUI.Rows` members to their default values."
 			},
 			"Add": {
+				"desc": "Adds a `GridGUI.Cell` to the `GridGUI.Row`s that it spans over. If the `GridGUI.Row`s are not already in `GridGUI.Rows.rows` they are added before adding the cell.",
 				"args": [
 					{
 						"name": "c",
-						"desc": "",
+						"desc": "The `GridGUI.Cell` to add to the `GridGUI.Row`s.",
 						"type": "GridGUI.Cell"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"CalculateConstants": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Calculates the values for the `GridGUI.Rows` members that are cached."
 			},
 			"CalculateHeights": {
+				"desc": "Calculates the part of the available height that each `GridGUI.Row` in `GridGUI.Rows.rows` will get.",
 				"args": [
 					{
 						"name": "height",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The height of the grid. That is the height that the grid should fill.",
+						"type": "number"
 					},
 					{
 						"name": "expanders",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The member `GridGUI.Rows.expanders`",
+						"type": "associative array"
 					},
 					{
 						"name": "nonExpanders",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The member `GridGUI.Rows.nonExpanders`",
+						"type": "associative array"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The calculated heights of the `GridGUI.Row`s in `GridGUI.Rows.rows`.",
+					"type": "associative array"
 				}
 			},
 			"GetFixedHeight": {
-				"desc": "",
+				"desc": "Returns the sum of the fixed heights of the `GridGUI.Row`s in `GridGUI.Rows.rows`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The sum of the fixed heights of the `GridGUI.Row`s in `GridGUI.Rows.rows`.",
+					"type": "number"
 				}
 			},
 			"GetMinHeight": {
-				"desc": "",
+				"desc": "Returns the sum of the minimal heights of the `GridGUI.Row`s in `GridGUI.Rows.rows`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The sum of the minimal heights of the `GridGUI.Row`s in `GridGUI.Rows.rows`.",
+					"type": "number"
 				}
 			},
 			"ReduceToGuiSize": {
+				"desc": "Fixes miscalculations in the height of expanding `GridGUI.Cell`s by reducing their height down until they all fit in the available height or all have reach their min height. The reduction is done starting with the tallest `GridGUI.Row` to the shortest.",
 				"args": [
 					{
 						"name": "heights",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The calculated heights for the `GridGUI.Row`s in `GridGUI.Rows.rows`.",
+						"type": "associative array"
 					},
 					{
 						"name": "expandedHeights",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "An array of the heights of `GridGUI.Row`s with one or more vertically expanding `GridGUI.Cell` if the current height in `heights` corresponding to the row is larger than the minimum of the row otherwise it wont be included in the `expandedHeights`",
+						"type": "array"
 					},
 					{
 						"name": "sumExpandedHeights",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The sum of the heights in `expandedHeights`.",
+						"type": "number"
 					},
 					{
 						"name": "excessHeight",
-						"desc": "",
-						"type": "string|number|object"
+						"desc": "The amount of height that the sum of `heights` would exceed the height of the grid/gui.",
+						"type": "number"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"Remove": {
+				"desc": "Removes a `GridGUI.Cell` from the `GridGUI.Row`s that it spans over. If the `GridGUI.Row`s are empty after removing the cell the row will be removed as well.",
 				"args": [
 					{
 						"name": "c",
-						"desc": "",
+						"desc": "The `GridGUI.Cell` to remove from the `GridGUI.Row`s.",
 						"type": "GridGUI.Cell"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			}
 		}
 	},
