@@ -138,7 +138,7 @@ A class representing a grid row.
 > **type**: GridGUI.Row
 
 ####__ResetConstants
-**desc**: Resets the row members to their default values.
+**desc**: Resets the cached `GridGUI.Row` members to their default values.
 
 ####Add
 **desc**: Adds a `GridGUI.Cell` to the row.
@@ -152,7 +152,7 @@ A class representing a grid row.
 > **type**: GridGUI.Cell
 
 ####CalculateConstants
-**desc**: Calculates the values for the members.
+**desc**: Calculates the values for the `GridGUI.Row` members that are cached.
 
 ####CalculateHeight
 **desc**: Calculates the height of the row.

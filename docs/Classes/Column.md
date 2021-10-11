@@ -138,7 +138,7 @@ A class representing a grid column.
 > **type**: GridGUI.Column
 
 ####__ResetConstants
-**desc**: Resets the column members to their default values.
+**desc**: Resets the cached `GridGUI.Column` members to their default values.
 
 ####Add
 **desc**: Adds a `GridGUI.Cell` to the column.
@@ -152,7 +152,7 @@ A class representing a grid column.
 > **type**: GridGUI.Cell
 
 ####CalculateConstants
-**desc**: Calculates the values for the members.
+**desc**: Calculates the values for the `GridGUI.Column` members that are cached.
 
 ####CalculateWidth
 **desc**: Calculates the width of the column.
