@@ -101,15 +101,26 @@
 		Show(options := "AutoSize") {
 			local Base
 			if(options = "AutoSize") {
-				options := "w" this.grid.GetMinWidth() " h" this.grid.GetMinHeight()
+				this.AutoSize()
+				options := "w" this.pos.w " h" this.pos.h
 			}
 			Base.Show(options)
 		}
 		
 		AutoSize() {
+			local width, height
 			this.pos.w := this.grid.GetMinWidth()
 			this.pos.h := this.grid.GetMinHeight()
 			this.Draw(this.pos)
+			
+			; Workaround for wrong min sizes, where the cells takes up more space than would be indicated by GetMinWidth and GetMinHeight. (should be removed once the root course has been identified)
+			width	:= GridGUI.Util.Sum(this.grid.widths)
+			height	:= GridGUI.Util.Sum(this.grid.heights)
+			if(this.pos.w < width || this.pos.h < height) {
+				this.pos.w := width
+				this.pos.h := height
+				this.Draw(this.pos)
+			}
 		}
 		
 		Margin(x := "", y := "") {
