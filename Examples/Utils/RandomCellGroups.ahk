@@ -3,6 +3,7 @@
 
 SetBatchLines, -1
 SetWinDelay, 0
+SetControlDelay, 0
 
 global gw := 30
 
@@ -48,11 +49,13 @@ DoTest(iteration, area, pixelArea, iterations := 10, destroyOnSuccess := false) 
 	myGGui := new GridGUI("Grid Test", "resize")
 	MakeGridGuiVersion(myGGui, cellgroups)
 	
-	myGGui.Show("w" pixelArea.w " h" pixelArea.h " NA")
+	;myGGui.Show("w" pixelArea.w " h" pixelArea.h " NA")
 	
-	While(pixelArea.Area() != myGGui.Pos.Area() && !myGGui.grid.arbitrator.IsReduced) {
-		Sleep, 50
-	}
+	myGGui.Draw(pixelArea)
+	
+	;While(pixelArea.Area() != myGGui.Pos.Area() && !myGGui.grid.arbitrator.IsReduced) {
+	;	Sleep, 50
+	;}
 	
 	/*
 	res1 := ""
@@ -79,6 +82,7 @@ DoTest(iteration, area, pixelArea, iterations := 10, destroyOnSuccess := false) 
 		myGGui.Destroy()
 		return false
 	} else {
+		myGGui.Show("w" pixelArea.w " h" pixelArea.h " NA")
 		MsgBox, % cellgroups.Length() "`n" ToCsv(cellgroups)
 		errorF.Write(iteration "`n")
 		errorF.Write(ToCsv(cellgroups) "`n`n`n")
