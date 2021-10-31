@@ -1,13 +1,15 @@
 
 #Include %A_LineFile%\..\Controls.ahk
+#Include %A_LineFile%\..\CellControl.ahk
 
 Class Grid {
-	__New() {
+	__New(justify := "") {
 		this.cells := []
 		this.arbitrator := new GridGUI.ExpanderArbitrator()
 		this.rows := new GridGUI.Rows()
 		this.columns := new GridGUI.Columns()
 		this.ResetConstants()
+		this.justify := justify
 	}
 	
 	AddCell(c) { ; adds the cell to all positionts it spands over
@@ -63,18 +65,29 @@ Class Grid {
 	}
 	
 	CalculatePositions(area) {
-		local pre, i, c
+		local pre
 		pre := A_BatchLines
 		SetBatchLines, -1
 		this.arbitrator.ReCalculate() ; should not be done here
-		this.widths := this.columns.CalculateWidths(area.w, this.columns.expanders, this.columns.nonExpanders)
-		this.heights := this.rows.CalculateHeights(area.h, this.rows.expanders, this.rows.nonExpanders)
-		
+		this.widths := this.columns.CalculateWidths(area.w, this.columns.expanders, this.columns.nonExpanders, area.h - this.rows.GetFixedHeight(), this.rows.expanders, this.rows.nonExpanders)
+		this.heights := this.rows.CalculateHeights(area.h, this.rows.expanders, this.rows.nonExpanders, area.w - this.columns.GetFixedWidth(), this.columns.expanders, this.columns.nonExpanders)
+		SetBatchLines, % pre
+	}
+	
+	Draw(area) {
+		local pre, i, c
+		pre := A_BatchLines
+		SetBatchLines, -1
+		if(this.justify) {
+			pos := area.Copy(), pos.w := GridGUI.Util.Sum(this.widths), pos.h := GridGUI.Util.Sum(this.heights)
+			area := GridGUI.Util.Justify(this.justify, area, pos, GridGui.Pos(0, 0))
+		}
 		for i, c in this.cells {
 			c.SetArea(area, this.widths, this.heights)
 			c.Update()
 		}
 		SetBatchLines, % pre
+		return area
 	}
 }
 
@@ -86,6 +99,7 @@ Class ExpanderArbitrator {
 		this.ConflictLst := {"W": {}, "H": {}}
 		this.ConflictMap := {"W": {}, "H": {}}
 		this.Ignore := {"W": {}, "H": {}}
+		this.IsReduced := false
 	}
 	
 	Add(c) {
@@ -406,14 +420,14 @@ Class Columns {
 		}
 	}
 	
-	CalculateWidths(width, expanders, nonExpanders) {
+	CalculateWidths(width, expandersW, nonExpandersW, height, expandersH, nonExpandersH) {
 		local widths, reserved, expandedWidths, sumExpandedWidths, i, c, sum
 		widths := {}
 		reserved := this.GetFixedWidth()
 		expandedWidths := []
 		sumExpandedWidths := 0
 		for i, c in this.columns {
-			widths[i] := c.CalculateWidth(width - reserved, expanders, nonExpanders)
+			widths[i] := c.CalculateWidth(width - reserved, expandersW, nonExpandersW, height, expandersH, nonExpandersH)
 			if(c.expanders && Round(widths[i] - c.GetFixedWidth(), 3)) {
 				;if(widths[i] > c.GetMinWidth()) {
 					expandedWidths.Push([i, widths[i], c.GetMinWidth()])
@@ -547,14 +561,14 @@ Class Rows {
 		}
 	}
 	
-	CalculateHeights(height, expanders, nonExpanders) {
+	CalculateHeights(height, expandersH, nonExpandersH, width, expandersW, nonExpandersW) {
 		local heights, reserved, expandedHeights, sumExpandedHeights, i, r, sum
 		heights := {}
 		reserved := this.GetFixedHeight()
 		expandedHeights := []
 		sumExpandedHeights := 0
 		for i, r in this.rows {
-			heights[i] := r.CalculateHeight(height - reserved, expanders, nonExpanders)
+			heights[i] := r.CalculateHeight(height - reserved, expandersH, nonExpandersH, width, expandersW, nonExpandersW)
 			if(r.expanders && Round(heights[i] - r.GetFixedHeight(), 3)) {
 				;if(heights[i] >  r.GetMinHeight()) {
 					expandedHeights.Push([i, heights[i], r.GetMinHeight()])
@@ -702,13 +716,13 @@ Class Column {
 		return this.nonExpanders
 	}
 	
-	CalculateWidth(width, expanders, nonExpanders) {
+	CalculateWidth(width, expandersW, nonExpandersW, height, expandersH, nonExpandersH) {
 		local maxWidth, i, overlappinCells, c, w
 		maxWidth := this.fixedWidth
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
 				if(c.exW) {
-					w := this.GetFixedWidth() + c.GetExpandedWidth(this.index, width, expanders, nonExpanders)
+					w := this.GetFixedWidth() + c.GetExpandedWidth(this.index, width, expandersW, nonExpandersW, height, expandersH, nonExpandersH)
 					if(maxWidth < w) {
 						maxWidth := w
 					}
@@ -846,13 +860,13 @@ Class Row {
 		return this.nonExpanders
 	}
 	
-	CalculateHeight(height, expanders, nonExpanders) {
+	CalculateHeight(height, expandersH, nonExpandersH, width, expandersW, nonExpandersW) {
 		local maxHeight, i, overlappinCells, c, h
 		maxHeight := this.fixedHeight
 		for i, overlappinCells in this.cells {
 			for i, c in overlappinCells {
 				if(c.exH) {
-					h := this.GetFixedHeight() + c.GetExpandedHeight(this.index, height, expanders, nonExpanders)
+					h := this.GetFixedHeight() + c.GetExpandedHeight(this.index, height, expandersH, nonExpandersH, width, expandersW, nonExpandersW)
 					if(maxHeight < h) {
 						maxHeight := h
 					}
@@ -864,7 +878,7 @@ Class Row {
 }
 
 Class Cell {
-	__New(pos, ctrl, exW := 0, exH := 0, fillW := false, fillH := false, justify := "C", borderX := 5, borderY := 5) {
+	__New(pos, ctrl, exW := 0, exH := 0, fillW := false, fillH := false, justify := "C", borderX := 5, borderY := 5, aspectRatio := false) {
 		this.gridpos := pos
 		this.ctrl := ctrl
 		this.exW := exW
@@ -874,7 +888,8 @@ Class Cell {
 		this.justifyOptions := justify
 		this.borderX := borderX
 		this.borderY := borderY
-		this.ctrlInitialPos := this.ctrl.ControlGetPos()
+		this.border := GridGUI.Pos(borderX, borderY, borderX, borderY)
+		this.ctrlInitialPos := this.ctrl.GetPos()
 		this.ctrlPos := this.ctrlInitialPos.Copy()
 		this.pos := this.ctrlInitialPos.Copy()
 		;this.ctrl.callback := ObjBindMethod(this, "ToolTip")
@@ -882,44 +897,98 @@ Class Cell {
 		this.othersH := 0
 		this.hasWConfligts := false
 		this.hasHConfligts := false
+		this.SetAspectRatio(aspectRatio)
+	}
+	
+	SetAspectRatio(ratio := "") {
+		if(ratio == "") {
+			this.aspectRatio := this.ctrlPos.w / this.ctrlPos.h
+		} else {
+			this.aspectRatio := ratio
+		}
 	}
 	
 	GetFixedHeight() {
-		;return this.exH || this.fillH ? (this.ctrl.initialHeight ? (this.ctrl.initialHeightVal + (this.ctrl.initialHeightVal ? this.borderY * 2 : 0)) / this.gridpos.h : 0) : ((this.ctrl.initialHeight ? this.ctrl.initialHeightVal : this.ctrlInitialPos.h) + this.borderY * 2) / this.gridpos.h
+		local fh, fw
+		if(this.aspectRatio) {
+			fh := this.__GetFixedHeight()
+			fw := this.__GetFixedWidth()
+			;MsgBox, % "(" fw ", " fh ")" "`n" "(" fh ", " fw / this.aspectRatio ")"
+			return Min(fh, fw / this.aspectRatio) / this.gridpos.h
+		} else {
+			return this.__GetFixedHeight() / this.gridpos.h
+		}
+	}
+	
+	__GetFixedHeight() {
+		;return this.exH || this.fillH ? (this.ctrl.minHeight ? (this.ctrl.minHeightVal + (this.ctrl.minHeightVal ? this.borderY * 2 : 0)) / this.gridpos.h : 0) : ((this.ctrl.minHeight ? this.ctrl.minHeightVal : this.ctrlInitialPos.h) + this.borderY * 2) / this.gridpos.h
 		if(this.exH || this.fillH) {
-			if(this.ctrl.initialHeight) {
-				return (this.ctrl.initialHeightVal + (this.ctrl.initialHeightVal ? this.borderY * 2 : 0)) / this.gridpos.h
+			if(this.ctrl.minHeight) {
+				return (this.ctrl.minHeightVal + (this.ctrl.minHeightVal ? this.borderY * 2 : 0))
 			}
 			return 0
 		}
-		return ((this.ctrl.initialHeight ? this.ctrl.initialHeightVal : this.ctrlInitialPos.h) + this.borderY * 2) / this.gridpos.h
+		return ((this.ctrl.minHeight ? this.ctrl.minHeightVal : this.ctrlInitialPos.h) + this.borderY * 2)
 	}
 	
 	GetFixedWidth() {
-		;return this.exW || this.fillW ? (this.ctrl.initialWidth ? (this.ctrl.initialWidthVal + (this.ctrl.initialWidthVal ? this.borderX * 2 : 0)) / this.gridpos.w : 0) : ((this.ctrl.initialWidth ? this.ctrl.initialWidthVal : this.ctrlInitialPos.w) + this.borderX * 2) / this.gridpos.w
+		local fh, fw
+		if(this.aspectRatio) {
+			fh := this.__GetFixedHeight()
+			fw := this.__GetFixedWidth()
+			return Min(fw, fh * this.aspectRatio) / this.gridpos.w
+		} else {
+			return this.__GetFixedWidth() / this.gridpos.w
+		}
+	}
+	
+	__GetFixedWidth() {
+		;return this.exW || this.fillW ? (this.ctrl.minWidth ? (this.ctrl.minWidthVal + (this.ctrl.minWidthVal ? this.borderX * 2 : 0)) / this.gridpos.w : 0) : ((this.ctrl.minWidth ? this.ctrl.minWidthVal : this.ctrlInitialPos.w) + this.borderX * 2) / this.gridpos.w
 		if(this.exW || this.fillW) {
-			if(this.ctrl.initialWidth) {
-				return (this.ctrl.initialWidthVal + (this.ctrl.initialWidthVal ? this.borderX * 2 : 0)) / this.gridpos.w
+			if(this.ctrl.minWidth) {
+				return (this.ctrl.minWidthVal + (this.ctrl.minWidthVal ? this.borderX * 2 : 0))
 			}
 			return 0
 		}
-		return ((this.ctrl.initialWidth ? this.ctrl.initialWidthVal : this.ctrlInitialPos.w) + this.borderX * 2) / this.gridpos.w
+		return ((this.ctrl.minWidth ? this.ctrl.minWidthVal : this.ctrlInitialPos.w) + this.borderX * 2)
 	}
 	
 	GetNeededHeight() {
-		if(this.ctrl.initialHeight) {
-			return this.ctrl.initialHeightVal ? (this.ctrl.initialHeightVal + this.borderY * 2) / this.gridpos.h : 0
+		local nh, nw
+		if(this.aspectRatio) {
+			nh := this.__GetNeededHeight()
+			nw := this.__GetNeededWidth()
+			return Min(nh, nw / this.aspectRatio) / this.gridpos.h
+		} else {
+			return this.__GetNeededHeight() / this.gridpos.h
 		}
-		return (this.ctrlInitialPos.h + this.borderY * 2) / this.gridpos.h
-		;return ((this.ctrl.initialHeight ? this.ctrl.initialHeightVal : this.ctrlInitialPos.h) + this.borderY * 2) / this.gridpos.h
+	}
+	
+	__GetNeededHeight() {
+		if(this.ctrl.minHeight) {
+			return this.ctrl.minHeightVal ? (this.ctrl.minHeightVal + this.borderY * 2) : 0
+		}
+		return (this.ctrlInitialPos.h + this.borderY * 2)
+		;return ((this.ctrl.minHeight ? this.ctrl.minHeightVal : this.ctrlInitialPos.h) + this.borderY * 2) / this.gridpos.h
 	}
 	
 	GetNeededWidth() {
-		if(this.ctrl.initialWidth) {
-			return this.ctrl.initialWidthVal ? (this.ctrl.initialWidthVal + this.borderX * 2) / this.gridpos.w : 0
+		local nh, nw
+		if(this.aspectRatio) {
+			nh := this.__GetNeededHeight()
+			nw := this.__GetNeededWidth()
+			return Min(nw, nh * this.aspectRatio) / this.gridpos.w
+		} else {
+			return this.__GetNeededWidth() / this.gridpos.w
 		}
-		return (this.ctrlInitialPos.w + this.borderX * 2) / this.gridpos.w
-		;return ((this.ctrl.initialWidth ? this.ctrl.initialWidthVal : this.ctrlInitialPos.w) + this.borderX * 2) / this.gridpos.w
+	}
+	
+	__GetNeededWidth() {
+		if(this.ctrl.minWidth) {
+			return this.ctrl.minWidthVal ? (this.ctrl.minWidthVal + this.borderX * 2) : 0
+		}
+		return (this.ctrlInitialPos.w + this.borderX * 2)
+		;return ((this.ctrl.minWidth ? this.ctrl.minWidthVal : this.ctrlInitialPos.w) + this.borderX * 2) / this.gridpos.w
 	}
 	
 	GetExpansionWidthValue() {
@@ -930,7 +999,30 @@ Class Cell {
 		return this.exH ;/ this.gridpos.h
 	}
 	
-	GetExpandedWidth(index, width, expanders, nonExpanders) {
+	GetExpandedWidth(index, width, expandersW, nonExpandersW, height, expandersH, nonExpandersH) {
+		if(this.aspectRatio) {
+			expw := this.__GetExpandedWidth(index, width, expandersW, nonExpandersW)
+			if(expw) {
+				exph := Max(this.__GetExpandedHeights(height, expandersH, nonExpandersH)*)
+				return Min(expw, exph * this.aspectRatio)
+			}
+			return expw
+		} else {
+			return this.__GetExpandedWidth(index, width, expandersW, nonExpandersW)
+		}
+	}
+	
+	__GetExpandedWidths(width, expanders, nonExpanders) {
+		local expws
+		expws := []
+		loop % this.gridpos.w {
+			expws.Push(this.__GetExpandedWidth(this.gridpos.x + A_Index - 1, width, expanders, nonExpanders))
+		}
+		;MsgBox, % "__GetExpandedWidths`n`n" Jxon_Dump(expws, 4)
+		return expws
+	}
+	
+	__GetExpandedWidth(index, width, expanders, nonExpanders) {
 		if(index != this.__FindLeastUsedRowColumn(this.gridpos.w, this.gridpos.x, nonExpanders, expanders)) {
 			return 0
 		}
@@ -940,7 +1032,30 @@ Class Cell {
 		return width * this.exW / (this.othersW + this.exW)
 	}
 	
-	GetExpandedHeight(index, height, expanders, nonExpanders) {
+	GetExpandedHeight(index, height, expandersH, nonExpandersH, width, expandersW, nonExpandersW) {
+		if(this.aspectRatio) {
+			exph := this.__GetExpandedHeight(index, height, expandersH, nonExpandersH)
+			if(exph) {
+				expw := Max(this.__GetExpandedWidths(width, expandersW, nonExpandersW)*)
+				return Min(exph, expw / this.aspectRatio)
+			}
+			return exph
+		} else {
+			return this.__GetExpandedHeight(index, height, expandersH, nonExpandersH)
+		}
+	}
+	
+	__GetExpandedHeights(height, expanders, nonExpanders) {
+		local exphs
+		exphs := []
+		loop % this.gridpos.h {
+			exphs.Push(this.__GetExpandedHeight(this.gridpos.y + A_Index - 1, height, expanders, nonExpanders))
+		}
+		;MsgBox, % "__GetExpandedHeights`n`n" Jxon_Dump(exphs, 4)
+		return exphs
+	}
+	
+	__GetExpandedHeight(index, height, expanders, nonExpanders) {
 		if(index != this.__FindLeastUsedRowColumn(this.gridpos.h, this.gridpos.y, nonExpanders, expanders)) {
 			return 0
 		}
@@ -991,22 +1106,29 @@ Class Cell {
 	}
 	
 	Update() {
-		this.ctrlPos := this.Justify(this.pos, this.SetCtrlSize(this.pos))
+		;this.ctrlPos := this.Justify(this.pos, this.CalculateCtrlSize(this.pos))
+		this.ctrlPos := GridGUI.Util.Justify(this.justifyOptions, this.pos, this.CalculateCtrlSize(this.pos), this.border)
 		this.ctrl.Draw(this.ctrlPos)
 	}
 	
-	SetCtrlSize(pos) {
+	CalculateCtrlSize(pos) {
 		local w, h
-		if(this.ctrl.initialWidth) {
-			w := this.fillW ? Max(pos.w - this.borderX * 2, this.ctrl.initialWidthVal) : this.ctrl.initialWidthVal
+		if(this.ctrl.minWidth) {
+			w := this.fillW ? Max(pos.w - this.borderX * 2, this.ctrl.minWidthVal) : this.ctrl.minWidthVal
 		} else {
 			w := this.fillW ? pos.w - this.borderX * 2 : this.ctrlInitialPos.w
 		}
-		if(this.ctrl.initialHeight) {
-			h := this.fillH ? Max(pos.h - this.borderY * 2, this.ctrl.initialHeightVal) : this.ctrl.initialHeightVal
+		if(this.ctrl.minHeight) {
+			h := this.fillH ? Max(pos.h - this.borderY * 2, this.ctrl.minHeightVal) : this.ctrl.minHeightVal
 		} else {
 			h := this.fillH ? pos.h - this.borderY * 2 : this.ctrlInitialPos.h
 		}
+		
+		if(this.aspectRatio) {
+			h := Min(h, w / this.aspectRatio)
+			w := h * this.aspectRatio
+		}
+		
 		return new GridGUI.Position(this.pos.x, this.pos.y, w, h)
 	}
 	
@@ -1179,5 +1301,48 @@ Class Util {
 		Value += ((oldValue & 0xff0000) >> 16)
 		Value += ((oldValue & 0x0000ff) << 16)
 		return Value
+	}
+	
+	Join(sep, params) {
+		local i, str
+		for i, param in params {
+			str .= param sep
+		}
+		return SubStr(str, 1, -StrLen(sep))
+	}
+	
+	GetSizeByLimitingSide(pos, ratio) {
+		area := pos.copy()
+		area.w := Min(pos.w, pos.h * ratio)
+		area.h := Min(pos.h, pos.w / ratio)
+		return area
+	}
+	
+	JustifyCenter(area, pos) {
+		local dw, dh
+		dw := (area.w - pos.w) // 2
+		dh := (area.h - pos.h) // 2
+		return new GridGUI.Position(area.x + dw, area.y + dh, pos.w, pos.h)
+	}
+	
+	Justify(justifyOptions, area, pos, border) {
+		local jpos
+		jpos := new GridGUI.Position(area.x, area.y, pos.w, pos.h)
+		if(InStr(justifyOptions, "C")) {
+			jpos := GridGUI.Util.JustifyCenter(area, pos)
+		}
+		if(InStr(justifyOptions, "N")) {
+			jpos.y := area.y + border.y
+		}
+		if(InStr(justifyOptions, "E")) {
+			jpos.x := area.x + area.w - pos.w - border.w
+		}
+		if(InStr(justifyOptions, "W")) {
+			jpos.x := area.x + border.x
+		}
+		if(InStr(justifyOptions, "S")) {
+			jpos.y := area.y + area.h - pos.h - border.h
+		}
+		return jpos
 	}
 }
