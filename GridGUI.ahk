@@ -3,8 +3,8 @@
 	#Include %A_LineFile%\..\GridGUI-lib\Grid.ahk
 	#Include %A_LineFile%\..\GridGUI-lib\Version.ahk
 	
-	__New(title := "", options := "", showGrid := false) {
-		return new GridGUI.GridGUIClass(title, options, showGrid)
+	__New(title := "", options := "", showGrid := false, justify := false) {
+		return new GridGUI.GridGUIClass(title, options, showGrid, justify)
 	}
 	
 	Area(w, h, x := 0, y := 0) {
@@ -21,7 +21,7 @@
 	
 	Class GridGUIClass Extends GridGUI.GUI {
 
-		__New(title := "", options := "", showGrid := false) {
+		__New(title := "", options := "", showGrid := false, justify := false) {
 			local Base
 			Base.__New(title, options)
 			this.__Init(showGrid)
@@ -100,9 +100,10 @@
 		
 		Show(options := "AutoSize") {
 			local Base
-			if(options = "AutoSize") {
+			if(InStr(options, "AutoSize")) {
 				this.AutoSize()
-				options := "w" this.pos.w " h" this.pos.h
+				options := RegExReplace(options, "AutoSize|w\d+|h\d+")
+				options .= " w" this.pos.w " h" this.pos.h
 			}
 			Base.Show(options)
 		}
@@ -111,7 +112,7 @@
 			local width, height
 			this.pos.w := this.grid.GetMinWidth()
 			this.pos.h := this.grid.GetMinHeight()
-			this.Draw(this.pos)
+			this.grid.CalculatePositions(this.pos)
 			
 			; Workaround for wrong min sizes, where the cells takes up more space than would be indicated by GetMinWidth and GetMinHeight. (should be removed once the root course has been identified)
 			width	:= GridGUI.Util.Sum(this.grid.widths)
@@ -119,8 +120,9 @@
 			if(this.pos.w < width || this.pos.h < height) {
 				this.pos.w := width
 				this.pos.h := height
-				this.Draw(this.pos)
+				this.grid.CalculatePositions(this.pos)
 			}
+			this.grid.Draw(this.pos)
 		}
 		
 		Margin(x := "", y := "") {
@@ -143,15 +145,15 @@
 			local area
 			area := pos.copy(), area.x := 0, area.y := 0
 			this.grid.CalculatePositions(area)
+			return this.grid.Draw(area)
 		}
 		
 		_GuiSize(pos, resizeEvent := 0) {
 			local Base, area
+			area := this.Draw(pos)
 			Base._GuiSize(pos, resizeEvent)
-			this.Draw(this.pos)
 			if(this.showGrid) {
 				ToolTip, % "Pos: (" this.pos.x ", " this.pos.y ")`nSize: (" this.pos.w ", " this.pos.h ")`nRSize: (" pos.w ", " pos.h ")"
-				area := this.pos.copy(), area.x := 0, area.y := 0
 				This.__DrawGrid(area)
 			}
 		}
@@ -222,22 +224,35 @@
 		
 		__Init(area) {
 			this.pos := area ? area : new GridGUI.Position(0, 0, 0, 0)
-			this.initialWidth := this.pos.w != 0
-			this.initialHeight := this.pos.h != 0
-			this.initialWidthVal := this.pos.w
-			this.initialHeightVal := this.pos.h
+			this.MinSize(this.pos.w, this.pos.h)
 		}
 		
 		Draw(area) {
-			this.pos := area
+			this.pos := area.Copy()
 			this.grid.CalculatePositions(area)
+			area := this.grid.Draw(area)
 			if(this.showGrid) {
-				This.__DrawGrid(this.pos)
+				This.__DrawGrid(area)
 			}
 		}
 		
-		ControlGetPos() {
+		GetPos() {
 			return this.pos
+		}
+		
+		MinSize(w := "", h := "") {
+			if(w = "" && h = "") {
+				w := this.pos.w
+				h := this.pos.h
+			}
+			if(w != "") {
+				this.minWidth := w >= 0
+				this.minWidthVal := w
+			}
+			if(h != "") {
+				this.minHeight := h >= 0
+				this.minHeightVal := h
+			}
 		}
 	}
 	
