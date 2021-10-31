@@ -14,6 +14,8 @@ Global plinkprocess := 0
 ports := GetCOMports()
 
 myGui := new GridGUI("Serial Terminal", "resize -DPIScale")
+myGui.GuiSizeDelay := false
+
 console := new ConsoleControl(myGui.hwnd, "w0 h0") ; "/q /k echo off" ;  & powershell -NoExit
 console.Run("filter timestamp {""$(Get-Date -Format o): $_""}")
 ;console.Run("filter timestamp {""$([DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()),$(Get-Date -Format o): $_""}")
