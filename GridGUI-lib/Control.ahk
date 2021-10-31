@@ -1,18 +1,12 @@
 ﻿#Include %A_LineFile%\..\Position.ahk
 #Include %A_LineFile%\..\LOGFONT.ahk
+#Include %A_LineFile%\..\CellControl.ahk
 
-Class ControlClass {
+Class ControlClass Extends GridGUI.CellControl {
 	Static WS_CLIPSIBLINGS := 0x4000000
 
 	__New(hwnd) {
 		this.hwnd := hwnd
-	}
-	
-	__Init() {
-		this.initialWidth :=		false
-		this.initialWidthVal :=		false
-		this.initialHeight :=		false
-		this.initialHeightVal :=	false
 	}
 	
 	ControlGetPos() {
@@ -64,12 +58,12 @@ Class ControlClass {
 	__ParseOptions(options) {
 		local match
 		if(RegExMatch(options, "Oi)\bw(\d+)\b", match)) {
-			this.initialWidth := true
-			this.initialWidthVal := match[1]
+			this.minWidth := true
+			this.minWidthVal := match[1]
 		}
 		if(RegExMatch(options, "Oi)\bh(\d+)\b", match)) {
-			this.initialHeight := true
-			this.initialHeightVal := match[1]
+			this.minHeight := true
+			this.minHeightVal := match[1]
 		}
 		return options
 	}
@@ -111,7 +105,7 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 		}
 	}
 	
-	Font(Options := "", FontName := "") {
+	Font(Options := "", FontName := "", updateMinSize := true) {
 		local dim
 		
 		GuiControl, % this.guiHwnd ":Font", % this.hwnd
@@ -122,12 +116,13 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 		GuiControl, % this.guiHwnd ":Font", % this.hwnd
 		this.logfont.UpdateFont()
 		
-		dim := this.logfont.GetDimensionsInPixels(this.ControlGetText())
-		if(this.DPIScale) {
-			dim := GridGUI.Util.DPIScale(dim, false)
+		if(updateMinSize) {
+			dim := this.logfont.GetDimensionsInPixels(this.ControlGetText())
+			if(this.DPIScale) {
+				dim := GridGUI.Util.DPIScale(dim, false)
+			}
+			Base.__ParseOptions("w" dim.w " h" dim.h)
 		}
-		Base.__ParseOptions("w" dim.w " h" dim.h)
-		
 		Gui, % this.guiHwnd ":Font", %  "norm " logfont.ToOptions(), % logfont.FaceName
 	}
 	
@@ -155,8 +150,10 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 		local Base, match
 		options := Base.__ParseOptions(options)
 		if(RegExMatch(options, "Oi)\+?\bg(\w+)\b", match)) {
-			this.callback := ObjBindMethod(this, "__glabel", match[1])
-			options := RegExReplace(options, "Oi)\+?\bg(\w+)")
+			if(this.type != "ListView" || !("g" match[1] ~= "grid")) {
+				this.callback := ObjBindMethod(this, "__glabel", match[1])
+				options := RegExReplace(options, "Oi)\+?\bg(\w+)")
+			}
 		}
 		return options
 	}
@@ -173,6 +170,10 @@ Class GuiControlClass Extends GridGUI.ControlClass {
 	
 	__glabel(label) {
 		Gosub, % label
+	}
+	
+	GetPos() {
+		return this.ControlGetPos()
 	}
 	
 	ToStr(indent := "") {
