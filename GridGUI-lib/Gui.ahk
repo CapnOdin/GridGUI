@@ -32,6 +32,9 @@ Class GUI Extends GridGUI.Window {
 		this.DropTarges := {}
 		this.ForegroundCtrls := []
 		this.BackgroundCtrls := []
+		this.GuiSizeDelay := 50
+		this.GuiMovedDelay := 50
+		this.OnPaintDelay := 10
 	}
 	
 	Add(controlType, options := "", text := "") {
@@ -203,7 +206,11 @@ Class GUI Extends GridGUI.Window {
 					SetTimer, % timer, Off
 				}
 				timer := this.reDrawTimer := new GridGUI.BoundFunc("GridGUI.GUI.__ReDrawForegroundCtrls", this)
-				SetTimer, % timer, -10
+				if(this.OnPaintDelay) {
+					SetTimer, % timer, % -this.OnPaintDelay
+				} else {
+					timer.Call()
+				}
 			}
 		}
 	}
@@ -260,7 +267,11 @@ Class GUI Extends GridGUI.Window {
 				SetTimer, % timer, Off
 			}
 			timer := this.resizeTimer := new GridGUI.BoundFunc(this.__Class "._GuiSize", this, new GridGUI.Position(0, 0, lParam & 0xffff, lParam >> 16), wParam)
-			SetTimer, % timer, -50
+			if(this.GuiSizeDelay) {
+				SetTimer, % timer, % -this.GuiSizeDelay
+			} else {
+				timer.Call()
+			}
 		}
 	}
 	
@@ -272,7 +283,11 @@ Class GUI Extends GridGUI.Window {
 				SetTimer, % timer, Off
 			}
 			timer := this.movedTimer := new GridGUI.BoundFunc(this.__Class "._GuiMoved", this, new GridGUI.Position(lParam & 0xffff, lParam >> 16))
-			SetTimer, % timer, -50
+			if(this.GuiMovedDelay) {
+				SetTimer, % timer, % -this.GuiMovedDelay
+			} else {
+				timer.Call()
+			}
 		}
 	}
 }
