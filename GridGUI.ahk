@@ -24,11 +24,11 @@
 		__New(title := "", options := "", showGrid := false, justify := false) {
 			local Base
 			Base.__New(title, options)
-			this.__Init(showGrid)
+			this.__Init(showGrid, justify)
 		}
 		
-		__Init(showGrid) {
-			this.grid := new GridGUI.Grid()
+		__Init(showGrid, justify) {
+			this.grid := new GridGUI.Grid(justify)
 			this.showGrid := showGrid
 			this.gridlines := [[], []]
 			this.margins := {x: 5, y: 5}
@@ -214,10 +214,10 @@
 	
 	Class SubGrid Extends GridGUI.GridGUIClass {
 	
-		__New(guiHwnd, area := false, DPIScale := true, showGrid := false) {
+		__New(guiHwnd, area := false, DPIScale := true, showGrid := false, justify = false) {
 			local Base
 			this.hwnd := guiHwnd
-			Base.__Init(showGrid)
+			Base.__Init(showGrid, justify)
 			this.__Init(area)
 			this.DPIScale := DPIScale
 		}
