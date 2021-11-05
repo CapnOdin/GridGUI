@@ -1,6 +1,6 @@
 #GridGUI
 <figure markdown="1">
-A class used as a namespace to protect the lib and a user's script from unintended name hijacking.
+
 </figure>
 ---
 ##Members
@@ -12,6 +12,8 @@ A class used as a namespace to protect the lib and a user's script from unintend
 > **type**: string
 
 > **default**: +WS_CLIPSIBLINGS
+
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles)
 
 ####ExitApp
 
@@ -27,7 +29,7 @@ A class used as a namespace to protect the lib and a user's script from unintend
 **desc**: A convenience function wrapper for the command.
 
 ####__New
-**desc**: A convenience constructor that maps to the GridGUIClass.
+**desc**: A convenience constructor that maps to the [GridGUI](../GridGUI/)Class.
 
 **args**:
 
@@ -45,13 +47,19 @@ A class used as a namespace to protect the lib and a user's script from unintend
 
 > **name**: showGrid
 
-> **desc**: Whether or not to show a debug grid for the `GridGUI.Cell`s that where placed in the `GridGUI.GridGUIClass.grid` before `GridGUI.GridGUIClass.Draw` was called the first time.
+> **desc**: Whether or not to show a debug grid for the [`GridGUI.Cell`](../Cell/)s that where placed in the [`GridGUI.GridGUIClass.grid`](../GridGUIClass/#grid) before [`GridGUI.GridGUIClass.Draw`](../GridGUIClass/#draw) was called the first time.
 
 > **type**: bool
 
+> **name**: justify
+
+> **desc**: The position of the controls with in the grid, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+
+> **type**: string|false
+
 **returns**:
 
-> **desc**: Returns a new instance of `GridGUI.GridGUIClass`.
+> **desc**: Returns a new instance of [`GridGUI.GridGUIClass`](../GridGUIClass/).
 
 > **type**: GridGUI.GridGUIClass
 
@@ -127,7 +135,7 @@ A class used as a namespace to protect the lib and a user's script from unintend
 
 ##Classes
 
-[GridGUIClass](Classes/GridGUIClass.md)
+[GridGUIClass](../GridGUIClass/)
 
-[SubGrid](Classes/SubGrid.md)
+[SubGrid](../SubGrid/)
 

@@ -1,9 +1,26 @@
 #ListviewControl
 <figure markdown="1">
-A class representing a ListView.
+
 </figure>
 ---
 ##Methods
+
+####__GetRow
+**desc**: 
+
+**args**:
+
+> **name**: index
+
+> **desc**: 
+
+> **type**: string|number|object
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
 
 ####__New
 **desc**: 
@@ -94,6 +111,15 @@ A class representing a ListView.
 
 > **type**: 
 
+####DeleteHeaders
+**desc**: 
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
 ####FindItem
 **desc**: 
 
@@ -140,6 +166,15 @@ A class representing a ListView.
 
 > **type**: 
 
+####GetHeaders
+**desc**: 
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
 ####GetNext
 **desc**: 
 
@@ -156,6 +191,23 @@ A class representing a ListView.
 > **desc**: 
 
 > **type**: string
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
+####GetRow
+**desc**: 
+
+**args**:
+
+> **name**: index
+
+> **desc**: 
+
+> **type**: string|number|object
 
 **returns**:
 
@@ -271,6 +323,23 @@ A class representing a ListView.
 > **desc**: 
 
 > **type**: bool
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
+####SetHeaders
+**desc**: 
+
+**args**:
+
+> **name**: headers
+
+> **desc**: 
+
+> **type**: string|number|object
 
 **returns**:
 

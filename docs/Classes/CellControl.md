@@ -1,44 +1,52 @@
-#ArbitraryControl
+#CellControl
 <figure markdown="1">
 
 </figure>
 ---
 ##Methods
 
-####__New
+####Draw
 **desc**: 
 
 **args**:
 
-> **name**: guiHwnd
+> **name**: area
 
 > **desc**: 
 
 > **type**: string|number|object
 
-> **name**: type
+**returns**:
 
 > **desc**: 
 
-> **type**: string|number|object
+> **type**: 
 
-> **name**: options
+####GetPos
+**desc**: 
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
+####MinSize
+**desc**: 
+
+**args**:
+
+> **name**: w
 
 > **desc**: 
 
 > **type**: string
 
-> **name**: text
+> **name**: h
 
 > **desc**: 
 
 > **type**: string
-
-> **name**: DPIScale
-
-> **desc**: 
-
-> **type**: bool
 
 **returns**:
 

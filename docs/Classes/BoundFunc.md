@@ -1,6 +1,6 @@
 #BoundFunc
 <figure markdown="1">
-A custom bound function class that allows changing the bound arguments and retrieve them.
+
 </figure>
 ---
 ##Members
@@ -91,15 +91,15 @@ A custom bound function class that allows changing the bound arguments and retri
 
 > **name**: arguments
 
-> **desc**: The arguments that will be passed to the `GridGUI.BoundFunc.function` when it is called. If the function is a method then the class instance is passed as the first variadic arg.
+> **desc**: The arguments that will be passed to the [`GridGUI.BoundFunc.function`](../BoundFunc/#function) when it is called. If the function is a method then the class instance is passed as the first variadic arg.
 
 > **type**: any
 
 **returns**:
 
-> **desc**: A new GridGUI.BoundFunc` instance.
+> **desc**: A new [`GridGUI.BoundFunc`](../BoundFunc/) instance.
 
-> **type**: GridGUI.BoundFunc`
+> **type**: GridGUI.BoundFunc
 
 ####ToStr
 **desc**: Converts the object to a string.

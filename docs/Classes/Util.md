@@ -1,6 +1,6 @@
 #Util
 <figure markdown="1">
-A collection of utility methods used by this lib.
+
 </figure>
 ---
 ##Methods
@@ -48,7 +48,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: GridGUI.Cell
+> **type**: [GridGUI.Cell](../Cell/)
 
 **returns**:
 
@@ -65,7 +65,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: GridGUI.Cell
+> **type**: [GridGUI.Cell](../Cell/)
 
 **returns**:
 
@@ -99,7 +99,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -133,7 +133,7 @@ A collection of utility methods used by this lib.
 
 > **desc**: 
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 > **name**: enlarge
 
@@ -175,6 +175,110 @@ A collection of utility methods used by this lib.
 > **desc**: 
 
 > **type**: 
+
+####GetSizeByLimitingSide
+**desc**: 
+
+**args**:
+
+> **name**: pos
+
+> **desc**: 
+
+> **type**: [GridGUI.Position](../Position/)
+
+> **name**: ratio
+
+> **desc**: 
+
+> **type**: number
+
+**returns**:
+
+> **desc**: 
+
+> **type**: GridGUI.Position
+
+####Join
+**desc**: 
+
+**args**:
+
+> **name**: sep
+
+> **desc**: 
+
+> **type**: string
+
+> **name**: params
+
+> **desc**: 
+
+> **type**: array
+
+**returns**:
+
+> **desc**: 
+
+> **type**: string
+
+####Justify
+**desc**: 
+
+**args**:
+
+> **name**: justifyOptions
+
+> **desc**: 
+
+> **type**: string
+
+> **name**: area
+
+> **desc**: 
+
+> **type**: [GridGUI.Position](../Position/)
+
+> **name**: pos
+
+> **desc**: 
+
+> **type**: [GridGUI.Position](../Position/)
+
+> **name**: border
+
+> **desc**: 
+
+> **type**: [GridGUI.Position](../Position/)
+
+**returns**:
+
+> **desc**: 
+
+> **type**: GridGUI.Position
+
+####JustifyCenter
+**desc**: 
+
+**args**:
+
+> **name**: area
+
+> **desc**: 
+
+> **type**: [GridGUI.Position](../Position/)
+
+> **name**: pos
+
+> **desc**: 
+
+> **type**: [GridGUI.Position](../Position/)
+
+**returns**:
+
+> **desc**: 
+
+> **type**: GridGUI.Position
 
 ####prettyPrint
 **desc**: 

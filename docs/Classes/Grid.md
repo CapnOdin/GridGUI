@@ -1,19 +1,19 @@
 #Grid
 <figure markdown="1">
-A class representing a grid with rows, columns and cells.
+
 </figure>
 ---
 ##Members
 
 ####arbitrator
 
-> **desc**: An instance of `GridGUI.ExpanderArbitrator` that keeps tack of the expanding `GridGUI.Cell`s in the grid.
+> **desc**: An instance of [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) that keeps tack of the expanding [`GridGUI.Cell`](../Cell/)s in the grid.
 
-> **type**: GridGUI.ExpanderArbitrator
+> **type**: [GridGUI.ExpanderArbitrator](../ExpanderArbitrator/)
 
 ####cells
 
-> **desc**: An array of the `GridGUI.Cell`s that have been added to the grid.
+> **desc**: An array of the [`GridGUI.Cell`](../Cell/)s that have been added to the grid.
 
 > **type**: array
 
@@ -21,9 +21,9 @@ A class representing a grid with rows, columns and cells.
 
 ####columns
 
-> **desc**: An instance of `GridGUI.Columns` that keeps tack of the `GridGUI.Column`s comprising the grid.
+> **desc**: An instance of [`GridGUI.Columns`](../Columns/) that keeps tack of the [`GridGUI.Column`](../Column/)s comprising the grid.
 
-> **type**: GridGUI.Columns
+> **type**: [GridGUI.Columns](../Columns/)
 
 ####heights
 
@@ -33,11 +33,17 @@ A class representing a grid with rows, columns and cells.
 
 > **default**: []
 
+####justify
+
+> **desc**: How the [`GridGUI.Grid.cells`](../Grid/#cells) will be positioned in the grid when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+
+> **type**: string
+
 ####rows
 
-> **desc**: An instance of `GridGUI.Rows` that keeps tack of the `GridGUI.Row`s comprising the grid.
+> **desc**: An instance of [`GridGUI.Rows`](../Rows/) that keeps tack of the [`GridGUI.Row`](../Row/)s comprising the grid.
 
-> **type**: GridGUI.Rows
+> **type**: [GridGUI.Rows](../Rows/)
 
 ####widths
 
@@ -54,60 +60,77 @@ A class representing a grid with rows, columns and cells.
 
 **returns**:
 
-> **desc**: A new `GridGUI.Grid` instance.
+> **desc**: A new [`GridGUI.Grid`](../Grid/) instance.
 
 > **type**: GridGUI.Grid
 
 ####AddCell
-**desc**: Adds a `GridGUI.Cell` to the grid in the rows and columns indicated by the `GridGUI.Cell.gridpos` member of the cell.
+**desc**: Adds a [`GridGUI.Cell`](../Cell/) to the grid in the rows and columns indicated by the [`GridGUI.Cell.gridpos`](../Cell/#gridpos) member of the cell.
 
 **args**:
 
 > **name**: c
 
-> **desc**: The `GridGUI.Cell` to add to the grid.
+> **desc**: The [`GridGUI.Cell`](../Cell/) to add to the grid.
 
-> **type**: GridGUI.Cell
+> **type**: [GridGUI.Cell](../Cell/)
 
 ####CalculatePositions
-**desc**: Calculates the positions and sizes of the `GridGUI.Cell`s in the grid and draws them.
+**desc**: Calculates the positions and sizes of the [`GridGUI.Cell`](../Cell/)s in the grid.
 
 **args**:
 
 > **name**: area
 
-> **desc**: The position and size of the grid. This is needed to support `GridGUI.SubGrid`s.
+> **desc**: The position and size of the grid. This is needed to support [`GridGUI.SubGrid`](../SubGrid/)s.
+
+> **type**: [GridGUI.Position](../Position/)
+
+####Draw
+**desc**: Draws the [`GridGUI.Cell`](../Cell/)s in the grid using the most recently calculated cell positions and sizes.
+
+**args**:
+
+> **name**: area
+
+> **desc**: The position and size of the grid. This is needed to support [`GridGUI.SubGrid`](../SubGrid/)s.
+
+> **type**: [GridGUI.Position](../Position/)
+
+**returns**:
+
+> **desc**: Returns the justified area so that the debug grid lines of [`GridGUI.GridGUIClass`](../GridGUIClass/) can be moved accordingly.
 
 > **type**: GridGUI.Position
 
 ####GetMinHeight
-**desc**: Returns the minimal needed height to show the `GridGUI.Cell`s.
+**desc**: Returns the minimal needed height to show the [`GridGUI.Cell`](../Cell/)s.
 
 **returns**:
 
-> **desc**: The minimal needed height to show the `GridGUI.Cell`s
+> **desc**: The minimal needed height to show the [`GridGUI.Cell`](../Cell/)s
 
 > **type**: number
 
 ####GetMinWidth
-**desc**: Returns the minimal needed width to show the `GridGUI.Cell`s.
+**desc**: Returns the minimal needed width to show the [`GridGUI.Cell`](../Cell/)s.
 
 **returns**:
 
-> **desc**: The minimal needed width to show the `GridGUI.Cell`s
+> **desc**: The minimal needed width to show the [`GridGUI.Cell`](../Cell/)s
 
 > **type**: number
 
 ####RemoveCell
-**desc**: Removes a `GridGUI.Cell` from the grid by removing it from the rows and columns it was in, as well as removing it from the `GridGUI.Grid.arbitrator`.
+**desc**: Removes a [`GridGUI.Cell`](../Cell/) from the grid by removing it from the rows and columns it was in, as well as removing it from the [`GridGUI.Grid.arbitrator`](../Grid/#arbitrator).
 
 **args**:
 
 > **name**: c
 
-> **desc**: The `GridGUI.Cell` to remove from the grid.
+> **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the grid.
 
-> **type**: GridGUI.Cell
+> **type**: [GridGUI.Cell](../Cell/)
 
 ####ResetConstants
 **desc**: Resets the cached constants of the members.

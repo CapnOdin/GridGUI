@@ -1,6 +1,6 @@
 #Tab
 <figure markdown="1">
-A class representing a tab of a Tab control with a subgrid.
+
 </figure>
 ---
 ##Methods

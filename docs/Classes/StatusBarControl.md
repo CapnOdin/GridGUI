@@ -1,6 +1,6 @@
 #StatusBarControl
 <figure markdown="1">
-A class representing a StatusBar.
+
 </figure>
 ---
 ##Methods

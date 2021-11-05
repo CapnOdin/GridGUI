@@ -1,6 +1,6 @@
 #TabControl
 <figure markdown="1">
-A class representing a Tab control.
+
 </figure>
 ---
 ##Methods
@@ -106,5 +106,5 @@ A class representing a Tab control.
 
 ##Classes
 
-[Tab](Classes/Tab.md)
+[Tab](../Tab/)
 

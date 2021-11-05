@@ -1,6 +1,6 @@
 #GuiCallback
 <figure markdown="1">
-A class that holds the information needed to set up a window message callback.
+
 </figure>
 ---
 ##Members
@@ -16,6 +16,8 @@ A class that holds the information needed to set up a window message callback.
 > **desc**: The window message number. See link for available window messages.
 
 > **type**: number
+
+> **link**: [link](https://www.autohotkey.com/docs/misc/SendMessageList.htm)
 
 ##Methods
 
@@ -38,7 +40,7 @@ A class that holds the information needed to set up a window message callback.
 
 **returns**:
 
-> **desc**: A new `GridGUI.GuiCallback` instance.
+> **desc**: A new [`GridGUI.GuiCallback`](../GuiCallback/) instance.
 
 > **type**: GridGUI.GuiCallback
 

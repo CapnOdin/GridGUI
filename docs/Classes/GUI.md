@@ -1,17 +1,19 @@
 #GUI
 <figure markdown="1">
-A class representing a GUI.
+
 </figure>
 ---
 ##Members
 
 ####BackgroundCtrls
 
-> **desc**: An array of controls that should be lowered below all newly added controls and which have the style `WS_CLIPSIBLINGS` applied. To register a background control see `GridGUI.GUI.RegisterBackground`.
+> **desc**: An array of controls that should be lowered below all newly added controls and which have the style `WS_CLIPSIBLINGS` applied. To register a background control see [`GridGUI.GUI.RegisterBackground`](../GUI/#registerbackground).
 
 > **type**: array
 
 > **default**: []
+
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles)
 
 ####DPIScale
 
@@ -19,9 +21,11 @@ A class representing a GUI.
 
 > **type**: bool
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#DPIScale)
+
 ####DropTarges
 
-> **desc**: An object of hwnds mapping to callbacks that will be call on `WM_DROPFILES` if the event was on a control with the corresponding hwnd. To register a callback see `GridGUI.GUI.RegisterDropTarget`.
+> **desc**: An object of hwnds mapping to callbacks that will be call on `WM_DROPFILES` if the event was on a control with the corresponding hwnd. To register a callback see [`GridGUI.GUI.RegisterDropTarget`](../GUI/#registerdroptarget).
 
 > **type**: object
 
@@ -29,7 +33,7 @@ A class representing a GUI.
 
 ####ForegroundCtrls
 
-> **desc**: An array of controls that should be raised above all newly added controls and which are redrawn after other controls have been drawn. To register a foreground control see `GridGUI.GUI.RegisterForeground`.
+> **desc**: An array of controls that should be raised above all newly added controls and which are redrawn after other controls have been drawn. To register a foreground control see [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground).
 
 > **type**: array
 
@@ -41,11 +45,15 @@ A class representing a GUI.
 
 > **type**: Func|BoundFunc|false
 
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate)
+
 ####GuiClose
 
 > **desc**: The callback that will be called on `WM_SYSCOMMAND` if `wParam` equals `SC_CLOSE`.
 
 > **type**: Func|BoundFunc|false
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiClose)
 
 ####GuiContextMenu
 
@@ -53,11 +61,23 @@ A class representing a GUI.
 
 > **type**: Func|BoundFunc|false
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiContextMenu)
+
 ####GuiMoved
 
 > **desc**: The callback that will be called on `WM_MOVE`.
 
 > **type**: Func|BoundFunc|false
+
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move)
+
+####GuiMovedDelay
+
+> **desc**: The delay to wait before the user defined callback [`GridGUI.GUI.GuiMoved`](../GUI/#guimoved) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
+
+> **type**: number
+
+> **default**: 50
 
 ####GuiSize
 
@@ -65,11 +85,29 @@ A class representing a GUI.
 
 > **type**: Func|BoundFunc|false
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiSize)
+
+####GuiSizeDelay
+
+> **desc**: The delay to wait before the user defined callback [`GridGUI.GUI.GuiSize`](../GUI/#guisize) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
+
+> **type**: number
+
+> **default**: 50
+
+####OnPaintDelay
+
+> **desc**: The delay to wait before the callback that redraws the controls in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
+
+> **type**: number
+
+> **default**: 10
+
 ####pos
 
 > **desc**: The position of this GUI.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 > **default**: GridGUI.Position(0, 0)
 
@@ -99,9 +137,9 @@ A class representing a GUI.
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` instance to scale.
+> **desc**: The [`GridGUI.Position`](../Position/) instance to scale.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 > **name**: enlarge
 
@@ -116,7 +154,7 @@ A class representing a GUI.
 > **type**: GridGUI.Position
 
 ####__GuiActivate
-**desc**: The internal callback on `WM_ACTIVATE` that calls the user defined `GridGUI.GUI.GuiActivate` if it evaluates to true. The callback is called with the low-order word of `wParam`.
+**desc**: The internal callback on `WM_ACTIVATE` that calls the user defined [`GridGUI.GUI.GuiActivate`](../GUI/#guiactivate) if it evaluates to true. The callback is called with the low-order word of `wParam`.
 
 **args**:
 
@@ -145,7 +183,7 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####__GuiContextMenu
-**desc**: The internal callback on `WM_CONTEXTMENU` that calls the user defined `GridGUI.GUI.GuiContextMenu` if it evaluates to true. The callback is called with the clicked coordinate as a `GridGUI.Position` and with the hwnd of the windows that was right-clicked.
+**desc**: The internal callback on `WM_CONTEXTMENU` that calls the user defined [`GridGUI.GUI.GuiContextMenu`](../GUI/#guicontextmenu) if it evaluates to true. The callback is called with the clicked coordinate as a [`GridGUI.Position`](../Position/) and with the hwnd of the windows that was right-clicked.
 
 **args**:
 
@@ -174,7 +212,7 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####__GuiDropFiles
-**desc**: The internal callback on `WM_DROPFILES` that calls the user defined `GridGUI.GUI.DropTarges` if the callback associated array has the `hwnd` argument as one of its key. The callback is called with an array of the dropped files.
+**desc**: The internal callback on `WM_DROPFILES` that calls the user defined [`GridGUI.GUI.DropTarges`](../GUI/#droptarges) if the callback associated array has the `hwnd` argument as one of its key. The callback is called with an array of the dropped files.
 
 **args**:
 
@@ -206,7 +244,7 @@ A class representing a GUI.
 **desc**: Initialises all the members of the GUI class.
 
 ####__GuiMoved
-**desc**: The internal callback on `WM_MOVE` that calls `GridGUI.GUI._GuiMoved` with the new location as a `GridGUI.Position`.
+**desc**: The internal callback on `WM_MOVE` that calls [`GridGUI.GUI._GuiMoved`](../GUI/#_guimoved) with the new location as a [`GridGUI.Position`](../Position/).
 
 **args**:
 
@@ -235,7 +273,7 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####__GuiSize
-**desc**: The internal callback on `WM_SIZE` that calls `GridGUI.GUI._GuiSize` with the new area as a `GridGUI.Position` where x and y are both zero and with the `wParam` argument.
+**desc**: The internal callback on `WM_SIZE` that calls [`GridGUI.GUI._GuiSize`](../GUI/#_guisize) with the new area as a [`GridGUI.Position`](../Position/) where x and y are both zero and with the `wParam` argument.
 
 **args**:
 
@@ -264,7 +302,7 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####__LowerBackgoundCtrls
-**desc**: Lowers the z-order of all registered controls in `GridGUI.GUI.BackgroundCtrls`. To register controls as background controls see `GridGUI.GUI.RegisterBackground`.
+**desc**: Lowers the z-order of all registered controls in [`GridGUI.GUI.BackgroundCtrls`](../GUI/#backgroundctrls). To register controls as background controls see [`GridGUI.GUI.RegisterBackground`](../GUI/#registerbackground).
 
 ####__New
 **desc**: Constructor.
@@ -285,13 +323,13 @@ A class representing a GUI.
 
 > **name**: hwnd
 
-> **desc**: If specified then no new GUI will be created and no `OnMessage` callbacks will be set up. Instead the `GridGUI.GUI` instance will work like a wrapper for the GUI that can be used to interact with it.
+> **desc**: If specified then no new GUI will be created and no `OnMessage` callbacks will be set up. Instead the [`GridGUI.GUI`](../GUI/) instance will work like a wrapper for the GUI that can be used to interact with it.
 
 > **type**: string
 
 **returns**:
 
-> **desc**: A new `GridGUI.GUI` instance.
+> **desc**: A new [`GridGUI.GUI`](../GUI/) instance.
 
 > **type**: GridGUI.GUI
 
@@ -299,7 +337,7 @@ A class representing a GUI.
 **desc**: Updates the z-order of registered controls. Called when a control is added to the GUI.
 
 ####__OnPaint
-**desc**: The internal callback on `WM_PAINT` that calls `GridGUI.GUI.__ReDrawForgoundCtrls` to fix issues with overlapping controls for controls registered in `GridGUI.GUI.ForegroundCtrls`.
+**desc**: The internal callback on `WM_PAINT` that calls [`GridGUI.GUI.__ReDrawForgoundCtrls`](../GUI/#__redrawforgoundctrls) to fix issues with overlapping controls for controls registered in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls).
 
 **args**:
 
@@ -328,13 +366,13 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####__RaiseForgoundCtrls
-**desc**: Raises the z-order of all registered controls in `GridGUI.GUI.ForegroundCtrls`. To register controls as background controls see `GridGUI.GUI.RegisterForeground`.
+**desc**: Raises the z-order of all registered controls in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls). To register controls as background controls see [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground).
 
 ####__ReDrawForgoundCtrls
-**desc**: Redraws the controls registered with `GridGUI.GUI.RegisterForeground`. Called on `WM_PAINT`.
+**desc**: Redraws the controls registered with [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground). Called on `WM_PAINT`.
 
 ####__SysCommand
-**desc**: The internal callback on `WM_SYSCOMMAND` that calls the user defined `GridGUI.GUI.GuiClose` callback on `SC_CLOSE` if the callback variable evaluates to true.
+**desc**: The internal callback on `WM_SYSCOMMAND` that calls the user defined [`GridGUI.GUI.GuiClose`](../GUI/#guiclose) callback on `SC_CLOSE` if the callback variable evaluates to true.
 
 **args**:
 
@@ -363,7 +401,7 @@ A class representing a GUI.
 > **type**: hwnd
 
 ####_GuiMoved
-**desc**: An internal callback used to update the x and y coordinate of `GridGUI.GUI.pos` and to call the user defined `GridGUI.GUI.GuiMoved` callback
+**desc**: An internal callback used to update the x and y coordinate of [`GridGUI.GUI.pos`](../GUI/#pos) and to call the user defined [`GridGUI.GUI.GuiMoved`](../GUI/#guimoved) callback
 
 **args**:
 
@@ -371,10 +409,10 @@ A class representing a GUI.
 
 > **desc**: The new coordinate of the top left corner of the GUI. The width and height are both zero.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 ####_GuiSize
-**desc**: An internal callback used to update the width and height of `GridGUI.GUI.pos` and to call the user defined `GridGUI.GUI.GuiSize` callback
+**desc**: An internal callback used to update the width and height of [`GridGUI.GUI.pos`](../GUI/#pos) and to call the user defined [`GridGUI.GUI.GuiSize`](../GUI/#guisize) callback
 
 **args**:
 
@@ -382,11 +420,11 @@ A class representing a GUI.
 
 > **desc**: The new area of the GUI. The x and y coordinate are both zero.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 > **name**: resizeEvent
 
-> **desc**: A number indicating whether the GUI was maximised, minimised or neither that is passed on to the user defined `GridGUI.GUI.GuiSize` callback. See the link for what the numbers mean.
+> **desc**: A number indicating whether the GUI was maximised, minimised or neither that is passed on to the user defined [`GridGUI.GUI.GuiSize`](../GUI/#guisize) callback. See the link for what the numbers mean.
 
 > **type**: number
 
@@ -436,6 +474,8 @@ A class representing a GUI.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Color)
+
 ####ControlGetFocus
 **desc**: Retrives the hwnd of the control with input focus.
 
@@ -448,8 +488,12 @@ A class representing a GUI.
 ####Default
 **desc**: A thin method wrapper for `Gui, Default`.
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Default)
+
 ####Destroy
 **desc**: A thin method wrapper for `Gui, Destroy`.
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Destroy)
 
 ####Flash
 **desc**: A thin method wrapper for `Gui, Flash`, except that it used a bool instead of a string to indicate that the colour should be restored.
@@ -461,6 +505,8 @@ A class representing a GUI.
 > **desc**: If `false` the GUI flashes. If `true` the colour of the GUI is restored.
 
 > **type**: bool
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Flash)
 
 ####Font
 **desc**: A thin method wrapper for `Gui, Font`
@@ -479,8 +525,12 @@ A class representing a GUI.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+
 ####Hide
 **desc**: A thin method wrapper for `Gui, Hide`
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Hide)
 
 ####ListView
 **desc**: Changes the default `ListView` to the specified hwnd. See the link for what changing the default `ListView` does.
@@ -492,6 +542,8 @@ A class representing a GUI.
 > **desc**: The hwnd of the `ListView` to set as the default.
 
 > **type**: hwnd
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/ListView.htm#BuiltIn)
 
 **returns**:
 
@@ -516,8 +568,12 @@ A class representing a GUI.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Margin)
+
 ####Maximize
 **desc**: A thin method wrapper for `Gui, Maximize`
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
 
 ####Menu
 **desc**: A thin method wrapper for `Gui, Menu`
@@ -530,8 +586,12 @@ A class representing a GUI.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Menu)
+
 ####Minimize
 **desc**: A thin method wrapper for `Gui, Minimize`
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
 
 ####MinSize
 **desc**: Sets the minsize of the GUI, that is the size that the GUI can't be reduced beyond by drag resizing.
@@ -561,6 +621,8 @@ A class representing a GUI.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Options)
+
 ####RegisterBackground
 **desc**: Registers a control as a background control, that is their z-order is lowered below any current and future controls.
 
@@ -568,9 +630,9 @@ A class representing a GUI.
 
 > **name**: ctrl
 
-> **desc**: The `GridGUI.GuiControlClass` instance that will be registered.
+> **desc**: The [`GridGUI.GuiControlClass`](../GuiControlClass/) instance that will be registered.
 
-> **type**: GridGUI.GuiControlClass
+> **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
 
 ####RegisterDropTarget
 **desc**: Registers a control as a file drag and drop target. Any registered control will have its callback called whenever files are dropped on the control.
@@ -579,9 +641,9 @@ A class representing a GUI.
 
 > **name**: ctrl
 
-> **desc**: The `GridGUI.ControlClass` instance that will be registered.
+> **desc**: The [`GridGUI.ControlClass`](../ControlClass/) instance that will be registered.
 
-> **type**: GridGUI.ControlClass
+> **type**: [GridGUI.ControlClass](../ControlClass/)
 
 > **name**: Callback
 
@@ -596,12 +658,14 @@ A class representing a GUI.
 
 > **name**: ctrl
 
-> **desc**: The `GridGUI.GuiControlClass` instance that will be registered.
+> **desc**: The [`GridGUI.GuiControlClass`](../GuiControlClass/) instance that will be registered.
 
-> **type**: GridGUI.GuiControlClass
+> **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
 
 ####Restore
 **desc**: A thin method wrapper for `Gui, Restore`
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
 
 ####Show
 **desc**: A thin method wrapper for `Gui, Show`
@@ -616,6 +680,8 @@ A class representing a GUI.
 
 > **default**: AutoSize
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Show)
+
 ####Submit
 **desc**: A thin method wrapper for `Gui, Submit`
 
@@ -627,6 +693,8 @@ A class representing a GUI.
 
 > **type**: bool
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Submit)
+
 ####TreeView
 **desc**: Changes the default `TreeView` to the specified hwnd. See the link for what changing the default `TreeView` does.
 
@@ -637,6 +705,8 @@ A class representing a GUI.
 > **desc**: The hwnd of the `TreeView` to set as the default.
 
 > **type**: hwnd
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/TreeView.htm#BuiltIn)
 
 **returns**:
 

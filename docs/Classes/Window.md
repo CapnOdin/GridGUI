@@ -1,13 +1,13 @@
 #Window
 <figure markdown="1">
-A class representing a window.
+
 </figure>
 ---
 ##Members
 
 ####callbacks
 
-> **desc**: The array of `GridGUI.GuiCallback`s that the class instance was created with.
+> **desc**: The array of [`GridGUI.GuiCallback`](../GuiCallback/)s that the class instance was created with.
 
 > **type**: array|false
 
@@ -41,18 +41,18 @@ A class representing a window.
 
 > **name**: callbacks
 
-> **desc**: An array of `GridGUI.GuiCallback`s to set up.
+> **desc**: An array of [`GridGUI.GuiCallback`](../GuiCallback/)s to set up.
 
 > **type**: array|false
 
 **returns**:
 
-> **desc**: A new `GridGUI.Window` instance.
+> **desc**: A new [`GridGUI.Window`](../Window/) instance.
 
 > **type**: GridGUI.Window
 
 ####__Setup
-**desc**: Sets up the `GridGUI.GuiCallback`s that where passed to the constructor. They are set up using `OnMessage`
+**desc**: Sets up the [`GridGUI.GuiCallback`](../GuiCallback/)s that where passed to the constructor. They are set up using `OnMessage`
 
 ####ControlGetFocus
 **desc**: Retrieves the hwnd of the control with input focus in the window if any.
@@ -83,8 +83,12 @@ A class representing a window.
 ####WinActivate
 **desc**: A thin method wrapper for `WinActivate`.
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinActivate.htm)
+
 ####WinActive
 **desc**: A thin method wrapper for `WinActive`.
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinActive.htm)
 
 **returns**:
 
@@ -94,6 +98,8 @@ A class representing a window.
 
 ####WinExist
 **desc**: A thin method wrapper for `WinExist`.
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinExist.htm)
 
 **returns**:
 
@@ -112,6 +118,8 @@ A class representing a window.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinGet.htm)
+
 **returns**:
 
 > **desc**: The retrieved value.
@@ -119,7 +127,9 @@ A class representing a window.
 > **type**: any
 
 ####WinGetPos
-**desc**: A thin method wrapper for `WinGetPos`, except that it returns a `GridGUI.Position` instance.
+**desc**: A thin method wrapper for `WinGetPos`, except that it returns a [`GridGUI.Position`](../Position/) instance.
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinGetPos.htm)
 
 **returns**:
 
@@ -129,6 +139,8 @@ A class representing a window.
 
 ####WinHide
 **desc**: A thin method wrapper for `WinHide`.
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinHide.htm)
 
 ####WinMove
 **desc**: A thin method wrapper for `WinMove`.
@@ -159,6 +171,8 @@ A class representing a window.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinMove.htm)
+
 ####WinSet
 **desc**: A thin method wrapper for `WinSet`, except it works even if the window is hidden.
 
@@ -176,6 +190,10 @@ A class representing a window.
 
 > **type**: string|number
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinSet.htm)
+
 ####WinShow
 **desc**: A thin method wrapper for `WinShow`.
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/WinShow.htm)
 

@@ -1,6 +1,6 @@
 #WindowControl
 <figure markdown="1">
-A class representing a window that can be included in a GUI.
+
 </figure>
 ---
 ##Methods
@@ -110,15 +110,6 @@ A class representing a window that can be included in a GUI.
 
 > **type**: 
 
-####ControlGetPos
-**desc**: 
-
-**returns**:
-
-> **desc**: 
-
-> **type**: 
-
 ####ControlMove
 **desc**: 
 
@@ -146,6 +137,15 @@ A class representing a window that can be included in a GUI.
 > **desc**: 
 
 > **type**: string|number|object
+
+**returns**:
+
+> **desc**: 
+
+> **type**: 
+
+####GetPos
+**desc**: 
 
 **returns**:
 

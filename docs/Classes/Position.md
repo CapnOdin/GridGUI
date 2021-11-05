@@ -1,46 +1,46 @@
 #Position
 <figure markdown="1">
-Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` are given and a square when all four members are set.
+
 </figure>
 ---
 ##Members
 
 ####h
 
-> **desc**: The height of the square spanning the down from the top left corner consisting of `GridGUI.Position.x` and `GridGUI.Position.y`.
+> **desc**: The height of the square spanning the down from the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
 
 > **type**: number
 
 ####w
 
-> **desc**: The width of the square spanning to the right of the top left corner consisting of `GridGUI.Position.x` and `GridGUI.Position.y`.
+> **desc**: The width of the square spanning to the right of the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
 
 > **type**: number
 
 ####x
 
-> **desc**: The x coordinate of the position, if the optional `GridGUI.Position.w` and `GridGUI.Position.h` are non zero then `GridGUI.Position.x` is the x coordinate of the top left corner of the square spanning `GridGUI.Position.w` and `GridGUI.Position.h` down towards the right.
+> **desc**: The x coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.x`](../Position/#x) is the x coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
 
 > **type**: number
 
 ####y
 
-> **desc**: The y coordinate of the position, if the optional `GridGUI.Position.w` and `GridGUI.Position.h` are non zero then `GridGUI.Position.y` is the y coordinate of the top left corner of the square spanning `GridGUI.Position.w` and `GridGUI.Position.h` down towards the right.
+> **desc**: The y coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.y`](../Position/#y) is the y coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
 
 > **type**: number
 
 ##Methods
 
 ####__CompareX
-**desc**: Compares the relative position along the x-axis with another `GridGUI.Position`.
+**desc**: Compares the relative position along the x-axis with another [`GridGUI.Position`](../Position/).
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to compare with.
+> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -49,15 +49,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: number
 
 ####__CompareY
-**desc**: Compares the relative position along the y-axis with another `GridGUI.Position`.
+**desc**: Compares the relative position along the y-axis with another [`GridGUI.Position`](../Position/).
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to compare with.
+> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -72,31 +72,31 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 
 > **name**: x
 
-> **desc**: The x coordinate of the position, if the optional `GridGUI.Position.w` and `GridGUI.Position.h` are non zero then `GridGUI.Position.x` is the x coordinate of the top left corner of the square spanning `GridGUI.Position.w` and `GridGUI.Position.h` down towards the right.
+> **desc**: The x coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.x`](../Position/#x) is the x coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
 
 > **type**: string|number|object
 
 > **name**: y
 
-> **desc**: The y coordinate of the position, if the optional `GridGUI.Position.w` and `GridGUI.Position.h` are non zero then `GridGUI.Position.y` is the y coordinate of the top left corner of the square spanning `GridGUI.Position.w` and `GridGUI.Position.h` down towards the right.
+> **desc**: The y coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.y`](../Position/#y) is the y coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
 
 > **type**: string|number|object
 
 > **name**: w
 
-> **desc**: The width of the square spanning to the right of the top left corner consisting of `GridGUI.Position.x` and `GridGUI.Position.y`.
+> **desc**: The width of the square spanning to the right of the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
 
 > **type**: number
 
 > **name**: h
 
-> **desc**: The height of the square spanning the down from the top left corner consisting of `GridGUI.Position.x` and `GridGUI.Position.y`.
+> **desc**: The height of the square spanning the down from the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
 
 > **type**: number
 
 **returns**:
 
-> **desc**: A new `GridGUI.Position` instance.
+> **desc**: A new [`GridGUI.Position`](../Position/) instance.
 
 > **type**: GridGUI.Position
 
@@ -136,15 +136,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: number
 
 ####__OverlapX
-**desc**: Compares the amount of overlap along the x-axis with another `GridGUI.Position`.
+**desc**: Compares the amount of overlap along the x-axis with another [`GridGUI.Position`](../Position/).
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to compare with.
+> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -153,15 +153,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: number
 
 ####__OverlapY
-**desc**: Compares the amount of overlap along the y-axis with another `GridGUI.Position`.
+**desc**: Compares the amount of overlap along the y-axis with another [`GridGUI.Position`](../Position/).
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to compare with.
+> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -170,7 +170,7 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: number
 
 ####Area
-**desc**: Calculates the area of the square with sides `GridGUI.Position.w` and `GridGUI.Position.h`.
+**desc**: Calculates the area of the square with sides [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h).
 
 **returns**:
 
@@ -179,15 +179,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: number
 
 ####Compare
-**desc**: Compares the relative position along the x-axis and the y-axis with another `GridGUI.Position`.
+**desc**: Compares the relative position along the x-axis and the y-axis with another [`GridGUI.Position`](../Position/).
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to compare with.
+> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -196,15 +196,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: array
 
 ####Contains
-**desc**: Check if a `GridGUI.Position` is contained within the area of this position.
+**desc**: Check if a [`GridGUI.Position`](../Position/) is contained within the area of this position.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to perform the check on.
+> **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -222,15 +222,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: GridGUI.Position
 
 ####Disjoint
-**desc**: Check if a `GridGUI.Position` does not touch this position.
+**desc**: Check if a [`GridGUI.Position`](../Position/) does not touch this position.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to perform the check on.
+> **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -239,15 +239,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: bool
 
 ####Equal
-**desc**: Check if a `GridGUI.Position` is identical to this position.
+**desc**: Check if a [`GridGUI.Position`](../Position/) is identical to this position.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to compare with.
+> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -256,15 +256,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: bool
 
 ####Intersect
-**desc**: Check if a `GridGUI.Position` overlaps with this position, that is that at least one corner of one of the two `GridGUI.Position` is within the other `GridGUI.Position`.
+**desc**: Check if a [`GridGUI.Position`](../Position/) overlaps with this position, that is that at least one corner of one of the two [`GridGUI.Position`](../Position/) is within the other [`GridGUI.Position`](../Position/).
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to perform the check on.
+> **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 
@@ -277,7 +277,7 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 
 **returns**:
 
-> **desc**: A new `GridGUI.Position` instance with `GridGUI.Position.x` and `GridGUI.Position.y` being the middle of this position.
+> **desc**: A new [`GridGUI.Position`](../Position/) instance with [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y) being the middle of this position.
 
 > **type**: GridGUI.Position
 
@@ -299,15 +299,15 @@ Represents a position when only `GridGUI.Position.x` and `GridGUI.Position.y` ar
 > **type**: string
 
 ####Touch
-**desc**: Check if a `GridGUI.Position` touches this position, but does not overlap with it.
+**desc**: Check if a [`GridGUI.Position`](../Position/) touches this position, but does not overlap with it.
 
 **args**:
 
 > **name**: pos
 
-> **desc**: The `GridGUI.Position` to perform the check on.
+> **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
 
 **returns**:
 

@@ -1,6 +1,6 @@
 #TreeviewControl
 <figure markdown="1">
-A class representing a TreeView.
+
 </figure>
 ---
 ##Methods

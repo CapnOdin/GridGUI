@@ -1,6 +1,6 @@
 #ControlClass
 <figure markdown="1">
-A class representing a control that is part of a window.
+
 </figure>
 ---
 ##Members
@@ -11,34 +11,34 @@ A class representing a control that is part of a window.
 
 > **type**: hwnd
 
-####initialHeight
+####minHeight
 
-> **desc**: Whether or not the control has had its height set using `GridGUI.ControlClass.__ParseOptions`.
+> **desc**: Whether or not the control has had its height set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
 
 > **type**: bool
 
-####initialHeightVal
+####minHeightVal
 
-> **desc**: The height value set using `GridGUI.ControlClass.__ParseOptions`.
+> **desc**: The height value set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
 
 > **type**: number|false
 
-####initialWidth
+####minWidth
 
-> **desc**: Whether or not the control has had its width set using `GridGUI.ControlClass.__ParseOptions`.
+> **desc**: Whether or not the control has had its width set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
 
 > **type**: bool
 
-####initialWidthVal
+####minWidthVal
 
-> **desc**: The width value set using `GridGUI.ControlClass.__ParseOptions`.
+> **desc**: The width value set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
 
 > **type**: number|false
 
 ##Methods
 
 ####__Init
-**desc**: Initialises the `GridGUI.ControlClass` members.
+**desc**: Initialises the [`GridGUI.ControlClass`](../ControlClass/) members.
 
 ####__New
 **desc**: Constructor.
@@ -53,7 +53,7 @@ A class representing a control that is part of a window.
 
 **returns**:
 
-> **desc**: A new `GridGUI.ControlClass` instance.
+> **desc**: A new [`GridGUI.ControlClass`](../ControlClass/) instance.
 
 > **type**: GridGUI.ControlClass
 
@@ -91,6 +91,8 @@ A class representing a control that is part of a window.
 
 > **type**: string|number
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm)
+
 ####ControlClick
 **desc**: A thin function wrapper for `ControlClick`.
 
@@ -124,8 +126,12 @@ A class representing a control that is part of a window.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/ControlClick.htm)
+
 ####ControlFocus
 **desc**: A thin function wrapper for `ControlFocus`.
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/ControlFocus.htm)
 
 ####ControlGet
 **desc**: A thin function wrapper for `ControlGet`.
@@ -144,6 +150,8 @@ A class representing a control that is part of a window.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/ControlGet.htm)
+
 **returns**:
 
 > **desc**: The retrieved value.
@@ -151,7 +159,9 @@ A class representing a control that is part of a window.
 > **type**: any
 
 ####ControlGetPos
-**desc**: A thin function wrapper for `ControlGetPos`, except that it returns a `GridGUI.Position` instance.
+**desc**: A thin function wrapper for `ControlGetPos`, except that it returns a [`GridGUI.Position`](../Position/) instance.
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetPos.htm)
 
 **returns**:
 
@@ -162,6 +172,8 @@ A class representing a control that is part of a window.
 ####ControlGetText
 **desc**: A thin function wrapper for `ControlGetText`.
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetText.htm)
+
 **returns**:
 
 > **desc**: The text of the control.
@@ -169,7 +181,7 @@ A class representing a control that is part of a window.
 > **type**: string
 
 ####ControlMove
-**desc**: A thin function wrapper for `ControlMove`, except that it takes a `GridGUI.Position` instance as argument.
+**desc**: A thin function wrapper for `ControlMove`, except that it takes a [`GridGUI.Position`](../Position/) instance as argument.
 
 **args**:
 
@@ -177,7 +189,9 @@ A class representing a control that is part of a window.
 
 > **desc**: The position and size that the control should be moved and resized to.
 
-> **type**: GridGUI.Position
+> **type**: [GridGUI.Position](../Position/)
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/ControlMove.htm)
 
 ####ControlSend
 **desc**: A thin function wrapper for `ControlSend`.
@@ -190,6 +204,8 @@ A class representing a control that is part of a window.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/ControlSend.htm)
+
 ####ControlSetText
 **desc**: A thin function wrapper for `ControlSetText`.
 
@@ -201,6 +217,8 @@ A class representing a control that is part of a window.
 
 > **type**: string
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/ControlSetText.htm)
+
 ####Options
 **desc**: Applies styles to the control using `Control, Style`.
 
@@ -211,6 +229,8 @@ A class representing a control that is part of a window.
 > **desc**: The style number string to apply. See link for available styles.
 
 > **type**: string
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm#Style)
 
 ####ToStr
 **desc**: Converts the object to a string.
@@ -225,7 +245,7 @@ A class representing a control that is part of a window.
 
 **returns**:
 
-> **desc**: A string representing this `GridGUI.ControlClass`.
+> **desc**: A string representing this [`GridGUI.ControlClass`](../ControlClass/).
 
 > **type**: string
 

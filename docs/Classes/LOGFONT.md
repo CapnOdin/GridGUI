@@ -1,6 +1,6 @@
 #LOGFONT
 <figure markdown="1">
-A class representing the font and colour of a control.
+
 </figure>
 ---
 ##Members
@@ -17,11 +17,15 @@ A class representing the font and colour of a control.
 
 > **type**: number
 
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+
 ####ClipPrecision
 
 > **desc**: How characters that are partially outside the bounds of the font are handled. See link for details.
 
 > **type**: number
+
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
 ####Colour
 
@@ -35,11 +39,15 @@ A class representing the font and colour of a control.
 
 > **type**: number
 
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+
 ####FaceName
 
 > **desc**: The name of the font that was applied to the control. See the link for common fonts.
 
 > **type**: string
+
+> **link**: [link](https://www.autohotkey.com/docs/misc/FontsStandard.htm)
 
 ####guiHwnd
 
@@ -52,6 +60,8 @@ A class representing the font and colour of a control.
 > **desc**: The height of the characters in the font. See link for details.
 
 > **type**: number
+
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
 ####HFONT
 
@@ -83,17 +93,23 @@ A class representing the font and colour of a control.
 
 > **type**: number
 
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+
 ####PitchAndFamily
 
 > **desc**: The two low-order bits specify the pitch of the font and the last four bits specify the family. See link for details.
 
 > **type**: number
 
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+
 ####Quality
 
 > **desc**: The quality of the font. See link for details.
 
 > **type**: number
+
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
 
 ####StrikeOut
 
@@ -113,11 +129,15 @@ A class representing the font and colour of a control.
 
 > **type**: number
 
+> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+
 ####Width
 
 > **desc**: The average width of characters in the font. See link for details.
 
 > **type**: number
+
+> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
 ##Methods
 
@@ -152,7 +172,7 @@ A class representing the font and colour of a control.
 
 **returns**:
 
-> **desc**: A new `GridGUI.LOGFONT` instance.
+> **desc**: A new [`GridGUI.LOGFONT`](../LOGFONT/) instance.
 
 > **type**: GridGUI.LOGFONT
 
@@ -243,7 +263,7 @@ A class representing the font and colour of a control.
 
 **returns**:
 
-> **desc**: A string representing this `GridGUI.LOGFONT`.
+> **desc**: A string representing this [`GridGUI.LOGFONT`](../LOGFONT/).
 
 > **type**: string
 
