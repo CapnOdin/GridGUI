@@ -46,7 +46,7 @@ markdown_extensions:
 nav:
     - Home: index.md
     - How to Use: How to Use.md
-    - Class References:
+    - Class Reference:
         - GUI:
             - Classes/GridGUI.md
             - Classes/GridGUIClass.md

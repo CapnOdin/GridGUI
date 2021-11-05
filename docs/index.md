@@ -11,7 +11,7 @@ Simplify Control Placement and Resizing
 
 <figure markdown="1">
 [How to Use](How to Use/){.md-button .align-center}
-[Classe References](Classes/GridGUI.md){.md-button .align-center}
+[Classe Reference](Classes/GridGUI.md){.md-button .align-center}
 [Examples](Examples/Example 1.md){.md-button .align-center}
 </figure>
 
