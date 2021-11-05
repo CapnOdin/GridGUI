@@ -3,12 +3,12 @@
 ---
 ## v1.1.11
 * Added a new Control class for integrating GDI+ drawings called [GridGUI.GdiControl](https://github.com/CapnOdin/GridGUI/blob/master/GridGUI-lib/Controls/GdiControl.ahk)
-* Added the ability to set an aspect ratio for a cell using the method [GridGUI.Cell.SetAspectRatio](Classes/Cell.md#SetAspectRatio).
+* Added the ability to set an aspect ratio for a cell using the method [GridGUI.Cell.SetAspectRatio](Classes/Cell.md#setaspectratio).
 * The cells in a [GridGUI.Grid](Classes/Grid.md) can now be justified within the grid by using the member [GridGUI.Grid.justify](Classes/Grid.md#justify).
-* Added a member to set the GUI event callback delays. See [GridGUI.GUI.GuiSizeDelay](Classes/GUI.md#GuiSizeDelay), [GridGUI.GUI.GuiMovedDelay](Classes/GUI.md#GuiMovedDelay) and [GridGUI.GUI.OnPaintDelay](Classes/GUI.md#OnPaintDelay).
-* Added a workaround in [GridGUI.GridGUIClass.AutoSize](Classes/GridGUIClass.md#AutoSize) for wrong min sizes, where the cells takes up more space than would be indicated by [GridGUI.Grid.GetMinWidth](Classes/Grid.md#GetMinWidth) and [GridGUI.Grid.GetMinHeight](Classes/Grid.md#GetMinHeight).
+* Added a member to set the GUI event callback delays. See [GridGUI.GUI.GuiSizeDelay](Classes/GUI.md#guisizedelay), [GridGUI.GUI.GuiMovedDelay](Classes/GUI.md#guimoveddelay) and [GridGUI.GUI.OnPaintDelay](Classes/GUI.md#onpaintdelay).
+* Added a workaround in [GridGUI.GridGUIClass.AutoSize](Classes/GridGUIClass.md#autosize) for wrong min sizes, where the cells takes up more space than would be indicated by [GridGUI.Grid.GetMinWidth](Classes/Grid.md#getminwidth) and [GridGUI.Grid.GetMinHeight](Classes/Grid.md#getminheight).
 * Fixed a bug where the lib left the main thread critical.
-* Fixed a bug where the [GridGUI.GridGUIClass.Show](Classes/GridGUIClass.md#Show) *AutoSize* option could not be combined with other options.
+* Fixed a bug where the [GridGUI.GridGUIClass.Show](Classes/GridGUIClass.md#show) *AutoSize* option could not be combined with other options.
 * Added a class that define the interface that a custom control needs to impliment to work in a [GridGUI.Grid](Classes/Grid.md) called [GridGUI.CellControl](Classes/CellControl.md).
 * Added methods to retrieve a row from a [GridGUI.ListviewControl](Classes/ListviewControl.md) and to set and get the headers.
 * Added an example showing how to use the new [GridGUI.GdiControl](Classes/GdiControl.md). ([Example GDI.ahk](https://github.com/CapnOdin/GridGUI/blob/master/Examples/Example%20GDI.ahk))
