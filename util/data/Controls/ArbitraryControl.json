@@ -1,0 +1,50 @@
+{
+	"ArbitraryControl": {
+		"desc": "A class representing most ahk GUI control types.",
+		"members": {},
+		"methods": {
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "type",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"default": true,
+						"desc": "",
+						"link": "",
+						"name": "DPIScale",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

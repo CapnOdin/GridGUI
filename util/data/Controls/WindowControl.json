@@ -1,0 +1,141 @@
+{
+	"WindowControl": {
+		"desc": "A class representing a window that can be included in a GUI.",
+		"members": {},
+		"methods": {
+			"__CheckIfClicked": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "wParam",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "lParam",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "msg",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "hwnd",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "hwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__SetUpWindow": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Control": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "subCommand",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "value",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ControlFocus": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ControlMove": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Draw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetPos": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

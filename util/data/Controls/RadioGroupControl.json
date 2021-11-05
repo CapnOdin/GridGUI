@@ -1,0 +1,90 @@
+{
+	"RadioGroupControl": {
+		"desc": "A class representing a linked group of RadioButtons. Can not be added to a gui, use `GridGUI.RadioGroupControl.New` to added radio buttons to a GUI.",
+		"members": {},
+		"methods": {
+			"__Callback": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ctrl",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "callback",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Check": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"New": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

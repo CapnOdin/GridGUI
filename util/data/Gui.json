@@ -68,6 +68,21 @@
 				"default": "[]",
 				"meta": ["object"],
 				"link": "https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles"
+			},
+			"GuiSizeDelay": {
+				"desc": "The delay to wait before the user defined callback `GridGUI.GUI.GuiSize` will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.",
+				"type": "number",
+				"default": 50
+			},
+			"GuiMovedDelay": {
+				"desc": "The delay to wait before the user defined callback `GridGUI.GUI.GuiMoved` will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.",
+				"type": "number",
+				"default": 50
+			},
+			"OnPaintDelay": {
+				"desc": "The delay to wait before the callback that redraws the controls in `GridGUI.GUI.ForegroundCtrls` will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.",
+				"type": "number",
+				"default": 10
 			}
 		},
 		"methods": {

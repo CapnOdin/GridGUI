@@ -1,27 +1,28 @@
 {
 	"ControlClass": {
+		"extends": "GridGUI.CellControl",
 		"desc": "A class representing a control that is part of a window.",
 		"members": {
 			"hwnd": {
 				"desc": "The hwnd of the associated control.",
 				"type": "hwnd"
 			},
-			"initialWidth": {
+			"minWidth": {
 				"desc": "Whether or not the control has had its width set using `GridGUI.ControlClass.__ParseOptions`.",
 				"type": "bool",
 				"default": false
 			},
-			"initialHeight": {
+			"minHeight": {
 				"desc": "Whether or not the control has had its height set using `GridGUI.ControlClass.__ParseOptions`.",
 				"type": "bool",
 				"default": false
 			},
-			"initialWidthVal": {
+			"minWidthVal": {
 				"desc": "The width value set using `GridGUI.ControlClass.__ParseOptions`.",
 				"type": "number|false",
 				"default": false
 			},
-			"initialHeightVal": {
+			"minHeightVal": {
 				"desc": "The height value set using `GridGUI.ControlClass.__ParseOptions`.",
 				"type": "number|false",
 				"default": false
@@ -332,15 +333,31 @@
 						"name": "Options",
 						"desc": "Styling option string, see link for detail of what options are available.",
 						"type": "string",
+						"default": "\"\"",
 						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Font"
 					},
 					{
 						"name": "FontName",
 						"desc": "The name of the font to apply.",
 						"type": "string",
+						"default": "\"\"",
+						"link": "https://www.autohotkey.com/docs/misc/FontsStandard.htm"
+					},
+					{
+						"name": "updateMinSize",
+						"desc": "Whether or not to update the min size of the control so that the text will be visible using the new font.",
+						"type": "bool",
+						"default": true,
 						"link": "https://www.autohotkey.com/docs/misc/FontsStandard.htm"
 					}
 				]
+			},
+			"GetPos": {
+				"desc": "Implements the method `GridGUI.CellControl.GetPos` of the `GridGUI.Cell` interface `GridGUI.CellControl`.",
+				"returns": {
+					"desc": "The position and size of the control.",
+					"type": "GridGUI.Position"
+				}
 			},
 			"GuiControl": {
 				"desc": "A thin function wrapper for `GuiControl`.",

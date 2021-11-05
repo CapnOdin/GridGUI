@@ -1,0 +1,304 @@
+{
+	"TabControl": {
+		"desc": "A class representing a Tab control.",
+		"classes": {
+			"Tab": {
+				"desc": "A class representing a tab of a Tab control with a subgrid.",
+				"members": {},
+				"methods": {
+					"__New": {
+						"args": [
+							{
+								"desc": "",
+								"link": "",
+								"name": "guiHwnd",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "index",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "tabName",
+								"type": "string|number|object"
+							},
+							{
+								"default": true,
+								"desc": "",
+								"link": "",
+								"name": "DPIScale",
+								"type": "bool"
+							},
+							{
+								"default": false,
+								"desc": "",
+								"link": "",
+								"name": "showGrid",
+								"type": "bool"
+							}
+						],
+						"desc": "",
+						"returns": {
+							"desc": "",
+							"type": ""
+						}
+					},
+					"Add": {
+						"args": [
+							{
+								"desc": "",
+								"link": "",
+								"name": "x",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "y",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "type",
+								"type": "string|number|object"
+							},
+							{
+								"default": "",
+								"desc": "",
+								"link": "",
+								"name": "options",
+								"type": "string"
+							},
+							{
+								"default": "",
+								"desc": "",
+								"link": "",
+								"name": "text",
+								"type": "string"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "exW",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "exH",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "fillW",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "fillH",
+								"type": "number"
+							},
+							{
+								"default": "C",
+								"desc": "",
+								"link": "",
+								"name": "justify",
+								"type": "string"
+							}
+						],
+						"desc": "",
+						"returns": {
+							"desc": "",
+							"type": ""
+						}
+					},
+					"AddControl": {
+						"args": [
+							{
+								"desc": "",
+								"link": "",
+								"name": "x",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "y",
+								"type": "string|number|object"
+							},
+							{
+								"desc": "",
+								"link": "",
+								"name": "ctrl",
+								"type": "string|number|object"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "exW",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "exH",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "fillW",
+								"type": "number"
+							},
+							{
+								"default": 0,
+								"desc": "",
+								"link": "",
+								"name": "fillH",
+								"type": "number"
+							},
+							{
+								"default": "C",
+								"desc": "",
+								"link": "",
+								"name": "justify",
+								"type": "string"
+							}
+						],
+						"desc": "",
+						"returns": {
+							"desc": "",
+							"type": ""
+						}
+					},
+					"Draw": {
+						"args": [
+							{
+								"desc": "",
+								"link": "",
+								"name": "pos",
+								"type": "string|number|object"
+							}
+						],
+						"desc": "",
+						"returns": {
+							"desc": "",
+							"type": ""
+						}
+					}
+				}
+			}
+		},
+		"members": {},
+		"methods": {
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"default": true,
+						"desc": "",
+						"link": "",
+						"name": "preDrawOtherTabs",
+						"type": "bool"
+					},
+					{
+						"default": true,
+						"desc": "",
+						"link": "",
+						"name": "DPIScale",
+						"type": "bool"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "showGrid",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ParseTabLst": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "tablst",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Draw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"DrawSelectedTab": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetDisplayArea": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

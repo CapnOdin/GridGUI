@@ -1,0 +1,53 @@
+{
+	"CellControl": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"Draw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "area",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetPos": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"MinSize": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "w",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "h",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

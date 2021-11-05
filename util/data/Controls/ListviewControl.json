@@ -1,0 +1,348 @@
+{
+	"ListviewControl": {
+		"desc": "A class representing a ListView.",
+		"members": {},
+		"methods": {
+			"__GetRow": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetCurrentLV": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "previous",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__SetCurrentLV": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"AddArray": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "lst",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"DeleteCol": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ColumnNumber",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"DeleteHeaders": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"FindItem": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string|number|object"
+					},
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "number"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "partial",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetCount": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "Mode",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetHeaders": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetNext": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "StartingRowNumber",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "RowType",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetRow": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetSelection": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetText": {
+				"args": [
+					{
+						"default": "OutputVar",
+						"desc": "",
+						"link": "",
+						"name": "ByRef",
+						"type": "string"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "RowNumber",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ColumnNumber",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"InsertCol": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ColumnNumber",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "Options",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ColumnTitle",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Redraw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "bool",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"ScrollTo": {
+				"args": [
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "index",
+						"type": "number"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "partial",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetHeaders": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "headers",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetImageList": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ImageListID",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "IconType",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

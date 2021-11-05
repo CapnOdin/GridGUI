@@ -1,6 +1,21 @@
 # Changelog
 
 ---
+## v1.1.11
+* Added a new Control class for integrating GDI+ drawings called [GridGUI.GdiControl](https://github.com/CapnOdin/GridGUI/blob/master/GridGUI-lib/Controls/GdiControl.ahk)
+* Added the ability to set an aspect ratio for a cell using the method [GridGUI.Cell.SetAspectRatio](Classes/Cell.md#SetAspectRatio).
+* The cells in a [GridGUI.Grid](Classes/Grid.md) can now be justified within the grid by using the member [GridGUI.Grid.justify](Classes/Grid.md#justify).
+* Added a member to set the GUI event callback delays. See [GridGUI.GUI.GuiSizeDelay](Classes/GUI.md#GuiSizeDelay), [GridGUI.GUI.GuiMovedDelay](Classes/GUI.md#GuiMovedDelay) and [GridGUI.GUI.OnPaintDelay](Classes/GUI.md#OnPaintDelay).
+* Added a workaround in [GridGUI.GridGUIClass.AutoSize](Classes/GridGUIClass.md#AutoSize) for wrong min sizes, where the cells takes up more space than would be indicated by [GridGUI.Grid.GetMinWidth](Classes/Grid.md#GetMinWidth) and [GridGUI.Grid.GetMinHeight](Classes/Grid.md#GetMinHeight).
+* Fixed a bug where the lib left the main thread critical.
+* Fixed a bug where the [GridGUI.GridGUIClass.Show](Classes/GridGUIClass.md#Show) *AutoSize* option could not be combined with other options.
+* Added a class that define the interface that a custom control needs to impliment to work in a [GridGUI.Grid](Classes/Grid.md) called [GridGUI.CellControl](Classes/CellControl.md).
+* Added methods to retrieve a row from a [GridGUI.ListviewControl](Classes/ListviewControl.md) and to set and get the headers.
+* Added an example showing how to use the new [GridGUI.GdiControl](Classes/GdiControl.md). ([Example GDI.ahk](https://github.com/CapnOdin/GridGUI/blob/master/Examples/Example%20GDI.ahk))
+* Added an example showcasing how to set the aspect ratio of cells. ([Example Scale.ahk](https://github.com/CapnOdin/GridGUI/blob/master/Examples/Example%20Scale.ahk))
+* Added an example that use a splitter bar. ([Example CSV Viewer.ahk](https://github.com/CapnOdin/GridGUI/blob/master/Examples/Example%20CSV%20Viewer.ahk))
+* Changed two examples to showcase resizing the GUI in real-time. ([Example Find Text in Files.ahk](https://github.com/CapnOdin/GridGUI/blob/master/Examples/Example%20Find%20Text%20in%20Files.ahk)) and ([Example Serial Terminal.ahk](https://github.com/CapnOdin/GridGUI/blob/master/Examples/Example%20Serial%20Terminal.ahk))
+
 ## v1.1.10
 * Added support for setting the font of [GridGUI.GuiControlClass](Classes/GuiControlClass.md) using the new method [GridGUI.GuiControlClass.Font](Classes/GuiControlClass.md#font) and for changing the size of the control after applying the font, to avoid changing the size set the font on the GUI instance instead of the control and apply the font manually.
 * [GridGUI.GUI.GuiSize](Classes/GUI.md#guisize) callback is now called with a second argument that indicates if the GUI was minimized or maximized.

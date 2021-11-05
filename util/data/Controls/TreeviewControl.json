@@ -1,0 +1,259 @@
+{
+	"TreeviewControl": {
+		"desc": "A class representing a TreeView.",
+		"members": {},
+		"methods": {
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__ResetCurrentTV": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "previous",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__SetCurrentTV": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Add": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "Name",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ParentItemID",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "Options",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Delete": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Get": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "Attribute",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetChild": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ParentItemID",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetCount": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetNext": {
+				"args": [
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "ItemType",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetParent": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetPrev": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetSelection": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GetText": {
+				"args": [
+					{
+						"default": "OutputVar",
+						"desc": "",
+						"link": "",
+						"name": "ByRef",
+						"type": "string"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "ItemID",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Redraw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "bool",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"SetImageList": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "ImageListID",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "IconType",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

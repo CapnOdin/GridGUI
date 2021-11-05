@@ -59,8 +59,8 @@
 					}
 				],
 				"returns": {
-					"desc": "A new GridGUI.BoundFunc` instance.",
-					"type": "GridGUI.BoundFunc`"
+					"desc": "A new `GridGUI.BoundFunc` instance.",
+					"type": "GridGUI.BoundFunc"
 				}
 			},
 			"__IsInstanceOf": {

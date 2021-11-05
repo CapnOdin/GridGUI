@@ -1,0 +1,315 @@
+{
+	"GdiControl": {
+		"classes": {},
+		"members": {},
+		"methods": {
+			"__CleanUp": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CreateCompatibleDC": {
+				"args": [
+					{
+						"default": 0,
+						"desc": "",
+						"link": "",
+						"name": "hdc",
+						"type": "number"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CreateDIBSection": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "w",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "h",
+						"type": "string|number|object"
+					},
+					{
+						"default": 32,
+						"desc": "",
+						"link": "",
+						"name": "bpp",
+						"type": "number"
+					},
+					{
+						"default": "ppvBits",
+						"desc": "",
+						"link": "",
+						"name": "ByRef",
+						"type": "string"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__CreateRect": {
+				"args": [
+					{
+						"default": "Rect",
+						"desc": "",
+						"link": "",
+						"name": "ByRef",
+						"type": "string"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "x",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "y",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "w",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "h",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__DeleteDC": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "hDC",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__DeleteGraphics": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pGraphics",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__DeleteObject": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "hObject",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__GraphicsFromHDC": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "hdc",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__New": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "guiHwnd",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "options",
+						"type": "string|number|object"
+					},
+					{
+						"default": false,
+						"desc": "",
+						"link": "",
+						"name": "graphic",
+						"type": "bool"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__Prepare": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "area",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__SelectObject": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "hdc",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "hgdiobj",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"__UpdateLayeredWindow": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "hwnd",
+						"type": "string|number|object"
+					},
+					{
+						"desc": "",
+						"link": "",
+						"name": "hdc",
+						"type": "string|number|object"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "x",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "y",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "w",
+						"type": "string"
+					},
+					{
+						"default": "",
+						"desc": "",
+						"link": "",
+						"name": "h",
+						"type": "string"
+					},
+					{
+						"default": 255,
+						"desc": "",
+						"link": "",
+						"name": "Alpha",
+						"type": "number"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"Draw": {
+				"args": [
+					{
+						"desc": "",
+						"link": "",
+						"name": "pos",
+						"type": "string|number|object"
+					}
+				],
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"GDIDraw": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			},
+			"UpdateGraphic": {
+				"desc": "",
+				"returns": {
+					"desc": "",
+					"type": ""
+				}
+			}
+		}
+	}
+}

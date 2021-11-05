@@ -81,6 +81,16 @@
 				"desc": "Whether or not the cell needs to take any other cells into account when calculating its height.",
 				"type": "bool",
 				"default": false
+			},
+			"aspectRatio": {
+				"desc": "The aspect ratio of the cell in width divided by height. An aspect ratio of **0** means that aspectRatio wont be applied to the cell.",
+				"default": false,
+				"type": "number"
+			},
+			"border": {
+				"desc": "The border of the cell.",
+				"type": "GridGUI.Position",
+				"meta": ["object"]
 			}
 		},
 		"methods": {
@@ -171,6 +181,12 @@
 						"desc": "The vertical border or margin of the cell that is the amount of additional height beyond what the control needs that is taken up by the cell.",
 						"default": 5,
 						"type": "number"
+					},
+					{
+						"name": "aspectRatio",
+						"desc": "The aspect ratio of the cell in width divided by height. An aspect ratio of **0** means that aspectRatio wont be applied to the cell.",
+						"default": false,
+						"type": "number"
 					}
 				],
 				"returns": {
@@ -225,6 +241,50 @@
 				"desc": "Destroys the `GridGUI.Cell.ctrl`."
 			},
 			"GetExpandedHeight": {
+				"desc": "Calculates the amount of the additional height that the cell should take up and applies the aspect ratio of `GridGUI.Cell.aspectRatio` if non zero.",
+				"args": [
+					{
+						"name": "index",
+						"desc": "What index of the positions in the grid that the height is wanted for.",
+						"type": "number"
+					},
+					{
+						"name": "height",
+						"desc": "The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expandersH",
+						"desc": "An array of the sum of vertical expansion weights for each row.",
+						"type": "associative array"
+					},
+					{
+						"name": "nonExpandersH",
+						"desc": "An array of the amount of fixed size cells in each row.",
+						"type": "associative array"
+					},
+					{
+						"name": "width",
+						"desc": "The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expandersW",
+						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"type": "array"
+					},
+					{
+						"name": "nonExpandersW",
+						"desc": "An array of the amount of fixed size cells in each column.",
+						"type": "array"
+					}
+				],
+				"returns": {
+					"desc": "The calculated height.",
+					"type": "number"
+				}
+			},
+			"__GetExpandedHeight": {
 				"desc": "Calculates the amount of the additional height that the cell should take up.",
 				"args": [
 					{
@@ -234,18 +294,18 @@
 					},
 					{
 						"name": "height",
-						"desc": "The unclaimed height of the GUI. That is the amount left after removing the combined height of all fixed size cells.",
+						"desc": "The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.",
 						"type": "number"
 					},
 					{
 						"name": "expanders",
-						"desc": "The array of the sum of vertical expansion weights for each row.",
-						"type": "array"
+						"desc": "An array of the sum of vertical expansion weights for each row.",
+						"type": "associative array"
 					},
 					{
 						"name": "nonExpanders",
-						"desc": "The array of the amount of fixed size cells in each row.",
-						"type": "array"
+						"desc": "An array of the amount of fixed size cells in each row.",
+						"type": "associative array"
 					}
 				],
 				"returns": {
@@ -253,7 +313,80 @@
 					"type": "number"
 				}
 			},
+			"__GetExpandedHeights": {
+				"desc": "Calculates the heights that the cell wants to have in each of rows that it spans over.",
+				"args": [
+					{
+						"name": "index",
+						"desc": "What index of the positions in the grid that the height is wanted for.",
+						"type": "number"
+					},
+					{
+						"name": "height",
+						"desc": "The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expanders",
+						"desc": "An array of the sum of vertical expansion weights for each row.",
+						"type": "associative array"
+					},
+					{
+						"name": "nonExpanders",
+						"desc": "An array of the amount of fixed size cells in each row.",
+						"type": "associative array"
+					}
+				],
+				"returns": {
+					"desc": "The wanted height of the cell in each row.",
+					"type": "array"
+				}
+			},
 			"GetExpandedWidth": {
+				"desc": "Calculates the amount of the additional width that the cell should take up and applies the aspect ratio of `GridGUI.Cell.aspectRatio` if non zero.",
+				"args": [
+					{
+						"name": "index",
+						"desc": "What index of the positions in the grid that the width is wanted for.",
+						"type": "number"
+					},
+					{
+						"name": "width",
+						"desc": "The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expandersW",
+						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"type": "array"
+					},
+					{
+						"name": "nonExpandersW",
+						"desc": "An array of the amount of fixed size cells in each column.",
+						"type": "array"
+					},
+					{
+						"name": "height",
+						"desc": "The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expandersH",
+						"desc": "An array of the sum of vertical expansion weights for each row.",
+						"type": "associative array"
+					},
+					{
+						"name": "nonExpandersH",
+						"desc": "An array of the amount of fixed size cells in each row.",
+						"type": "associative array"
+					}
+				],
+				"returns": {
+					"desc": "The calculated width.",
+					"type": "number"
+				}
+			},
+			"__GetExpandedWidth": {
 				"desc": "Calculates the amount of the additional width that the cell should take up.",
 				"args": [
 					{
@@ -263,23 +396,52 @@
 					},
 					{
 						"name": "width",
-						"desc": "The unclaimed width of the GUI. That is the amount left after removing the combined width of all fixed size cells.",
+						"desc": "The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.",
 						"type": "number"
 					},
 					{
 						"name": "expanders",
-						"desc": "The array of the sum of horisontal expansion weights for each column.",
+						"desc": "An array of the sum of horisontal expansion weights for each column.",
 						"type": "array"
 					},
 					{
 						"name": "nonExpanders",
-						"desc": "The array of the amount of fixed size cells in each column.",
+						"desc": "An array of the amount of fixed size cells in each column.",
 						"type": "array"
 					}
 				],
 				"returns": {
 					"desc": "The calculated width.",
 					"type": "number"
+				}
+			},
+			"__GetExpandedWidths": {
+				"desc": "Calculates the widths that the cell wants to have in each of columns that it spans over.",
+				"args": [
+					{
+						"name": "index",
+						"desc": "What index of the positions in the grid that the width is wanted for.",
+						"type": "number"
+					},
+					{
+						"name": "width",
+						"desc": "The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expanders",
+						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"type": "array"
+					},
+					{
+						"name": "nonExpanders",
+						"desc": "An array of the amount of fixed size cells in each column.",
+						"type": "array"
+					}
+				],
+				"returns": {
+					"desc": "The wanted width of the cell in each column.",
+					"type": "array"
 				}
 			},
 			"GetExpansionHeightValue": {
@@ -297,6 +459,13 @@
 				}
 			},
 			"GetFixedHeight": {
+				"desc": "Returns the fixed height of the cell and applies the aspect ratio of `GridGUI.Cell.aspectRatio` if non zero.",
+				"returns": {
+					"desc": "The fixed height of the cell. For non vertically expanding and non vertically filling cells the min-height of the `GridGUI.Cell.ctrl` plus 2 times the vertical margin is returned. For vertically expanding and or vertically filling cells 0 is returned unless an min-height where specified in which case the min-height of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-height is 0 then 0 is returned.",
+					"type": "number"
+				}
+			},
+			"__GetFixedHeight": {
 				"desc": "Returns the fixed height of the cell.",
 				"returns": {
 					"desc": "The fixed height of the cell. For non vertically expanding and non vertically filling cells the min-height of the `GridGUI.Cell.ctrl` plus 2 times the vertical margin is returned. For vertically expanding and or vertically filling cells 0 is returned unless an min-height where specified in which case the min-height of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-height is 0 then 0 is returned.",
@@ -304,6 +473,13 @@
 				}
 			},
 			"GetFixedWidth": {
+				"desc": "Returns the fixed width of the cell and applies the aspect ratio of `GridGUI.Cell.aspectRatio` if non zero.",
+				"returns": {
+					"desc": "The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the `GridGUI.Cell.ctrl` plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.",
+					"type": "number"
+				}
+			},
+			"__GetFixedWidth": {
 				"desc": "Returns the fixed width of the cell.",
 				"returns": {
 					"desc": "The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the `GridGUI.Cell.ctrl` plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.",
@@ -311,6 +487,13 @@
 				}
 			},
 			"GetNeededHeight": {
+				"desc": "Returns the needed height of the cell and applies the aspect ratio of `GridGUI.Cell.aspectRatio` if non zero.",
+				"returns": {
+					"desc": "The needed height of the cell. That is the min-height of the `GridGUI.Cell.ctrl` plus two times the vertical margin.",
+					"type": "number"
+				}
+			},
+			"__GetNeededHeight": {
 				"desc": "Returns the needed height of the cell.",
 				"returns": {
 					"desc": "The needed height of the cell. That is the min-height of the `GridGUI.Cell.ctrl` plus two times the vertical margin.",
@@ -318,6 +501,13 @@
 				}
 			},
 			"GetNeededWidth": {
+				"desc": "Returns the needed width of the cell and applies the aspect ratio of `GridGUI.Cell.aspectRatio` if non zero.",
+				"returns": {
+					"desc": "The needed width of the cell. That is the min-width of the `GridGUI.Cell.ctrl` plus two times the horisontal margin.",
+					"type": "number"
+				}
+			},
+			"__GetNeededWidth": {
 				"desc": "Returns the needed width of the cell.",
 				"returns": {
 					"desc": "The needed width of the cell. That is the min-width of the `GridGUI.Cell.ctrl` plus two times the horisontal margin.",
@@ -363,7 +553,18 @@
 					}
 				]
 			},
-			"SetCtrlSize": {
+			"SetAspectRatio": {
+				"desc": "Sets the aspect ratio of the cell.",
+				"args": [
+					{
+						"name": "ratio",
+						"desc": "The ratio to set for the cell in width divided by height. An empty ratio will set the ratio to the current width of the cell divided by the current height of the cell.",
+						"default": "",
+						"type": "number|\"\""
+					}
+				]
+			},
+			"CalculateCtrlSize": {
 				"desc": "Calculates the size the `GridGUI.Cell.ctrl` should use given a specific cell size.",
 				"args": [
 					{
@@ -542,18 +743,33 @@
 				"args": [
 					{
 						"name": "width",
-						"desc": "The width of the grid, that is the width of the GUI or subgrid.",
+						"desc": "The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.",
 						"type": "number"
 					},
 					{
-						"name": "expanders",
+						"name": "expandersW",
 						"desc": "An array of the sum of horisontal expansion weights for each column.",
-						"type": "array"
+						"type": "associative array"
 					},
 					{
-						"name": "nonExpanders",
+						"name": "nonExpandersW",
 						"desc": "An array of the amount of fixed size cells in each column.",
-						"type": "array"
+						"type": "associative array"
+					},
+					{
+						"name": "height",
+						"desc": "The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expandersH",
+						"desc": "An array of the sum of vertical expansion weights for each row.",
+						"type": "associative array"
+					},
+					{
+						"name": "nonExpandersH",
+						"desc": "An array of the amount of fixed size cells in each row.",
+						"type": "associative array"
 					}
 				],
 				"returns": {
@@ -686,13 +902,28 @@
 						"type": "number"
 					},
 					{
-						"name": "expanders",
+						"name": "expandersW,",
 						"desc": "The member `GridGUI.Columns.expanders`",
 						"type": "associative array"
 					},
 					{
-						"name": "nonExpanders",
+						"name": "nonExpandersW,",
 						"desc": "The member `GridGUI.Columns.nonExpanders`",
+						"type": "associative array"
+					},
+					{
+						"name": "height",
+						"desc": "The unclaimed height of the grid. That is the height of the grid that is left after removing the height of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expandersH",
+						"desc": "The member `GridGUI.Rows.expanders`",
+						"type": "associative array"
+					},
+					{
+						"name": "nonExpandersH",
+						"desc": "The member `GridGUI.Rows.nonExpanders`",
 						"type": "associative array"
 					}
 				],
@@ -1003,6 +1234,11 @@
 				"type": "array",
 				"default": "[]",
 				"meta": ["object"]
+			},
+			"justify": {
+				"desc": "How the `GridGUI.Grid.cells` will be positioned in the grid when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
+				"type": "string",
+				"default": ""
 			}
 		},
 		"methods": {
@@ -1024,7 +1260,7 @@
 				]
 			},
 			"CalculatePositions": {
-				"desc": "Calculates the positions and sizes of the `GridGUI.Cell`s in the grid and draws them.",
+				"desc": "Calculates the positions and sizes of the `GridGUI.Cell`s in the grid.",
 				"args": [
 					{
 						"name": "area",
@@ -1032,6 +1268,20 @@
 						"type": "GridGUI.Position"
 					}
 				]
+			},
+			"Draw": {
+				"desc": "Draws the `GridGUI.Cell`s in the grid using the most recently calculated cell positions and sizes.",
+				"args": [
+					{
+						"name": "area",
+						"desc": "The position and size of the grid. This is needed to support `GridGUI.SubGrid`s.",
+						"type": "GridGUI.Position"
+					}
+				],
+				"returns": {
+					"desc": "Returns the justified area so that the debug grid lines of `GridGUI.GridGUIClass` can be moved accordingly.",
+					"type": "GridGUI.Position"
+				}
 			},
 			"GetMinHeight": {
 				"desc": "Returns the minimal needed height to show the `GridGUI.Cell`s.",
@@ -1204,18 +1454,33 @@
 				"args": [
 					{
 						"name": "height",
-						"desc": "The height of the grid, that is the height of the GUI or subgrid.",
+						"desc": "The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.",
 						"type": "number"
 					},
 					{
-						"name": "expanders",
+						"name": "expandersH",
 						"desc": "An array of the sum of vertical expansion weights for each row.",
-						"type": "array"
+						"type": "associative array"
 					},
 					{
-						"name": "nonExpanders",
+						"name": "nonExpandersH",
 						"desc": "An array of the amount of fixed size cells in each row.",
-						"type": "array"
+						"type": "associative array"
+					},
+					{
+						"name": "width",
+						"desc": "The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expandersW",
+						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"type": "associative array"
+					},
+					{
+						"name": "nonExpandersW",
+						"desc": "An array of the amount of fixed size cells in each column.",
+						"type": "associative array"
 					}
 				],
 				"returns": {
@@ -1348,13 +1613,28 @@
 						"type": "number"
 					},
 					{
-						"name": "expanders",
+						"name": "expandersH",
 						"desc": "The member `GridGUI.Rows.expanders`",
 						"type": "associative array"
 					},
 					{
-						"name": "nonExpanders",
+						"name": "nonExpandersH",
 						"desc": "The member `GridGUI.Rows.nonExpanders`",
+						"type": "associative array"
+					},
+					{
+						"name": "width",
+						"desc": "The unclaimed width of the grid. That is the width of the grid that is left after removing the width of the fixed cells.",
+						"type": "number"
+					},
+					{
+						"name": "expandersW",
+						"desc": "The member `GridGUI.Columns.expanders`",
+						"type": "associative array"
+					},
+					{
+						"name": "nonExpandersW",
+						"desc": "The member `GridGUI.Columns.nonExpanders`",
 						"type": "associative array"
 					}
 				],
@@ -1558,6 +1838,92 @@
 				"returns": {
 					"desc": "",
 					"type": ""
+				}
+			},
+			"GetSizeByLimitingSide": {
+				"desc": "",
+				"args": [
+					{
+						"name": "pos",
+						"desc": "",
+						"type": "GridGUI.Position"
+					},
+					{
+						"name": "ratio",
+						"desc": "",
+						"type": "number"
+					}
+				],
+				"returns": {
+					"desc": "",
+					"type": "GridGUI.Position"
+				}
+			},
+			"Join": {
+				"desc": "",
+				"args": [
+					{
+						"name": "sep",
+						"desc": "",
+						"type": "string"
+					},
+					{
+						"name": "params",
+						"desc": "",
+						"type": "array"
+					}
+				],
+				"returns": {
+					"desc": "",
+					"type": "string"
+				}
+			},
+			"Justify": {
+				"desc": "",
+				"args": [
+					{
+						"name": "justifyOptions",
+						"desc": "",
+						"type": "string"
+					},
+					{
+						"name": "area",
+						"desc": "",
+						"type": "GridGUI.Position"
+					},
+					{
+						"name": "pos",
+						"desc": "",
+						"type": "GridGUI.Position"
+					},
+					{
+						"name": "border",
+						"desc": "",
+						"type": "GridGUI.Position"
+					}
+				],
+				"returns": {
+					"desc": "",
+					"type": "GridGUI.Position"
+				}
+			},
+			"JustifyCenter": {
+				"desc": "",
+				"args": [
+					{
+						"name": "area",
+						"desc": "",
+						"type": "GridGUI.Position"
+					},
+					{
+						"name": "pos",
+						"desc": "",
+						"type": "GridGUI.Position"
+					}
+				],
+				"returns": {
+					"desc": "",
+					"type": "GridGUI.Position"
 				}
 			},
 			"prettyPrint": {
