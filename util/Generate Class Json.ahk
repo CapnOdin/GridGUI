@@ -2,7 +2,7 @@
 
 
 MakeClassJsonFromFile("D:\Scripts\AutoHotkey\Examples\GUI\GridGUI 3\GridGUI.ahk")
-for i, path in GetFilesInFolder("D:\Scripts\AutoHotkey\Examples\GUI\GridGUI 3\GridGUI-lib\*", "R") {
+for i, path in GetFilesInFolder("D:\Scripts\AutoHotkey\Examples\GUI\GridGUI 3\GridGUI-lib\*", , "R") {
 	MakeClassJsonFromFile(path)
 }
 
