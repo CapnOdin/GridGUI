@@ -54,9 +54,11 @@ nav:
             - Classes/GUI.md
             - Classes/GuiCallback.md
         - Controls:
+            - Classes/CellControl.md
             - Classes/ControlClass.md
             - Classes/GuiControlClass.md
             - Classes/ArbitraryControl.md
+            - Classes/GdiControl.md
             - Classes/ListviewControl.md
             - Classes/RadioGroupControl.md
             - Classes/StatusBarControl.md
@@ -83,11 +85,13 @@ nav:
         - One:                  Examples/Example 1.md
         - Background:           Examples/Example Background.md
         - CellGroups:           Examples/Example CellGroups.md
+        - CSV Viewer:           Examples/Example CSV Viewer.md
         - Exp Fight:            Examples/Example Exp Fight.md
         - Expanding Buttons:    Examples/Example Expanding Buttons.md
         - Expansion Battle 1:   Examples/Example Expansion Battle 1.md
         - Find Text in Files:   Examples/Example Find Text in Files.md
         - Font:                 Examples/Example Font.md
+        - GDI:                  Examples/Example GDI.md
         - Grid Button:          Examples/Example Grid Button.md
         - Grid Game:            Examples/Example Grid Game.md
         - Grid Test:            Examples/Example Grid Test.md
@@ -98,6 +102,7 @@ nav:
         - Margin:               Examples/Example Margin.md
         - RadioGroups 2:        Examples/Example RadioGroups 2.md
         - RadioGroups:          Examples/Example RadioGroups.md
+        - Scale:                Examples/Example Scale.md
         - Serial Terminal:      Examples/Example Serial Terminal.md
         - SubGrids:             Examples/Example SubGrids.md
         - Tabs:                 Examples/Example Tabs.md
