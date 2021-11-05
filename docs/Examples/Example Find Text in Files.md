@@ -13,6 +13,8 @@ SetBatchLines, -1
 myGui := new GridGUI("Text to Find", "resize")
 myGui.GuiClose := GridGUI.ExitApp
 
+myGui.GuiSizeDelay := false
+
 FEd := myGui.Add(1, 1, "Edit", , , 1, , 1)
 FBt := myGui.Add(3, 1, "Button", , "Files", , , 1, , "CW")
 FBt.callback := Func("ChoseFiles").Bind(FEd)
