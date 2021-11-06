@@ -11,6 +11,10 @@ MakeClassJsonFromFile(path) {
 	obj := ParseAHK(Lines, HTV, DocComment := ">>>")
 	SplitPath, path, , , , name
 	
+	if(FileExist(name ".json")) {
+		return
+	}
+	
 	updatedObj := {}
 	
 	for className, classObj in obj["classes"] {
@@ -20,6 +24,7 @@ MakeClassJsonFromFile(path) {
 			}
 		}
 	}
+	
 	FileOpen(name ".json", "w").Write(prettyPrint(Jxon_Dump(updatedObj, 4)))
 }
 
@@ -31,7 +36,7 @@ CopyUpdatedClassFromClassObject(classObj) {
 		} else {
 			if(RegExMatch(fun, "O)(\w+)\(((\w+(\s*:?=\s*[^,)]+\s*)?,?\s*)*)\s*\)", match)) {
 				args := StrSplit(match[2], ",")
-				retClassObj["methods"][match[1]] := AddFunction(args)
+				retClassObj["methods"][match[1]] := AddFunction(fun, args)
 			}
 		}
 	}
@@ -129,8 +134,8 @@ getMatchLength(match) {
 }
 
 
-AddFunction(args) {
-	fun := {"desc": "", "returns": {"desc": "", "type": ""}}
+AddFunction(definition, args) {
+	fun := {"desc": "", "definition": definition, "returns": {"desc": "", "type": ""}}
 	if(args.Count()) {
 		fun["args"] := []
 		for i, parameter in args {
@@ -161,7 +166,7 @@ AddFunction(args) {
 }
 
 prettyPrint(str) {
-	return RegExReplace(RegExReplace(RegExReplace(RegExReplace(RegExReplace(RegExReplace(str, "    ", "`t"), "i)""(true|false)""", "$1"), """(\d+)""", "$1"), "\\""", ""), "\\n", "`t"), "\\t", "")
+	return RegExReplace(RegExReplace(RegExReplace(RegExReplace(RegExReplace(str, "    ", "`t"), "i)""(true|false)""", "$1"), """(\d+)""", "$1"), "\\n", "`t"), "\\t", "")
 }
 
 #include Parse Ahk Scripts.ahk
