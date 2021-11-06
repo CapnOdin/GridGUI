@@ -30,14 +30,14 @@ AddClass(className, json, depth := 1) {
 	if(json["members"].Count()) {
 		mkdocs .= RepeatStr(depth + 1, "#") "Members" "`n`n"
 		for var, varObj in json["members"] {
-			mkdocs .= AddVariable(var, varObj) "`n`n"
+			mkdocs .= AddVariable2(var, varObj) "`n`n"
 		}
 	}
 	
 	if(json["methods"].Count()) {
 		mkdocs .= RepeatStr(depth + 1, "#") "Methods" "`n`n"
 		for fun, funObj in json["methods"] {
-			mkdocs .= AddFunction(fun, funObj) "`n`n"
+			mkdocs .= AddFunction2(fun, funObj) "`n`n"
 		}
 	}
 	
@@ -52,36 +52,165 @@ AddClass(className, json, depth := 1) {
 }
 
 AddVariable(name, json) {
-	return "####" name "`n`n> **desc**: " HandleClassLinks(json["desc"]) "`n`n> **type**: " HandleClassLinks(json["type"]) (json["default"] ? "`n`n> **default**: " json["default"] : "") (json["link"] ? "`n`n> **link**: [link](" json["link"] ")": "")
+	variable := "####" name "`n`n"
+				. "> **desc**: " HandleClassLinks(json["desc"]) "`n`n"
+				. "> **type**: " HandleClassLinks(json["type"])
+	if(json.HasKey("default")) {
+		variable .= "`n`n> **default**: " DefaultToValue(json)
+	}
+	if(json["link"]) {
+		variable .= "`n`n> **link**: [link](" json["link"] ")"
+	}
+	return variable
 }
 
 AddFunction(name, json) {
-	mkdocs := "####" name "`n**desc**: " HandleClassLinks(json["desc"])
+	mkdocs := "####" name "`n"
+			. "**desc**: " HandleClassLinks(json["desc"])
 	if(json["args"]) {
 		mkdocs .= "`n`n**args**:"
 		for i, arg in json["args"] {
 			mkdocs .= "`n`n> " AddArgument(arg)
 		}
-		(json["link"] ? "`n`n> **link**: [link](" json["link"] ")": "")
 	}
 	if(json["link"]) {
 		mkdocs .= "`n`n> **link**: [link](" json["link"] ")"
 	}
 	if(json["returns"]) {
-		mkdocs .= "`n`n**returns**:`n`n> **desc**: " HandleClassLinks(json["returns"]["desc"]) "`n`n> **type**: " json["returns"]["type"]
+		mkdocs .= "`n`n**returns**:`n`n"
+				. "> **desc**: " HandleClassLinks(json["returns"]["desc"]) "`n`n"
+				. "> **type**: " HandleClassLinks(json["returns"]["type"])
 	}
 	return mkdocs
 }
 
 AddArgument(json) {
-	return "**name**: " json["name"] "`n`n> **desc**: " HandleClassLinks(json["desc"]) "`n`n> **type**: " HandleClassLinks(json["type"]) (json["default"] ? "`n`n> **default**: " json["default"] : "")
+	argument := "**name**: " json["name"] "`n`n"
+				. "> **desc**: " HandleClassLinks(json["desc"]) "`n`n"
+				. "> **type**: " HandleClassLinks(json["type"])
+	if(json.HasKey("default")) {
+		argument .= "`n`n> **default**: " DefaultToValue(json)
+	}
+	if(json["link"]) {
+		argument .= "`n`n> **link**: [link](" json["link"] ")"
+	}
+	return argument
+}
+
+AddVariable2(name, json, indent := "") {
+	locIndent := "    "
+	variable := indent "!!! info """""  "`n`n"
+				. indent locIndent "####" name "`n"
+				. indent locIndent "!!! info """""  "`n`n"
+				. indent locIndent locIndent "**desc**: " HandleClassLinks(json["desc"]) "`n`n"
+				. indent locIndent locIndent "**type**: " HandleClassLinks(json["type"])
+	if(json.HasKey("default")) {
+		variable .= "`n`n" indent locIndent locIndent "**default**: " DefaultToValue(json)
+	}
+	/*
+	if(json["meta"]) {
+		variable .= "`n`n" indent locIndent locIndent "**meta**: " json["meta"]
+	}
+	*/
+	if(json["link"]) {
+		variable .= "`n`n" indent locIndent locIndent "**link**: [link](" json["link"] ")"
+	}
+	return variable
+}
+
+AddFunction2(name, json, indent := "") {
+	locIndent := "    "
+	mkdocs := indent "!!! note """"`n"
+			. indent locIndent "####" name "`n"
+			. AddDefinition3(name, json["args"], indent . locIndent) "`n"
+			. AddDescription2(json["desc"], indent . locIndent)
+	if(json["args"]) {
+		mkdocs .= "`n`n" indent locIndent "??? example " """parameters"""
+		for i, arg in json["args"] {
+			mkdocs .= "`n`n" AddArgument2(arg, indent . locIndent . locIndent)
+		}
+	}
+	if(json["link"]) {
+		mkdocs .= "`n`n" indent locIndent "**link**: [link](" json["link"] ")"
+	}
+	if(json["returns"]) {
+		mkdocs .= "`n`n" AddReturns2(json["returns"], indent . locIndent)
+	}
+	return mkdocs
+}
+
+AddDefinition2(name, json, indent := "") {
+	locIndent := "    "
+	def := "``AutoHotKey`n" name "("
+	args := ""
+	for i, arg in json {
+		args .= arg["name"]
+		if(arg.HasKey("default")) {
+			args .= " := " DefaultToValue(arg)
+		}
+		args .= ", "
+	}
+	def .= SubStr(args, 1, -2) ")``"
+	definition := indent "!!! tip """"" . "`n`n"
+				. indent locIndent ":material-bacteria:{ .definition } **" def "**`n`n"
+	return definition
+}
+
+AddDefinition3(name, json, indent := "") {
+	locIndent := "    "
+	def := "``````AutoHotKey`n"
+		. indent locIndent name "("
+	args := ""
+	for i, arg in json {
+		args .= arg["name"]
+		if(arg.HasKey("default")) {
+			args .= " := " DefaultToValue(arg)
+		}
+		args .= ", "
+	}
+	def .= SubStr(args, 1, -2) ")`n"
+		. indent locIndent "``````"
+	definition := indent "!!! tip """"" . "`n`n"
+				. indent locIndent def "`n`n"
+	return definition
+}
+
+AddDescription2(json, indent := "") {
+	locIndent := "    "
+	desc := indent "!!! abstract """"" . "`n`n"
+				. indent locIndent ":material-clipboard-text:{ .desc } " HandleClassLinks(json) "`n`n"
+	return desc
+}
+
+AddArgument2(json, indent := "") {
+	locIndent := "    "
+	argument := indent "!!! info """""  "`n`n"
+				. indent locIndent "**name**: " json["name"] "`n`n"
+				. indent locIndent "**desc**: " HandleClassLinks(json["desc"]) "`n`n"
+				. indent locIndent "**type**: " HandleClassLinks(json["type"])
+	if(json.HasKey("default")) {
+		argument .= "`n`n" indent locIndent "**default**: " DefaultToValue(json)
+	}
+	if(json["link"]) {
+		argument .= "`n`n" indent locIndent "**link**: [link](" json["link"] ")"
+	}
+	return argument
+}
+
+AddReturns2(json, indent := "") {
+	locIndent := "    "
+	returns := indent "!!! question """"" . "`n`n"
+				. indent locIndent ":material-arrow-u-left-bottom-bold:{ .return } " "**return value**" "`n"
+				. indent locIndent "!!! question """"" . "`n`n"
+				. indent locIndent locIndent "**desc**: " HandleClassLinks(json["desc"]) "`n`n"
+				. indent locIndent locIndent "**type**: " HandleClassLinks(json["type"])
+	if(json["link"]) {
+		returns .= "`n`n" indent locIndent locIndent "**link**: [link](" json["link"] ")"
+	}
+	return returns
 }
 
 HandleClassLinks(text) {
-	;RegExReplace(text, "`(GridGUI(\.\w+)*)`", "`[$1]()`")
-	;if(InStr(text, "GridGUI")) {
-	;	MsgBox, % text
-	;}
 	matchs := RegExMatchAll(text, "O)``?(GridGUI(\.\w+)*(\(\))?)``?")
 	loop % matchs.count() {
 		oldtxt := text
@@ -91,29 +220,21 @@ HandleClassLinks(text) {
 		link := ClassPathToLink(match)
 		
 		text := SubStr(text, 1, pos - 1) link SubStr(text, pos + StrLen(match))
-		
-		;MsgBox, % oldtxt "`n" SubStr(oldtxt, 1, pos - 1) match SubStr(oldtxt, pos + StrLen(match))
-		
-		;text := StrReplace(text, match, link)
-		
-		/*
-		if(SubStr(matchs[matchs.count() - A_Index + 1]["match"][1], -1) = "()") {
-			RegExMatch(match, "O)(GridGUI(\.\w+)*)\.(\w+)\(\)", name)
-			text := StrReplace(text, match, "[" name[0] "](../" StrReplace(name[1], ".", "/") "#" name[3] ")")
-			;MsgBox, % name[0] "`n" name[1] "`n" name[2] "`n" name[3]
-		} else {
-			RegExMatch(match, "O)\.?(\w+)\(?\)?``?$", name)
-			text := StrReplace(text, match, "[" name[1] "](../" name[1] "/)")
-		}
-		*/
-		;MsgBox, % match
 	}
-	;MsgBox, % text "`n`n" oldtxt
 	return text
 }
 
+DefaultToValue(json) {
+	if(json["default"] = "" and (InStr(json["type"], "bool") || InStr(json["type"], "false"))) {
+		if(json.HasKey("defaultVal")) {
+			return json["defaultVal"]
+		}
+		return "false"
+	}
+	return json["default"]
+}
+
 ClassPathToLink(path) {
-	;MsgBox, % path
 	parts := StrSplit(StrReplace(path, "``"), ".")
 	
 	if(classes.HasKey(parts[2])) {
@@ -134,7 +255,6 @@ ClassPathToLink(path) {
 	if(!res) {
 		res := "[" path "](../" className "/" ")"
 	}
-	;MsgBox, % path "`n" res
 	return res
 }
 
