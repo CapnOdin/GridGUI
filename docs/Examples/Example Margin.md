@@ -5,6 +5,10 @@ hide:
 # Example Margin
 
 ---
+<figure markdown="1">
+![Example Margin](../imgs/Examples/Example Margin 1.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

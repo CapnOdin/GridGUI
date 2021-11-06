@@ -5,6 +5,10 @@ hide:
 # Example Keyword Arguments
 
 ---
+<figure markdown="1">
+![Example Keyword Arguments](../imgs/Examples/Example Keyword Arguments.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

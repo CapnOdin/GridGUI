@@ -5,6 +5,10 @@ hide:
 # Example Grid Button
 
 ---
+<figure markdown="1">
+![Example Grid Button](../imgs/Examples/Example Grid Button.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

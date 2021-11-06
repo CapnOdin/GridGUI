@@ -5,6 +5,10 @@ hide:
 # Example Grid Test
 
 ---
+<figure markdown="1">
+![Example Grid Test](../imgs/Examples/Example Grid Test.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

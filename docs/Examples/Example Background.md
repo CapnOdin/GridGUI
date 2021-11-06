@@ -5,6 +5,10 @@ hide:
 # Example Background
 
 ---
+<figure markdown="1">
+![Example Background](../imgs/Examples/Example Background.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

@@ -5,6 +5,10 @@ hide:
 # Example Scale
 
 ---
+<figure markdown="1">
+![Example Scale](../imgs/Examples/Example Scale.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

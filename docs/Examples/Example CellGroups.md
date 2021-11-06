@@ -5,6 +5,10 @@ hide:
 # Example CellGroups
 
 ---
+<figure markdown="1">
+![Example CellGroups](../imgs/Examples/Example CellGroups.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

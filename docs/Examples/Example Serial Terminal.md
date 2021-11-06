@@ -5,6 +5,10 @@ hide:
 # Example Serial Terminal
 
 ---
+<figure markdown="1">
+![Example Serial Terminal](../imgs/Examples/Example Serial Terminal.png) 
+</figure>
+
 ```AutoHotkey
 #SingleInstance Off
 

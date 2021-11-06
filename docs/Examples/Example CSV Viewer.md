@@ -5,6 +5,10 @@ hide:
 # Example CSV Viewer
 
 ---
+<figure markdown="1">
+![Example CSV Viewer](../imgs/Examples/Example CSV Viewer.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

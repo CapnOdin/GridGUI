@@ -5,6 +5,10 @@ hide:
 # Example Find Text in Files
 
 ---
+<figure markdown="1">
+![Example Find Text in Files](../imgs/Examples/Example Find Text in Files.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

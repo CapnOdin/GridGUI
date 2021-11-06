@@ -5,6 +5,10 @@ hide:
 # Example Unicode
 
 ---
+<figure markdown="1">
+![Example Unicode](../imgs/Examples/Example Unicode.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

@@ -5,6 +5,10 @@ hide:
 # Example Transparent
 
 ---
+<figure markdown="1">
+![Example Transparent](../imgs/Examples/Example Transparent.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

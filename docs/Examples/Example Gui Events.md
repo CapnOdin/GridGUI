@@ -5,6 +5,10 @@ hide:
 # Example Gui Events
 
 ---
+<figure markdown="1">
+![Example Gui Events](../imgs/Examples/Example Gui Events.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

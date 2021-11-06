@@ -5,6 +5,10 @@ hide:
 # Example Expanding Buttons
 
 ---
+<figure markdown="1">
+![Example Expanding Buttons](../imgs/Examples/Example Expanding Buttons.png)
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

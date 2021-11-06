@@ -5,6 +5,10 @@ hide:
 # Example Tabs
 
 ---
+<figure markdown="1">
+![Example Tabs](../imgs/Examples/Example Tabs.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

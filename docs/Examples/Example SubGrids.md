@@ -5,6 +5,10 @@ hide:
 # Example SubGrids
 
 ---
+<figure markdown="1">
+![Example SubGrids](../imgs/Examples/Example SubGrids.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

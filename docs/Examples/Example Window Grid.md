@@ -5,12 +5,16 @@ hide:
 # Example Window Grid
 
 ---
+<figure markdown="1">
+![Example Window Grid](../imgs/Window Grid.png)
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 SetBatchLines, -1
 CoordMode, Mouse, Screen
 
-myGui := new GridGUI("Window Grid", "resize")
+myGui := new GridGUI("Example Window Grid", "resize")
 myGui.GuiClose := GridGUI.ExitApp
 myGui.Show("w800 h800")
 column := 0

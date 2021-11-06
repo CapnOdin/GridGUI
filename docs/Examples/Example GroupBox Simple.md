@@ -5,6 +5,10 @@ hide:
 # Example GroupBox Simple
 
 ---
+<figure markdown="1">
+![Example GroupBox Simple](../imgs/Examples/Example GroupBox Simple.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

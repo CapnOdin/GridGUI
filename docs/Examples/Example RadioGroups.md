@@ -5,6 +5,10 @@ hide:
 # Example RadioGroups
 
 ---
+<figure markdown="1">
+![Example RadioGroups](../imgs/Examples/Example RadioGroups.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

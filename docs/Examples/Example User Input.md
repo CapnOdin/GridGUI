@@ -5,6 +5,10 @@ hide:
 # Example User Input
 
 ---
+<figure markdown="1">
+![Example User Input](../imgs/Examples/Example User Input.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

@@ -5,6 +5,10 @@ hide:
 # Example GDI
 
 ---
+<figure markdown="1">
+![Example GDI](../imgs/Examples/Example GDI.png) 
+</figure>
+
 ```AutoHotkey
 #Include, <Gdip>
 

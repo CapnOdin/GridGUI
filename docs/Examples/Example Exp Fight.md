@@ -5,6 +5,10 @@ hide:
 # Example Exp Fight
 
 ---
+<figure markdown="1">
+![Example Exp Fight](../imgs/Examples/Example Exp Fight.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

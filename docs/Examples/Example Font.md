@@ -5,6 +5,10 @@ hide:
 # Example Font
 
 ---
+<figure markdown="1">
+![Example Font](../imgs/Examples/Example Font.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 

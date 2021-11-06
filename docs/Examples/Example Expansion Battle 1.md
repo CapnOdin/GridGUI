@@ -5,6 +5,10 @@ hide:
 # Example Expansion Battle 1
 
 ---
+<figure markdown="1">
+![Example Expansion Battle 1](../imgs/Examples/Example Expansion Battle 1.png) 
+</figure>
+
 ```AutoHotkey
 #Include <GridGUI>
 
