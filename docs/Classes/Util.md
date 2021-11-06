@@ -5,381 +5,717 @@
 ---
 ##Methods
 
-####AddZeros
-**desc**: 
+!!! note ""
+    ####AddZeros
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        AddZeros(z)
+        ```
 
-> **name**: z
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####BGRtoRGB
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: z
 
-> **name**: oldValue
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string|number|object
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: 
 
-####ByExH
-**desc**: 
+!!! note ""
+    ####BGRtoRGB
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        BGRtoRGB(oldValue)
+        ```
 
-> **name**: c
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####ByExW
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: oldValue
 
-> **name**: c
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: [GridGUI.Cell](../Cell/)
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: 
 
-####BySecoundValue
-**desc**: 
+!!! note ""
+    ####ByExH
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        ByExH(c)
+        ```
 
-> **name**: lst
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####BySize
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: c
 
-> **name**: pos
+            **desc**: 
 
-> **desc**: 
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **type**: [GridGUI.Position](../Position/)
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: 
 
-####ConvertStObjToObjOfStr
-**desc**: 
+!!! note ""
+    ####ByExW
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        ByExW(c)
+        ```
 
-> **name**: obj
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####DPIScale
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: c
 
-> **name**: pos
+            **desc**: 
 
-> **desc**: 
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **type**: [GridGUI.Position](../Position/)
+    !!! question ""
 
-> **name**: enlarge
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: bool
+            **type**: 
 
-**returns**:
+!!! note ""
+    ####BySecoundValue
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        BySecoundValue(lst)
+        ```
 
-> **type**: 
 
-####FindIndex
-**desc**: 
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } 
 
-> **name**: lst
 
-> **desc**: 
 
-> **type**: string|number|object
+    ??? example "parameters"
 
-> **name**: val
+        !!! info ""
 
-> **desc**: 
+            **name**: lst
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: fun
+            **type**: string|number|object
 
-> **desc**: 
+    !!! question ""
 
-> **type**: Func|BoundFunc|false
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: 
+!!! note ""
+    ####BySize
+    !!! tip ""
 
-####GetSizeByLimitingSide
-**desc**: 
+        ```AutoHotKey
+        BySize(pos)
+        ```
 
-**args**:
 
-> **name**: pos
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: [GridGUI.Position](../Position/)
 
-> **name**: ratio
 
-> **desc**: 
+    ??? example "parameters"
 
-> **type**: number
+        !!! info ""
 
-**returns**:
+            **name**: pos
 
-> **desc**: 
+            **desc**: 
 
-> **type**: GridGUI.Position
+            **type**: [GridGUI.Position](../Position/)
 
-####Join
-**desc**: 
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: sep
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: string
+!!! note ""
+    ####ConvertStObjToObjOfStr
+    !!! tip ""
 
-> **name**: params
+        ```AutoHotKey
+        ConvertStObjToObjOfStr(obj)
+        ```
 
-> **desc**: 
 
-> **type**: array
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: string
 
-####Justify
-**desc**: 
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: justifyOptions
+            **name**: obj
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string
+            **type**: string|number|object
 
-> **name**: area
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: [GridGUI.Position](../Position/)
+            **desc**: 
 
-> **name**: pos
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####DPIScale
+    !!! tip ""
 
-> **type**: [GridGUI.Position](../Position/)
+        ```AutoHotKey
+        DPIScale(pos, enlarge := true)
+        ```
 
-> **name**: border
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: [GridGUI.Position](../Position/)
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: GridGUI.Position
+    ??? example "parameters"
 
-####JustifyCenter
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: pos
 
-> **name**: area
+            **desc**: 
 
-> **desc**: 
+            **type**: [GridGUI.Position](../Position/)
 
-> **type**: [GridGUI.Position](../Position/)
+        !!! info ""
 
-> **name**: pos
+            **name**: enlarge
 
-> **desc**: 
+            **desc**: 
 
-> **type**: [GridGUI.Position](../Position/)
+            **type**: bool
 
-**returns**:
+            **default**: true
 
-> **desc**: 
+    !!! question ""
 
-> **type**: GridGUI.Position
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####prettyPrint
-**desc**: 
+            **desc**: 
 
-**args**:
+            **type**: 
 
-> **name**: str
+!!! note ""
+    ####FindIndex
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        FindIndex(lst, val, fun := false)
+        ```
 
-> **type**: string|number|object
 
-**returns**:
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: 
 
-####RemoveValue
-**desc**: 
 
-**args**:
+    ??? example "parameters"
 
-> **name**: lst
+        !!! info ""
 
-> **desc**: 
+            **name**: lst
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: val
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: val
 
-> **name**: fun
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: Func|BoundFunc|false
+        !!! info ""
 
-**returns**:
+            **name**: fun
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: Func|BoundFunc|false
 
-####RGBtoBGR
-**desc**: 
+            **default**: false
 
-**args**:
+    !!! question ""
 
-> **name**: oldValue
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string|number|object
+            **type**: 
 
-**returns**:
+!!! note ""
+    ####GetSizeByLimitingSide
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        GetSizeByLimitingSide(pos, ratio)
+        ```
 
-> **type**: 
 
-####Sort
-**desc**: 
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } 
 
-> **name**: obj
 
-> **desc**: 
 
-> **type**: string|number|object
+    ??? example "parameters"
 
-> **name**: fun
+        !!! info ""
 
-> **desc**: 
+            **name**: pos
 
-> **type**: Func|BoundFunc
+            **desc**: 
 
-**returns**:
+            **type**: [GridGUI.Position](../Position/)
 
-> **desc**: 
+        !!! info ""
 
-> **type**: 
+            **name**: ratio
 
-####Sum
-**desc**: 
+            **desc**: 
 
-**args**:
+            **type**: number
 
-> **name**: obj
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string|number|object
+            **desc**: 
 
-**returns**:
+            **type**: [GridGUI.Position](../Position/)
 
-> **desc**: 
+!!! note ""
+    ####Join
+    !!! tip ""
 
-> **type**: 
+        ```AutoHotKey
+        Join(sep, params)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: sep
+
+            **desc**: 
+
+            **type**: string
+
+        !!! info ""
+
+            **name**: params
+
+            **desc**: 
+
+            **type**: array
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: string
+
+!!! note ""
+    ####Justify
+    !!! tip ""
+
+        ```AutoHotKey
+        Justify(justifyOptions, area, pos, border)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: justifyOptions
+
+            **desc**: 
+
+            **type**: string
+
+        !!! info ""
+
+            **name**: area
+
+            **desc**: 
+
+            **type**: [GridGUI.Position](../Position/)
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: 
+
+            **type**: [GridGUI.Position](../Position/)
+
+        !!! info ""
+
+            **name**: border
+
+            **desc**: 
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####JustifyCenter
+    !!! tip ""
+
+        ```AutoHotKey
+        JustifyCenter(area, pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: area
+
+            **desc**: 
+
+            **type**: [GridGUI.Position](../Position/)
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: 
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####prettyPrint
+    !!! tip ""
+
+        ```AutoHotKey
+        prettyPrint(str)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: str
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####RemoveValue
+    !!! tip ""
+
+        ```AutoHotKey
+        RemoveValue(lst, val, fun := false)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: lst
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: val
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: fun
+
+            **desc**: 
+
+            **type**: Func|BoundFunc|false
+
+            **default**: false
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####RGBtoBGR
+    !!! tip ""
+
+        ```AutoHotKey
+        RGBtoBGR(oldValue)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: oldValue
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####Sort
+    !!! tip ""
+
+        ```AutoHotKey
+        Sort(obj, fun)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: obj
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: fun
+
+            **desc**: 
+
+            **type**: Func|BoundFunc
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####Sum
+    !!! tip ""
+
+        ```AutoHotKey
+        Sum(obj)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: obj
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

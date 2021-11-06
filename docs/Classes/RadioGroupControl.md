@@ -5,89 +5,171 @@
 ---
 ##Methods
 
-####__Callback
-**desc**: 
+!!! note ""
+    ####__Callback
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __Callback(ctrl)
+        ```
 
-> **name**: ctrl
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####__New
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: ctrl
 
-> **name**: guiHwnd
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string|number|object
+    !!! question ""
 
-> **name**: callback
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: bool
+            **type**: 
 
-**returns**:
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        __New(guiHwnd, callback := false)
+        ```
 
-> **type**: 
 
-####Check
-**desc**: 
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } 
 
-> **name**: index
 
-> **desc**: 
 
-> **type**: string|number|object
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: 
+            **name**: guiHwnd
 
-> **type**: 
+            **desc**: 
 
-####New
-**desc**: 
+            **type**: string|number|object
 
-**args**:
+        !!! info ""
 
-> **name**: options
+            **name**: callback
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string
+            **type**: bool
 
-> **name**: text
+            **default**: false
 
-> **desc**: 
+    !!! question ""
 
-> **type**: string
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: guiHwnd
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: bool
+!!! note ""
+    ####Check
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        Check(index)
+        ```
 
-> **desc**: 
 
-> **type**: 
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: index
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####New
+    !!! tip ""
+
+        ```AutoHotKey
+        New(options := "", text := "", guiHwnd := false)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: options
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: text
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: guiHwnd
+
+            **desc**: 
+
+            **type**: bool
+
+            **default**: false
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

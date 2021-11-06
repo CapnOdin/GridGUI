@@ -5,313 +5,613 @@
 ---
 ##Members
 
-####h
+!!! info ""
 
-> **desc**: The height of the square spanning the down from the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
+    ####h
+    !!! info ""
 
-> **type**: number
+        **desc**: The height of the square spanning the down from the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
 
-####w
+        **type**: number
 
-> **desc**: The width of the square spanning to the right of the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
+        **default**: 0
 
-> **type**: number
+!!! info ""
 
-####x
+    ####w
+    !!! info ""
 
-> **desc**: The x coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.x`](../Position/#x) is the x coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
+        **desc**: The width of the square spanning to the right of the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
 
-> **type**: number
+        **type**: number
 
-####y
+        **default**: 0
 
-> **desc**: The y coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.y`](../Position/#y) is the y coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
+!!! info ""
 
-> **type**: number
+    ####x
+    !!! info ""
+
+        **desc**: The x coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.x`](../Position/#x) is the x coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
+
+        **type**: number
+
+!!! info ""
+
+    ####y
+    !!! info ""
+
+        **desc**: The y coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.y`](../Position/#y) is the y coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
+
+        **type**: number
 
 ##Methods
 
-####__CompareX
-**desc**: Compares the relative position along the x-axis with another [`GridGUI.Position`](../Position/).
+!!! note ""
+    ####__CompareX
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __CompareX(pos)
+        ```
 
-> **name**: pos
 
-> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
+    !!! abstract ""
 
-> **type**: [GridGUI.Position](../Position/)
+        :material-clipboard-text:{ .desc } Compares the relative position along the x-axis with another [`GridGUI.Position`](../Position/).
 
-**returns**:
 
-> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
 
-> **type**: number
+    ??? example "parameters"
 
-####__CompareY
-**desc**: Compares the relative position along the y-axis with another [`GridGUI.Position`](../Position/).
+        !!! info ""
 
-**args**:
+            **name**: pos
 
-> **name**: pos
+            **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
+            **type**: [GridGUI.Position](../Position/)
 
-> **type**: [GridGUI.Position](../Position/)
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
+            **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
 
-> **type**: number
+            **type**: number
 
-####__New
-**desc**: Constructor.
+!!! note ""
+    ####__CompareY
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __CompareY(pos)
+        ```
 
-> **name**: x
 
-> **desc**: The x coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.x`](../Position/#x) is the x coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } Compares the relative position along the y-axis with another [`GridGUI.Position`](../Position/).
 
-> **name**: y
 
-> **desc**: The y coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.y`](../Position/#y) is the y coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
 
-> **type**: string|number|object
+    ??? example "parameters"
 
-> **name**: w
+        !!! info ""
 
-> **desc**: The width of the square spanning to the right of the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
+            **name**: pos
 
-> **type**: number
+            **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **name**: h
+            **type**: [GridGUI.Position](../Position/)
 
-> **desc**: The height of the square spanning the down from the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
+    !!! question ""
 
-> **type**: number
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**returns**:
+            **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
 
-> **desc**: A new [`GridGUI.Position`](../Position/) instance.
+            **type**: number
 
-> **type**: GridGUI.Position
+!!! note ""
+    ####__New
+    !!! tip ""
 
-####__OneDimentionalCompare
-**desc**: Compares the amount of overlap between two ranges.
+        ```AutoHotKey
+        __New(x, y, w := 0, h := 0)
+        ```
 
-**args**:
 
-> **name**: min1
+    !!! abstract ""
 
-> **desc**: The minimum of the first range.
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **type**: number
 
-> **name**: max1
 
-> **desc**: The maximum of the first range.
+    ??? example "parameters"
 
-> **type**: number
+        !!! info ""
 
-> **name**: min2
+            **name**: x
 
-> **desc**: The minimum of the second range.
+            **desc**: The x coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.x`](../Position/#x) is the x coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
 
-> **type**: number
+            **type**: string|number|object
 
-> **name**: max2
+        !!! info ""
 
-> **desc**: The maximum of the second range.
+            **name**: y
 
-> **type**: number
+            **desc**: The y coordinate of the position, if the optional [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) are non zero then [`GridGUI.Position.y`](../Position/#y) is the y coordinate of the top left corner of the square spanning [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h) down towards the right.
 
-**returns**:
+            **type**: string|number|object
 
-> **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
+        !!! info ""
 
-> **type**: number
+            **name**: w
 
-####__OverlapX
-**desc**: Compares the amount of overlap along the x-axis with another [`GridGUI.Position`](../Position/).
+            **desc**: The width of the square spanning to the right of the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
 
-**args**:
+            **type**: number
 
-> **name**: pos
+            **default**: 0
 
-> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
+        !!! info ""
 
-> **type**: [GridGUI.Position](../Position/)
+            **name**: h
 
-**returns**:
+            **desc**: The height of the square spanning the down from the top left corner consisting of [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y).
 
-> **desc**: The amount of overlap.
+            **type**: number
 
-> **type**: number
+            **default**: 0
 
-####__OverlapY
-**desc**: Compares the amount of overlap along the y-axis with another [`GridGUI.Position`](../Position/).
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: pos
+            **desc**: A new [`GridGUI.Position`](../Position/) instance.
 
-> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
+            **type**: [GridGUI.Position](../Position/)
 
-> **type**: [GridGUI.Position](../Position/)
+!!! note ""
+    ####__OneDimentionalCompare
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __OneDimentionalCompare(min1, max1, min2, max2)
+        ```
 
-> **desc**: The amount of overlap.
 
-> **type**: number
+    !!! abstract ""
 
-####Area
-**desc**: Calculates the area of the square with sides [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h).
+        :material-clipboard-text:{ .desc } Compares the amount of overlap between two ranges.
 
-**returns**:
 
-> **desc**: The area.
 
-> **type**: number
+    ??? example "parameters"
 
-####Compare
-**desc**: Compares the relative position along the x-axis and the y-axis with another [`GridGUI.Position`](../Position/).
+        !!! info ""
 
-**args**:
+            **name**: min1
 
-> **name**: pos
+            **desc**: The minimum of the first range.
 
-> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
+            **type**: number
 
-> **type**: [GridGUI.Position](../Position/)
+        !!! info ""
 
-**returns**:
+            **name**: max1
 
-> **desc**: An array with the result of the two one dimensional comparisons. The result of the x-axis comparison is in index 1 and the result of the y-axis comparison is in index 2.
+            **desc**: The maximum of the first range.
 
-> **type**: array
+            **type**: number
 
-####Contains
-**desc**: Check if a [`GridGUI.Position`](../Position/) is contained within the area of this position.
+        !!! info ""
 
-**args**:
+            **name**: min2
 
-> **name**: pos
+            **desc**: The minimum of the second range.
 
-> **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
+            **type**: number
 
-> **type**: [GridGUI.Position](../Position/)
+        !!! info ""
 
-**returns**:
+            **name**: max2
 
-> **desc**: Whether or not `pos` was contained within this position.
+            **desc**: The maximum of the second range.
 
-> **type**: bool
+            **type**: number
 
-####Copy
-**desc**: Copy Constructor.
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: An identical copy of this position.
+            **desc**: Positive values are the amount of overlap, negative values are the distance and zero mean that the ranges are touching.
 
-> **type**: GridGUI.Position
+            **type**: number
 
-####Disjoint
-**desc**: Check if a [`GridGUI.Position`](../Position/) does not touch this position.
+!!! note ""
+    ####__OverlapX
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __OverlapX(pos)
+        ```
 
-> **name**: pos
 
-> **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
+    !!! abstract ""
 
-> **type**: [GridGUI.Position](../Position/)
+        :material-clipboard-text:{ .desc } Compares the amount of overlap along the x-axis with another [`GridGUI.Position`](../Position/).
 
-**returns**:
 
-> **desc**: Whether or not `pos` touches this position.
 
-> **type**: bool
+    ??? example "parameters"
 
-####Equal
-**desc**: Check if a [`GridGUI.Position`](../Position/) is identical to this position.
+        !!! info ""
 
-**args**:
+            **name**: pos
 
-> **name**: pos
+            **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **desc**: The [`GridGUI.Position`](../Position/) to compare with.
+            **type**: [GridGUI.Position](../Position/)
 
-> **type**: [GridGUI.Position](../Position/)
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: Whether or not `pos` is identical to this position.
+            **desc**: The amount of overlap.
 
-> **type**: bool
+            **type**: number
 
-####Intersect
-**desc**: Check if a [`GridGUI.Position`](../Position/) overlaps with this position, that is that at least one corner of one of the two [`GridGUI.Position`](../Position/) is within the other [`GridGUI.Position`](../Position/).
+!!! note ""
+    ####__OverlapY
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __OverlapY(pos)
+        ```
 
-> **name**: pos
 
-> **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
+    !!! abstract ""
 
-> **type**: [GridGUI.Position](../Position/)
+        :material-clipboard-text:{ .desc } Compares the amount of overlap along the y-axis with another [`GridGUI.Position`](../Position/).
 
-**returns**:
 
-> **desc**: Whether or not `pos` intersects with this position
 
-> **type**: bool
+    ??? example "parameters"
 
-####Middle
-**desc**: Calculates the middle of this position.
+        !!! info ""
 
-**returns**:
+            **name**: pos
 
-> **desc**: A new [`GridGUI.Position`](../Position/) instance with [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y) being the middle of this position.
+            **desc**: The [`GridGUI.Position`](../Position/) to compare with.
 
-> **type**: GridGUI.Position
+            **type**: [GridGUI.Position](../Position/)
 
-####ToStr
-**desc**: Converts the object to a string.
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: indent
+            **desc**: The amount of overlap.
 
-> **desc**: The amount of indentation to add on each line.
+            **type**: number
 
-> **type**: string
+!!! note ""
+    ####Area
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        Area()
+        ```
 
-> **desc**: A string representing this position.
 
-> **type**: string
+    !!! abstract ""
 
-####Touch
-**desc**: Check if a [`GridGUI.Position`](../Position/) touches this position, but does not overlap with it.
+        :material-clipboard-text:{ .desc } Calculates the area of the square with sides [`GridGUI.Position.w`](../Position/#w) and [`GridGUI.Position.h`](../Position/#h).
 
-**args**:
 
-> **name**: pos
 
-> **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
+    !!! question ""
 
-> **type**: [GridGUI.Position](../Position/)
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**returns**:
+            **desc**: The area.
 
-> **desc**: Whether or not `pos` is touching this position.
+            **type**: number
 
-> **type**: bool
+!!! note ""
+    ####Compare
+    !!! tip ""
+
+        ```AutoHotKey
+        Compare(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Compares the relative position along the x-axis and the y-axis with another [`GridGUI.Position`](../Position/).
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The [`GridGUI.Position`](../Position/) to compare with.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: An array with the result of the two one dimensional comparisons. The result of the x-axis comparison is in index 1 and the result of the y-axis comparison is in index 2.
+
+            **type**: array
+
+!!! note ""
+    ####Contains
+    !!! tip ""
+
+        ```AutoHotKey
+        Contains(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Check if a [`GridGUI.Position`](../Position/) is contained within the area of this position.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Whether or not `pos` was contained within this position.
+
+            **type**: bool
+
+!!! note ""
+    ####Copy
+    !!! tip ""
+
+        ```AutoHotKey
+        Copy()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Copy Constructor.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: An identical copy of this position.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####Disjoint
+    !!! tip ""
+
+        ```AutoHotKey
+        Disjoint(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Check if a [`GridGUI.Position`](../Position/) does not touch this position.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Whether or not `pos` touches this position.
+
+            **type**: bool
+
+!!! note ""
+    ####Equal
+    !!! tip ""
+
+        ```AutoHotKey
+        Equal(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Check if a [`GridGUI.Position`](../Position/) is identical to this position.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The [`GridGUI.Position`](../Position/) to compare with.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Whether or not `pos` is identical to this position.
+
+            **type**: bool
+
+!!! note ""
+    ####Intersect
+    !!! tip ""
+
+        ```AutoHotKey
+        Intersect(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Check if a [`GridGUI.Position`](../Position/) overlaps with this position, that is that at least one corner of one of the two [`GridGUI.Position`](../Position/) is within the other [`GridGUI.Position`](../Position/).
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Whether or not `pos` intersects with this position
+
+            **type**: bool
+
+!!! note ""
+    ####Middle
+    !!! tip ""
+
+        ```AutoHotKey
+        Middle()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the middle of this position.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A new [`GridGUI.Position`](../Position/) instance with [`GridGUI.Position.x`](../Position/#x) and [`GridGUI.Position.y`](../Position/#y) being the middle of this position.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####ToStr
+    !!! tip ""
+
+        ```AutoHotKey
+        ToStr(indent := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Converts the object to a string.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: indent
+
+            **desc**: The amount of indentation to add on each line.
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A string representing this position.
+
+            **type**: string
+
+!!! note ""
+    ####Touch
+    !!! tip ""
+
+        ```AutoHotKey
+        Touch(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Check if a [`GridGUI.Position`](../Position/) touches this position, but does not overlap with it.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The [`GridGUI.Position`](../Position/) to perform the check on.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Whether or not `pos` is touching this position.
+
+            **type**: bool
 

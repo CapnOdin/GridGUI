@@ -5,268 +5,530 @@
 ---
 ##Members
 
-####_Colour
+!!! info ""
 
-> **desc**: The colour of the controls text in BGR format.
+    ####_Colour
+    !!! info ""
 
-> **type**: number
+        **desc**: The colour of the controls text in BGR format.
 
-####CharSet
+        **type**: number
 
-> **desc**: The char set of the font. See the link for details.
+        **default**: 0
 
-> **type**: number
+!!! info ""
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+    ####CharSet
+    !!! info ""
 
-####ClipPrecision
+        **desc**: The char set of the font. See the link for details.
 
-> **desc**: How characters that are partially outside the bounds of the font are handled. See link for details.
+        **type**: number
 
-> **type**: number
+        **default**: 0
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
-####Colour
+!!! info ""
 
-> **desc**: The colour of the controls text in RGB format as a hex string.
+    ####ClipPrecision
+    !!! info ""
 
-> **type**: string
+        **desc**: How characters that are partially outside the bounds of the font are handled. See link for details.
 
-####Escapement
+        **type**: number
 
-> **desc**: The angle between the text direction and the x-axis of the screen in 1/10 degree. See link for details.
+        **default**: 0
 
-> **type**: number
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+!!! info ""
 
-####FaceName
+    ####Colour
+    !!! info ""
 
-> **desc**: The name of the font that was applied to the control. See the link for common fonts.
+        **desc**: The colour of the controls text in RGB format as a hex string.
 
-> **type**: string
+        **type**: string
 
-> **link**: [link](https://www.autohotkey.com/docs/misc/FontsStandard.htm)
+        **default**: ""
 
-####guiHwnd
+!!! info ""
 
-> **desc**: The hwnd of the parent window of the control associated with this instance.
+    ####Escapement
+    !!! info ""
 
-> **type**: hwnd|false
+        **desc**: The angle between the text direction and the x-axis of the screen in 1/10 degree. See link for details.
 
-####Height
+        **type**: number
 
-> **desc**: The height of the characters in the font. See link for details.
+        **default**: 0
 
-> **type**: number
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+!!! info ""
 
-####HFONT
+    ####FaceName
+    !!! info ""
 
-> **desc**: The handle to the font associated with the control.
+        **desc**: The name of the font that was applied to the control. See the link for common fonts.
 
-> **type**: HFONT
+        **type**: string
 
-####Hwnd
+        **link**: [link](https://www.autohotkey.com/docs/misc/FontsStandard.htm)
 
-> **desc**: The hwnd of the control that is associated with this instance.
+!!! info ""
 
-> **type**: hwnd
+    ####guiHwnd
+    !!! info ""
 
-####Italic
+        **desc**: The hwnd of the parent window of the control associated with this instance.
 
-> **desc**: Whether or not the font is italic.
+        **type**: hwnd|false
 
-> **type**: bool
+        **default**: false
 
-####Orientation
+!!! info ""
 
-> **desc**: The angle between the bottom of the charats and the x-axis of the screen in 1/10 degree.
+    ####Height
+    !!! info ""
 
-> **type**: number
+        **desc**: The height of the characters in the font. See link for details.
 
-####OutPrecision
+        **type**: number
 
-> **desc**: How precisely the drawn characters most match the set font characteristics. See link for details.
+        **default**: 0
 
-> **type**: number
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+!!! info ""
 
-####PitchAndFamily
+    ####HFONT
+    !!! info ""
 
-> **desc**: The two low-order bits specify the pitch of the font and the last four bits specify the family. See link for details.
+        **desc**: The handle to the font associated with the control.
 
-> **type**: number
+        **type**: HFONT
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+        **default**: 0
 
-####Quality
+!!! info ""
 
-> **desc**: The quality of the font. See link for details.
+    ####Hwnd
+    !!! info ""
 
-> **type**: number
+        **desc**: The hwnd of the control that is associated with this instance.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+        **type**: hwnd
 
-####StrikeOut
+!!! info ""
 
-> **desc**: Whether or not the font is drawn with a line through it.
+    ####Italic
+    !!! info ""
 
-> **type**: bool
+        **desc**: Whether or not the font is italic.
 
-####Underline
+        **type**: bool
 
-> **desc**: Whether or not the font is drawn with a line underneath it.
+        **default**: false
 
-> **type**: bool
+!!! info ""
 
-####Weight
+    ####Orientation
+    !!! info ""
 
-> **desc**: How bold the text is. See link for details.
+        **desc**: The angle between the bottom of the charats and the x-axis of the screen in 1/10 degree.
 
-> **type**: number
+        **type**: number
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+        **default**: 0
 
-####Width
+!!! info ""
 
-> **desc**: The average width of characters in the font. See link for details.
+    ####OutPrecision
+    !!! info ""
 
-> **type**: number
+        **desc**: How precisely the drawn characters most match the set font characteristics. See link for details.
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+        **type**: number
+
+        **default**: 0
+
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+
+!!! info ""
+
+    ####PitchAndFamily
+    !!! info ""
+
+        **desc**: The two low-order bits specify the pitch of the font and the last four bits specify the family. See link for details.
+
+        **type**: number
+
+        **default**: 0
+
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
+
+!!! info ""
+
+    ####Quality
+    !!! info ""
+
+        **desc**: The quality of the font. See link for details.
+
+        **type**: number
+
+        **default**: 0
+
+        **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+
+!!! info ""
+
+    ####StrikeOut
+    !!! info ""
+
+        **desc**: Whether or not the font is drawn with a line through it.
+
+        **type**: bool
+
+        **default**: false
+
+!!! info ""
+
+    ####Underline
+    !!! info ""
+
+        **desc**: Whether or not the font is drawn with a line underneath it.
+
+        **type**: bool
+
+        **default**: false
+
+!!! info ""
+
+    ####Weight
+    !!! info ""
+
+        **desc**: How bold the text is. See link for details.
+
+        **type**: number
+
+        **default**: 0
+
+        **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+
+!!! info ""
+
+    ####Width
+    !!! info ""
+
+        **desc**: The average width of characters in the font. See link for details.
+
+        **type**: number
+
+        **default**: 0
+
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
 ##Methods
 
-####__GetColour
-**desc**: Retrives the colour that the parent window would paint the text as returned by `WM_CTLCOLORSTATIC`.
+!!! note ""
+    ####__GetColour
+    !!! tip ""
 
-####__GetDC
-**desc**: Retrives the DC handle of the associated control.
+        ```AutoHotKey
+        __GetColour()
+        ```
 
-**returns**:
 
-> **desc**: The DC handle of the associated control.
+    !!! abstract ""
 
-> **type**: HDC
+        :material-clipboard-text:{ .desc } Retrives the colour that the parent window would paint the text as returned by `WM_CTLCOLORSTATIC`.
 
-####__New
-**desc**: Constructor.
 
-**args**:
 
-> **name**: Hwnd
+!!! note ""
+    ####__GetDC
+    !!! tip ""
 
-> **desc**: The hwnd of the control that will be associated with this instance.
+        ```AutoHotKey
+        __GetDC()
+        ```
 
-> **type**: hwnd
 
-> **name**: guiHwnd
+    !!! abstract ""
 
-> **desc**: The hwnd of the parent window.
+        :material-clipboard-text:{ .desc } Retrives the DC handle of the associated control.
 
-> **type**: hwnd|false
 
-**returns**:
 
-> **desc**: A new [`GridGUI.LOGFONT`](../LOGFONT/) instance.
+    !!! question ""
 
-> **type**: GridGUI.LOGFONT
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####__ReleaseDC
-**desc**: Releases a device context.
+            **desc**: The DC handle of the associated control.
 
-**args**:
+            **type**: HDC
 
-> **name**: hDC
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: The handle to the device context that will be released.
+        ```AutoHotKey
+        __New(Hwnd, guiHwnd := false)
+        ```
 
-> **type**: HDC
 
-####GetData
-**desc**: Retrieves the font characteristics from the LOGFONT structure.
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **name**: buff
 
-> **desc**: A buffer holding a LOGFONT struct.
 
-> **type**: pointer
+    ??? example "parameters"
 
-####GetDimensionsInPixels
-**desc**: Returns the bounding box of a string when written using the current font and style.
+        !!! info ""
 
-**args**:
+            **name**: Hwnd
 
-> **name**: str
+            **desc**: The hwnd of the control that will be associated with this instance.
 
-> **desc**: The string to calculate the bounding box of.
+            **type**: hwnd
 
-> **type**: string
+        !!! info ""
 
-**returns**:
+            **name**: guiHwnd
 
-> **desc**: The bounding box of `str`.
+            **desc**: The hwnd of the parent window.
 
-> **type**: GridGUI.Position
+            **type**: hwnd|false
 
-####PixelHeight
-**desc**: Returns the needed height in pixels of a string using the current font and style.
+            **default**: false
 
-**args**:
+    !!! question ""
 
-> **name**: str
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: The string to calculate the height of.
+            **desc**: A new [`GridGUI.LOGFONT`](../LOGFONT/) instance.
 
-> **type**: string
+            **type**: [GridGUI.LOGFONT](../LOGFONT/)
 
-**returns**:
+!!! note ""
+    ####__ReleaseDC
+    !!! tip ""
 
-> **desc**: The needed height of `str`.
+        ```AutoHotKey
+        __ReleaseDC(hDC)
+        ```
 
-> **type**: number
 
-####PixelWidth
-**desc**: Returns the needed width in pixels of a string using the current font and style.
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } Releases a device context.
 
-> **name**: str
 
-> **desc**: The string to calculate the width of.
 
-> **type**: string
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: The needed width of `str`.
+            **name**: hDC
 
-> **type**: number
+            **desc**: The handle to the device context that will be released.
 
-####ToOptions
-**desc**: Converts the font characteristics to a string that can be used in `Gui, Font`.
+            **type**: HDC
 
-**returns**:
+!!! note ""
+    ####GetData
+    !!! tip ""
 
-> **desc**: The font characteristics as an ahk font option string.
+        ```AutoHotKey
+        GetData(buff)
+        ```
 
-> **type**: string
 
-####ToStr
-**desc**: Converts the object to a string.
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Retrieves the font characteristics from the LOGFONT structure.
 
-> **desc**: A string representing this [`GridGUI.LOGFONT`](../LOGFONT/).
 
-> **type**: string
 
-####UpdateFont
-**desc**: Retrieves the font from the control and the colour for the parent window.
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: buff
+
+            **desc**: A buffer holding a LOGFONT struct.
+
+            **type**: pointer
+
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta)
+
+!!! note ""
+    ####GetDimensionsInPixels
+    !!! tip ""
+
+        ```AutoHotKey
+        GetDimensionsInPixels(str)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the bounding box of a string when written using the current font and style.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: str
+
+            **desc**: The string to calculate the bounding box of.
+
+            **type**: string
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The bounding box of `str`.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####PixelHeight
+    !!! tip ""
+
+        ```AutoHotKey
+        PixelHeight(str)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the needed height in pixels of a string using the current font and style.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: str
+
+            **desc**: The string to calculate the height of.
+
+            **type**: string
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The needed height of `str`.
+
+            **type**: number
+
+!!! note ""
+    ####PixelWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        PixelWidth(str)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the needed width in pixels of a string using the current font and style.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: str
+
+            **desc**: The string to calculate the width of.
+
+            **type**: string
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The needed width of `str`.
+
+            **type**: number
+
+!!! note ""
+    ####ToOptions
+    !!! tip ""
+
+        ```AutoHotKey
+        ToOptions()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Converts the font characteristics to a string that can be used in `Gui, Font`.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The font characteristics as an ahk font option string.
+
+            **type**: string
+
+!!! note ""
+    ####ToStr
+    !!! tip ""
+
+        ```AutoHotKey
+        ToStr()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Converts the object to a string.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A string representing this [`GridGUI.LOGFONT`](../LOGFONT/).
+
+            **type**: string
+
+!!! note ""
+    ####UpdateFont
+    !!! tip ""
+
+        ```AutoHotKey
+        UpdateFont()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Retrieves the font from the control and the colour for the parent window.
+
+
 

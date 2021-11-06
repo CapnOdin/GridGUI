@@ -5,44 +5,75 @@
 ---
 ##Methods
 
-####__New
-**desc**: 
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __New(guiHwnd, type, options := "", text := "", DPIScale := true)
+        ```
 
-> **name**: guiHwnd
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-> **name**: type
 
-> **desc**: 
 
-> **type**: string|number|object
+    ??? example "parameters"
 
-> **name**: options
+        !!! info ""
 
-> **desc**: 
+            **name**: guiHwnd
 
-> **type**: string
+            **desc**: 
 
-> **name**: text
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string
+            **name**: type
 
-> **name**: DPIScale
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: bool
+        !!! info ""
 
-**returns**:
+            **name**: options
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: text
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: DPIScale
+
+            **desc**: 
+
+            **type**: bool
+
+            **default**: true
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

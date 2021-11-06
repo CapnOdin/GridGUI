@@ -5,255 +5,537 @@
 ---
 ##Members
 
-####catched
+!!! info ""
 
-> **desc**: Whether or not the members have already been calculate.
+    ####catched
+    !!! info ""
 
-> **type**: bool
+        **desc**: Whether or not the members have already been calculate.
 
-####cells
+        **type**: bool
 
-> **desc**: A collection of arrays of [`GridGUI.Cell`](../Cell/)s indexed by the index of the columns they are placed on.
+        **default**: false
 
-> **type**: Associative Array
+!!! info ""
 
-> **default**: {}
+    ####cells
+    !!! info ""
 
-####confligtingExpanders
+        **desc**: A collection of arrays of [`GridGUI.Cell`](../Cell/)s indexed by the index of the columns they are placed on.
 
-> **desc**: A collection of cells that have vertical expansion conflicts.
+        **type**: Associative Array
 
-> **type**: Associative Array
+        **default**: {}
 
-> **default**: {}
+!!! info ""
 
-####expanderMaxValue
+    ####confligtingExpanders
+    !!! info ""
 
-> **desc**: The largest vertical expansion weight in this row.
+        **desc**: A collection of cells that have vertical expansion conflicts.
 
-> **type**: number
+        **type**: Associative Array
 
-####expanders
+        **default**: {}
 
-> **desc**: The sum of all the vertical expansion weights of cells that are in this row.
+!!! info ""
 
-> **type**: number
+    ####expanderMaxValue
+    !!! info ""
 
-####fixedWidth
+        **desc**: The largest vertical expansion weight in this row.
 
-> **desc**: The sum of the maximal fixed heights for each column, that is the sum of the largest fixed height for each array of overlapping cells in [`GridGUI.Column.cells`](../Column/#cells).
+        **type**: number
 
-> **type**: number
+        **default**: 0
 
-####index
+!!! info ""
 
-> **desc**: The index of the row in the grid.
+    ####expanders
+    !!! info ""
 
-> **type**: number
+        **desc**: The sum of all the vertical expansion weights of cells that are in this row.
 
-####minWidth
+        **type**: number
 
-> **desc**: The sum of the maximal minimal heights for each column, that is the sum of the largest minimal height for each array of overlapping cells in [`GridGUI.Column.cells`](../Column/#cells).
+        **default**: 0
 
-> **type**: number
+!!! info ""
 
-####nonExpanders
+    ####fixedWidth
+    !!! info ""
 
-> **desc**: The amount of cells with fixed size in this row.
+        **desc**: The sum of the maximal fixed heights for each column, that is the sum of the largest fixed height for each array of overlapping cells in [`GridGUI.Column.cells`](../Column/#cells).
 
-> **type**: number
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####index
+    !!! info ""
+
+        **desc**: The index of the row in the grid.
+
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####minWidth
+    !!! info ""
+
+        **desc**: The sum of the maximal minimal heights for each column, that is the sum of the largest minimal height for each array of overlapping cells in [`GridGUI.Column.cells`](../Column/#cells).
+
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####nonExpanders
+    !!! info ""
+
+        **desc**: The amount of cells with fixed size in this row.
+
+        **type**: number
+
+        **default**: 0
 
 ##Methods
 
-####__CalculateConfligtingExpanders
-**desc**: Updates [`GridGUI.Row.confligtingExpanders`](../Row/#confligtingexpanders) with the [`GridGUI.Cell`](../Cell/) for a cell if it has vertical conflicts.
+!!! note ""
+    ####__CalculateConfligtingExpanders
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __CalculateConfligtingExpanders(c)
+        ```
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
+    !!! abstract ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Row.confligtingExpanders`](../Row/#confligtingexpanders) with the [`GridGUI.Cell`](../Cell/) for a cell if it has vertical conflicts.
 
-####__CalculateExpanders
-**desc**: Updates [`GridGUI.Row.expanders`](../Row/#expanders) with the result of [`GridGUI.Cell.GetExpansionHeightValue`](../Cell/#getexpansionheightvalue) for a cell.
 
-**args**:
 
-> **name**: c
+    ??? example "parameters"
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
+        !!! info ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **name**: c
 
-####__CalculateFixedHeight
-**desc**: Updates [`GridGUI.Row.fixedHeight`](../Row/#fixedheight) with the result of [`GridGUI.Cell.GetFixedHeight`](../Cell/#getfixedheight) for a cell if it is larger than the previous value.
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-**args**:
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **name**: c
+!!! note ""
+    ####__CalculateExpanders
+    !!! tip ""
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
+        ```AutoHotKey
+        __CalculateExpanders(c)
+        ```
 
-> **type**: [GridGUI.Cell](../Cell/)
 
-####__CalculateMinHeight
-**desc**: Updates [`GridGUI.Row.minHeight`](../Row/#minheight) with the result of [`GridGUI.Cell.GetNeededHeight`](../Cell/#getneededheight) for a cell if it is larger than the previous value.
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Row.expanders`](../Row/#expanders) with the result of [`GridGUI.Cell.GetExpansionHeightValue`](../Cell/#getexpansionheightvalue) for a cell.
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-> **type**: [GridGUI.Cell](../Cell/)
+    ??? example "parameters"
 
-####__CalculateNonExpanders
-**desc**: Increments [`GridGUI.Row.nonExpanders`](../Row/#nonexpanders) if the [`GridGUI.Cell`](../Cell/) does not expand vertically.
+        !!! info ""
 
-**args**:
+            **name**: c
 
-> **name**: c
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **type**: [GridGUI.Cell](../Cell/)
+!!! note ""
+    ####__CalculateFixedHeight
+    !!! tip ""
 
-####__New
-**desc**: Constructor.
+        ```AutoHotKey
+        __CalculateFixedHeight(c)
+        ```
 
-**args**:
 
-> **name**: index
+    !!! abstract ""
 
-> **desc**: The index of the row in the grid.
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Row.fixedHeight`](../Row/#fixedheight) with the result of [`GridGUI.Cell.GetFixedHeight`](../Cell/#getfixedheight) for a cell if it is larger than the previous value.
 
-> **type**: number
 
-**returns**:
 
-> **desc**: A new [`GridGUI.Row`](../Row/) instance.
+    ??? example "parameters"
 
-> **type**: GridGUI.Row
+        !!! info ""
 
-####__ResetConstants
-**desc**: Resets the cached [`GridGUI.Row`](../Row/) members to their default values.
+            **name**: c
 
-####Add
-**desc**: Adds a [`GridGUI.Cell`](../Cell/) to the row.
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-**args**:
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **name**: c
+!!! note ""
+    ####__CalculateMinHeight
+    !!! tip ""
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to added to the row.
+        ```AutoHotKey
+        __CalculateMinHeight(c)
+        ```
 
-> **type**: [GridGUI.Cell](../Cell/)
 
-####CalculateConstants
-**desc**: Calculates the values for the [`GridGUI.Row`](../Row/) members that are cached.
+    !!! abstract ""
 
-####CalculateHeight
-**desc**: Calculates the height of the row.
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Row.minHeight`](../Row/#minheight) with the result of [`GridGUI.Cell.GetNeededHeight`](../Cell/#getneededheight) for a cell if it is larger than the previous value.
 
-**args**:
 
-> **name**: height
 
-> **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+    ??? example "parameters"
 
-> **type**: number
+        !!! info ""
 
-> **name**: expandersH
+            **name**: c
 
-> **desc**: An array of the sum of vertical expansion weights for each row.
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-> **type**: associative array
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **name**: nonExpandersH
+!!! note ""
+    ####__CalculateNonExpanders
+    !!! tip ""
 
-> **desc**: An array of the amount of fixed size cells in each row.
+        ```AutoHotKey
+        __CalculateNonExpanders(c)
+        ```
 
-> **type**: associative array
 
-> **name**: width
+    !!! abstract ""
 
-> **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+        :material-clipboard-text:{ .desc } Increments [`GridGUI.Row.nonExpanders`](../Row/#nonexpanders) if the [`GridGUI.Cell`](../Cell/) does not expand vertically.
 
-> **type**: number
 
-> **name**: expandersW
 
-> **desc**: An array of the sum of horisontal expansion weights for each column.
+    ??? example "parameters"
 
-> **type**: associative array
+        !!! info ""
 
-> **name**: nonExpandersW
+            **name**: c
 
-> **desc**: An array of the amount of fixed size cells in each column.
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-> **type**: associative array
+            **type**: [GridGUI.Cell](../Cell/)
 
-**returns**:
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: The height of the row.
+        ```AutoHotKey
+        __New(index)
+        ```
 
-> **type**: number
 
-####GetExpanderMaxValue
-**desc**: Getter for [`GridGUI.Row.expanderMaxValue`](../Row/#expandermaxvalue).
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **desc**: The largest vertical expansion weight of a cell in the row.
 
-> **type**: number
 
-####GetExpanders
-**desc**: Getter for [`GridGUI.Row.expanders`](../Row/#expanders).
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: The sum of vertical expansion weight of cells in the row.
+            **name**: index
 
-> **type**: number
+            **desc**: The index of the row in the grid.
 
-####GetFixedHeight
-**desc**: Getter for [`GridGUI.Row.fixedHeight`](../Row/#fixedheight).
+            **type**: number
 
-**returns**:
+    !!! question ""
 
-> **desc**: The largest fixed height of a cell in the row.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: number
+            **desc**: A new [`GridGUI.Row`](../Row/) instance.
 
-####GetMinHeight
-**desc**: Getter for [`GridGUI.Row.minHeight`](../Row/#minheight).
+            **type**: [GridGUI.Row](../Row/)
 
-**returns**:
+!!! note ""
+    ####__ResetConstants
+    !!! tip ""
 
-> **desc**: The largest minimal height of a cell in the row.
+        ```AutoHotKey
+        __ResetConstants()
+        ```
 
-> **type**: number
 
-####GetNonExpanders
-**desc**: Getter for [`GridGUI.Row.nonExpanders`](../Row/#nonexpanders).
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Resets the cached [`GridGUI.Row`](../Row/) members to their default values.
 
-> **desc**: The amount of cells with fixed height in the row.
 
-> **type**: number
 
-####Remove
-**desc**: Removes a [`GridGUI.Cell`](../Cell/) from the row.
+!!! note ""
+    ####Add
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        Add(c)
+        ```
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the row.
+    !!! abstract ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        :material-clipboard-text:{ .desc } Adds a [`GridGUI.Cell`](../Cell/) to the row.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to added to the row.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####CalculateConstants
+    !!! tip ""
+
+        ```AutoHotKey
+        CalculateConstants()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the values for the [`GridGUI.Row`](../Row/) members that are cached.
+
+
+
+!!! note ""
+    ####CalculateHeight
+    !!! tip ""
+
+        ```AutoHotKey
+        CalculateHeight(height, expandersH, nonExpandersH, width, expandersW, nonExpandersW)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the height of the row.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: height
+
+            **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersH
+
+            **desc**: An array of the sum of vertical expansion weights for each row.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: nonExpandersH
+
+            **desc**: An array of the amount of fixed size cells in each row.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: width
+
+            **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersW
+
+            **desc**: An array of the sum of horisontal expansion weights for each column.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: nonExpandersW
+
+            **desc**: An array of the amount of fixed size cells in each column.
+
+            **type**: associative array
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The height of the row.
+
+            **type**: number
+
+!!! note ""
+    ####GetExpanderMaxValue
+    !!! tip ""
+
+        ```AutoHotKey
+        GetExpanderMaxValue()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Row.expanderMaxValue`](../Row/#expandermaxvalue).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The largest vertical expansion weight of a cell in the row.
+
+            **type**: number
+
+!!! note ""
+    ####GetExpanders
+    !!! tip ""
+
+        ```AutoHotKey
+        GetExpanders()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Row.expanders`](../Row/#expanders).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The sum of vertical expansion weight of cells in the row.
+
+            **type**: number
+
+!!! note ""
+    ####GetFixedHeight
+    !!! tip ""
+
+        ```AutoHotKey
+        GetFixedHeight()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Row.fixedHeight`](../Row/#fixedheight).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The largest fixed height of a cell in the row.
+
+            **type**: number
+
+!!! note ""
+    ####GetMinHeight
+    !!! tip ""
+
+        ```AutoHotKey
+        GetMinHeight()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Row.minHeight`](../Row/#minheight).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The largest minimal height of a cell in the row.
+
+            **type**: number
+
+!!! note ""
+    ####GetNonExpanders
+    !!! tip ""
+
+        ```AutoHotKey
+        GetNonExpanders()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Row.nonExpanders`](../Row/#nonexpanders).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The amount of cells with fixed height in the row.
+
+            **type**: number
+
+!!! note ""
+    ####Remove
+    !!! tip ""
+
+        ```AutoHotKey
+        Remove(c)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Removes a [`GridGUI.Cell`](../Cell/) from the row.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the row.
+
+            **type**: [GridGUI.Cell](../Cell/)
 

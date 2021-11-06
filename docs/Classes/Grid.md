@@ -5,133 +5,272 @@
 ---
 ##Members
 
-####arbitrator
+!!! info ""
 
-> **desc**: An instance of [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) that keeps tack of the expanding [`GridGUI.Cell`](../Cell/)s in the grid.
+    ####arbitrator
+    !!! info ""
 
-> **type**: [GridGUI.ExpanderArbitrator](../ExpanderArbitrator/)
+        **desc**: An instance of [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) that keeps tack of the expanding [`GridGUI.Cell`](../Cell/)s in the grid.
 
-####cells
+        **type**: [GridGUI.ExpanderArbitrator](../ExpanderArbitrator/)
 
-> **desc**: An array of the [`GridGUI.Cell`](../Cell/)s that have been added to the grid.
+!!! info ""
 
-> **type**: array
+    ####cells
+    !!! info ""
 
-> **default**: []
+        **desc**: An array of the [`GridGUI.Cell`](../Cell/)s that have been added to the grid.
 
-####columns
+        **type**: array
 
-> **desc**: An instance of [`GridGUI.Columns`](../Columns/) that keeps tack of the [`GridGUI.Column`](../Column/)s comprising the grid.
+        **default**: []
 
-> **type**: [GridGUI.Columns](../Columns/)
+!!! info ""
 
-####heights
+    ####columns
+    !!! info ""
 
-> **desc**: The latest calculated row heights.
+        **desc**: An instance of [`GridGUI.Columns`](../Columns/) that keeps tack of the [`GridGUI.Column`](../Column/)s comprising the grid.
 
-> **type**: array
+        **type**: [GridGUI.Columns](../Columns/)
 
-> **default**: []
+!!! info ""
 
-####justify
+    ####heights
+    !!! info ""
 
-> **desc**: How the [`GridGUI.Grid.cells`](../Grid/#cells) will be positioned in the grid when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+        **desc**: The latest calculated row heights.
 
-> **type**: string
+        **type**: array
 
-####rows
+        **default**: []
 
-> **desc**: An instance of [`GridGUI.Rows`](../Rows/) that keeps tack of the [`GridGUI.Row`](../Row/)s comprising the grid.
+!!! info ""
 
-> **type**: [GridGUI.Rows](../Rows/)
+    ####justify
+    !!! info ""
 
-####widths
+        **desc**: How the [`GridGUI.Grid.cells`](../Grid/#cells) will be positioned in the grid when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
 
-> **desc**: The latest calculated column widths.
+        **type**: string
 
-> **type**: array
+        **default**: ""
 
-> **default**: []
+!!! info ""
+
+    ####rows
+    !!! info ""
+
+        **desc**: An instance of [`GridGUI.Rows`](../Rows/) that keeps tack of the [`GridGUI.Row`](../Row/)s comprising the grid.
+
+        **type**: [GridGUI.Rows](../Rows/)
+
+!!! info ""
+
+    ####widths
+    !!! info ""
+
+        **desc**: The latest calculated column widths.
+
+        **type**: array
+
+        **default**: []
 
 ##Methods
 
-####__New
-**desc**: Constructor.
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __New()
+        ```
 
-> **desc**: A new [`GridGUI.Grid`](../Grid/) instance.
 
-> **type**: GridGUI.Grid
+    !!! abstract ""
 
-####AddCell
-**desc**: Adds a [`GridGUI.Cell`](../Cell/) to the grid in the rows and columns indicated by the [`GridGUI.Cell.gridpos`](../Cell/#gridpos) member of the cell.
+        :material-clipboard-text:{ .desc } Constructor.
 
-**args**:
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to add to the grid.
+    !!! question ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####CalculatePositions
-**desc**: Calculates the positions and sizes of the [`GridGUI.Cell`](../Cell/)s in the grid.
+            **desc**: A new [`GridGUI.Grid`](../Grid/) instance.
 
-**args**:
+            **type**: [GridGUI.Grid](../Grid/)
 
-> **name**: area
+!!! note ""
+    ####AddCell
+    !!! tip ""
 
-> **desc**: The position and size of the grid. This is needed to support [`GridGUI.SubGrid`](../SubGrid/)s.
+        ```AutoHotKey
+        AddCell(c)
+        ```
 
-> **type**: [GridGUI.Position](../Position/)
 
-####Draw
-**desc**: Draws the [`GridGUI.Cell`](../Cell/)s in the grid using the most recently calculated cell positions and sizes.
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } Adds a [`GridGUI.Cell`](../Cell/) to the grid in the rows and columns indicated by the [`GridGUI.Cell.gridpos`](../Cell/#gridpos) member of the cell.
 
-> **name**: area
 
-> **desc**: The position and size of the grid. This is needed to support [`GridGUI.SubGrid`](../SubGrid/)s.
 
-> **type**: [GridGUI.Position](../Position/)
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: Returns the justified area so that the debug grid lines of [`GridGUI.GridGUIClass`](../GridGUIClass/) can be moved accordingly.
+            **name**: c
 
-> **type**: GridGUI.Position
+            **desc**: The [`GridGUI.Cell`](../Cell/) to add to the grid.
 
-####GetMinHeight
-**desc**: Returns the minimal needed height to show the [`GridGUI.Cell`](../Cell/)s.
+            **type**: [GridGUI.Cell](../Cell/)
 
-**returns**:
+!!! note ""
+    ####CalculatePositions
+    !!! tip ""
 
-> **desc**: The minimal needed height to show the [`GridGUI.Cell`](../Cell/)s
+        ```AutoHotKey
+        CalculatePositions(area)
+        ```
 
-> **type**: number
 
-####GetMinWidth
-**desc**: Returns the minimal needed width to show the [`GridGUI.Cell`](../Cell/)s.
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Calculates the positions and sizes of the [`GridGUI.Cell`](../Cell/)s in the grid.
 
-> **desc**: The minimal needed width to show the [`GridGUI.Cell`](../Cell/)s
 
-> **type**: number
 
-####RemoveCell
-**desc**: Removes a [`GridGUI.Cell`](../Cell/) from the grid by removing it from the rows and columns it was in, as well as removing it from the [`GridGUI.Grid.arbitrator`](../Grid/#arbitrator).
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: c
+            **name**: area
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the grid.
+            **desc**: The position and size of the grid. This is needed to support [`GridGUI.SubGrid`](../SubGrid/)s.
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **type**: [GridGUI.Position](../Position/)
 
-####ResetConstants
-**desc**: Resets the cached constants of the members.
+!!! note ""
+    ####Draw
+    !!! tip ""
+
+        ```AutoHotKey
+        Draw(area)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Draws the [`GridGUI.Cell`](../Cell/)s in the grid using the most recently calculated cell positions and sizes.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: area
+
+            **desc**: The position and size of the grid. This is needed to support [`GridGUI.SubGrid`](../SubGrid/)s.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Returns the justified area so that the debug grid lines of [`GridGUI.GridGUIClass`](../GridGUIClass/) can be moved accordingly.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####GetMinHeight
+    !!! tip ""
+
+        ```AutoHotKey
+        GetMinHeight()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the minimal needed height to show the [`GridGUI.Cell`](../Cell/)s.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The minimal needed height to show the [`GridGUI.Cell`](../Cell/)s
+
+            **type**: number
+
+!!! note ""
+    ####GetMinWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        GetMinWidth()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the minimal needed width to show the [`GridGUI.Cell`](../Cell/)s.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The minimal needed width to show the [`GridGUI.Cell`](../Cell/)s
+
+            **type**: number
+
+!!! note ""
+    ####RemoveCell
+    !!! tip ""
+
+        ```AutoHotKey
+        RemoveCell(c)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Removes a [`GridGUI.Cell`](../Cell/) from the grid by removing it from the rows and columns it was in, as well as removing it from the [`GridGUI.Grid.arbitrator`](../Grid/#arbitrator).
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the grid.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####ResetConstants
+    !!! tip ""
+
+        ```AutoHotKey
+        ResetConstants()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Resets the cached constants of the members.
+
+
 

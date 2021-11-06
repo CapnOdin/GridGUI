@@ -5,368 +5,735 @@
 ---
 ##Methods
 
-####__GetRow
-**desc**: 
+!!! note ""
+    ####__GetRow
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __GetRow(index)
+        ```
 
-> **name**: index
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####__New
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: index
 
-> **name**: guiHwnd
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string|number|object
+    !!! question ""
 
-> **name**: options
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string
+            **type**: 
 
-> **name**: text
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        __New(guiHwnd, options := "", text := "")
+        ```
 
-> **type**: string
 
-**returns**:
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: 
 
-####__ResetCurrentLV
-**desc**: 
 
-**args**:
+    ??? example "parameters"
 
-> **name**: previous
+        !!! info ""
 
-> **desc**: 
+            **name**: guiHwnd
 
-> **type**: string|number|object
+            **desc**: 
 
-**returns**:
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: 
+            **name**: options
 
-####__SetCurrentLV
-**desc**: 
+            **desc**: 
 
-**returns**:
+            **type**: string
 
-> **desc**: 
+            **default**: ""
 
-> **type**: 
+        !!! info ""
 
-####AddArray
-**desc**: 
+            **name**: text
 
-**args**:
+            **desc**: 
 
-> **name**: lst
+            **type**: string
 
-> **desc**: 
+            **default**: ""
 
-> **type**: string|number|object
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: 
 
-####DeleteCol
-**desc**: 
+!!! note ""
+    ####__ResetCurrentLV
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __ResetCurrentLV(previous)
+        ```
 
-> **name**: ColumnNumber
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####DeleteHeaders
-**desc**: 
+        !!! info ""
 
-**returns**:
+            **name**: previous
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: string|number|object
 
-####FindItem
-**desc**: 
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: text
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: string|number|object
+!!! note ""
+    ####__SetCurrentLV
+    !!! tip ""
 
-> **name**: index
+        ```AutoHotKey
+        __SetCurrentLV()
+        ```
 
-> **desc**: 
 
-> **type**: number
+    !!! abstract ""
 
-> **name**: partial
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: bool
 
-**returns**:
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: 
+            **desc**: 
 
-####GetCount
-**desc**: 
+            **type**: 
 
-**args**:
+!!! note ""
+    ####AddArray
+    !!! tip ""
 
-> **name**: Mode
+        ```AutoHotKey
+        AddArray(lst)
+        ```
 
-> **desc**: 
 
-> **type**: string
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: 
 
-####GetHeaders
-**desc**: 
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: 
+            **name**: lst
 
-> **type**: 
+            **desc**: 
 
-####GetNext
-**desc**: 
+            **type**: string|number|object
 
-**args**:
+    !!! question ""
 
-> **name**: StartingRowNumber
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string
+            **type**: 
 
-> **name**: RowType
+!!! note ""
+    ####DeleteCol
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        DeleteCol(ColumnNumber)
+        ```
 
-> **type**: string
 
-**returns**:
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: 
 
-####GetRow
-**desc**: 
 
-**args**:
+    ??? example "parameters"
 
-> **name**: index
+        !!! info ""
 
-> **desc**: 
+            **name**: ColumnNumber
 
-> **type**: string|number|object
+            **desc**: 
 
-**returns**:
+            **type**: string|number|object
 
-> **desc**: 
+    !!! question ""
 
-> **type**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####GetSelection
-**desc**: 
+            **desc**: 
 
-**returns**:
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####DeleteHeaders
+    !!! tip ""
 
-> **type**: 
+        ```AutoHotKey
+        DeleteHeaders()
+        ```
 
-####GetText
-**desc**: 
 
-**args**:
+    !!! abstract ""
 
-> **name**: ByRef
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: string
 
-> **default**: OutputVar
+    !!! question ""
 
-> **name**: RowNumber
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string|number|object
+            **type**: 
 
-> **name**: ColumnNumber
+!!! note ""
+    ####FindItem
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        FindItem(text, index := 0, partial := false)
+        ```
 
-> **type**: string
 
-**returns**:
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: 
 
-####InsertCol
-**desc**: 
 
-**args**:
+    ??? example "parameters"
 
-> **name**: ColumnNumber
+        !!! info ""
 
-> **desc**: 
+            **name**: text
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: Options
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string
+            **name**: index
 
-> **name**: ColumnTitle
+            **desc**: 
 
-> **desc**: 
+            **type**: number
 
-> **type**: string
+            **default**: 0
 
-**returns**:
+        !!! info ""
 
-> **desc**: 
+            **name**: partial
 
-> **type**: 
+            **desc**: 
 
-####Redraw
-**desc**: 
+            **type**: bool
 
-**args**:
+            **default**: false
 
-> **name**: bool
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string|number|object
+            **desc**: 
 
-**returns**:
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####GetCount
+    !!! tip ""
 
-> **type**: 
+        ```AutoHotKey
+        GetCount(Mode := "")
+        ```
 
-####ScrollTo
-**desc**: 
 
-**args**:
+    !!! abstract ""
 
-> **name**: index
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: number
 
-> **name**: text
+    ??? example "parameters"
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string
+            **name**: Mode
 
-> **name**: partial
+            **desc**: 
 
-> **desc**: 
+            **type**: string
 
-> **type**: bool
+            **default**: ""
 
-**returns**:
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: 
+            **desc**: 
 
-####SetHeaders
-**desc**: 
+            **type**: 
 
-**args**:
+!!! note ""
+    ####GetHeaders
+    !!! tip ""
 
-> **name**: headers
+        ```AutoHotKey
+        GetHeaders()
+        ```
 
-> **desc**: 
 
-> **type**: string|number|object
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: 
 
-####SetImageList
-**desc**: 
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: ImageListID
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: string|number|object
+!!! note ""
+    ####GetNext
+    !!! tip ""
 
-> **name**: IconType
+        ```AutoHotKey
+        GetNext(StartingRowNumber := "", RowType := "")
+        ```
 
-> **desc**: 
 
-> **type**: string
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: 
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: StartingRowNumber
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: RowType
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetRow
+    !!! tip ""
+
+        ```AutoHotKey
+        GetRow(index)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: index
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetSelection
+    !!! tip ""
+
+        ```AutoHotKey
+        GetSelection()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetText
+    !!! tip ""
+
+        ```AutoHotKey
+        GetText(ByRef := OutputVar, RowNumber, ColumnNumber := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ByRef
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: OutputVar
+
+        !!! info ""
+
+            **name**: RowNumber
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: ColumnNumber
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####InsertCol
+    !!! tip ""
+
+        ```AutoHotKey
+        InsertCol(ColumnNumber, Options := "", ColumnTitle := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ColumnNumber
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: Options
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: ColumnTitle
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####Redraw
+    !!! tip ""
+
+        ```AutoHotKey
+        Redraw(bool)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: bool
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####ScrollTo
+    !!! tip ""
+
+        ```AutoHotKey
+        ScrollTo(index := 0, text := "", partial := false)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: index
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 0
+
+        !!! info ""
+
+            **name**: text
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: partial
+
+            **desc**: 
+
+            **type**: bool
+
+            **default**: false
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####SetHeaders
+    !!! tip ""
+
+        ```AutoHotKey
+        SetHeaders(headers)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: headers
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####SetImageList
+    !!! tip ""
+
+        ```AutoHotKey
+        SetImageList(ImageListID, IconType := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ImageListID
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: IconType
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

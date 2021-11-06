@@ -5,116 +5,213 @@
 ---
 ##Members
 
-####arguments
+!!! info ""
 
-> **desc**: The array of arguments bound to this function.
+    ####arguments
+    !!! info ""
 
-> **type**: array
+        **desc**: The array of arguments bound to this function.
 
-> **default**: empty array
+        **type**: array
 
-####function
+        **default**: empty array
 
-> **desc**: The function that has arguments bound to it.
+!!! info ""
 
-> **type**: Func|BoundFunc
+    ####function
+    !!! info ""
+
+        **desc**: The function that has arguments bound to it.
+
+        **type**: Func|BoundFunc
 
 ##Methods
 
-####__Get
-**desc**: Meta function allowing access to the underlying bound function as thought it was this function except if the arguments member is retrieved.
+!!! note ""
+    ####__Get
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __Get(key)
+        ```
 
-> **name**: key
 
-> **desc**: The key to look up in the object.
+    !!! abstract ""
 
-> **type**: any
+        :material-clipboard-text:{ .desc } Meta function allowing access to the underlying bound function as thought it was this function except if the arguments member is retrieved.
 
-**returns**:
 
-> **desc**: The looked up value.
 
-> **type**: any
+    ??? example "parameters"
 
-####__GetInstanceType
-**desc**: Constructs the class path of a class instance.
+        !!! info ""
 
-**args**:
+            **name**: key
 
-> **name**: object
+            **desc**: The key to look up in the object.
 
-> **desc**: The object to retrieve the class path from.
+            **type**: any
 
-> **type**: object
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: Class path.
+            **desc**: The looked up value.
 
-> **type**: string
+            **type**: any
 
-####__IsInstanceOf
-**desc**: Checks if a class is in the class path of an object.
+!!! note ""
+    ####__GetInstanceType
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __GetInstanceType(object)
+        ```
 
-> **name**: object
 
-> **desc**: The class instance to search.
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } Constructs the class path of a class instance.
 
-> **name**: class
 
-> **desc**: The class name to search for.
 
-> **type**: string|number|object
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: Whether or not the class path of `object` contains `class`.
+            **name**: object
 
-> **type**: bool
+            **desc**: The object to retrieve the class path from.
 
-####__New
-**desc**: Constructor.
+            **type**: object
 
-**args**:
+    !!! question ""
 
-> **name**: fun
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: The function or method that arguments are bound to.
+            **desc**: Class path.
 
-> **type**: Func|BoundFunc|string
+            **type**: string
 
-> **name**: arguments
+!!! note ""
+    ####__IsInstanceOf
+    !!! tip ""
 
-> **desc**: The arguments that will be passed to the [`GridGUI.BoundFunc.function`](../BoundFunc/#function) when it is called. If the function is a method then the class instance is passed as the first variadic arg.
+        ```AutoHotKey
+        __IsInstanceOf(object, class)
+        ```
 
-> **type**: any
 
-**returns**:
+    !!! abstract ""
 
-> **desc**: A new [`GridGUI.BoundFunc`](../BoundFunc/) instance.
+        :material-clipboard-text:{ .desc } Checks if a class is in the class path of an object.
 
-> **type**: GridGUI.BoundFunc
 
-####ToStr
-**desc**: Converts the object to a string.
 
-**args**:
+    ??? example "parameters"
 
-> **name**: indent
+        !!! info ""
 
-> **desc**: The amount of indentation to add on each line.
+            **name**: object
 
-> **type**: string
+            **desc**: The class instance to search.
 
-**returns**:
+            **type**: string|number|object
 
-> **desc**: A string representing the bound function.
+        !!! info ""
 
-> **type**: string
+            **name**: class
+
+            **desc**: The class name to search for.
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Whether or not the class path of `object` contains `class`.
+
+            **type**: bool
+
+!!! note ""
+    ####__New
+    !!! tip ""
+
+        ```AutoHotKey
+        __New(fun, arguments)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Constructor.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: fun
+
+            **desc**: The function or method that arguments are bound to.
+
+            **type**: Func|BoundFunc|string
+
+        !!! info ""
+
+            **name**: arguments
+
+            **desc**: The arguments that will be passed to the [`GridGUI.BoundFunc.function`](../BoundFunc/#function) when it is called. If the function is a method then the class instance is passed as the first variadic arg.
+
+            **type**: any
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A new [`GridGUI.BoundFunc`](../BoundFunc/) instance.
+
+            **type**: [GridGUI.BoundFunc](../BoundFunc/)
+
+!!! note ""
+    ####ToStr
+    !!! tip ""
+
+        ```AutoHotKey
+        ToStr(indent := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Converts the object to a string.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: indent
+
+            **desc**: The amount of indentation to add on each line.
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A string representing the bound function.
+
+            **type**: string
 

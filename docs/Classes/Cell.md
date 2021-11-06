@@ -5,722 +5,1339 @@
 ---
 ##Members
 
-####aspectRatio
+!!! info ""
 
-> **desc**: The aspect ratio of the cell in width divided by height. An aspect ratio of **0** means that aspectRatio wont be applied to the cell.
+    ####aspectRatio
+    !!! info ""
 
-> **type**: number
+        **desc**: The aspect ratio of the cell in width divided by height. An aspect ratio of **0** means that aspectRatio wont be applied to the cell.
 
-####border
+        **type**: number
 
-> **desc**: The border of the cell.
+        **default**: 
 
-> **type**: [GridGUI.Position](../Position/)
+!!! info ""
 
-####borderX
+    ####border
+    !!! info ""
 
-> **desc**: The horisontal border or margin of the cell that is the amount of additional width beyond what the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) needs that is taken up by the cell.
+        **desc**: The border of the cell.
 
-> **type**: number
+        **type**: [GridGUI.Position](../Position/)
 
-> **default**: 5
+!!! info ""
 
-####borderY
+    ####borderX
+    !!! info ""
 
-> **desc**: The vertical border or margin of the cell that is the amount of additional height beyond what the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) needs that is taken up by the cell.
+        **desc**: The horisontal border or margin of the cell that is the amount of additional width beyond what the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) needs that is taken up by the cell.
 
-> **type**: number
+        **type**: number
 
-> **default**: 5
+        **default**: 5
 
-####ctrl
+!!! info ""
 
-> **desc**: The control that is managed by this cell. The control class needs to implement the two methods `ControlGetPos` and `Draw` as well as have the four members `initialWidth`, `initialHeight`, `initialWidthVal` and `initialHeightVal`.
+    ####borderY
+    !!! info ""
 
-> **type**: [GridGUI.Control](../GridGUI/#control)
+        **desc**: The vertical border or margin of the cell that is the amount of additional height beyond what the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) needs that is taken up by the cell.
 
-####ctrlInitialPos
+        **type**: number
 
-> **desc**: The initial position and size of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl). It is used as the min size of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) if no min size is specified.
+        **default**: 5
 
-> **type**: [GridGUI.Position](../Position/)
+!!! info ""
 
-####ctrlPos
+    ####ctrl
+    !!! info ""
 
-> **desc**: The position and size when the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) was last drawn.
+        **desc**: The control that is managed by this cell. The control class needs to implement the two methods `ControlGetPos` and `Draw` as well as have the four members `initialWidth`, `initialHeight`, `initialWidthVal` and `initialHeightVal`.
 
-> **type**: [GridGUI.Position](../Position/)
+        **type**: [GridGUI.Control](../GridGUI/#control)
 
-####exH
+!!! info ""
 
-> **desc**: The vertical expansion weight of the cell. This is used to calculate the part of the additional GUI height that this cell should take.
+    ####ctrlInitialPos
+    !!! info ""
 
-> **type**: number
+        **desc**: The initial position and size of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl). It is used as the min size of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) if no min size is specified.
 
-####exW
+        **type**: [GridGUI.Position](../Position/)
 
-> **desc**: The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
+!!! info ""
 
-> **type**: number
+    ####ctrlPos
+    !!! info ""
 
-####fillH
+        **desc**: The position and size when the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) was last drawn.
 
-> **desc**: Whether or not to set the height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) to the height of the cell.
+        **type**: [GridGUI.Position](../Position/)
 
-> **type**: bool
+!!! info ""
 
-####fillW
+    ####exH
+    !!! info ""
 
-> **desc**: Whether or not to set the width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) to the width of the cell.
+        **desc**: The vertical expansion weight of the cell. This is used to calculate the part of the additional GUI height that this cell should take.
 
-> **type**: bool
+        **type**: number
 
-####gridpos
+        **default**: 0
 
-> **desc**: The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a [`GridGUI.GridGUIClass`](../GridGUIClass/).
+!!! info ""
 
-> **type**: [GridGUI.Position](../Position/)
+    ####exW
+    !!! info ""
 
-####hasHConfligts
+        **desc**: The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
 
-> **desc**: Whether or not the cell needs to take any other cells into account when calculating its height.
+        **type**: number
 
-> **type**: bool
+        **default**: 0
 
-####hasWConfligts
+!!! info ""
 
-> **desc**: Whether or not the cell needs to take any other cells into account when calculating its width.
+    ####fillH
+    !!! info ""
 
-> **type**: bool
+        **desc**: Whether or not to set the height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) to the height of the cell.
 
-####justifyOptions
+        **type**: bool
 
-> **desc**: How the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) will be positioned in the cell when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+        **default**: false
 
-> **type**: string
+!!! info ""
 
-> **default**: C
+    ####fillW
+    !!! info ""
 
-####othersH
+        **desc**: Whether or not to set the width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) to the width of the cell.
 
-> **desc**: The combined vertical expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI height that this cell should take.
+        **type**: bool
 
-> **type**: number
+        **default**: false
 
-####othersW
+!!! info ""
 
-> **desc**: The combined horisontal expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI width that this cell should take.
+    ####gridpos
+    !!! info ""
 
-> **type**: number
+        **desc**: The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a [`GridGUI.GridGUIClass`](../GridGUIClass/).
 
-####pos
+        **type**: [GridGUI.Position](../Position/)
 
-> **desc**: The position and size of the cell.
+!!! info ""
 
-> **type**: [GridGUI.Position](../Position/)
+    ####hasHConfligts
+    !!! info ""
+
+        **desc**: Whether or not the cell needs to take any other cells into account when calculating its height.
+
+        **type**: bool
+
+        **default**: false
+
+!!! info ""
+
+    ####hasWConfligts
+    !!! info ""
+
+        **desc**: Whether or not the cell needs to take any other cells into account when calculating its width.
+
+        **type**: bool
+
+        **default**: false
+
+!!! info ""
+
+    ####justifyOptions
+    !!! info ""
+
+        **desc**: How the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) will be positioned in the cell when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+
+        **type**: string
+
+        **default**: C
+
+!!! info ""
+
+    ####othersH
+    !!! info ""
+
+        **desc**: The combined vertical expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI height that this cell should take.
+
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####othersW
+    !!! info ""
+
+        **desc**: The combined horisontal expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI width that this cell should take.
+
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####pos
+    !!! info ""
+
+        **desc**: The position and size of the cell.
+
+        **type**: [GridGUI.Position](../Position/)
 
 ##Methods
 
-####__Delete
-**desc**: Destructor. Destroys the [`GridGUI.Cell.ctrl`](../Cell/#ctrl).
+!!! note ""
+    ####__Delete
+    !!! tip ""
 
-####__FindLeastUsedRowColumn
-**desc**: Returns the index of the where there are the lest amount of cells with a fixed size or where there is the largest expansion weight.
+        ```AutoHotKey
+        __Delete()
+        ```
 
-**args**:
 
-> **name**: size
+    !!! abstract ""
 
-> **desc**: How many indexes to check.
+        :material-clipboard-text:{ .desc } Destructor. Destroys the [`GridGUI.Cell.ctrl`](../Cell/#ctrl).
 
-> **type**: number
 
-> **name**: start
 
-> **desc**: What index to start checking from.
+!!! note ""
+    ####__FindLeastUsedRowColumn
+    !!! tip ""
 
-> **type**: number
+        ```AutoHotKey
+        __FindLeastUsedRowColumn(size, start, nonExpanders, expanders)
+        ```
 
-> **name**: nonExpanders
 
-> **desc**: An array of how many fixed sized cells there are in either the columns or rows.
+    !!! abstract ""
 
-> **type**: array
+        :material-clipboard-text:{ .desc } Returns the index of the where there are the lest amount of cells with a fixed size or where there is the largest expansion weight.
 
-> **name**: expanders
 
-> **desc**: An array of how many expanding cells there are in either the columns or rows.
 
-> **type**: array
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: The found index.
+            **name**: size
 
-> **type**: number
+            **desc**: How many indexes to check.
 
-####__GetExpandedHeight
-**desc**: Calculates the amount of the additional height that the cell should take up.
+            **type**: number
 
-**args**:
+        !!! info ""
 
-> **name**: index
+            **name**: start
 
-> **desc**: What index of the positions in the grid that the height is wanted for.
+            **desc**: What index to start checking from.
 
-> **type**: number
+            **type**: number
 
-> **name**: height
+        !!! info ""
 
-> **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+            **name**: nonExpanders
 
-> **type**: number
+            **desc**: An array of how many fixed sized cells there are in either the columns or rows.
 
-> **name**: expanders
+            **type**: array
 
-> **desc**: An array of the sum of vertical expansion weights for each row.
+        !!! info ""
 
-> **type**: associative array
+            **name**: expanders
 
-> **name**: nonExpanders
+            **desc**: An array of how many expanding cells there are in either the columns or rows.
 
-> **desc**: An array of the amount of fixed size cells in each row.
+            **type**: array
 
-> **type**: associative array
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: The calculated height.
+            **desc**: The found index.
 
-> **type**: number
+            **type**: number
 
-####__GetExpandedHeights
-**desc**: Calculates the heights that the cell wants to have in each of rows that it spans over.
+!!! note ""
+    ####__GetExpandedHeight
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __GetExpandedHeight(index, height, expanders, nonExpanders)
+        ```
 
-> **name**: index
 
-> **desc**: What index of the positions in the grid that the height is wanted for.
+    !!! abstract ""
 
-> **type**: number
+        :material-clipboard-text:{ .desc } Calculates the amount of the additional height that the cell should take up.
 
-> **name**: height
 
-> **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
 
-> **type**: number
+    ??? example "parameters"
 
-> **name**: expanders
+        !!! info ""
 
-> **desc**: An array of the sum of vertical expansion weights for each row.
+            **name**: index
 
-> **type**: associative array
+            **desc**: What index of the positions in the grid that the height is wanted for.
 
-> **name**: nonExpanders
+            **type**: number
 
-> **desc**: An array of the amount of fixed size cells in each row.
+        !!! info ""
 
-> **type**: associative array
+            **name**: height
 
-**returns**:
+            **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
 
-> **desc**: The wanted height of the cell in each row.
+            **type**: number
 
-> **type**: array
+        !!! info ""
 
-####__GetExpandedWidth
-**desc**: Calculates the amount of the additional width that the cell should take up.
+            **name**: expanders
 
-**args**:
+            **desc**: An array of the sum of vertical expansion weights for each row.
 
-> **name**: index
+            **type**: associative array
 
-> **desc**: What index of the positions in the grid that the width is wanted for.
+        !!! info ""
 
-> **type**: number
+            **name**: nonExpanders
 
-> **name**: width
+            **desc**: An array of the amount of fixed size cells in each row.
 
-> **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+            **type**: associative array
 
-> **type**: number
+    !!! question ""
 
-> **name**: expanders
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: The calculated height.
 
-> **type**: array
+            **type**: number
 
-> **name**: nonExpanders
+!!! note ""
+    ####__GetExpandedHeights
+    !!! tip ""
 
-> **desc**: An array of the amount of fixed size cells in each column.
+        ```AutoHotKey
+        __GetExpandedHeights(index, height, expanders, nonExpanders)
+        ```
 
-> **type**: array
 
-**returns**:
+    !!! abstract ""
 
-> **desc**: The calculated width.
+        :material-clipboard-text:{ .desc } Calculates the heights that the cell wants to have in each of rows that it spans over.
 
-> **type**: number
 
-####__GetExpandedWidths
-**desc**: Calculates the widths that the cell wants to have in each of columns that it spans over.
 
-**args**:
+    ??? example "parameters"
 
-> **name**: index
+        !!! info ""
 
-> **desc**: What index of the positions in the grid that the width is wanted for.
+            **name**: index
 
-> **type**: number
+            **desc**: What index of the positions in the grid that the height is wanted for.
 
-> **name**: width
+            **type**: number
 
-> **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+        !!! info ""
 
-> **type**: number
+            **name**: height
 
-> **name**: expanders
+            **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
 
-> **desc**: An array of the sum of horisontal expansion weights for each column.
+            **type**: number
 
-> **type**: array
+        !!! info ""
 
-> **name**: nonExpanders
+            **name**: expanders
 
-> **desc**: An array of the amount of fixed size cells in each column.
+            **desc**: An array of the sum of vertical expansion weights for each row.
 
-> **type**: array
+            **type**: associative array
 
-**returns**:
+        !!! info ""
 
-> **desc**: The wanted width of the cell in each column.
+            **name**: nonExpanders
 
-> **type**: array
+            **desc**: An array of the amount of fixed size cells in each row.
 
-####__GetFixedHeight
-**desc**: Returns the fixed height of the cell.
+            **type**: associative array
 
-**returns**:
+    !!! question ""
 
-> **desc**: The fixed height of the cell. For non vertically expanding and non vertically filling cells the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the vertical margin is returned. For vertically expanding and or vertically filling cells 0 is returned unless an min-height where specified in which case the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-height is 0 then 0 is returned.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: number
+            **desc**: The wanted height of the cell in each row.
 
-####__GetFixedWidth
-**desc**: Returns the fixed width of the cell.
+            **type**: array
 
-**returns**:
+!!! note ""
+    ####__GetExpandedWidth
+    !!! tip ""
 
-> **desc**: The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
+        ```AutoHotKey
+        __GetExpandedWidth(index, width, expanders, nonExpanders)
+        ```
 
-> **type**: number
 
-####__GetNeededHeight
-**desc**: Returns the needed height of the cell.
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Calculates the amount of the additional width that the cell should take up.
 
-> **desc**: The needed height of the cell. That is the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the vertical margin.
 
-> **type**: number
 
-####__GetNeededWidth
-**desc**: Returns the needed width of the cell.
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: The needed width of the cell. That is the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the horisontal margin.
+            **name**: index
 
-> **type**: number
+            **desc**: What index of the positions in the grid that the width is wanted for.
 
-####__New
-**desc**: Constructor.
+            **type**: number
 
-**args**:
+        !!! info ""
 
-> **name**: pos
+            **name**: width
 
-> **desc**: The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a [`GridGUI.GridGUIClass`](../GridGUIClass/).
+            **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
 
-> **type**: [GridGUI.Position](../Position/)
+            **type**: number
 
-> **name**: ctrl
+        !!! info ""
 
-> **desc**: The control that will be managed by this cell. The control class needs to implement the two methods `ControlGetPos` and `Draw` as well as have the four members `initialWidth`, `initialHeight`, `initialWidthVal` and `initialHeightVal`.
+            **name**: expanders
 
-> **type**: [GridGUI.Control](../GridGUI/#control)
+            **desc**: An array of the sum of horisontal expansion weights for each column.
 
-> **name**: exW
+            **type**: array
 
-> **desc**: The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
+        !!! info ""
 
-> **type**: number
+            **name**: nonExpanders
 
-> **name**: exH
+            **desc**: An array of the amount of fixed size cells in each column.
 
-> **desc**: The vertical expansion weight of the cell. This is used to calculate the part of the additional GUI height that this cell should take.
+            **type**: array
 
-> **type**: number
+    !!! question ""
 
-> **name**: fillW
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: Whether or not to set the width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) to the width of the cell.
+            **desc**: The calculated width.
 
-> **type**: bool
+            **type**: number
 
-> **name**: fillH
+!!! note ""
+    ####__GetExpandedWidths
+    !!! tip ""
 
-> **desc**: Whether or not to set the height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) to the height of the cell.
+        ```AutoHotKey
+        __GetExpandedWidths(index, width, expanders, nonExpanders)
+        ```
 
-> **type**: bool
 
-> **name**: justify
+    !!! abstract ""
 
-> **desc**: How the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) will be positioned in the cell when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+        :material-clipboard-text:{ .desc } Calculates the widths that the cell wants to have in each of columns that it spans over.
 
-> **type**: string
 
-> **default**: C
 
-> **name**: borderX
+    ??? example "parameters"
 
-> **desc**: The horisontal border or margin of the cell that is the amount of additional width beyond what the control needs that is taken up by the cell.
+        !!! info ""
 
-> **type**: number
+            **name**: index
 
-> **default**: 5
+            **desc**: What index of the positions in the grid that the width is wanted for.
 
-> **name**: borderY
+            **type**: number
 
-> **desc**: The vertical border or margin of the cell that is the amount of additional height beyond what the control needs that is taken up by the cell.
+        !!! info ""
 
-> **type**: number
+            **name**: width
 
-> **default**: 5
+            **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
 
-> **name**: aspectRatio
+            **type**: number
 
-> **desc**: The aspect ratio of the cell in width divided by height. An aspect ratio of **0** means that aspectRatio wont be applied to the cell.
+        !!! info ""
 
-> **type**: number
+            **name**: expanders
 
-**returns**:
+            **desc**: An array of the sum of horisontal expansion weights for each column.
 
-> **desc**: A new [`GridGUI.Cell`](../Cell/) instance.
+            **type**: array
 
-> **type**: GridGUI.Cell
+        !!! info ""
 
-####__Sum
-**desc**: Calculates a partial sum of values in an array from a start index to an end index.
+            **name**: nonExpanders
 
-**args**:
+            **desc**: An array of the amount of fixed size cells in each column.
 
-> **name**: obj
+            **type**: array
 
-> **desc**: The array to calculate the sum of.
+    !!! question ""
 
-> **type**: array
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: start
+            **desc**: The wanted width of the cell in each column.
 
-> **desc**: The start index of the range to sum.
+            **type**: array
 
-> **type**: number
+!!! note ""
+    ####__GetFixedHeight
+    !!! tip ""
 
-> **name**: end
+        ```AutoHotKey
+        __GetFixedHeight()
+        ```
 
-> **desc**: The end index of the range to sum.
 
-> **type**: number
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Returns the fixed height of the cell.
 
-> **desc**: The sum of the sub-array.
 
-> **type**: number
 
-####CalculateCtrlSize
-**desc**: Calculates the size the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) should use given a specific cell size.
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: pos
+            **desc**: The fixed height of the cell. For non vertically expanding and non vertically filling cells the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the vertical margin is returned. For vertically expanding and or vertically filling cells 0 is returned unless an min-height where specified in which case the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-height is 0 then 0 is returned.
 
-> **desc**: The size to fit the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) within.
+            **type**: number
 
-> **type**: [GridGUI.Position](../Position/)
+!!! note ""
+    ####__GetFixedWidth
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __GetFixedWidth()
+        ```
 
-> **desc**: An area sized according to the cell members to fit within `pos`.
 
-> **type**: GridGUI.Position
+    !!! abstract ""
 
-####Center
-**desc**: Centres one area in another.
+        :material-clipboard-text:{ .desc } Returns the fixed width of the cell.
 
-**args**:
 
-> **name**: area
 
-> **desc**: The area that should be centred in relation to.
+    !!! question ""
 
-> **type**: [GridGUI.Position](../Position/)
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: pos
+            **desc**: The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
 
-> **desc**: The area to centre.
+            **type**: number
 
-> **type**: [GridGUI.Position](../Position/)
+!!! note ""
+    ####__GetNeededHeight
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __GetNeededHeight()
+        ```
 
-> **desc**: A copy of `pos` centred in `area`.
 
-> **type**: GridGUI.Position
+    !!! abstract ""
 
-####DestroyCtrl
-**desc**: Destroys the [`GridGUI.Cell.ctrl`](../Cell/#ctrl).
+        :material-clipboard-text:{ .desc } Returns the needed height of the cell.
 
-####GetExpandedHeight
-**desc**: Calculates the amount of the additional height that the cell should take up and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
 
-**args**:
 
-> **name**: index
+    !!! question ""
 
-> **desc**: What index of the positions in the grid that the height is wanted for.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: number
+            **desc**: The needed height of the cell. That is the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the vertical margin.
 
-> **name**: height
+            **type**: number
 
-> **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+!!! note ""
+    ####__GetNeededWidth
+    !!! tip ""
 
-> **type**: number
+        ```AutoHotKey
+        __GetNeededWidth()
+        ```
 
-> **name**: expandersH
 
-> **desc**: An array of the sum of vertical expansion weights for each row.
+    !!! abstract ""
 
-> **type**: associative array
+        :material-clipboard-text:{ .desc } Returns the needed width of the cell.
 
-> **name**: nonExpandersH
 
-> **desc**: An array of the amount of fixed size cells in each row.
 
-> **type**: associative array
+    !!! question ""
 
-> **name**: width
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+            **desc**: The needed width of the cell. That is the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the horisontal margin.
 
-> **type**: number
+            **type**: number
 
-> **name**: expandersW
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: An array of the sum of horisontal expansion weights for each column.
+        ```AutoHotKey
+        __New(pos, ctrl, exW := 0, exH := 0, fillW := false, fillH := false, justify := C, borderX := 5, borderY := 5, aspectRatio := )
+        ```
 
-> **type**: array
 
-> **name**: nonExpandersW
+    !!! abstract ""
 
-> **desc**: An array of the amount of fixed size cells in each column.
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **type**: array
 
-**returns**:
 
-> **desc**: The calculated height.
+    ??? example "parameters"
 
-> **type**: number
+        !!! info ""
 
-####GetExpandedWidth
-**desc**: Calculates the amount of the additional width that the cell should take up and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+            **name**: pos
 
-**args**:
+            **desc**: The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a [`GridGUI.GridGUIClass`](../GridGUIClass/).
 
-> **name**: index
+            **type**: [GridGUI.Position](../Position/)
 
-> **desc**: What index of the positions in the grid that the width is wanted for.
+        !!! info ""
 
-> **type**: number
+            **name**: ctrl
 
-> **name**: width
+            **desc**: The control that will be managed by this cell. The control class needs to implement the two methods `ControlGetPos` and `Draw` as well as have the four members `initialWidth`, `initialHeight`, `initialWidthVal` and `initialHeightVal`.
 
-> **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+            **type**: [GridGUI.Control](../GridGUI/#control)
 
-> **type**: number
+        !!! info ""
 
-> **name**: expandersW
+            **name**: exW
 
-> **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
 
-> **type**: array
+            **type**: number
 
-> **name**: nonExpandersW
+            **default**: 0
 
-> **desc**: An array of the amount of fixed size cells in each column.
+        !!! info ""
 
-> **type**: array
+            **name**: exH
 
-> **name**: height
+            **desc**: The vertical expansion weight of the cell. This is used to calculate the part of the additional GUI height that this cell should take.
 
-> **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+            **type**: number
 
-> **type**: number
+            **default**: 0
 
-> **name**: expandersH
+        !!! info ""
 
-> **desc**: An array of the sum of vertical expansion weights for each row.
+            **name**: fillW
 
-> **type**: associative array
+            **desc**: Whether or not to set the width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) to the width of the cell.
 
-> **name**: nonExpandersH
+            **type**: bool
 
-> **desc**: An array of the amount of fixed size cells in each row.
+            **default**: false
 
-> **type**: associative array
+        !!! info ""
 
-**returns**:
+            **name**: fillH
 
-> **desc**: The calculated width.
+            **desc**: Whether or not to set the height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) to the height of the cell.
 
-> **type**: number
+            **type**: bool
 
-####GetExpansionHeightValue
-**desc**: Getter for [`GridGUI.Cell.exH`](../Cell/#exh).
+            **default**: false
 
-**returns**:
+        !!! info ""
 
-> **desc**: The vertical expansion weight.
+            **name**: justify
 
-> **type**: number
+            **desc**: How the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) will be positioned in the cell when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
 
-####GetExpansionWidthValue
-**desc**: Getter for [`GridGUI.Cell.exW`](../Cell/#exw).
+            **type**: string
 
-**returns**:
+            **default**: C
 
-> **desc**: The horisontal expansion weight.
+        !!! info ""
 
-> **type**: number
+            **name**: borderX
 
-####GetFixedHeight
-**desc**: Returns the fixed height of the cell and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+            **desc**: The horisontal border or margin of the cell that is the amount of additional width beyond what the control needs that is taken up by the cell.
 
-**returns**:
+            **type**: number
 
-> **desc**: The fixed height of the cell. For non vertically expanding and non vertically filling cells the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the vertical margin is returned. For vertically expanding and or vertically filling cells 0 is returned unless an min-height where specified in which case the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-height is 0 then 0 is returned.
+            **default**: 5
 
-> **type**: number
+        !!! info ""
 
-####GetFixedWidth
-**desc**: Returns the fixed width of the cell and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+            **name**: borderY
 
-**returns**:
+            **desc**: The vertical border or margin of the cell that is the amount of additional height beyond what the control needs that is taken up by the cell.
 
-> **desc**: The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
+            **type**: number
 
-> **type**: number
+            **default**: 5
 
-####GetNeededHeight
-**desc**: Returns the needed height of the cell and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+        !!! info ""
 
-**returns**:
+            **name**: aspectRatio
 
-> **desc**: The needed height of the cell. That is the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the vertical margin.
+            **desc**: The aspect ratio of the cell in width divided by height. An aspect ratio of **0** means that aspectRatio wont be applied to the cell.
 
-> **type**: number
+            **type**: number
 
-####GetNeededWidth
-**desc**: Returns the needed width of the cell and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+            **default**: 
 
-**returns**:
+    !!! question ""
 
-> **desc**: The needed width of the cell. That is the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the horisontal margin.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: number
+            **desc**: A new [`GridGUI.Cell`](../Cell/) instance.
 
-####Justify
-**desc**: Justifies an area within another area. That is places the area according to a set of rules within the larger area.
+            **type**: [GridGUI.Cell](../Cell/)
 
-**args**:
+!!! note ""
+    ####__Sum
+    !!! tip ""
 
-> **name**: area
+        ```AutoHotKey
+        __Sum(obj, start, end)
+        ```
 
-> **desc**: The area to position the other area within.
 
-> **type**: [GridGUI.Position](../Position/)
+    !!! abstract ""
 
-> **name**: pos
+        :material-clipboard-text:{ .desc } Calculates a partial sum of values in an array from a start index to an end index.
 
-> **desc**: The area to position in the larger area.
 
-> **type**: [GridGUI.Position](../Position/)
 
-**returns**:
+    ??? example "parameters"
 
-> **desc**: A copy of `pos` that is justified within `area`.
+        !!! info ""
 
-> **type**: GridGUI.Position
+            **name**: obj
 
-####SetArea
-**desc**: Sets the position and size of the cell.
+            **desc**: The array to calculate the sum of.
 
-**args**:
+            **type**: array
 
-> **name**: offset
+        !!! info ""
 
-> **desc**: The coordinate offset that the cell should be translated by. Used to support [`GridGUI.SubGrid`](../SubGrid/)s within a GUI, since the calculated positions are relative to the client area.
+            **name**: start
 
-> **type**: [GridGUI.Position](../Position/)
+            **desc**: The start index of the range to sum.
 
-> **name**: widths
+            **type**: number
 
-> **desc**: An array of the calculate width for each column.
+        !!! info ""
 
-> **type**: array
+            **name**: end
 
-> **name**: heights
+            **desc**: The end index of the range to sum.
 
-> **desc**: An array of the calculate height for each row.
+            **type**: number
 
-> **type**: array
+    !!! question ""
 
-####SetAspectRatio
-**desc**: Sets the aspect ratio of the cell.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**args**:
+            **desc**: The sum of the sub-array.
 
-> **name**: ratio
+            **type**: number
 
-> **desc**: The ratio to set for the cell in width divided by height. An empty ratio will set the ratio to the current width of the cell divided by the current height of the cell.
+!!! note ""
+    ####CalculateCtrlSize
+    !!! tip ""
 
-> **type**: number|""
+        ```AutoHotKey
+        CalculateCtrlSize(pos)
+        ```
 
-####ToolTip
-**desc**: Shows a tooltip of the cell as a string.
 
-####ToStr
-**desc**: Converts the object to a string.
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } Calculates the size the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) should use given a specific cell size.
 
-> **name**: indent
 
-> **desc**: The amount of indentation to add on each line.
 
-> **type**: string
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: A string representing this cell.
+            **name**: pos
 
-> **type**: string
+            **desc**: The size to fit the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) within.
 
-####Update
-**desc**: Updates the position of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) and draws it.
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: An area sized according to the cell members to fit within `pos`.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####Center
+    !!! tip ""
+
+        ```AutoHotKey
+        Center(area, pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Centres one area in another.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: area
+
+            **desc**: The area that should be centred in relation to.
+
+            **type**: [GridGUI.Position](../Position/)
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The area to centre.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A copy of `pos` centred in `area`.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####DestroyCtrl
+    !!! tip ""
+
+        ```AutoHotKey
+        DestroyCtrl()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Destroys the [`GridGUI.Cell.ctrl`](../Cell/#ctrl).
+
+
+
+!!! note ""
+    ####GetExpandedHeight
+    !!! tip ""
+
+        ```AutoHotKey
+        GetExpandedHeight(index, height, expandersH, nonExpandersH, width, expandersW, nonExpandersW)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the amount of the additional height that the cell should take up and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: index
+
+            **desc**: What index of the positions in the grid that the height is wanted for.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: height
+
+            **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersH
+
+            **desc**: An array of the sum of vertical expansion weights for each row.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: nonExpandersH
+
+            **desc**: An array of the amount of fixed size cells in each row.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: width
+
+            **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersW
+
+            **desc**: An array of the sum of horisontal expansion weights for each column.
+
+            **type**: array
+
+        !!! info ""
+
+            **name**: nonExpandersW
+
+            **desc**: An array of the amount of fixed size cells in each column.
+
+            **type**: array
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The calculated height.
+
+            **type**: number
+
+!!! note ""
+    ####GetExpandedWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        GetExpandedWidth(index, width, expandersW, nonExpandersW, height, expandersH, nonExpandersH)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the amount of the additional width that the cell should take up and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: index
+
+            **desc**: What index of the positions in the grid that the width is wanted for.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: width
+
+            **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersW
+
+            **desc**: An array of the sum of horisontal expansion weights for each column.
+
+            **type**: array
+
+        !!! info ""
+
+            **name**: nonExpandersW
+
+            **desc**: An array of the amount of fixed size cells in each column.
+
+            **type**: array
+
+        !!! info ""
+
+            **name**: height
+
+            **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersH
+
+            **desc**: An array of the sum of vertical expansion weights for each row.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: nonExpandersH
+
+            **desc**: An array of the amount of fixed size cells in each row.
+
+            **type**: associative array
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The calculated width.
+
+            **type**: number
+
+!!! note ""
+    ####GetExpansionHeightValue
+    !!! tip ""
+
+        ```AutoHotKey
+        GetExpansionHeightValue()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Cell.exH`](../Cell/#exh).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The vertical expansion weight.
+
+            **type**: number
+
+!!! note ""
+    ####GetExpansionWidthValue
+    !!! tip ""
+
+        ```AutoHotKey
+        GetExpansionWidthValue()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Cell.exW`](../Cell/#exw).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The horisontal expansion weight.
+
+            **type**: number
+
+!!! note ""
+    ####GetFixedHeight
+    !!! tip ""
+
+        ```AutoHotKey
+        GetFixedHeight()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the fixed height of the cell and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The fixed height of the cell. For non vertically expanding and non vertically filling cells the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the vertical margin is returned. For vertically expanding and or vertically filling cells 0 is returned unless an min-height where specified in which case the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-height is 0 then 0 is returned.
+
+            **type**: number
+
+!!! note ""
+    ####GetFixedWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        GetFixedWidth()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the fixed width of the cell and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
+
+            **type**: number
+
+!!! note ""
+    ####GetNeededHeight
+    !!! tip ""
+
+        ```AutoHotKey
+        GetNeededHeight()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the needed height of the cell and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The needed height of the cell. That is the min-height of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the vertical margin.
+
+            **type**: number
+
+!!! note ""
+    ####GetNeededWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        GetNeededWidth()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the needed width of the cell and applies the aspect ratio of [`GridGUI.Cell.aspectRatio`](../Cell/#aspectratio) if non zero.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The needed width of the cell. That is the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the horisontal margin.
+
+            **type**: number
+
+!!! note ""
+    ####Justify
+    !!! tip ""
+
+        ```AutoHotKey
+        Justify(area, pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Justifies an area within another area. That is places the area according to a set of rules within the larger area.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: area
+
+            **desc**: The area to position the other area within.
+
+            **type**: [GridGUI.Position](../Position/)
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The area to position in the larger area.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A copy of `pos` that is justified within `area`.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####SetArea
+    !!! tip ""
+
+        ```AutoHotKey
+        SetArea(offset, widths, heights)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Sets the position and size of the cell.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: offset
+
+            **desc**: The coordinate offset that the cell should be translated by. Used to support [`GridGUI.SubGrid`](../SubGrid/)s within a GUI, since the calculated positions are relative to the client area.
+
+            **type**: [GridGUI.Position](../Position/)
+
+        !!! info ""
+
+            **name**: widths
+
+            **desc**: An array of the calculate width for each column.
+
+            **type**: array
+
+        !!! info ""
+
+            **name**: heights
+
+            **desc**: An array of the calculate height for each row.
+
+            **type**: array
+
+!!! note ""
+    ####SetAspectRatio
+    !!! tip ""
+
+        ```AutoHotKey
+        SetAspectRatio(ratio := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Sets the aspect ratio of the cell.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ratio
+
+            **desc**: The ratio to set for the cell in width divided by height. An empty ratio will set the ratio to the current width of the cell divided by the current height of the cell.
+
+            **type**: number|""
+
+            **default**: ""
+
+!!! note ""
+    ####ToolTip
+    !!! tip ""
+
+        ```AutoHotKey
+        ToolTip()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Shows a tooltip of the cell as a string.
+
+
+
+!!! note ""
+    ####ToStr
+    !!! tip ""
+
+        ```AutoHotKey
+        ToStr(indent := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Converts the object to a string.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: indent
+
+            **desc**: The amount of indentation to add on each line.
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A string representing this cell.
+
+            **type**: string
+
+!!! note ""
+    ####Update
+    !!! tip ""
+
+        ```AutoHotKey
+        Update()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Updates the position of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) and draws it.
+
+
 

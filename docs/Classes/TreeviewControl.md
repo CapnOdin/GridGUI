@@ -5,278 +5,555 @@
 ---
 ##Methods
 
-####__New
-**desc**: 
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __New(guiHwnd, options := "")
+        ```
 
-> **name**: guiHwnd
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-> **name**: options
 
-> **desc**: 
 
-> **type**: string
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: 
+            **name**: guiHwnd
 
-> **type**: 
+            **desc**: 
 
-####__ResetCurrentTV
-**desc**: 
+            **type**: string|number|object
 
-**args**:
+        !!! info ""
 
-> **name**: previous
+            **name**: options
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string|number|object
+            **type**: string
 
-**returns**:
+            **default**: ""
 
-> **desc**: 
+    !!! question ""
 
-> **type**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####__SetCurrentTV
-**desc**: 
+            **desc**: 
 
-**returns**:
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####__ResetCurrentTV
+    !!! tip ""
 
-> **type**: 
+        ```AutoHotKey
+        __ResetCurrentTV(previous)
+        ```
 
-####Add
-**desc**: 
 
-**args**:
+    !!! abstract ""
 
-> **name**: Name
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: string|number|object
 
-> **name**: ParentItemID
+    ??? example "parameters"
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string
+            **name**: previous
 
-> **name**: Options
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: 
 
-####Delete
-**desc**: 
+!!! note ""
+    ####__SetCurrentTV
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __SetCurrentTV()
+        ```
 
-> **name**: ItemID
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    !!! question ""
 
-####Get
-**desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**args**:
+            **desc**: 
 
-> **name**: ItemID
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####Add
+    !!! tip ""
 
-> **type**: string|number|object
+        ```AutoHotKey
+        Add(Name, ParentItemID := "", Options := "")
+        ```
 
-> **name**: Attribute
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####GetChild
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: Name
 
-> **name**: ParentItemID
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string|number|object
+        !!! info ""
 
-**returns**:
+            **name**: ParentItemID
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: string
 
-####GetCount
-**desc**: 
+            **default**: ""
 
-**returns**:
+        !!! info ""
 
-> **desc**: 
+            **name**: Options
 
-> **type**: 
+            **desc**: 
 
-####GetNext
-**desc**: 
+            **type**: string
 
-**args**:
+            **default**: ""
 
-> **name**: ItemID
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string
+            **desc**: 
 
-> **name**: ItemType
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####Delete
+    !!! tip ""
 
-> **type**: string
+        ```AutoHotKey
+        Delete(ItemID := "")
+        ```
 
-**returns**:
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: 
+        :material-clipboard-text:{ .desc } 
 
-####GetParent
-**desc**: 
 
-**args**:
 
-> **name**: ItemID
+    ??? example "parameters"
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: ItemID
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: string
 
-> **type**: 
+            **default**: ""
 
-####GetPrev
-**desc**: 
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: ItemID
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: string|number|object
+!!! note ""
+    ####Get
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        Get(ItemID, Attribute)
+        ```
 
-> **desc**: 
 
-> **type**: 
+    !!! abstract ""
 
-####GetSelection
-**desc**: 
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####GetText
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: ItemID
 
-> **name**: ByRef
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string
+        !!! info ""
 
-> **default**: OutputVar
+            **name**: Attribute
 
-> **name**: ItemID
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string|number|object
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: 
 
-####Redraw
-**desc**: 
+!!! note ""
+    ####GetChild
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        GetChild(ParentItemID)
+        ```
 
-> **name**: bool
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####SetImageList
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: ParentItemID
 
-> **name**: ImageListID
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string|number|object
+    !!! question ""
 
-> **name**: IconType
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string
+            **type**: 
 
-**returns**:
+!!! note ""
+    ####GetCount
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        GetCount()
+        ```
 
-> **type**: 
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetNext
+    !!! tip ""
+
+        ```AutoHotKey
+        GetNext(ItemID := "", ItemType := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ItemID
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: ItemType
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetParent
+    !!! tip ""
+
+        ```AutoHotKey
+        GetParent(ItemID)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ItemID
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetPrev
+    !!! tip ""
+
+        ```AutoHotKey
+        GetPrev(ItemID)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ItemID
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetSelection
+    !!! tip ""
+
+        ```AutoHotKey
+        GetSelection()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetText
+    !!! tip ""
+
+        ```AutoHotKey
+        GetText(ByRef := OutputVar, ItemID)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ByRef
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: OutputVar
+
+        !!! info ""
+
+            **name**: ItemID
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####Redraw
+    !!! tip ""
+
+        ```AutoHotKey
+        Redraw(bool)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: bool
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####SetImageList
+    !!! tip ""
+
+        ```AutoHotKey
+        SetImageList(ImageListID, IconType := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ImageListID
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: IconType
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

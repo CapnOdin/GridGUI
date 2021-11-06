@@ -5,122 +5,223 @@
 ---
 ##Methods
 
-####__New
-**desc**: 
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __New(guiHwnd, options := "", text := "")
+        ```
 
-> **name**: guiHwnd
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-> **name**: options
 
-> **desc**: 
 
-> **type**: string
+    ??? example "parameters"
 
-> **name**: text
+        !!! info ""
 
-> **desc**: 
+            **name**: guiHwnd
 
-> **type**: string
+            **desc**: 
 
-**returns**:
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: 
+            **name**: options
 
-####__ResetDefaultGui
-**desc**: 
+            **desc**: 
 
-**args**:
+            **type**: string
 
-> **name**: previous
+            **default**: ""
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: text
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: string
 
-> **type**: 
+            **default**: ""
 
-####__SetDefaultGui
-**desc**: 
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: 
 
-####SetIcon
-**desc**: 
+!!! note ""
+    ####__ResetDefaultGui
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __ResetDefaultGui(previous)
+        ```
 
-> **name**: Filename
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-> **name**: IconNumber
 
-> **desc**: 
 
-> **type**: number
+    ??? example "parameters"
 
-> **default**: 1
+        !!! info ""
 
-> **name**: PartNumber
+            **name**: previous
 
-> **desc**: 
+            **desc**: 
 
-> **type**: number
+            **type**: string|number|object
 
-> **default**: 1
+    !!! question ""
 
-**returns**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: 
 
-####SetText
-**desc**: 
+!!! note ""
+    ####__SetDefaultGui
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __SetDefaultGui()
+        ```
 
-> **name**: NewText
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-> **name**: PartNumber
 
-> **desc**: 
 
-> **type**: number
+    !!! question ""
 
-> **default**: 1
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: Style
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: number
+!!! note ""
+    ####SetIcon
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        SetIcon(Filename, IconNumber := 1, PartNumber := 1)
+        ```
 
-> **desc**: 
 
-> **type**: 
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: Filename
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: IconNumber
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 1
+
+        !!! info ""
+
+            **name**: PartNumber
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 1
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####SetText
+    !!! tip ""
+
+        ```AutoHotKey
+        SetText(NewText, PartNumber := 1, Style := 0)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: NewText
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: PartNumber
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 1
+
+        !!! info ""
+
+            **name**: Style
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 0
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

@@ -5,52 +5,107 @@
 ---
 ##Methods
 
-####Draw
-**desc**: 
+!!! note ""
+    ####Draw
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        Draw(area)
+        ```
 
-> **name**: area
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-**returns**:
 
-> **desc**: 
 
-> **type**: 
+    ??? example "parameters"
 
-####GetPos
-**desc**: 
+        !!! info ""
 
-**returns**:
+            **name**: area
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: string|number|object
 
-####MinSize
-**desc**: 
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: w
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: string
+!!! note ""
+    ####GetPos
+    !!! tip ""
 
-> **name**: h
+        ```AutoHotKey
+        GetPos()
+        ```
 
-> **desc**: 
 
-> **type**: string
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: 
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####MinSize
+    !!! tip ""
+
+        ```AutoHotKey
+        MinSize(w := "", h := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: w
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: h
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

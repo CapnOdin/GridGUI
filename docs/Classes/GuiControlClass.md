@@ -5,257 +5,512 @@
 ---
 ##Members
 
-####callback
+!!! info ""
 
-> **desc**: A callback that will be called whenever a glabel would be called.
+    ####callback
+    !!! info ""
 
-> **type**: Func|BoundFunc|false
+        **desc**: A callback that will be called whenever a glabel would be called.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Events)
+        **type**: Func|BoundFunc|false
 
-####DPIScale
+        **default**: false
 
-> **desc**: Whether or not to scale unscaled values by DPI/96.
+        **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Events)
 
-> **type**: bool
+!!! info ""
 
-####guiHwnd
+    ####DPIScale
+    !!! info ""
 
-> **desc**: The hwnd of the parent GUI.
+        **desc**: Whether or not to scale unscaled values by DPI/96.
 
-> **type**: hwnd
+        **type**: bool
 
-####logfont
+        **default**: false
 
-> **desc**: An instance of [`GridGUI.LOGFONT`](../LOGFONT/) which hold information on the font and colour of the control.
+!!! info ""
 
-> **type**: [GridGUI.LOGFONT](../LOGFONT/)
+    ####guiHwnd
+    !!! info ""
 
-####type
+        **desc**: The hwnd of the parent GUI.
 
-> **desc**: The type of the control e.g. `Button`, `Edit` etc.
+        **type**: hwnd
 
-> **type**: string
+!!! info ""
 
-####vVar
+    ####logfont
+    !!! info ""
 
-> **desc**: A variable containing the value of the control as returned by [`GridGUI.GuiControlClass.GuiControlGet`](../GuiControlClass/#guicontrolget) when called with no arguments, it is updated when the glabel is fired.
+        **desc**: An instance of [`GridGUI.LOGFONT`](../LOGFONT/) which hold information on the font and colour of the control.
 
-> **type**: any
+        **type**: [GridGUI.LOGFONT](../LOGFONT/)
 
-> **default**: The initial value of the control.
+!!! info ""
+
+    ####type
+    !!! info ""
+
+        **desc**: The type of the control e.g. `Button`, `Edit` etc.
+
+        **type**: string
+
+!!! info ""
+
+    ####vVar
+    !!! info ""
+
+        **desc**: A variable containing the value of the control as returned by [`GridGUI.GuiControlClass.GuiControlGet`](../GuiControlClass/#guicontrolget) when called with no arguments, it is updated when the glabel is fired.
+
+        **type**: any
+
+        **default**: The initial value of the control.
 
 ##Methods
 
-####__glabel
-**desc**: An internal method used to allow a function callback to a label.
+!!! note ""
+    ####__glabel
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __glabel(label)
+        ```
 
-> **name**: label
 
-> **desc**: The name of a label that will be `GoSub`ed to.
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } An internal method used to allow a function callback to a label.
 
-####__New
-**desc**: Constructor.
 
-**args**:
 
-> **name**: hwnd
+    ??? example "parameters"
 
-> **desc**: The hwnd of the control.
+        !!! info ""
 
-> **type**: hwnd
+            **name**: label
 
-> **name**: type
+            **desc**: The name of a label that will be `GoSub`ed to.
 
-> **desc**: The type of the control.
+            **type**: string
 
-> **type**: string
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Events)
 
-> **name**: options
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: The ahk options string that the control was created with, used to set up min-size and glabel callback.
+        ```AutoHotKey
+        __New(hwnd, type, options := "", callback := false, DPIScale := true)
+        ```
 
-> **type**: string
 
-> **name**: callback
+    !!! abstract ""
 
-> **desc**: The callback to call whenever the glabel of the control would be called.
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **type**: Func|BoundFunc|false
 
-> **name**: DPIScale
 
-> **desc**: Whether or not to scale unscaled values by DPI/96.
+    ??? example "parameters"
 
-> **type**: bool
+        !!! info ""
 
-**returns**:
+            **name**: hwnd
 
-> **desc**: A new [`GridGUI.GuiControlClass`](../GuiControlClass/) instance.
+            **desc**: The hwnd of the control.
 
-> **type**: GridGUI.GuiControlClass
+            **type**: hwnd
 
-####__ParseOptions
-**desc**: Parses option strings for values that are used by the class and updated the instance based on the values.
+        !!! info ""
 
-**args**:
+            **name**: type
 
-> **name**: options
+            **desc**: The type of the control.
 
-> **desc**: The options that will be parsed, values handled by the lib will be acted on and removed.
+            **type**: string
 
-> **type**: string
+        !!! info ""
 
-**returns**:
+            **name**: options
 
-> **desc**: The option string without the parts that the class handles.
+            **desc**: The ahk options string that the control was created with, used to set up min-size and glabel callback.
 
-> **type**: string
+            **type**: string
 
-####Draw
-**desc**: Draws the control using `MoveDraw`.
+            **default**: ""
 
-**args**:
+        !!! info ""
 
-> **name**: pos
+            **name**: callback
 
-> **desc**: The position and size to draw the control with.
+            **desc**: The callback to call whenever the glabel of the control would be called.
 
-> **type**: [GridGUI.Position](../Position/)
+            **type**: Func|BoundFunc|false
 
-####Font
-**desc**: Changes the font, style and colour of the control, without impacting other controls. After the font and style has been applied the min-size of the control is changed so that the text fits.
+            **default**: false
 
-**args**:
+        !!! info ""
 
-> **name**: Options
+            **name**: DPIScale
 
-> **desc**: Styling option string, see link for detail of what options are available.
+            **desc**: Whether or not to scale unscaled values by DPI/96.
 
-> **type**: string
+            **type**: bool
 
-> **default**: ""
+            **default**: true
 
-> **name**: FontName
+    !!! question ""
 
-> **desc**: The name of the font to apply.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string
+            **desc**: A new [`GridGUI.GuiControlClass`](../GuiControlClass/) instance.
 
-> **default**: ""
+            **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
 
-> **name**: updateMinSize
+!!! note ""
+    ####__ParseOptions
+    !!! tip ""
 
-> **desc**: Whether or not to update the min size of the control so that the text will be visible using the new font.
+        ```AutoHotKey
+        __ParseOptions(options)
+        ```
 
-> **type**: bool
 
-####GetPos
-**desc**: Implements the method [`GridGUI.CellControl.GetPos`](../CellControl/#getpos) of the [`GridGUI.Cell`](../Cell/) interface [`GridGUI.CellControl`](../CellControl/).
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Parses option strings for values that are used by the class and updated the instance based on the values.
 
-> **desc**: The position and size of the control.
 
-> **type**: GridGUI.Position
 
-####GuiControl
-**desc**: A thin function wrapper for `GuiControl`.
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: subCommand
+            **name**: options
 
-> **desc**: The subcommand to set for the control. See link for available subcommands.
+            **desc**: The options that will be parsed, values handled by the lib will be acted on and removed.
 
-> **type**: string
+            **type**: string
 
-> **name**: value
+    !!! question ""
 
-> **desc**: The value to apply to the subcommand. See link for values used in the subcommands.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string|number|object
+            **desc**: The option string without the parts that the class handles.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/GuiControl.htm)
+            **type**: string
 
-####GuiControlGet
-**desc**: A thin function wrapper for `GuiControlGet`.
+!!! note ""
+    ####Draw
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        Draw(pos)
+        ```
 
-> **name**: subCommand
 
-> **desc**: The subcommand to retrieve from the control. See link for available subcommands.
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } Draws the control using `MoveDraw`.
 
-> **name**: value
 
-> **desc**: Used to specify what to retrieve when the subcommand is not specific enough.
 
-> **type**: string
+    ??? example "parameters"
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/GuiControlGet.htm)
+        !!! info ""
 
-**returns**:
+            **name**: pos
 
-> **desc**: The retrieved value.
+            **desc**: The position and size to draw the control with.
 
-> **type**: any
+            **type**: [GridGUI.Position](../Position/)
 
-####Options
-**desc**: Applies options to the control using `GuiControl`.
+!!! note ""
+    ####Font
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        Font(Options := "", FontName := "", updateMinSize := true)
+        ```
 
-> **name**: options
 
-> **desc**: The ahk option string to apply. See link for available options.
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } Changes the font, style and colour of the control, without impacting other controls. After the font and style has been applied the min-size of the control is changed so that the text fits.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/GuiControl.htm#options)
 
-####ReDraw
-**desc**: Draws the control again, using options that work when drawing the control ontop of other controls.
 
-####ToStr
-**desc**: Converts the object to a string.
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: indent
+            **name**: Options
 
-> **desc**: The amount of indentation to add on each line.
+            **desc**: Styling option string, see link for detail of what options are available.
 
-> **type**: string
+            **type**: string
 
-**returns**:
+            **default**: ""
 
-> **desc**: A string representing this [`GridGUI.GuiControlClass`](../GuiControlClass/).
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
 
-> **type**: string
+        !!! info ""
 
-####ZOrder
-**desc**: Changes the z-order of the control to either `bottom`, `top` or `topmost`.
+            **name**: FontName
 
-**args**:
+            **desc**: The name of the font to apply.
 
-> **name**: top
+            **type**: string
 
-> **desc**: If true moved the control to the top of the z-order. If false moves the control to the bottom of the z-order.
+            **default**: ""
 
-> **type**: bool
+            **link**: [link](https://www.autohotkey.com/docs/misc/FontsStandard.htm)
 
-> **name**: topmost
+        !!! info ""
 
-> **desc**: If `true` moves the control to be above all other controls. If false sets the z-order based on [`GridGUI.GuiControlClass.top`](../GuiControlClass/#top).
+            **name**: updateMinSize
 
-> **type**: bool
+            **desc**: Whether or not to update the min size of the control so that the text will be visible using the new font.
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowpos)
+            **type**: bool
+
+            **default**: true
+
+            **link**: [link](https://www.autohotkey.com/docs/misc/FontsStandard.htm)
+
+!!! note ""
+    ####GetPos
+    !!! tip ""
+
+        ```AutoHotKey
+        GetPos()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Implements the method [`GridGUI.CellControl.GetPos`](../CellControl/#getpos) of the [`GridGUI.Cell`](../Cell/) interface [`GridGUI.CellControl`](../CellControl/).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The position and size of the control.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####GuiControl
+    !!! tip ""
+
+        ```AutoHotKey
+        GuiControl(subCommand, value)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin function wrapper for `GuiControl`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: subCommand
+
+            **desc**: The subcommand to set for the control. See link for available subcommands.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/GuiControl.htm#SubCommands)
+
+        !!! info ""
+
+            **name**: value
+
+            **desc**: The value to apply to the subcommand. See link for values used in the subcommands.
+
+            **type**: string|number|object
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/GuiControl.htm#SubCommands)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/GuiControl.htm)
+
+!!! note ""
+    ####GuiControlGet
+    !!! tip ""
+
+        ```AutoHotKey
+        GuiControlGet(subCommand := "", value := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin function wrapper for `GuiControlGet`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: subCommand
+
+            **desc**: The subcommand to retrieve from the control. See link for available subcommands.
+
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/GuiControlGet.htm#SubCommands)
+
+        !!! info ""
+
+            **name**: value
+
+            **desc**: Used to specify what to retrieve when the subcommand is not specific enough.
+
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/GuiControlGet.htm#SubCommands)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/GuiControlGet.htm)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The retrieved value.
+
+            **type**: any
+
+!!! note ""
+    ####Options
+    !!! tip ""
+
+        ```AutoHotKey
+        Options(options)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Applies options to the control using `GuiControl`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: options
+
+            **desc**: The ahk option string to apply. See link for available options.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/GuiControl.htm#options)
+
+!!! note ""
+    ####ReDraw
+    !!! tip ""
+
+        ```AutoHotKey
+        ReDraw()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Draws the control again, using options that work when drawing the control ontop of other controls.
+
+
+
+!!! note ""
+    ####ToStr
+    !!! tip ""
+
+        ```AutoHotKey
+        ToStr(indent := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Converts the object to a string.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: indent
+
+            **desc**: The amount of indentation to add on each line.
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A string representing this [`GridGUI.GuiControlClass`](../GuiControlClass/).
+
+            **type**: string
+
+!!! note ""
+    ####ZOrder
+    !!! tip ""
+
+        ```AutoHotKey
+        ZOrder(top := true, topmost := false)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Changes the z-order of the control to either `bottom`, `top` or `topmost`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: top
+
+            **desc**: If true moved the control to the top of the z-order. If false moves the control to the bottom of the z-order.
+
+            **type**: bool
+
+            **default**: true
+
+        !!! info ""
+
+            **name**: topmost
+
+            **desc**: If `true` moves the control to be above all other controls. If false sets the z-order based on [`GridGUI.GuiControlClass.top`](../GuiControlClass/#top).
+
+            **type**: bool
+
+            **default**: false
+
+    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowpos)
 

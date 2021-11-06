@@ -5,251 +5,510 @@
 ---
 ##Members
 
-####ConflictLst
+!!! info ""
 
-> **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s needs to share the available GUI size with a specific expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][i]` where `i` is the index of `o` and similar for the vertically expanding cells they are stored under `"H"`.
+    ####ConflictLst
+    !!! info ""
 
-> **type**: associative array
+        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s needs to share the available GUI size with a specific expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][i]` where `i` is the index of `o` and similar for the vertically expanding cells they are stored under `"H"`.
 
-> **default**: {"W": {}, "H": {}}
+        **type**: associative array
 
-####ConflictMap
+        **default**: {"W": {}, "H": {}}
 
-> **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s needs to share the available GUI size with a specific expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][o]` and similar for the vertically expanding cells they are stored under `"H"`.
+!!! info ""
 
-> **type**: associative array
+    ####ConflictMap
+    !!! info ""
 
-> **default**: {"W": {}, "H": {}}
+        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s needs to share the available GUI size with a specific expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][o]` and similar for the vertically expanding cells they are stored under `"H"`.
 
-####Expanders
+        **type**: associative array
 
-> **desc**: Array of all expanding [`GridGUI.Cell`](../Cell/)s in the grid.
+        **default**: {"W": {}, "H": {}}
 
-> **type**: array
+!!! info ""
 
-> **default**: []
+    ####Expanders
+    !!! info ""
 
-####Ignore
+        **desc**: Array of all expanding [`GridGUI.Cell`](../Cell/)s in the grid.
 
-> **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s are similar to cells that have already been accounted for in relation to a specific cell.
+        **type**: array
 
-> **type**: associative array
+        **default**: []
 
-> **default**: {"W": {}, "H": {}}
+!!! info ""
 
-####IsReduced
+    ####Ignore
+    !!! info ""
 
-> **desc**: Whether or not [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) has been reduced yet. If true then the entries in [`GridGUI.ExpanderArbitrator.ReducedConflict`](../ExpanderArbitrator/#reducedconflict) will be populated with a sub set of the entries in [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap).
+        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s are similar to cells that have already been accounted for in relation to a specific cell.
 
-> **type**: bool
+        **type**: associative array
 
-####Overlapping
+        **default**: {"W": {}, "H": {}}
 
-> **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s overlap a given expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally overlapping [`GridGUI.Cell`](../Cell/)s `o` will be stored under `["W"][c][o]` and similar for the vertically overlapping cells they are stored under `"H"`.
+!!! info ""
 
-> **type**: associative array
+    ####IsReduced
+    !!! info ""
 
-> **default**: {"W": {}, "H": {}}
+        **desc**: Whether or not [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) has been reduced yet. If true then the entries in [`GridGUI.ExpanderArbitrator.ReducedConflict`](../ExpanderArbitrator/#reducedconflict) will be populated with a sub set of the entries in [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap).
 
-####ReducedConflict
+        **type**: bool
 
-> **desc**: Two collections of only the expanding [`GridGUI.Cell`](../Cell/)s in [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) that can't be ignored in relation to an expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][o]` and similar for the vertically expanding cells they are stored under `"H"`.
+        **default**: false
 
-> **type**: associative array
+!!! info ""
 
-> **default**: {"W": {}, "H": {}}
+    ####Overlapping
+    !!! info ""
+
+        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s overlap a given expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally overlapping [`GridGUI.Cell`](../Cell/)s `o` will be stored under `["W"][c][o]` and similar for the vertically overlapping cells they are stored under `"H"`.
+
+        **type**: associative array
+
+        **default**: {"W": {}, "H": {}}
+
+!!! info ""
+
+    ####ReducedConflict
+    !!! info ""
+
+        **desc**: Two collections of only the expanding [`GridGUI.Cell`](../Cell/)s in [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) that can't be ignored in relation to an expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][o]` and similar for the vertically expanding cells they are stored under `"H"`.
+
+        **type**: associative array
+
+        **default**: {"W": {}, "H": {}}
 
 ##Methods
 
-####__New
-**desc**: Constructor.
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __New()
+        ```
 
-> **desc**: A new [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) instance.
 
-> **type**: GridGUI.ExpanderArbitrator
+    !!! abstract ""
 
-####Add
-**desc**: Adds a [`GridGUI.Cell`](../Cell/) to the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members if the cell expands, that is if either [`GridGUI.Cell.exW`](../Cell/#exw) or [`GridGUI.Cell.exH`](../Cell/#exh) are non zero.
+        :material-clipboard-text:{ .desc } Constructor.
 
-**args**:
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to add to the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/).
+    !!! question ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####CheckConflicts
-**desc**: Checks if the an expanding [`GridGUI.Cell`](../Cell/) is in conflict with one another expanding cell and updates [`GridGUI.ExpanderArbitrator.ConflictLst`](../ExpanderArbitrator/#conflictlst) and [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) if they are. This function is intended for checking new expanding cells against already managed expanding cells.
+            **desc**: A new [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) instance.
 
-**args**:
+            **type**: [GridGUI.ExpanderArbitrator](../ExpanderArbitrator/)
 
-> **name**: c
+!!! note ""
+    ####Add
+    !!! tip ""
 
-> **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check for a conflict.
+        ```AutoHotKey
+        Add(c)
+        ```
 
-> **type**: [GridGUI.Cell](../Cell/)
 
-> **name**: expander
+    !!! abstract ""
 
-> **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check for a conflict against.
+        :material-clipboard-text:{ .desc } Adds a [`GridGUI.Cell`](../Cell/) to the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members if the cell expands, that is if either [`GridGUI.Cell.exW`](../Cell/#exw) or [`GridGUI.Cell.exH`](../Cell/#exh) are non zero.
 
-> **type**: [GridGUI.Cell](../Cell/)
 
-####CheckOverlapping
-**desc**: Checks if the an expanding [`GridGUI.Cell`](../Cell/) overlaps another expanding cell and updates [`GridGUI.ExpanderArbitrator.Overlapping`](../ExpanderArbitrator/#overlapping) if they are. This function is intended for checking new expanding cells against already managed expanding cells.
 
-**args**:
+    ??? example "parameters"
 
-> **name**: c
+        !!! info ""
 
-> **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check if it overlaps `expander`.
+            **name**: c
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **desc**: The [`GridGUI.Cell`](../Cell/) to add to the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/).
 
-> **name**: expander
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check if it overlaps `c`.
+!!! note ""
+    ####CheckConflicts
+    !!! tip ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        ```AutoHotKey
+        CheckConflicts(c, expander)
+        ```
 
-####Init
-**desc**: Adds a expanding [`GridGUI.Cell`](../Cell/) to the members of this [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) so that they can be populated with data later.
 
-**args**:
+    !!! abstract ""
 
-> **name**: c
+        :material-clipboard-text:{ .desc } Checks if the an expanding [`GridGUI.Cell`](../Cell/) is in conflict with one another expanding cell and updates [`GridGUI.ExpanderArbitrator.ConflictLst`](../ExpanderArbitrator/#conflictlst) and [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) if they are. This function is intended for checking new expanding cells against already managed expanding cells.
 
-> **desc**: The expanding [`GridGUI.Cell`](../Cell/) to add to the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members.
 
-> **type**: [GridGUI.Cell](../Cell/)
 
-####InitCheck
-**desc**: Runs [`GridGUI.ExpanderArbitrator.CheckConflicts`](../ExpanderArbitrator/#checkconflicts) and [`GridGUI.ExpanderArbitrator.CheckOverlapping`](../ExpanderArbitrator/#checkoverlapping) for an expanding [`GridGUI.Cell`](../Cell/) against each cell in [`GridGUI.ExpanderArbitrator.Expanders`](../ExpanderArbitrator/#expanders)
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: c
+            **name**: c
 
-> **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check against the already managed expanding cells.
+            **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check for a conflict.
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **type**: [GridGUI.Cell](../Cell/)
 
-####IsExpander
-**desc**: Check if a [`GridGUI.Cell`](../Cell/) expands.
+        !!! info ""
 
-**args**:
+            **name**: expander
 
-> **name**: c
+            **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check for a conflict against.
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to check.
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **type**: [GridGUI.Cell](../Cell/)
+!!! note ""
+    ####CheckOverlapping
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        CheckOverlapping(c, expander)
+        ```
 
-> **desc**: Returns `true` if either [`GridGUI.Cell.exW`](../Cell/#exw) or [`GridGUI.Cell.exH`](../Cell/#exh) of `c` are non zero otherwise `false` is returned.
 
-> **type**: bool
+    !!! abstract ""
 
-####IsInHeightConflictWith
-**desc**: Checks if two [`GridGUI.Cell`](../Cell/)s are in vertical expanding conflict with each other.
+        :material-clipboard-text:{ .desc } Checks if the an expanding [`GridGUI.Cell`](../Cell/) overlaps another expanding cell and updates [`GridGUI.ExpanderArbitrator.Overlapping`](../ExpanderArbitrator/#overlapping) if they are. This function is intended for checking new expanding cells against already managed expanding cells.
 
-**args**:
 
-> **name**: c1
 
-> **desc**: A [`GridGUI.Cell`](../Cell/) to compare with `c2`.
+    ??? example "parameters"
 
-> **type**: [GridGUI.Cell](../Cell/)
+        !!! info ""
 
-> **name**: c2
+            **name**: c
 
-> **desc**: A [`GridGUI.Cell`](../Cell/) to compare with `c1`.
+            **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check if it overlaps `expander`.
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **type**: [GridGUI.Cell](../Cell/)
 
-**returns**:
+        !!! info ""
 
-> **desc**: Returns `true` if both `c1` and `c2` have non zero [`GridGUI.Cell.exH`](../Cell/#exh) and their [`GridGUI.Cell.gridpos`](../Cell/#gridpos) does not overlap along the y-axis. Otherwise `false` is returned.
+            **name**: expander
 
-> **type**: bool
+            **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check if it overlaps `c`.
 
-####IsInWidthConflictWith
-**desc**: Checks if two [`GridGUI.Cell`](../Cell/)s are in horisontal expanding conflict with each other.
+            **type**: [GridGUI.Cell](../Cell/)
 
-**args**:
+!!! note ""
+    ####Init
+    !!! tip ""
 
-> **name**: c1
+        ```AutoHotKey
+        Init(c)
+        ```
 
-> **desc**: A [`GridGUI.Cell`](../Cell/) to compare with `c2`.
 
-> **type**: [GridGUI.Cell](../Cell/)
+    !!! abstract ""
 
-> **name**: c2
+        :material-clipboard-text:{ .desc } Adds a expanding [`GridGUI.Cell`](../Cell/) to the members of this [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) so that they can be populated with data later.
 
-> **desc**: A [`GridGUI.Cell`](../Cell/) to compare with `c1`.
 
-> **type**: [GridGUI.Cell](../Cell/)
 
-**returns**:
+    ??? example "parameters"
 
-> **desc**: Returns `true` if both `c1` and `c2` have non zero [`GridGUI.Cell.exW`](../Cell/#exw) and their [`GridGUI.Cell.gridpos`](../Cell/#gridpos) does not overlap along the x-axis. Otherwise `false` is returned.
+        !!! info ""
 
-> **type**: bool
+            **name**: c
 
-####ReCalculate
-**desc**: Checks if the expanding [`GridGUI.ExpanderArbitrator.ReducedConflict`](../ExpanderArbitrator/#reducedconflict) has already been calculated, if not then it calculates it and updates the managed [`GridGUI.Cell`](../Cell/)s.
+            **desc**: The expanding [`GridGUI.Cell`](../Cell/) to add to the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members.
 
-####Reduce
-**desc**: Checks the [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) for expanders that can be ignored in certain cased and populates [`GridGUI.ExpanderArbitrator.ReducedConflict`](../ExpanderArbitrator/#reducedconflict) with the reduced conflict data.
+            **type**: [GridGUI.Cell](../Cell/)
 
-####Remove
-**desc**: Removes a [`GridGUI.Cell`](../Cell/) from the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members.
+!!! note ""
+    ####InitCheck
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        InitCheck(c)
+        ```
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/).
+    !!! abstract ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        :material-clipboard-text:{ .desc } Runs [`GridGUI.ExpanderArbitrator.CheckConflicts`](../ExpanderArbitrator/#checkconflicts) and [`GridGUI.ExpanderArbitrator.CheckOverlapping`](../ExpanderArbitrator/#checkoverlapping) for an expanding [`GridGUI.Cell`](../Cell/) against each cell in [`GridGUI.ExpanderArbitrator.Expanders`](../ExpanderArbitrator/#expanders)
 
-####SortConflicts
-**desc**: Sorts the [`GridGUI.ExpanderArbitrator.ConflictLst`](../ExpanderArbitrator/#conflictlst) by the grid size of the [`GridGUI.Cell`](../Cell/)s, that is by how many column and rows the cell spans over.
 
-####UnInit
-**desc**: Undoes what [`GridGUI.ExpanderArbitrator.Init`](../ExpanderArbitrator/#init) does, that is it Deletes all the objects that are indexed in the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members under a [`GridGUI.Cell`](../Cell/).
 
-**args**:
+    ??? example "parameters"
 
-> **name**: c
+        !!! info ""
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members.
+            **name**: c
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **desc**: The expanding [`GridGUI.Cell`](../Cell/) to check against the already managed expanding cells.
 
-####UnInitCheck
-**desc**: Undoes what [`GridGUI.ExpanderArbitrator.InitCheck`](../ExpanderArbitrator/#initcheck) does, that is it removes the [`GridGUI.Cell`](../Cell/) from the other cells managed by this [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/).
+            **type**: [GridGUI.Cell](../Cell/)
 
-**args**:
+!!! note ""
+    ####IsExpander
+    !!! tip ""
 
-> **name**: c
+        ```AutoHotKey
+        IsExpander(c)
+        ```
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members indexed under other cells.
 
-> **type**: [GridGUI.Cell](../Cell/)
+    !!! abstract ""
 
-####Update
-**desc**: Updates the [`GridGUI.Cell.othersW`](../Cell/#othersw) and [`GridGUI.Cell.othersH`](../Cell/#othersh) members of a [`GridGUI.Cell`](../Cell/) that is managed by this [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/).
+        :material-clipboard-text:{ .desc } Check if a [`GridGUI.Cell`](../Cell/) expands.
 
-**args**:
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to update.
+    ??? example "parameters"
 
-> **type**: [GridGUI.Cell](../Cell/)
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to check.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Returns `true` if either [`GridGUI.Cell.exW`](../Cell/#exw) or [`GridGUI.Cell.exH`](../Cell/#exh) of `c` are non zero otherwise `false` is returned.
+
+            **type**: bool
+
+!!! note ""
+    ####IsInHeightConflictWith
+    !!! tip ""
+
+        ```AutoHotKey
+        IsInHeightConflictWith(c1, c2)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Checks if two [`GridGUI.Cell`](../Cell/)s are in vertical expanding conflict with each other.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c1
+
+            **desc**: A [`GridGUI.Cell`](../Cell/) to compare with `c2`.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+        !!! info ""
+
+            **name**: c2
+
+            **desc**: A [`GridGUI.Cell`](../Cell/) to compare with `c1`.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Returns `true` if both `c1` and `c2` have non zero [`GridGUI.Cell.exH`](../Cell/#exh) and their [`GridGUI.Cell.gridpos`](../Cell/#gridpos) does not overlap along the y-axis. Otherwise `false` is returned.
+
+            **type**: bool
+
+!!! note ""
+    ####IsInWidthConflictWith
+    !!! tip ""
+
+        ```AutoHotKey
+        IsInWidthConflictWith(c1, c2)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Checks if two [`GridGUI.Cell`](../Cell/)s are in horisontal expanding conflict with each other.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c1
+
+            **desc**: A [`GridGUI.Cell`](../Cell/) to compare with `c2`.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+        !!! info ""
+
+            **name**: c2
+
+            **desc**: A [`GridGUI.Cell`](../Cell/) to compare with `c1`.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Returns `true` if both `c1` and `c2` have non zero [`GridGUI.Cell.exW`](../Cell/#exw) and their [`GridGUI.Cell.gridpos`](../Cell/#gridpos) does not overlap along the x-axis. Otherwise `false` is returned.
+
+            **type**: bool
+
+!!! note ""
+    ####ReCalculate
+    !!! tip ""
+
+        ```AutoHotKey
+        ReCalculate()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Checks if the expanding [`GridGUI.ExpanderArbitrator.ReducedConflict`](../ExpanderArbitrator/#reducedconflict) has already been calculated, if not then it calculates it and updates the managed [`GridGUI.Cell`](../Cell/)s.
+
+
+
+!!! note ""
+    ####Reduce
+    !!! tip ""
+
+        ```AutoHotKey
+        Reduce()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Checks the [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) for expanders that can be ignored in certain cased and populates [`GridGUI.ExpanderArbitrator.ReducedConflict`](../ExpanderArbitrator/#reducedconflict) with the reduced conflict data.
+
+
+
+!!! note ""
+    ####Remove
+    !!! tip ""
+
+        ```AutoHotKey
+        Remove(c)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Removes a [`GridGUI.Cell`](../Cell/) from the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/).
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####SortConflicts
+    !!! tip ""
+
+        ```AutoHotKey
+        SortConflicts()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Sorts the [`GridGUI.ExpanderArbitrator.ConflictLst`](../ExpanderArbitrator/#conflictlst) by the grid size of the [`GridGUI.Cell`](../Cell/)s, that is by how many column and rows the cell spans over.
+
+
+
+!!! note ""
+    ####UnInit
+    !!! tip ""
+
+        ```AutoHotKey
+        UnInit(c)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Undoes what [`GridGUI.ExpanderArbitrator.Init`](../ExpanderArbitrator/#init) does, that is it Deletes all the objects that are indexed in the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members under a [`GridGUI.Cell`](../Cell/).
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####UnInitCheck
+    !!! tip ""
+
+        ```AutoHotKey
+        UnInitCheck(c)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Undoes what [`GridGUI.ExpanderArbitrator.InitCheck`](../ExpanderArbitrator/#initcheck) does, that is it removes the [`GridGUI.Cell`](../Cell/) from the other cells managed by this [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/).
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/) members indexed under other cells.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####Update
+    !!! tip ""
+
+        ```AutoHotKey
+        Update(c)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Updates the [`GridGUI.Cell.othersW`](../Cell/#othersw) and [`GridGUI.Cell.othersH`](../Cell/#othersh) members of a [`GridGUI.Cell`](../Cell/) that is managed by this [`GridGUI.ExpanderArbitrator`](../ExpanderArbitrator/).
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to update.
+
+            **type**: [GridGUI.Cell](../Cell/)
 

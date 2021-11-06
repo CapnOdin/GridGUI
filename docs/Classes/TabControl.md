@@ -5,104 +5,205 @@
 ---
 ##Methods
 
-####__New
-**desc**: 
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __New(guiHwnd, options := "", text := "", preDrawOtherTabs := true, DPIScale := true, showGrid := false)
+        ```
 
-> **name**: guiHwnd
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-> **name**: options
 
-> **desc**: 
 
-> **type**: string
+    ??? example "parameters"
 
-> **name**: text
+        !!! info ""
 
-> **desc**: 
+            **name**: guiHwnd
 
-> **type**: string
+            **desc**: 
 
-> **name**: preDrawOtherTabs
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: bool
+            **name**: options
 
-> **name**: DPIScale
+            **desc**: 
 
-> **desc**: 
+            **type**: string
 
-> **type**: bool
+            **default**: ""
 
-> **name**: showGrid
+        !!! info ""
 
-> **desc**: 
+            **name**: text
 
-> **type**: bool
+            **desc**: 
 
-**returns**:
+            **type**: string
 
-> **desc**: 
+            **default**: ""
 
-> **type**: 
+        !!! info ""
 
-####__ParseTabLst
-**desc**: 
+            **name**: preDrawOtherTabs
 
-**args**:
+            **desc**: 
 
-> **name**: tablst
+            **type**: bool
 
-> **desc**: 
+            **default**: true
 
-> **type**: string|number|object
+        !!! info ""
 
-**returns**:
+            **name**: DPIScale
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: bool
 
-####Draw
-**desc**: 
+            **default**: true
 
-**args**:
+        !!! info ""
 
-> **name**: pos
+            **name**: showGrid
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string|number|object
+            **type**: bool
 
-**returns**:
+            **default**: false
 
-> **desc**: 
+    !!! question ""
 
-> **type**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####DrawSelectedTab
-**desc**: 
+            **desc**: 
 
-**returns**:
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####__ParseTabLst
+    !!! tip ""
 
-> **type**: 
+        ```AutoHotKey
+        __ParseTabLst(tablst)
+        ```
 
-####GetDisplayArea
-**desc**: 
 
-**returns**:
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: 
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: tablst
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####Draw
+    !!! tip ""
+
+        ```AutoHotKey
+        Draw(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####DrawSelectedTab
+    !!! tip ""
+
+        ```AutoHotKey
+        DrawSelectedTab()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetDisplayArea
+    !!! tip ""
+
+        ```AutoHotKey
+        GetDisplayArea()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 
 ##Classes
 

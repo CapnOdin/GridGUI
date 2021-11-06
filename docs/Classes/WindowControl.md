@@ -5,151 +5,295 @@
 ---
 ##Methods
 
-####__CheckIfClicked
-**desc**: 
+!!! note ""
+    ####__CheckIfClicked
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __CheckIfClicked(wParam, lParam, msg, hwnd)
+        ```
 
-> **name**: wParam
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-> **name**: lParam
 
-> **desc**: 
 
-> **type**: string|number|object
+    ??? example "parameters"
 
-> **name**: msg
+        !!! info ""
 
-> **desc**: 
+            **name**: wParam
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: hwnd
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: lParam
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: 
+        !!! info ""
 
-####__New
-**desc**: 
+            **name**: msg
 
-**args**:
+            **desc**: 
 
-> **name**: guiHwnd
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: hwnd
 
-> **name**: hwnd
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: string|number|object
+    !!! question ""
 
-> **name**: options
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string
+            **type**: 
 
-**returns**:
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        __New(guiHwnd, hwnd, options := "")
+        ```
 
-> **type**: 
 
-####__SetUpWindow
-**desc**: 
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: 
 
-####Control
-**desc**: 
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: subCommand
+            **name**: guiHwnd
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string|number|object
+            **type**: string|number|object
 
-> **name**: value
+        !!! info ""
 
-> **desc**: 
+            **name**: hwnd
 
-> **type**: string|number|object
+            **desc**: 
 
-**returns**:
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: 
+            **name**: options
 
-####ControlFocus
-**desc**: 
+            **desc**: 
 
-**returns**:
+            **type**: string
 
-> **desc**: 
+            **default**: ""
 
-> **type**: 
+    !!! question ""
 
-####ControlMove
-**desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**args**:
+            **desc**: 
 
-> **name**: pos
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####__SetUpWindow
+    !!! tip ""
 
-> **type**: string|number|object
+        ```AutoHotKey
+        __SetUpWindow()
+        ```
 
-**returns**:
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: 
+        :material-clipboard-text:{ .desc } 
 
-####Draw
-**desc**: 
 
-**args**:
 
-> **name**: pos
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string|number|object
+            **desc**: 
 
-**returns**:
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####Control
+    !!! tip ""
 
-> **type**: 
+        ```AutoHotKey
+        Control(subCommand, value)
+        ```
 
-####GetPos
-**desc**: 
 
-**returns**:
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: 
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: subCommand
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: value
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####ControlFocus
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlFocus()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####ControlMove
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlMove(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####Draw
+    !!! tip ""
+
+        ```AutoHotKey
+        Draw(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GetPos
+    !!! tip ""
+
+        ```AutoHotKey
+        GetPos()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

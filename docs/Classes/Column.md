@@ -5,255 +5,537 @@
 ---
 ##Members
 
-####catched
+!!! info ""
 
-> **desc**: Whether or not the members have already been calculate.
+    ####catched
+    !!! info ""
 
-> **type**: bool
+        **desc**: Whether or not the members have already been calculate.
 
-####cells
+        **type**: bool
 
-> **desc**: A collection of arrays of [`GridGUI.Cell`](../Cell/)s indexed by the index of the rows they are placed on.
+        **default**: false
 
-> **type**: Associative Array
+!!! info ""
 
-> **default**: {}
+    ####cells
+    !!! info ""
 
-####confligtingExpanders
+        **desc**: A collection of arrays of [`GridGUI.Cell`](../Cell/)s indexed by the index of the rows they are placed on.
 
-> **desc**: A collection of cells that have horisontal expansion conflicts.
+        **type**: Associative Array
 
-> **type**: Associative Array
+        **default**: {}
 
-> **default**: {}
+!!! info ""
 
-####expanderMaxValue
+    ####confligtingExpanders
+    !!! info ""
 
-> **desc**: The largest horisontal expansion weight in this column.
+        **desc**: A collection of cells that have horisontal expansion conflicts.
 
-> **type**: number
+        **type**: Associative Array
 
-####expanders
+        **default**: {}
 
-> **desc**: The sum of all the horisontal expansion weights of cells that are in this column.
+!!! info ""
 
-> **type**: number
+    ####expanderMaxValue
+    !!! info ""
 
-####fixedWidth
+        **desc**: The largest horisontal expansion weight in this column.
 
-> **desc**: The maximal fixed width of the cells, that is the largest fixed width for a cell in [`GridGUI.Column.cells`](../Column/#cells).
+        **type**: number
 
-> **type**: number
+        **default**: 0
 
-####index
+!!! info ""
 
-> **desc**: The index of the column in the grid.
+    ####expanders
+    !!! info ""
 
-> **type**: number
+        **desc**: The sum of all the horisontal expansion weights of cells that are in this column.
 
-####minWidth
+        **type**: number
 
-> **desc**: The maximal minimal width for the cells, that is the largest minimal width for a cell in [`GridGUI.Column.cells`](../Column/#cells).
+        **default**: 0
 
-> **type**: number
+!!! info ""
 
-####nonExpanders
+    ####fixedWidth
+    !!! info ""
 
-> **desc**: The amount of cells with fixed size in this column.
+        **desc**: The maximal fixed width of the cells, that is the largest fixed width for a cell in [`GridGUI.Column.cells`](../Column/#cells).
 
-> **type**: number
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####index
+    !!! info ""
+
+        **desc**: The index of the column in the grid.
+
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####minWidth
+    !!! info ""
+
+        **desc**: The maximal minimal width for the cells, that is the largest minimal width for a cell in [`GridGUI.Column.cells`](../Column/#cells).
+
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####nonExpanders
+    !!! info ""
+
+        **desc**: The amount of cells with fixed size in this column.
+
+        **type**: number
+
+        **default**: 0
 
 ##Methods
 
-####__CalculateConfligtingExpanders
-**desc**: Updates [`GridGUI.Column.confligtingExpanders`](../Column/#confligtingexpanders) with the [`GridGUI.Cell`](../Cell/) for a cell if it has horisontal conflicts.
+!!! note ""
+    ####__CalculateConfligtingExpanders
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __CalculateConfligtingExpanders(c)
+        ```
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
+    !!! abstract ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Column.confligtingExpanders`](../Column/#confligtingexpanders) with the [`GridGUI.Cell`](../Cell/) for a cell if it has horisontal conflicts.
 
-####__CalculateExpanders
-**desc**: Updates [`GridGUI.Column.expanders`](../Column/#expanders) with the result of [`GridGUI.Cell.GetExpansionWidthValue`](../Cell/#getexpansionwidthvalue) for a cell.
 
-**args**:
 
-> **name**: c
+    ??? example "parameters"
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
+        !!! info ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **name**: c
 
-####__CalculateFixedWidth
-**desc**: Updates [`GridGUI.Column.fixedWidth`](../Column/#fixedwidth) with the result of [`GridGUI.Cell.GetFixedWidth`](../Cell/#getfixedwidth) for a cell if it is larger than the previous value.
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-**args**:
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **name**: c
+!!! note ""
+    ####__CalculateExpanders
+    !!! tip ""
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
+        ```AutoHotKey
+        __CalculateExpanders(c)
+        ```
 
-> **type**: [GridGUI.Cell](../Cell/)
 
-####__CalculateMinWidth
-**desc**: Updates [`GridGUI.Column.minWidth`](../Column/#minwidth) with the result of [`GridGUI.Cell.GetNeededWidth`](../Cell/#getneededwidth) for a cell if it is larger than the previous value.
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Column.expanders`](../Column/#expanders) with the result of [`GridGUI.Cell.GetExpansionWidthValue`](../Cell/#getexpansionwidthvalue) for a cell.
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-> **type**: [GridGUI.Cell](../Cell/)
+    ??? example "parameters"
 
-####__CalculateNonExpanders
-**desc**: Increments [`GridGUI.Column.nonExpanders`](../Column/#nonexpanders) if the [`GridGUI.Cell`](../Cell/) does not expand horisontally.
+        !!! info ""
 
-**args**:
+            **name**: c
 
-> **name**: c
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **type**: [GridGUI.Cell](../Cell/)
+!!! note ""
+    ####__CalculateFixedWidth
+    !!! tip ""
 
-####__New
-**desc**: Constructor.
+        ```AutoHotKey
+        __CalculateFixedWidth(c)
+        ```
 
-**args**:
 
-> **name**: index
+    !!! abstract ""
 
-> **desc**: The index of the column in the grid.
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Column.fixedWidth`](../Column/#fixedwidth) with the result of [`GridGUI.Cell.GetFixedWidth`](../Cell/#getfixedwidth) for a cell if it is larger than the previous value.
 
-> **type**: number
 
-**returns**:
 
-> **desc**: A new [`GridGUI.Column`](../Column/) instance.
+    ??? example "parameters"
 
-> **type**: GridGUI.Column
+        !!! info ""
 
-####__ResetConstants
-**desc**: Resets the cached [`GridGUI.Column`](../Column/) members to their default values.
+            **name**: c
 
-####Add
-**desc**: Adds a [`GridGUI.Cell`](../Cell/) to the column.
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-**args**:
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **name**: c
+!!! note ""
+    ####__CalculateMinWidth
+    !!! tip ""
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to added to the column.
+        ```AutoHotKey
+        __CalculateMinWidth(c)
+        ```
 
-> **type**: [GridGUI.Cell](../Cell/)
 
-####CalculateConstants
-**desc**: Calculates the values for the [`GridGUI.Column`](../Column/) members that are cached.
+    !!! abstract ""
 
-####CalculateWidth
-**desc**: Calculates the width of the column.
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Column.minWidth`](../Column/#minwidth) with the result of [`GridGUI.Cell.GetNeededWidth`](../Cell/#getneededwidth) for a cell if it is larger than the previous value.
 
-**args**:
 
-> **name**: width
 
-> **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+    ??? example "parameters"
 
-> **type**: number
+        !!! info ""
 
-> **name**: expandersW
+            **name**: c
 
-> **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-> **type**: associative array
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **name**: nonExpandersW
+!!! note ""
+    ####__CalculateNonExpanders
+    !!! tip ""
 
-> **desc**: An array of the amount of fixed size cells in each column.
+        ```AutoHotKey
+        __CalculateNonExpanders(c)
+        ```
 
-> **type**: associative array
 
-> **name**: height
+    !!! abstract ""
 
-> **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+        :material-clipboard-text:{ .desc } Increments [`GridGUI.Column.nonExpanders`](../Column/#nonexpanders) if the [`GridGUI.Cell`](../Cell/) does not expand horisontally.
 
-> **type**: number
 
-> **name**: expandersH
 
-> **desc**: An array of the sum of vertical expansion weights for each row.
+    ??? example "parameters"
 
-> **type**: associative array
+        !!! info ""
 
-> **name**: nonExpandersH
+            **name**: c
 
-> **desc**: An array of the amount of fixed size cells in each row.
+            **desc**: The [`GridGUI.Cell`](../Cell/) to retrieve the value from.
 
-> **type**: associative array
+            **type**: [GridGUI.Cell](../Cell/)
 
-**returns**:
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: The width of the column.
+        ```AutoHotKey
+        __New(index)
+        ```
 
-> **type**: number
 
-####GetExpanderMaxValue
-**desc**: Getter for [`GridGUI.Column.expanderMaxValue`](../Column/#expandermaxvalue).
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **desc**: The largest horisontal expansion weight of a cell in the column.
 
-> **type**: number
 
-####GetExpanders
-**desc**: Getter for [`GridGUI.Column.expanders`](../Column/#expanders).
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: The sum of horisontal expansion weight of cells in the column.
+            **name**: index
 
-> **type**: number
+            **desc**: The index of the column in the grid.
 
-####GetFixedWidth
-**desc**: Getter for [`GridGUI.Column.fixedWidth`](../Column/#fixedwidth).
+            **type**: number
 
-**returns**:
+    !!! question ""
 
-> **desc**: The largest fixed width of a cell in the column.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: number
+            **desc**: A new [`GridGUI.Column`](../Column/) instance.
 
-####GetMinWidth
-**desc**: Getter for [`GridGUI.Column.minWidth`](../Column/#minwidth).
+            **type**: [GridGUI.Column](../Column/)
 
-**returns**:
+!!! note ""
+    ####__ResetConstants
+    !!! tip ""
 
-> **desc**: The largest minimal width of a cell in the column.
+        ```AutoHotKey
+        __ResetConstants()
+        ```
 
-> **type**: number
 
-####GetNonExpanders
-**desc**: Getter for [`GridGUI.Column.nonExpanders`](../Column/#nonexpanders).
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } Resets the cached [`GridGUI.Column`](../Column/) members to their default values.
 
-> **desc**: The amount of cells with fixed width in the column.
 
-> **type**: number
 
-####Remove
-**desc**: Removes a [`GridGUI.Cell`](../Cell/) from the column.
+!!! note ""
+    ####Add
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        Add(c)
+        ```
 
-> **name**: c
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the column.
+    !!! abstract ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+        :material-clipboard-text:{ .desc } Adds a [`GridGUI.Cell`](../Cell/) to the column.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to added to the column.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####CalculateConstants
+    !!! tip ""
+
+        ```AutoHotKey
+        CalculateConstants()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the values for the [`GridGUI.Column`](../Column/) members that are cached.
+
+
+
+!!! note ""
+    ####CalculateWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        CalculateWidth(width, expandersW, nonExpandersW, height, expandersH, nonExpandersH)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the width of the column.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: width
+
+            **desc**: The unclaimed width of the grid, that is the width of the GUI or subgrid left after removing the width of the fixed cells.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersW
+
+            **desc**: An array of the sum of horisontal expansion weights for each column.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: nonExpandersW
+
+            **desc**: An array of the amount of fixed size cells in each column.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: height
+
+            **desc**: The unclaimed height of the grid, that is the height of the grid or subgrid left after removing the height of the fixed cells.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersH
+
+            **desc**: An array of the sum of vertical expansion weights for each row.
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: nonExpandersH
+
+            **desc**: An array of the amount of fixed size cells in each row.
+
+            **type**: associative array
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The width of the column.
+
+            **type**: number
+
+!!! note ""
+    ####GetExpanderMaxValue
+    !!! tip ""
+
+        ```AutoHotKey
+        GetExpanderMaxValue()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Column.expanderMaxValue`](../Column/#expandermaxvalue).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The largest horisontal expansion weight of a cell in the column.
+
+            **type**: number
+
+!!! note ""
+    ####GetExpanders
+    !!! tip ""
+
+        ```AutoHotKey
+        GetExpanders()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Column.expanders`](../Column/#expanders).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The sum of horisontal expansion weight of cells in the column.
+
+            **type**: number
+
+!!! note ""
+    ####GetFixedWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        GetFixedWidth()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Column.fixedWidth`](../Column/#fixedwidth).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The largest fixed width of a cell in the column.
+
+            **type**: number
+
+!!! note ""
+    ####GetMinWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        GetMinWidth()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Column.minWidth`](../Column/#minwidth).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The largest minimal width of a cell in the column.
+
+            **type**: number
+
+!!! note ""
+    ####GetNonExpanders
+    !!! tip ""
+
+        ```AutoHotKey
+        GetNonExpanders()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Getter for [`GridGUI.Column.nonExpanders`](../Column/#nonexpanders).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The amount of cells with fixed width in the column.
+
+            **type**: number
+
+!!! note ""
+    ####Remove
+    !!! tip ""
+
+        ```AutoHotKey
+        Remove(c)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Removes a [`GridGUI.Cell`](../Cell/) from the column.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the column.
+
+            **type**: [GridGUI.Cell](../Cell/)
 

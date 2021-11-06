@@ -5,338 +5,631 @@
 ---
 ##Methods
 
-####__CleanUp
-**desc**: 
+!!! note ""
+    ####__CleanUp
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __CleanUp()
+        ```
 
-> **desc**: 
 
-> **type**: 
+    !!! abstract ""
 
-####__CreateCompatibleDC
-**desc**: 
+        :material-clipboard-text:{ .desc } 
 
-**args**:
 
-> **name**: hdc
 
-> **desc**: 
+    !!! question ""
 
-> **type**: number
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: 
+!!! note ""
+    ####__CreateCompatibleDC
+    !!! tip ""
 
-####__CreateDIBSection
-**desc**: 
+        ```AutoHotKey
+        __CreateCompatibleDC(hdc := 0)
+        ```
 
-**args**:
 
-> **name**: w
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: string|number|object
 
-> **name**: h
 
-> **desc**: 
+    ??? example "parameters"
 
-> **type**: string|number|object
+        !!! info ""
 
-> **name**: bpp
+            **name**: hdc
 
-> **desc**: 
+            **desc**: 
 
-> **type**: number
+            **type**: number
 
-> **default**: 32
+            **default**: 0
 
-> **name**: ByRef
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string
+            **desc**: 
 
-> **default**: ppvBits
+            **type**: 
 
-**returns**:
+!!! note ""
+    ####__CreateDIBSection
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        __CreateDIBSection(w, h, bpp := 32, ByRef := ppvBits)
+        ```
 
-> **type**: 
 
-####__CreateRect
-**desc**: 
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } 
 
-> **name**: ByRef
 
-> **desc**: 
 
-> **type**: string
+    ??? example "parameters"
 
-> **default**: Rect
+        !!! info ""
 
-> **name**: x
+            **name**: w
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string|number|object
+            **type**: string|number|object
 
-> **name**: y
+        !!! info ""
 
-> **desc**: 
+            **name**: h
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: w
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: bpp
 
-> **name**: h
+            **desc**: 
 
-> **desc**: 
+            **type**: number
 
-> **type**: string|number|object
+            **default**: 32
 
-**returns**:
+        !!! info ""
 
-> **desc**: 
+            **name**: ByRef
 
-> **type**: 
+            **desc**: 
 
-####__DeleteDC
-**desc**: 
+            **type**: string
 
-**args**:
+            **default**: ppvBits
 
-> **name**: hDC
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string|number|object
+            **desc**: 
 
-**returns**:
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####__CreateRect
+    !!! tip ""
 
-> **type**: 
+        ```AutoHotKey
+        __CreateRect(ByRef := Rect, x, y, w, h)
+        ```
 
-####__DeleteGraphics
-**desc**: 
 
-**args**:
+    !!! abstract ""
 
-> **name**: pGraphics
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: string|number|object
 
-**returns**:
+    ??? example "parameters"
 
-> **desc**: 
+        !!! info ""
 
-> **type**: 
+            **name**: ByRef
 
-####__DeleteObject
-**desc**: 
+            **desc**: 
 
-**args**:
+            **type**: string
 
-> **name**: hObject
+            **default**: Rect
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: x
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: 
+        !!! info ""
 
-####__GraphicsFromHDC
-**desc**: 
+            **name**: y
 
-**args**:
+            **desc**: 
 
-> **name**: hdc
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: w
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: 
+        !!! info ""
 
-####__New
-**desc**: 
+            **name**: h
 
-**args**:
+            **desc**: 
 
-> **name**: guiHwnd
+            **type**: string|number|object
 
-> **desc**: 
+    !!! question ""
 
-> **type**: string|number|object
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: options
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: string|number|object
+!!! note ""
+    ####__DeleteDC
+    !!! tip ""
 
-> **name**: graphic
+        ```AutoHotKey
+        __DeleteDC(hDC)
+        ```
 
-> **desc**: 
 
-> **type**: bool
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: 
 
-####__Prepare
-**desc**: 
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: area
+            **name**: hDC
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string|number|object
+            **type**: string|number|object
 
-**returns**:
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: 
+            **desc**: 
 
-####__SelectObject
-**desc**: 
+            **type**: 
 
-**args**:
+!!! note ""
+    ####__DeleteGraphics
+    !!! tip ""
 
-> **name**: hdc
+        ```AutoHotKey
+        __DeleteGraphics(pGraphics)
+        ```
 
-> **desc**: 
 
-> **type**: string|number|object
+    !!! abstract ""
 
-> **name**: hgdiobj
+        :material-clipboard-text:{ .desc } 
 
-> **desc**: 
 
-> **type**: string|number|object
 
-**returns**:
+    ??? example "parameters"
 
-> **desc**: 
+        !!! info ""
 
-> **type**: 
+            **name**: pGraphics
 
-####__UpdateLayeredWindow
-**desc**: 
+            **desc**: 
 
-**args**:
+            **type**: string|number|object
 
-> **name**: hwnd
+    !!! question ""
 
-> **desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: hdc
+            **type**: 
 
-> **desc**: 
+!!! note ""
+    ####__DeleteObject
+    !!! tip ""
 
-> **type**: string|number|object
+        ```AutoHotKey
+        __DeleteObject(hObject)
+        ```
 
-> **name**: x
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } 
 
-> **name**: y
 
-> **desc**: 
 
-> **type**: string
+    ??? example "parameters"
 
-> **name**: w
+        !!! info ""
 
-> **desc**: 
+            **name**: hObject
 
-> **type**: string
+            **desc**: 
 
-> **name**: h
+            **type**: string|number|object
 
-> **desc**: 
+    !!! question ""
 
-> **type**: string
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: Alpha
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: number
+!!! note ""
+    ####__GraphicsFromHDC
+    !!! tip ""
 
-> **default**: 255
+        ```AutoHotKey
+        __GraphicsFromHDC(hdc)
+        ```
 
-**returns**:
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: 
+        :material-clipboard-text:{ .desc } 
 
-####Draw
-**desc**: 
 
-**args**:
 
-> **name**: pos
+    ??? example "parameters"
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: hdc
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: 
+    !!! question ""
 
-####GDIDraw
-**desc**: 
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: 
+!!! note ""
+    ####__New
+    !!! tip ""
 
-####UpdateGraphic
-**desc**: 
+        ```AutoHotKey
+        __New(guiHwnd, options, graphic := false)
+        ```
 
-**returns**:
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: 
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: guiHwnd
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: options
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: graphic
+
+            **desc**: 
+
+            **type**: bool
+
+            **default**: false
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####__Prepare
+    !!! tip ""
+
+        ```AutoHotKey
+        __Prepare(area)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: area
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####__SelectObject
+    !!! tip ""
+
+        ```AutoHotKey
+        __SelectObject(hdc, hgdiobj)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: hdc
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: hgdiobj
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####__UpdateLayeredWindow
+    !!! tip ""
+
+        ```AutoHotKey
+        __UpdateLayeredWindow(hwnd, hdc, x := "", y := "", w := "", h := "", Alpha := 255)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: hwnd
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: hdc
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: x
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: y
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: w
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: h
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: Alpha
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 255
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####Draw
+    !!! tip ""
+
+        ```AutoHotKey
+        Draw(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####GDIDraw
+    !!! tip ""
+
+        ```AutoHotKey
+        GDIDraw()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####UpdateGraphic
+    !!! tip ""
+
+        ```AutoHotKey
+        UpdateGraphic()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

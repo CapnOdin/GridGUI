@@ -5,247 +5,516 @@
 ---
 ##Members
 
-####hwnd
+!!! info ""
 
-> **desc**: The hwnd of the associated control.
+    ####hwnd
+    !!! info ""
 
-> **type**: hwnd
+        **desc**: The hwnd of the associated control.
 
-####minHeight
+        **type**: hwnd
 
-> **desc**: Whether or not the control has had its height set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
+!!! info ""
 
-> **type**: bool
+    ####minHeight
+    !!! info ""
 
-####minHeightVal
+        **desc**: Whether or not the control has had its height set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
 
-> **desc**: The height value set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
+        **type**: bool
 
-> **type**: number|false
+        **default**: false
 
-####minWidth
+!!! info ""
 
-> **desc**: Whether or not the control has had its width set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
+    ####minHeightVal
+    !!! info ""
 
-> **type**: bool
+        **desc**: The height value set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
 
-####minWidthVal
+        **type**: number|false
 
-> **desc**: The width value set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
+        **default**: false
 
-> **type**: number|false
+!!! info ""
+
+    ####minWidth
+    !!! info ""
+
+        **desc**: Whether or not the control has had its width set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
+
+        **type**: bool
+
+        **default**: false
+
+!!! info ""
+
+    ####minWidthVal
+    !!! info ""
+
+        **desc**: The width value set using [`GridGUI.ControlClass.__ParseOptions`](../ControlClass/#__parseoptions).
+
+        **type**: number|false
+
+        **default**: false
 
 ##Methods
 
-####__Init
-**desc**: Initialises the [`GridGUI.ControlClass`](../ControlClass/) members.
+!!! note ""
+    ####__Init
+    !!! tip ""
 
-####__New
-**desc**: Constructor.
+        ```AutoHotKey
+        __Init()
+        ```
 
-**args**:
 
-> **name**: hwnd
+    !!! abstract ""
 
-> **desc**: The hwnd of the control.
+        :material-clipboard-text:{ .desc } Initialises the [`GridGUI.ControlClass`](../ControlClass/) members.
 
-> **type**: hwnd
 
-**returns**:
 
-> **desc**: A new [`GridGUI.ControlClass`](../ControlClass/) instance.
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **type**: GridGUI.ControlClass
+        ```AutoHotKey
+        __New(hwnd)
+        ```
 
-####__ParseOptions
-**desc**: Parses option strings for values that are used by the class and updated the instance based on the values.
 
-**args**:
+    !!! abstract ""
 
-> **name**: options
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **desc**: The options that will be parsed, values handled by the lib will be acted on and removed.
 
-> **type**: string
 
-**returns**:
+    ??? example "parameters"
 
-> **desc**: The option string without the parts that the class handles.
+        !!! info ""
 
-> **type**: string
+            **name**: hwnd
 
-####Control
-**desc**: A thin function wrapper for `Control`.
+            **desc**: The hwnd of the control.
 
-**args**:
+            **type**: hwnd
 
-> **name**: subCommand
+    !!! question ""
 
-> **desc**: The subcommand to set for the control. See link for available subcommands.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string
+            **desc**: A new [`GridGUI.ControlClass`](../ControlClass/) instance.
 
-> **name**: value
+            **type**: [GridGUI.ControlClass](../ControlClass/)
 
-> **desc**: The value to apply to the subcommand. See link for values used in the subcommands.
+!!! note ""
+    ####__ParseOptions
+    !!! tip ""
 
-> **type**: string|number
+        ```AutoHotKey
+        __ParseOptions(options)
+        ```
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm)
 
-####ControlClick
-**desc**: A thin function wrapper for `ControlClick`.
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } Parses option strings for values that are used by the class and updated the instance based on the values.
 
-> **name**: pos
 
-> **desc**: The position to click at in the control, see link for the coordinate format.
 
-> **type**: string
+    ??? example "parameters"
 
-> **name**: WhichButton
+        !!! info ""
 
-> **desc**: Which mouse button to click, see link for supported values.
+            **name**: options
 
-> **type**: string
+            **desc**: The options that will be parsed, values handled by the lib will be acted on and removed.
 
-> **default**: LEFT
+            **type**: string
 
-> **name**: ClickCount
+    !!! question ""
 
-> **desc**: The number of click to perform.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: number
+            **desc**: The option string without the parts that the class handles.
 
-> **default**: 1
+            **type**: string
 
-> **name**: Options
+!!! note ""
+    ####Control
+    !!! tip ""
 
-> **desc**: A option string to change how the click are performed, see link for supported options.
+        ```AutoHotKey
+        Control(subCommand, value)
+        ```
 
-> **type**: string
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ControlClick.htm)
+    !!! abstract ""
 
-####ControlFocus
-**desc**: A thin function wrapper for `ControlFocus`.
+        :material-clipboard-text:{ .desc } A thin function wrapper for `Control`.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ControlFocus.htm)
 
-####ControlGet
-**desc**: A thin function wrapper for `ControlGet`.
 
-**args**:
+    ??? example "parameters"
 
-> **name**: subCommand
+        !!! info ""
 
-> **desc**: The subcommand to retrieve from the control. See link for available subcommands.
+            **name**: subCommand
 
-> **type**: string
+            **desc**: The subcommand to set for the control. See link for available subcommands.
 
-> **name**: value
+            **type**: string
 
-> **desc**: Used to specify what to retrieve when the subcommand is not specific enough.
+            **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm#SubCommands)
 
-> **type**: string
+        !!! info ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ControlGet.htm)
+            **name**: value
 
-**returns**:
+            **desc**: The value to apply to the subcommand. See link for values used in the subcommands.
 
-> **desc**: The retrieved value.
+            **type**: string|number
 
-> **type**: any
+            **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm#SubCommands)
 
-####ControlGetPos
-**desc**: A thin function wrapper for `ControlGetPos`, except that it returns a [`GridGUI.Position`](../Position/) instance.
+    **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm)
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetPos.htm)
+!!! note ""
+    ####ControlClick
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        ControlClick(pos := "", WhichButton := LEFT, ClickCount := 1, Options := "")
+        ```
 
-> **desc**: The position and size of the control.
 
-> **type**: GridGUI.Position
+    !!! abstract ""
 
-####ControlGetText
-**desc**: A thin function wrapper for `ControlGetText`.
+        :material-clipboard-text:{ .desc } A thin function wrapper for `ControlClick`.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetText.htm)
 
-**returns**:
 
-> **desc**: The text of the control.
+    ??? example "parameters"
 
-> **type**: string
+        !!! info ""
 
-####ControlMove
-**desc**: A thin function wrapper for `ControlMove`, except that it takes a [`GridGUI.Position`](../Position/) instance as argument.
+            **name**: pos
 
-**args**:
+            **desc**: The position to click at in the control, see link for the coordinate format.
 
-> **name**: pos
+            **type**: string
 
-> **desc**: The position and size that the control should be moved and resized to.
+            **default**: ""
 
-> **type**: [GridGUI.Position](../Position/)
+            **link**: [link](https://www.autohotkey.com/docs/commands/ControlClick.htm#Parameters)
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ControlMove.htm)
+        !!! info ""
 
-####ControlSend
-**desc**: A thin function wrapper for `ControlSend`.
+            **name**: WhichButton
 
-**args**:
+            **desc**: Which mouse button to click, see link for supported values.
 
-> **name**: keys
+            **type**: string
 
-> **desc**: The sequence of keys to send, use `{keyname}` for non printable keys.
+            **default**: LEFT
 
-> **type**: string
+            **link**: [link](https://www.autohotkey.com/docs/commands/ControlClick.htm#Parameters)
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ControlSend.htm)
+        !!! info ""
 
-####ControlSetText
-**desc**: A thin function wrapper for `ControlSetText`.
+            **name**: ClickCount
 
-**args**:
+            **desc**: The number of click to perform.
 
-> **name**: NewText
+            **type**: number
 
-> **desc**: The text to set the text of the control to.
+            **default**: 1
 
-> **type**: string
+        !!! info ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ControlSetText.htm)
+            **name**: Options
 
-####Options
-**desc**: Applies styles to the control using `Control, Style`.
+            **desc**: A option string to change how the click are performed, see link for supported options.
 
-**args**:
+            **type**: string
 
-> **name**: options
+            **default**: ""
 
-> **desc**: The style number string to apply. See link for available styles.
+            **link**: [link](https://www.autohotkey.com/docs/commands/ControlClick.htm#Parameters)
 
-> **type**: string
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlClick.htm)
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm#Style)
+!!! note ""
+    ####ControlFocus
+    !!! tip ""
 
-####ToStr
-**desc**: Converts the object to a string.
+        ```AutoHotKey
+        ControlFocus()
+        ```
 
-**args**:
 
-> **name**: indent
+    !!! abstract ""
 
-> **desc**: The amount of indentation to add on each line.
+        :material-clipboard-text:{ .desc } A thin function wrapper for `ControlFocus`.
 
-> **type**: string
 
-**returns**:
 
-> **desc**: A string representing this [`GridGUI.ControlClass`](../ControlClass/).
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlFocus.htm)
 
-> **type**: string
+!!! note ""
+    ####ControlGet
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlGet(subCommand := "", value := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin function wrapper for `ControlGet`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: subCommand
+
+            **desc**: The subcommand to retrieve from the control. See link for available subcommands.
+
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/ControlGet.htm#SubCommands)
+
+        !!! info ""
+
+            **name**: value
+
+            **desc**: Used to specify what to retrieve when the subcommand is not specific enough.
+
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/ControlGet.htm#SubCommands)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGet.htm)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The retrieved value.
+
+            **type**: any
+
+!!! note ""
+    ####ControlGetPos
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlGetPos()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin function wrapper for `ControlGetPos`, except that it returns a [`GridGUI.Position`](../Position/) instance.
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetPos.htm)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The position and size of the control.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####ControlGetText
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlGetText()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin function wrapper for `ControlGetText`.
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetText.htm)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The text of the control.
+
+            **type**: string
+
+!!! note ""
+    ####ControlMove
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlMove(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin function wrapper for `ControlMove`, except that it takes a [`GridGUI.Position`](../Position/) instance as argument.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The position and size that the control should be moved and resized to.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlMove.htm)
+
+!!! note ""
+    ####ControlSend
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlSend(keys)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin function wrapper for `ControlSend`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: keys
+
+            **desc**: The sequence of keys to send, use `{keyname}` for non printable keys.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/ControlSend.htm#Parameters)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlSend.htm)
+
+!!! note ""
+    ####ControlSetText
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlSetText(NewText)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin function wrapper for `ControlSetText`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: NewText
+
+            **desc**: The text to set the text of the control to.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/ControlSetText.htm#Parameters)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlSetText.htm)
+
+!!! note ""
+    ####Options
+    !!! tip ""
+
+        ```AutoHotKey
+        Options(options)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Applies styles to the control using `Control, Style`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: options
+
+            **desc**: The style number string to apply. See link for available styles.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/misc/Styles.htm)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm#Style)
+
+!!! note ""
+    ####ToStr
+    !!! tip ""
+
+        ```AutoHotKey
+        ToStr(indent := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Converts the object to a string.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: indent
+
+            **desc**: The amount of indentation to add on each line.
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A string representing this [`GridGUI.ControlClass`](../ControlClass/).
+
+            **type**: string
 

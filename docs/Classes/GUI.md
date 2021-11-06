@@ -5,712 +5,1450 @@
 ---
 ##Members
 
-####BackgroundCtrls
+!!! info ""
 
-> **desc**: An array of controls that should be lowered below all newly added controls and which have the style `WS_CLIPSIBLINGS` applied. To register a background control see [`GridGUI.GUI.RegisterBackground`](../GUI/#registerbackground).
+    ####BackgroundCtrls
+    !!! info ""
 
-> **type**: array
+        **desc**: An array of controls that should be lowered below all newly added controls and which have the style `WS_CLIPSIBLINGS` applied. To register a background control see [`GridGUI.GUI.RegisterBackground`](../GUI/#registerbackground).
 
-> **default**: []
+        **type**: array
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles)
+        **default**: []
 
-####DPIScale
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles)
 
-> **desc**: Whether or not to correct for non standard dpi.
+!!! info ""
 
-> **type**: bool
+    ####DPIScale
+    !!! info ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#DPIScale)
+        **desc**: Whether or not to correct for non standard dpi.
 
-####DropTarges
+        **type**: bool
 
-> **desc**: An object of hwnds mapping to callbacks that will be call on `WM_DROPFILES` if the event was on a control with the corresponding hwnd. To register a callback see [`GridGUI.GUI.RegisterDropTarget`](../GUI/#registerdroptarget).
+        **default**: true
 
-> **type**: object
+        **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#DPIScale)
 
-> **default**: {}
+!!! info ""
 
-####ForegroundCtrls
+    ####DropTarges
+    !!! info ""
 
-> **desc**: An array of controls that should be raised above all newly added controls and which are redrawn after other controls have been drawn. To register a foreground control see [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground).
+        **desc**: An object of hwnds mapping to callbacks that will be call on `WM_DROPFILES` if the event was on a control with the corresponding hwnd. To register a callback see [`GridGUI.GUI.RegisterDropTarget`](../GUI/#registerdroptarget).
 
-> **type**: array
+        **type**: object
 
-> **default**: []
+        **default**: {}
 
-####GuiActivate
+!!! info ""
 
-> **desc**: The callback that will be called on `WM_ACTIVATE`.
+    ####ForegroundCtrls
+    !!! info ""
 
-> **type**: Func|BoundFunc|false
+        **desc**: An array of controls that should be raised above all newly added controls and which are redrawn after other controls have been drawn. To register a foreground control see [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground).
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate)
+        **type**: array
 
-####GuiClose
+        **default**: []
 
-> **desc**: The callback that will be called on `WM_SYSCOMMAND` if `wParam` equals `SC_CLOSE`.
+!!! info ""
 
-> **type**: Func|BoundFunc|false
+    ####GuiActivate
+    !!! info ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiClose)
+        **desc**: The callback that will be called on `WM_ACTIVATE`.
 
-####GuiContextMenu
+        **type**: Func|BoundFunc|false
 
-> **desc**: The callback that will be called on `WM_CONTEXTMENU`.
+        **default**: false
 
-> **type**: Func|BoundFunc|false
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate)
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiContextMenu)
+!!! info ""
 
-####GuiMoved
+    ####GuiClose
+    !!! info ""
 
-> **desc**: The callback that will be called on `WM_MOVE`.
+        **desc**: The callback that will be called on `WM_SYSCOMMAND` if `wParam` equals `SC_CLOSE`.
 
-> **type**: Func|BoundFunc|false
+        **type**: Func|BoundFunc|false
 
-> **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move)
+        **default**: false
 
-####GuiMovedDelay
+        **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiClose)
 
-> **desc**: The delay to wait before the user defined callback [`GridGUI.GUI.GuiMoved`](../GUI/#guimoved) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
+!!! info ""
 
-> **type**: number
+    ####GuiContextMenu
+    !!! info ""
 
-> **default**: 50
+        **desc**: The callback that will be called on `WM_CONTEXTMENU`.
 
-####GuiSize
+        **type**: Func|BoundFunc|false
 
-> **desc**: The callback that will be called on `WM_SIZE`.
+        **default**: false
 
-> **type**: Func|BoundFunc|false
+        **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiContextMenu)
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiSize)
+!!! info ""
 
-####GuiSizeDelay
+    ####GuiMoved
+    !!! info ""
 
-> **desc**: The delay to wait before the user defined callback [`GridGUI.GUI.GuiSize`](../GUI/#guisize) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
+        **desc**: The callback that will be called on `WM_MOVE`.
 
-> **type**: number
+        **type**: Func|BoundFunc|false
 
-> **default**: 50
+        **default**: false
 
-####OnPaintDelay
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move)
 
-> **desc**: The delay to wait before the callback that redraws the controls in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
+!!! info ""
 
-> **type**: number
+    ####GuiMovedDelay
+    !!! info ""
 
-> **default**: 10
+        **desc**: The delay to wait before the user defined callback [`GridGUI.GUI.GuiMoved`](../GUI/#guimoved) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
 
-####pos
+        **type**: number
 
-> **desc**: The position of this GUI.
+        **default**: 50
 
-> **type**: [GridGUI.Position](../Position/)
+!!! info ""
 
-> **default**: GridGUI.Position(0, 0)
+    ####GuiSize
+    !!! info ""
+
+        **desc**: The callback that will be called on `WM_SIZE`.
+
+        **type**: Func|BoundFunc|false
+
+        **default**: false
+
+        **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiSize)
+
+!!! info ""
+
+    ####GuiSizeDelay
+    !!! info ""
+
+        **desc**: The delay to wait before the user defined callback [`GridGUI.GUI.GuiSize`](../GUI/#guisize) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
+
+        **type**: number
+
+        **default**: 50
+
+!!! info ""
+
+    ####OnPaintDelay
+    !!! info ""
+
+        **desc**: The delay to wait before the callback that redraws the controls in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls) will be called. A delay of **0** will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.
+
+        **type**: number
+
+        **default**: 10
+
+!!! info ""
+
+    ####pos
+    !!! info ""
+
+        **desc**: The position of this GUI.
+
+        **type**: [GridGUI.Position](../Position/)
+
+        **default**: GridGUI.Position(0, 0)
 
 ##Methods
 
-####__CheckOptions
-**desc**: Parses option strings for values that are used by the class and updated the instance based on the values.
+!!! note ""
+    ####__CheckOptions
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __CheckOptions(options)
+        ```
 
-> **name**: options
 
-> **desc**: An ahk GUI option string.
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } Parses option strings for values that are used by the class and updated the instance based on the values.
 
-**returns**:
 
-> **desc**: The `options` argument minus anything that class handles, currently only `gLabels` are removed.
 
-> **type**: string
+    ??? example "parameters"
 
-####__DPIScale
-**desc**: Scale a position by the dpi ratio, that is `A_ScreenDPI / 96`.
+        !!! info ""
 
-**args**:
+            **name**: options
 
-> **name**: pos
+            **desc**: An ahk GUI option string.
 
-> **desc**: The [`GridGUI.Position`](../Position/) instance to scale.
+            **type**: string
 
-> **type**: [GridGUI.Position](../Position/)
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Options)
 
-> **name**: enlarge
+    !!! question ""
 
-> **desc**: Whether to increase or decrease the size of `pos`.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: bool
+            **desc**: The `options` argument minus anything that class handles, currently only `gLabels` are removed.
 
-**returns**:
+            **type**: string
 
-> **desc**: The scaled position.
+!!! note ""
+    ####__DPIScale
+    !!! tip ""
 
-> **type**: GridGUI.Position
+        ```AutoHotKey
+        __DPIScale(pos, enlarge := true)
+        ```
 
-####__GuiActivate
-**desc**: The internal callback on `WM_ACTIVATE` that calls the user defined [`GridGUI.GUI.GuiActivate`](../GUI/#guiactivate) if it evaluates to true. The callback is called with the low-order word of `wParam`.
 
-**args**:
+    !!! abstract ""
 
-> **name**: wParam
+        :material-clipboard-text:{ .desc } Scale a position by the dpi ratio, that is `A_ScreenDPI / 96`.
 
-> **desc**: Low-order word is the active state of the changed window, the high-order word is whether the window was minimised. If the low-order word is **1** the window was activated, if it is **2** the window was activated by a mouse click and if it is **0** the window is deactivated.
 
-> **type**: number
 
-> **name**: lParam
+    ??? example "parameters"
 
-> **desc**: The hwnd of the window where the active state of the window changed.
+        !!! info ""
 
-> **type**: number
+            **name**: pos
 
-> **name**: msg
+            **desc**: The [`GridGUI.Position`](../Position/) instance to scale.
 
-> **desc**: WM_ACTIVATE (0x0006).
+            **type**: [GridGUI.Position](../Position/)
 
-> **type**: number
+        !!! info ""
 
-> **name**: hwnd
+            **name**: enlarge
 
-> **desc**: The hwnd of the window or control that recieved the message.
+            **desc**: Whether to increase or decrease the size of `pos`.
 
-> **type**: hwnd
+            **type**: bool
 
-####__GuiContextMenu
-**desc**: The internal callback on `WM_CONTEXTMENU` that calls the user defined [`GridGUI.GUI.GuiContextMenu`](../GUI/#guicontextmenu) if it evaluates to true. The callback is called with the clicked coordinate as a [`GridGUI.Position`](../Position/) and with the hwnd of the windows that was right-clicked.
+            **default**: true
 
-**args**:
+    !!! question ""
 
-> **name**: wParam
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: The hwnd of the windows that was right-clicked.
+            **desc**: The scaled position.
 
-> **type**: hwnd
+            **type**: [GridGUI.Position](../Position/)
 
-> **name**: lParam
+!!! note ""
+    ####__GuiActivate
+    !!! tip ""
 
-> **desc**: The clicked coordinate. The low-order word is the x coordinate. The high-order word is the y coordinate.
+        ```AutoHotKey
+        __GuiActivate(wParam, lParam, msg, hwnd)
+        ```
 
-> **type**: number
 
-> **name**: msg
+    !!! abstract ""
 
-> **desc**: WM_CONTEXTMENU (0x007B).
+        :material-clipboard-text:{ .desc } The internal callback on `WM_ACTIVATE` that calls the user defined [`GridGUI.GUI.GuiActivate`](../GUI/#guiactivate) if it evaluates to true. The callback is called with the low-order word of `wParam`.
 
-> **type**: number
 
-> **name**: hwnd
 
-> **desc**: The hwnd of the window or control that recieved the message.
+    ??? example "parameters"
 
-> **type**: hwnd
+        !!! info ""
 
-####__GuiDropFiles
-**desc**: The internal callback on `WM_DROPFILES` that calls the user defined [`GridGUI.GUI.DropTarges`](../GUI/#droptarges) if the callback associated array has the `hwnd` argument as one of its key. The callback is called with an array of the dropped files.
+            **name**: wParam
 
-**args**:
+            **desc**: Low-order word is the active state of the changed window, the high-order word is whether the window was minimised. If the low-order word is **1** the window was activated, if it is **2** the window was activated by a mouse click and if it is **0** the window is deactivated.
 
-> **name**: hDrop
+            **type**: number
 
-> **desc**: A handle to an internal structure describing the dropped files.
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate)
 
-> **type**: number
+        !!! info ""
 
-> **name**: lParam
+            **name**: lParam
 
-> **desc**: Always zero.
+            **desc**: The hwnd of the window where the active state of the window changed.
 
-> **type**: number
+            **type**: number
 
-> **name**: msg
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate)
 
-> **desc**: WM_DROPFILES (0x0233).
+        !!! info ""
 
-> **type**: number
+            **name**: msg
 
-> **name**: hwnd
+            **desc**: WM_ACTIVATE (0x0006).
 
-> **desc**: The hwnd of the window or control that recieved the message.
+            **type**: number
 
-> **type**: hwnd
+        !!! info ""
 
-####__GuiInit
-**desc**: Initialises all the members of the GUI class.
+            **name**: hwnd
 
-####__GuiMoved
-**desc**: The internal callback on `WM_MOVE` that calls [`GridGUI.GUI._GuiMoved`](../GUI/#_guimoved) with the new location as a [`GridGUI.Position`](../Position/).
+            **desc**: The hwnd of the window or control that recieved the message.
 
-**args**:
+            **type**: hwnd
 
-> **name**: wParam
+!!! note ""
+    ####__GuiContextMenu
+    !!! tip ""
 
-> **desc**: Unused.
+        ```AutoHotKey
+        __GuiContextMenu(wParam, lParam, msg, hwnd)
+        ```
 
-> **type**: number
 
-> **name**: lParam
+    !!! abstract ""
 
-> **desc**: The coordinate of the top left corner of the window. The low-order word is the x coordinate and the high-order word is the y coordinate.
+        :material-clipboard-text:{ .desc } The internal callback on `WM_CONTEXTMENU` that calls the user defined [`GridGUI.GUI.GuiContextMenu`](../GUI/#guicontextmenu) if it evaluates to true. The callback is called with the clicked coordinate as a [`GridGUI.Position`](../Position/) and with the hwnd of the windows that was right-clicked.
 
-> **type**: number
 
-> **name**: msg
 
-> **desc**: WM_MOVE (0x0003).
+    ??? example "parameters"
 
-> **type**: number
+        !!! info ""
 
-> **name**: hwnd
+            **name**: wParam
 
-> **desc**: The hwnd of the window or control that recieved the message.
+            **desc**: The hwnd of the windows that was right-clicked.
 
-> **type**: hwnd
+            **type**: hwnd
 
-####__GuiSize
-**desc**: The internal callback on `WM_SIZE` that calls [`GridGUI.GUI._GuiSize`](../GUI/#_guisize) with the new area as a [`GridGUI.Position`](../Position/) where x and y are both zero and with the `wParam` argument.
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/menurc/wm-contextmenu)
 
-**args**:
+        !!! info ""
 
-> **name**: wParam
+            **name**: lParam
 
-> **desc**: The type of resizing that have occurred. **0** is normal resizing, **1** means that the window was minimised and **2** means that it was maximised.
+            **desc**: The clicked coordinate. The low-order word is the x coordinate. The high-order word is the y coordinate.
 
-> **type**: number
+            **type**: number
 
-> **name**: lParam
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/menurc/wm-contextmenu)
 
-> **desc**: The new area of the window. The low-order word is the width and the high-order word is the height.
+        !!! info ""
 
-> **type**: number
+            **name**: msg
 
-> **name**: msg
+            **desc**: WM_CONTEXTMENU (0x007B).
 
-> **desc**: WM_SIZE (0x0005).
+            **type**: number
 
-> **type**: number
+        !!! info ""
 
-> **name**: hwnd
+            **name**: hwnd
 
-> **desc**: The hwnd of the window or control that recieved the message.
+            **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: hwnd
+            **type**: hwnd
 
-####__LowerBackgoundCtrls
-**desc**: Lowers the z-order of all registered controls in [`GridGUI.GUI.BackgroundCtrls`](../GUI/#backgroundctrls). To register controls as background controls see [`GridGUI.GUI.RegisterBackground`](../GUI/#registerbackground).
+!!! note ""
+    ####__GuiDropFiles
+    !!! tip ""
 
-####__New
-**desc**: Constructor.
+        ```AutoHotKey
+        __GuiDropFiles(hDrop, lParam, msg, hwnd)
+        ```
 
-**args**:
 
-> **name**: title
+    !!! abstract ""
 
-> **desc**: The title of the newly created GUI.
+        :material-clipboard-text:{ .desc } The internal callback on `WM_DROPFILES` that calls the user defined [`GridGUI.GUI.DropTarges`](../GUI/#droptarges) if the callback associated array has the `hwnd` argument as one of its key. The callback is called with an array of the dropped files.
 
-> **type**: string
 
-> **name**: options
 
-> **desc**: The gui option string that the GUI will be created with.
+    ??? example "parameters"
 
-> **type**: string
+        !!! info ""
 
-> **name**: hwnd
+            **name**: hDrop
 
-> **desc**: If specified then no new GUI will be created and no `OnMessage` callbacks will be set up. Instead the [`GridGUI.GUI`](../GUI/) instance will work like a wrapper for the GUI that can be used to interact with it.
+            **desc**: A handle to an internal structure describing the dropped files.
 
-> **type**: string
+            **type**: number
 
-**returns**:
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/shell/wm-dropfiles)
 
-> **desc**: A new [`GridGUI.GUI`](../GUI/) instance.
+        !!! info ""
 
-> **type**: GridGUI.GUI
+            **name**: lParam
 
-####__OnAdd
-**desc**: Updates the z-order of registered controls. Called when a control is added to the GUI.
+            **desc**: Always zero.
 
-####__OnPaint
-**desc**: The internal callback on `WM_PAINT` that calls [`GridGUI.GUI.__ReDrawForgoundCtrls`](../GUI/#__redrawforgoundctrls) to fix issues with overlapping controls for controls registered in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls).
+            **type**: number
 
-**args**:
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/shell/wm-dropfiles)
 
-> **name**: wParam
+        !!! info ""
 
-> **desc**: Unused.
+            **name**: msg
 
-> **type**: number
+            **desc**: WM_DROPFILES (0x0233).
 
-> **name**: lParam
+            **type**: number
 
-> **desc**: Unused.
+        !!! info ""
 
-> **type**: number
+            **name**: hwnd
 
-> **name**: msg
+            **desc**: The hwnd of the window or control that recieved the message.
 
-> **desc**: WM_PAINT (0x000F).
+            **type**: hwnd
 
-> **type**: number
+!!! note ""
+    ####__GuiInit
+    !!! tip ""
 
-> **name**: hwnd
+        ```AutoHotKey
+        __GuiInit()
+        ```
 
-> **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: hwnd
+    !!! abstract ""
 
-####__RaiseForgoundCtrls
-**desc**: Raises the z-order of all registered controls in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls). To register controls as background controls see [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground).
+        :material-clipboard-text:{ .desc } Initialises all the members of the GUI class.
 
-####__ReDrawForgoundCtrls
-**desc**: Redraws the controls registered with [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground). Called on `WM_PAINT`.
 
-####__SysCommand
-**desc**: The internal callback on `WM_SYSCOMMAND` that calls the user defined [`GridGUI.GUI.GuiClose`](../GUI/#guiclose) callback on `SC_CLOSE` if the callback variable evaluates to true.
 
-**args**:
+!!! note ""
+    ####__GuiMoved
+    !!! tip ""
 
-> **name**: wParam
+        ```AutoHotKey
+        __GuiMoved(wParam, lParam, msg, hwnd)
+        ```
 
-> **desc**: The type of system command requested, see link for a list of values.
 
-> **type**: number
+    !!! abstract ""
 
-> **name**: lParam
+        :material-clipboard-text:{ .desc } The internal callback on `WM_MOVE` that calls [`GridGUI.GUI._GuiMoved`](../GUI/#_guimoved) with the new location as a [`GridGUI.Position`](../Position/).
 
-> **desc**: The coordinate of the mouse, if this message was triggered by a menu selection, otherwise the argument is unused. The low-order word is the x coordinate and the high-order word is the y coordinate.
 
-> **type**: number
 
-> **name**: msg
+    ??? example "parameters"
 
-> **desc**: WM_SYSCOMMAND (0x0112).
+        !!! info ""
 
-> **type**: number
+            **name**: wParam
 
-> **name**: hwnd
+            **desc**: Unused.
 
-> **desc**: The hwnd of the window or control that recieved the message.
+            **type**: number
 
-> **type**: hwnd
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move)
 
-####_GuiMoved
-**desc**: An internal callback used to update the x and y coordinate of [`GridGUI.GUI.pos`](../GUI/#pos) and to call the user defined [`GridGUI.GUI.GuiMoved`](../GUI/#guimoved) callback
+        !!! info ""
 
-**args**:
+            **name**: lParam
 
-> **name**: pos
+            **desc**: The coordinate of the top left corner of the window. The low-order word is the x coordinate and the high-order word is the y coordinate.
 
-> **desc**: The new coordinate of the top left corner of the GUI. The width and height are both zero.
+            **type**: number
 
-> **type**: [GridGUI.Position](../Position/)
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move)
 
-####_GuiSize
-**desc**: An internal callback used to update the width and height of [`GridGUI.GUI.pos`](../GUI/#pos) and to call the user defined [`GridGUI.GUI.GuiSize`](../GUI/#guisize) callback
+        !!! info ""
 
-**args**:
+            **name**: msg
 
-> **name**: pos
+            **desc**: WM_MOVE (0x0003).
 
-> **desc**: The new area of the GUI. The x and y coordinate are both zero.
+            **type**: number
 
-> **type**: [GridGUI.Position](../Position/)
+        !!! info ""
 
-> **name**: resizeEvent
+            **name**: hwnd
 
-> **desc**: A number indicating whether the GUI was maximised, minimised or neither that is passed on to the user defined [`GridGUI.GUI.GuiSize`](../GUI/#guisize) callback. See the link for what the numbers mean.
+            **desc**: The hwnd of the window or control that recieved the message.
 
-> **type**: number
+            **type**: hwnd
 
-####Add
-**desc**: Adds most standard ahk controls to the GUI.
+!!! note ""
+    ####__GuiSize
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __GuiSize(wParam, lParam, msg, hwnd)
+        ```
 
-> **name**: controlType
 
-> **desc**: The type of the control. Can be `Text, Edit, UpDown, Picture, Button, Checkbox, DropDownList, ComboBox, ListBox, Link, Hotkey, DateTime, MonthCal, Slider, Progress, GroupBox and ActiveX`. For `Radio, ListView, TreeView, Tab3 and StatusBar` see [AdditionalControls](AdditionalControls)
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } The internal callback on `WM_SIZE` that calls [`GridGUI.GUI._GuiSize`](../GUI/#_guisize) with the new area as a [`GridGUI.Position`](../Position/) where x and y are both zero and with the `wParam` argument.
 
-> **name**: options
 
-> **desc**: The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.
 
-> **type**: string
+    ??? example "parameters"
 
-> **name**: text
+        !!! info ""
 
-> **desc**: The text that the control will be created with.
+            **name**: wParam
 
-> **type**: string
+            **desc**: The type of resizing that have occurred. **0** is normal resizing, **1** means that the window was minimised and **2** means that it was maximised.
 
-**returns**:
+            **type**: number
 
-> **desc**: The added control instance.
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size)
 
-> **type**: GridGUI.ArbitraryControl
+        !!! info ""
 
-####Color
-**desc**: A thin method wrapper for `Gui, Color`.
+            **name**: lParam
 
-**args**:
+            **desc**: The new area of the window. The low-order word is the width and the high-order word is the height.
 
-> **name**: WindowColor
+            **type**: number
 
-> **desc**: The colour of the background of the GUI. See link for the supported format.
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size)
 
-> **type**: string
+        !!! info ""
 
-> **name**: ControlColor
+            **name**: msg
 
-> **desc**: The colour of the background of controls that are added to the GUI in the future. See link for the supported format.
+            **desc**: WM_SIZE (0x0005).
 
-> **type**: string
+            **type**: number
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Color)
+        !!! info ""
 
-####ControlGetFocus
-**desc**: Retrives the hwnd of the control with input focus.
+            **name**: hwnd
 
-**returns**:
+            **desc**: The hwnd of the window or control that recieved the message.
 
-> **desc**: The hwnd of the focused control.
+            **type**: hwnd
 
-> **type**: hwnd
+!!! note ""
+    ####__LowerBackgoundCtrls
+    !!! tip ""
 
-####Default
-**desc**: A thin method wrapper for `Gui, Default`.
+        ```AutoHotKey
+        __LowerBackgoundCtrls()
+        ```
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Default)
 
-####Destroy
-**desc**: A thin method wrapper for `Gui, Destroy`.
+    !!! abstract ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Destroy)
+        :material-clipboard-text:{ .desc } Lowers the z-order of all registered controls in [`GridGUI.GUI.BackgroundCtrls`](../GUI/#backgroundctrls). To register controls as background controls see [`GridGUI.GUI.RegisterBackground`](../GUI/#registerbackground).
 
-####Flash
-**desc**: A thin method wrapper for `Gui, Flash`, except that it used a bool instead of a string to indicate that the colour should be restored.
 
-**args**:
 
-> **name**: Off
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: If `false` the GUI flashes. If `true` the colour of the GUI is restored.
+        ```AutoHotKey
+        __New(title := "", options := "", hwnd := "")
+        ```
 
-> **type**: bool
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Flash)
+    !!! abstract ""
 
-####Font
-**desc**: A thin method wrapper for `Gui, Font`
+        :material-clipboard-text:{ .desc } Constructor.
 
-**args**:
 
-> **name**: Options
 
-> **desc**: Styling option string, see link for detail of what options are available.
+    ??? example "parameters"
 
-> **type**: string
+        !!! info ""
 
-> **name**: FontName
+            **name**: title
 
-> **desc**: The name of the font to apply.
+            **desc**: The title of the newly created GUI.
 
-> **type**: string
+            **type**: string
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+            **default**: ""
 
-####Hide
-**desc**: A thin method wrapper for `Gui, Hide`
+        !!! info ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Hide)
+            **name**: options
 
-####ListView
-**desc**: Changes the default `ListView` to the specified hwnd. See the link for what changing the default `ListView` does.
+            **desc**: The gui option string that the GUI will be created with.
 
-**args**:
+            **type**: string
 
-> **name**: hwnd
+            **default**: ""
 
-> **desc**: The hwnd of the `ListView` to set as the default.
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Options)
 
-> **type**: hwnd
+        !!! info ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/ListView.htm#BuiltIn)
+            **name**: hwnd
 
-**returns**:
+            **desc**: If specified then no new GUI will be created and no `OnMessage` callbacks will be set up. Instead the [`GridGUI.GUI`](../GUI/) instance will work like a wrapper for the GUI that can be used to interact with it.
 
-> **desc**: The hwnd of the `ListView` that was previously the default.
+            **type**: string
 
-> **type**: hwnd
+            **default**: ""
 
-####Margin
-**desc**: A thin method wrapper for `Gui, Margin`
+    !!! question ""
 
-**args**:
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: x
+            **desc**: A new [`GridGUI.GUI`](../GUI/) instance.
 
-> **desc**: The horisontal margin of controls that are added to the GUI.
+            **type**: [GridGUI.GUI](../GUI/)
 
-> **type**: string
+!!! note ""
+    ####__OnAdd
+    !!! tip ""
 
-> **name**: y
+        ```AutoHotKey
+        __OnAdd()
+        ```
 
-> **desc**: The vertical margin of controls that are added to the GUI.
 
-> **type**: string
+    !!! abstract ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Margin)
+        :material-clipboard-text:{ .desc } Updates the z-order of registered controls. Called when a control is added to the GUI.
 
-####Maximize
-**desc**: A thin method wrapper for `Gui, Maximize`
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
 
-####Menu
-**desc**: A thin method wrapper for `Gui, Menu`
+!!! note ""
+    ####__OnPaint
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __OnPaint(wParam, lParam, msg, hwnd)
+        ```
 
-> **name**: MenuName
 
-> **desc**: The name of the menu to attach to the GUI menu bar. Menues are made using the `Menu` command, see link for details.
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } The internal callback on `WM_PAINT` that calls [`GridGUI.GUI.__ReDrawForgoundCtrls`](../GUI/#__redrawforgoundctrls) to fix issues with overlapping controls for controls registered in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls).
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Menu)
 
-####Minimize
-**desc**: A thin method wrapper for `Gui, Minimize`
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
+    ??? example "parameters"
 
-####MinSize
-**desc**: Sets the minsize of the GUI, that is the size that the GUI can't be reduced beyond by drag resizing.
+        !!! info ""
 
-**args**:
+            **name**: wParam
 
-> **name**: x
+            **desc**: Unused.
 
-> **desc**: The minimal width of the GUI. If `""` the min width is left unchanged.
+            **type**: number
 
-> **type**: string
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/gdi/wm-paint)
 
-> **name**: y
+        !!! info ""
 
-> **desc**: The minimal height of the GUI. If `""` the min height is left unchanged.
+            **name**: lParam
 
-> **type**: string
+            **desc**: Unused.
 
-####Options
-**desc**: Applies styles and options to the GUI.
+            **type**: number
 
-**args**:
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/gdi/wm-paint)
 
-> **name**: options
+        !!! info ""
 
-> **desc**: The ahk GUI style and option string to apply to the GUI. See link for supported styles and options.
+            **name**: msg
 
-> **type**: string
+            **desc**: WM_PAINT (0x000F).
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Options)
+            **type**: number
 
-####RegisterBackground
-**desc**: Registers a control as a background control, that is their z-order is lowered below any current and future controls.
+        !!! info ""
 
-**args**:
+            **name**: hwnd
 
-> **name**: ctrl
+            **desc**: The hwnd of the window or control that recieved the message.
 
-> **desc**: The [`GridGUI.GuiControlClass`](../GuiControlClass/) instance that will be registered.
+            **type**: hwnd
 
-> **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
+!!! note ""
+    ####__RaiseForgoundCtrls
+    !!! tip ""
 
-####RegisterDropTarget
-**desc**: Registers a control as a file drag and drop target. Any registered control will have its callback called whenever files are dropped on the control.
+        ```AutoHotKey
+        __RaiseForgoundCtrls()
+        ```
 
-**args**:
 
-> **name**: ctrl
+    !!! abstract ""
 
-> **desc**: The [`GridGUI.ControlClass`](../ControlClass/) instance that will be registered.
+        :material-clipboard-text:{ .desc } Raises the z-order of all registered controls in [`GridGUI.GUI.ForegroundCtrls`](../GUI/#foregroundctrls). To register controls as background controls see [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground).
 
-> **type**: [GridGUI.ControlClass](../ControlClass/)
 
-> **name**: Callback
 
-> **desc**: The callback to call when files are dropped on the control.
+!!! note ""
+    ####__ReDrawForgoundCtrls
+    !!! tip ""
 
-> **type**: Func|BoundFunc
+        ```AutoHotKey
+        __ReDrawForgoundCtrls()
+        ```
 
-####RegisterForeground
-**desc**: Registers a control to be redrawn after all other controls as well as their z-order is raised above any current and future controls.
 
-**args**:
+    !!! abstract ""
 
-> **name**: ctrl
+        :material-clipboard-text:{ .desc } Redraws the controls registered with [`GridGUI.GUI.RegisterForeground`](../GUI/#registerforeground). Called on `WM_PAINT`.
 
-> **desc**: The [`GridGUI.GuiControlClass`](../GuiControlClass/) instance that will be registered.
 
-> **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
 
-####Restore
-**desc**: A thin method wrapper for `Gui, Restore`
+!!! note ""
+    ####__SysCommand
+    !!! tip ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
+        ```AutoHotKey
+        __SysCommand(wParam, lParam, msg, hwnd)
+        ```
 
-####Show
-**desc**: A thin method wrapper for `Gui, Show`
 
-**args**:
+    !!! abstract ""
 
-> **name**: options
+        :material-clipboard-text:{ .desc } The internal callback on `WM_SYSCOMMAND` that calls the user defined [`GridGUI.GUI.GuiClose`](../GUI/#guiclose) callback on `SC_CLOSE` if the callback variable evaluates to true.
 
-> **desc**: The options string describing how to show the GUI. See link for available options.
 
-> **type**: string
 
-> **default**: AutoSize
+    ??? example "parameters"
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Show)
+        !!! info ""
 
-####Submit
-**desc**: A thin method wrapper for `Gui, Submit`
+            **name**: wParam
 
-**args**:
+            **desc**: The type of system command requested, see link for a list of values.
 
-> **name**: NoHide
+            **type**: number
 
-> **desc**: Whether or not to hide the GUI after submitting it.
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand)
 
-> **type**: bool
+        !!! info ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Submit)
+            **name**: lParam
 
-####TreeView
-**desc**: Changes the default `TreeView` to the specified hwnd. See the link for what changing the default `TreeView` does.
+            **desc**: The coordinate of the mouse, if this message was triggered by a menu selection, otherwise the argument is unused. The low-order word is the x coordinate and the high-order word is the y coordinate.
 
-**args**:
+            **type**: number
 
-> **name**: hwnd
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand)
 
-> **desc**: The hwnd of the `TreeView` to set as the default.
+        !!! info ""
 
-> **type**: hwnd
+            **name**: msg
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/TreeView.htm#BuiltIn)
+            **desc**: WM_SYSCOMMAND (0x0112).
 
-**returns**:
+            **type**: number
 
-> **desc**: The hwnd of the `TreeView` that was previously the default.
+        !!! info ""
 
-> **type**: hwnd
+            **name**: hwnd
+
+            **desc**: The hwnd of the window or control that recieved the message.
+
+            **type**: hwnd
+
+!!! note ""
+    ####_GuiMoved
+    !!! tip ""
+
+        ```AutoHotKey
+        _GuiMoved(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } An internal callback used to update the x and y coordinate of [`GridGUI.GUI.pos`](../GUI/#pos) and to call the user defined [`GridGUI.GUI.GuiMoved`](../GUI/#guimoved) callback
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The new coordinate of the top left corner of the GUI. The width and height are both zero.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####_GuiSize
+    !!! tip ""
+
+        ```AutoHotKey
+        _GuiSize(pos, resizeEvent)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } An internal callback used to update the width and height of [`GridGUI.GUI.pos`](../GUI/#pos) and to call the user defined [`GridGUI.GUI.GuiSize`](../GUI/#guisize) callback
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The new area of the GUI. The x and y coordinate are both zero.
+
+            **type**: [GridGUI.Position](../Position/)
+
+        !!! info ""
+
+            **name**: resizeEvent
+
+            **desc**: A number indicating whether the GUI was maximised, minimised or neither that is passed on to the user defined [`GridGUI.GUI.GuiSize`](../GUI/#guisize) callback. See the link for what the numbers mean.
+
+            **type**: number
+
+            **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size)
+
+!!! note ""
+    ####Add
+    !!! tip ""
+
+        ```AutoHotKey
+        Add(controlType, options := "", text := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Adds most standard ahk controls to the GUI.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: controlType
+
+            **desc**: The type of the control. Can be `Text, Edit, UpDown, Picture, Button, Checkbox, DropDownList, ComboBox, ListBox, Link, Hotkey, DateTime, MonthCal, Slider, Progress, GroupBox and ActiveX`. For `Radio, ListView, TreeView, Tab3 and StatusBar` see [AdditionalControls](AdditionalControls)
+
+            **type**: string
+
+        !!! info ""
+
+            **name**: options
+
+            **desc**: The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.
+
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions)
+
+        !!! info ""
+
+            **name**: text
+
+            **desc**: The text that the control will be created with.
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The added control instance.
+
+            **type**: [GridGUI.ArbitraryControl](../ArbitraryControl/)
+
+!!! note ""
+    ####Color
+    !!! tip ""
+
+        ```AutoHotKey
+        Color(WindowColor := "", ControlColor := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Color`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: WindowColor
+
+            **desc**: The colour of the background of the GUI. See link for the supported format.
+
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Color)
+
+        !!! info ""
+
+            **name**: ControlColor
+
+            **desc**: The colour of the background of controls that are added to the GUI in the future. See link for the supported format.
+
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Color)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Color)
+
+!!! note ""
+    ####ControlGetFocus
+    !!! tip ""
+
+        ```AutoHotKey
+        ControlGetFocus()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Retrives the hwnd of the control with input focus.
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The hwnd of the focused control.
+
+            **type**: hwnd
+
+!!! note ""
+    ####Default
+    !!! tip ""
+
+        ```AutoHotKey
+        Default()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Default`.
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Default)
+
+!!! note ""
+    ####Destroy
+    !!! tip ""
+
+        ```AutoHotKey
+        Destroy()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Destroy`.
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Destroy)
+
+!!! note ""
+    ####Flash
+    !!! tip ""
+
+        ```AutoHotKey
+        Flash(Off := false)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Flash`, except that it used a bool instead of a string to indicate that the colour should be restored.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: Off
+
+            **desc**: If `false` the GUI flashes. If `true` the colour of the GUI is restored.
+
+            **type**: bool
+
+            **default**: false
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Flash)
+
+!!! note ""
+    ####Font
+    !!! tip ""
+
+        ```AutoHotKey
+        Font(Options, FontName)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Font`
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: Options
+
+            **desc**: Styling option string, see link for detail of what options are available.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+
+        !!! info ""
+
+            **name**: FontName
+
+            **desc**: The name of the font to apply.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/misc/FontsStandard.htm)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Font)
+
+!!! note ""
+    ####Hide
+    !!! tip ""
+
+        ```AutoHotKey
+        Hide()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Hide`
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Hide)
+
+!!! note ""
+    ####ListView
+    !!! tip ""
+
+        ```AutoHotKey
+        ListView(hwnd)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Changes the default `ListView` to the specified hwnd. See the link for what changing the default `ListView` does.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: hwnd
+
+            **desc**: The hwnd of the `ListView` to set as the default.
+
+            **type**: hwnd
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ListView.htm#BuiltIn)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The hwnd of the `ListView` that was previously the default.
+
+            **type**: hwnd
+
+!!! note ""
+    ####Margin
+    !!! tip ""
+
+        ```AutoHotKey
+        Margin(x := "", y := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Margin`
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: x
+
+            **desc**: The horisontal margin of controls that are added to the GUI.
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: y
+
+            **desc**: The vertical margin of controls that are added to the GUI.
+
+            **type**: string
+
+            **default**: ""
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Margin)
+
+!!! note ""
+    ####Maximize
+    !!! tip ""
+
+        ```AutoHotKey
+        Maximize()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Maximize`
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
+
+!!! note ""
+    ####Menu
+    !!! tip ""
+
+        ```AutoHotKey
+        Menu(MenuName := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Menu`
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: MenuName
+
+            **desc**: The name of the menu to attach to the GUI menu bar. Menues are made using the `Menu` command, see link for details.
+
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Menu.htm)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Menu)
+
+!!! note ""
+    ####Minimize
+    !!! tip ""
+
+        ```AutoHotKey
+        Minimize()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Minimize`
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
+
+!!! note ""
+    ####MinSize
+    !!! tip ""
+
+        ```AutoHotKey
+        MinSize(x := "", y := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Sets the minsize of the GUI, that is the size that the GUI can't be reduced beyond by drag resizing.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: x
+
+            **desc**: The minimal width of the GUI. If `""` the min width is left unchanged.
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: y
+
+            **desc**: The minimal height of the GUI. If `""` the min height is left unchanged.
+
+            **type**: string
+
+            **default**: ""
+
+!!! note ""
+    ####Options
+    !!! tip ""
+
+        ```AutoHotKey
+        Options(options)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Applies styles and options to the GUI.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: options
+
+            **desc**: The ahk GUI style and option string to apply to the GUI. See link for supported styles and options.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Options)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Options)
+
+!!! note ""
+    ####RegisterBackground
+    !!! tip ""
+
+        ```AutoHotKey
+        RegisterBackground(ctrl)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Registers a control as a background control, that is their z-order is lowered below any current and future controls.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ctrl
+
+            **desc**: The [`GridGUI.GuiControlClass`](../GuiControlClass/) instance that will be registered.
+
+            **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
+
+!!! note ""
+    ####RegisterDropTarget
+    !!! tip ""
+
+        ```AutoHotKey
+        RegisterDropTarget(ctrl, Callback)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Registers a control as a file drag and drop target. Any registered control will have its callback called whenever files are dropped on the control.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ctrl
+
+            **desc**: The [`GridGUI.ControlClass`](../ControlClass/) instance that will be registered.
+
+            **type**: [GridGUI.ControlClass](../ControlClass/)
+
+        !!! info ""
+
+            **name**: Callback
+
+            **desc**: The callback to call when files are dropped on the control.
+
+            **type**: Func|BoundFunc
+
+!!! note ""
+    ####RegisterForeground
+    !!! tip ""
+
+        ```AutoHotKey
+        RegisterForeground(ctrl)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Registers a control to be redrawn after all other controls as well as their z-order is raised above any current and future controls.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: ctrl
+
+            **desc**: The [`GridGUI.GuiControlClass`](../GuiControlClass/) instance that will be registered.
+
+            **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
+
+!!! note ""
+    ####Restore
+    !!! tip ""
+
+        ```AutoHotKey
+        Restore()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Restore`
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Minimize)
+
+!!! note ""
+    ####Show
+    !!! tip ""
+
+        ```AutoHotKey
+        Show(options := AutoSize)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Show`
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: options
+
+            **desc**: The options string describing how to show the GUI. See link for available options.
+
+            **type**: string
+
+            **default**: AutoSize
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Show)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Show)
+
+!!! note ""
+    ####Submit
+    !!! tip ""
+
+        ```AutoHotKey
+        Submit(NoHide := false)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `Gui, Submit`
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: NoHide
+
+            **desc**: Whether or not to hide the GUI after submitting it.
+
+            **type**: bool
+
+            **default**: false
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Submit)
+
+!!! note ""
+    ####TreeView
+    !!! tip ""
+
+        ```AutoHotKey
+        TreeView(hwnd)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Changes the default `TreeView` to the specified hwnd. See the link for what changing the default `TreeView` does.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: hwnd
+
+            **desc**: The hwnd of the `TreeView` to set as the default.
+
+            **type**: hwnd
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/TreeView.htm#BuiltIn)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The hwnd of the `TreeView` that was previously the default.
+
+            **type**: hwnd
 

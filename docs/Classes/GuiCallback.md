@@ -5,59 +5,105 @@
 ---
 ##Members
 
-####function
+!!! info ""
 
-> **desc**: The function that should be called when the window message is received.
+    ####function
+    !!! info ""
 
-> **type**: Func|BoundFunc
+        **desc**: The function that should be called when the window message is received.
 
-####msgNum
+        **type**: Func|BoundFunc
 
-> **desc**: The window message number. See link for available window messages.
+!!! info ""
 
-> **type**: number
+    ####msgNum
+    !!! info ""
 
-> **link**: [link](https://www.autohotkey.com/docs/misc/SendMessageList.htm)
+        **desc**: The window message number. See link for available window messages.
+
+        **type**: number
+
+        **link**: [link](https://www.autohotkey.com/docs/misc/SendMessageList.htm)
 
 ##Methods
 
-####__New
-**desc**: Constructor.
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __New(msgNum, function)
+        ```
 
-> **name**: msgNum
 
-> **desc**: The window message number. See link for available window messages.
+    !!! abstract ""
 
-> **type**: number
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **name**: function
 
-> **desc**: The function to call when the window message is received.
 
-> **type**: Func|BoundFunc|string
+    ??? example "parameters"
 
-**returns**:
+        !!! info ""
 
-> **desc**: A new [`GridGUI.GuiCallback`](../GuiCallback/) instance.
+            **name**: msgNum
 
-> **type**: GridGUI.GuiCallback
+            **desc**: The window message number. See link for available window messages.
 
-####ToStr
-**desc**: Converts the object to a string.
+            **type**: number
 
-**args**:
+            **link**: [link](https://www.autohotkey.com/docs/misc/SendMessageList.htm)
 
-> **name**: indent
+        !!! info ""
 
-> **desc**: The amount of indentation to add on each line.
+            **name**: function
 
-> **type**: string
+            **desc**: The function to call when the window message is received.
 
-**returns**:
+            **type**: Func|BoundFunc|string
 
-> **desc**: A string representing this callback.
+    !!! question ""
 
-> **type**: string
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A new [`GridGUI.GuiCallback`](../GuiCallback/) instance.
+
+            **type**: [GridGUI.GuiCallback](../GuiCallback/)
+
+!!! note ""
+    ####ToStr
+    !!! tip ""
+
+        ```AutoHotKey
+        ToStr(indent := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Converts the object to a string.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: indent
+
+            **desc**: The amount of indentation to add on each line.
+
+            **type**: string
+
+            **default**: ""
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: A string representing this callback.
+
+            **type**: string
 

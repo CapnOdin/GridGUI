@@ -5,195 +5,433 @@
 ---
 ##Members
 
-####callbacks
+!!! info ""
 
-> **desc**: The array of [`GridGUI.GuiCallback`](../GuiCallback/)s that the class instance was created with.
+    ####callbacks
+    !!! info ""
 
-> **type**: array|false
+        **desc**: The array of [`GridGUI.GuiCallback`](../GuiCallback/)s that the class instance was created with.
 
-####hwnd
+        **type**: array|false
 
-> **desc**: The hwnd of the associated window.
+        **default**: false
 
-> **type**: hwnd
+!!! info ""
+
+    ####hwnd
+    !!! info ""
+
+        **desc**: The hwnd of the associated window.
+
+        **type**: hwnd
 
 ##Methods
 
-####__DetectHidden
-**desc**: Enables the detection of hidden windows using other ahk commands.
+!!! note ""
+    ####__DetectHidden
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __DetectHidden()
+        ```
 
-> **desc**: The previous detect hidden windows state. Either `"On"` or `"Off"`.
 
-> **type**: string
+    !!! abstract ""
 
-####__New
-**desc**: Constructor.
+        :material-clipboard-text:{ .desc } Enables the detection of hidden windows using other ahk commands.
 
-**args**:
 
-> **name**: hwnd
 
-> **desc**: The hwnd of the window that the class instance should work on.
+    !!! question ""
 
-> **type**: hwnd
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **name**: callbacks
+            **desc**: The previous detect hidden windows state. Either `"On"` or `"Off"`.
 
-> **desc**: An array of [`GridGUI.GuiCallback`](../GuiCallback/)s to set up.
+            **type**: string
 
-> **type**: array|false
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __New(hwnd, callbacks := false)
+        ```
 
-> **desc**: A new [`GridGUI.Window`](../Window/) instance.
 
-> **type**: GridGUI.Window
+    !!! abstract ""
 
-####__Setup
-**desc**: Sets up the [`GridGUI.GuiCallback`](../GuiCallback/)s that where passed to the constructor. They are set up using `OnMessage`
+        :material-clipboard-text:{ .desc } Constructor.
 
-####ControlGetFocus
-**desc**: Retrieves the hwnd of the control with input focus in the window if any.
 
-**returns**:
 
-> **desc**: The hwnd of the control with input focus or an empty string if non where found.
+    ??? example "parameters"
 
-> **type**: hwnd|""
+        !!! info ""
 
-####ToStr
-**desc**: Converts the object to a string.
+            **name**: hwnd
 
-**args**:
+            **desc**: The hwnd of the window that the class instance should work on.
 
-> **name**: indent
+            **type**: hwnd
 
-> **desc**: The amount of indentation to add on each line.
+        !!! info ""
 
-> **type**: string
+            **name**: callbacks
 
-**returns**:
+            **desc**: An array of [`GridGUI.GuiCallback`](../GuiCallback/)s to set up.
 
-> **desc**: A string representing this window.
+            **type**: array|false
 
-> **type**: string
+            **default**: false
 
-####WinActivate
-**desc**: A thin method wrapper for `WinActivate`.
+    !!! question ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinActivate.htm)
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####WinActive
-**desc**: A thin method wrapper for `WinActive`.
+            **desc**: A new [`GridGUI.Window`](../Window/) instance.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinActive.htm)
+            **type**: [GridGUI.Window](../Window/)
 
-**returns**:
+!!! note ""
+    ####__Setup
+    !!! tip ""
 
-> **desc**: The hwnd of the window associated with this class instance if it is the active window otherwise `false`.
+        ```AutoHotKey
+        __Setup()
+        ```
 
-> **type**: hwnd|false
 
-####WinExist
-**desc**: A thin method wrapper for `WinExist`.
+    !!! abstract ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinExist.htm)
+        :material-clipboard-text:{ .desc } Sets up the [`GridGUI.GuiCallback`](../GuiCallback/)s that where passed to the constructor. They are set up using `OnMessage`
 
-**returns**:
 
-> **desc**: The hwnd of the window associated with this class instance if it exists otherwise `false`.
 
-> **type**: hwnd|false
+!!! note ""
+    ####ControlGetFocus
+    !!! tip ""
 
-####WinGet
-**desc**: A thin method wrapper for `WinGet`.
+        ```AutoHotKey
+        ControlGetFocus()
+        ```
 
-**args**:
 
-> **name**: SubCommand
+    !!! abstract ""
 
-> **desc**: The subcommand to retrive from the window. See the link for available subcommands.
+        :material-clipboard-text:{ .desc } Retrieves the hwnd of the control with input focus in the window if any.
 
-> **type**: string
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinGet.htm)
 
-**returns**:
+    !!! question ""
 
-> **desc**: The retrieved value.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: any
+            **desc**: The hwnd of the control with input focus or an empty string if non where found.
 
-####WinGetPos
-**desc**: A thin method wrapper for `WinGetPos`, except that it returns a [`GridGUI.Position`](../Position/) instance.
+            **type**: hwnd|""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinGetPos.htm)
+!!! note ""
+    ####ToStr
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        ToStr(indent := "")
+        ```
 
-> **desc**: The position and size of the window.
 
-> **type**: GridGUI.Position
+    !!! abstract ""
 
-####WinHide
-**desc**: A thin method wrapper for `WinHide`.
+        :material-clipboard-text:{ .desc } Converts the object to a string.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinHide.htm)
 
-####WinMove
-**desc**: A thin method wrapper for `WinMove`.
 
-**args**:
+    ??? example "parameters"
 
-> **name**: x
+        !!! info ""
 
-> **desc**: The x coordinate that the top left corner of the window will be moved to. If left empty the x coordinate of the top left corner won't change.
+            **name**: indent
 
-> **type**: string
+            **desc**: The amount of indentation to add on each line.
 
-> **name**: y
+            **type**: string
 
-> **desc**: The y coordinate that the top left corner of the window will be moved to. If left empty the y coordinate of the top left corner won't change.
+            **default**: ""
 
-> **type**: string
+    !!! question ""
 
-> **name**: w
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: The width the window should be resized to. If left empty the width won't change.
+            **desc**: A string representing this window.
 
-> **type**: string
+            **type**: string
 
-> **name**: h
+!!! note ""
+    ####WinActivate
+    !!! tip ""
 
-> **desc**: The height the window should be resized to. If left empty the height won't change.
+        ```AutoHotKey
+        WinActivate()
+        ```
 
-> **type**: string
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinMove.htm)
+    !!! abstract ""
 
-####WinSet
-**desc**: A thin method wrapper for `WinSet`, except it works even if the window is hidden.
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinActivate`.
 
-**args**:
 
-> **name**: SubCommand
 
-> **desc**: The subCommand to set for the window. See link for available subcommands.
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinActivate.htm)
 
-> **type**: string
+!!! note ""
+    ####WinActive
+    !!! tip ""
 
-> **name**: value
+        ```AutoHotKey
+        WinActive()
+        ```
 
-> **desc**: The value to apply to the subcommand. See link for values used in the subcommands.
 
-> **type**: string|number
+    !!! abstract ""
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinSet.htm)
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinActive`.
 
-####WinShow
-**desc**: A thin method wrapper for `WinShow`.
 
-> **link**: [link](https://www.autohotkey.com/docs/commands/WinShow.htm)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinActive.htm)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The hwnd of the window associated with this class instance if it is the active window otherwise `false`.
+
+            **type**: hwnd|false
+
+!!! note ""
+    ####WinExist
+    !!! tip ""
+
+        ```AutoHotKey
+        WinExist()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinExist`.
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinExist.htm)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The hwnd of the window associated with this class instance if it exists otherwise `false`.
+
+            **type**: hwnd|false
+
+!!! note ""
+    ####WinGet
+    !!! tip ""
+
+        ```AutoHotKey
+        WinGet(SubCommand)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinGet`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: SubCommand
+
+            **desc**: The subcommand to retrive from the window. See the link for available subcommands.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/WinGet.htm#SubCommands)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinGet.htm)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The retrieved value.
+
+            **type**: any
+
+!!! note ""
+    ####WinGetPos
+    !!! tip ""
+
+        ```AutoHotKey
+        WinGetPos()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinGetPos`, except that it returns a [`GridGUI.Position`](../Position/) instance.
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinGetPos.htm)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The position and size of the window.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####WinHide
+    !!! tip ""
+
+        ```AutoHotKey
+        WinHide()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinHide`.
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinHide.htm)
+
+!!! note ""
+    ####WinMove
+    !!! tip ""
+
+        ```AutoHotKey
+        WinMove(x := "", y := "", w := "", h := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinMove`.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: x
+
+            **desc**: The x coordinate that the top left corner of the window will be moved to. If left empty the x coordinate of the top left corner won't change.
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: y
+
+            **desc**: The y coordinate that the top left corner of the window will be moved to. If left empty the y coordinate of the top left corner won't change.
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: w
+
+            **desc**: The width the window should be resized to. If left empty the width won't change.
+
+            **type**: string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: h
+
+            **desc**: The height the window should be resized to. If left empty the height won't change.
+
+            **type**: string
+
+            **default**: ""
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinMove.htm)
+
+!!! note ""
+    ####WinSet
+    !!! tip ""
+
+        ```AutoHotKey
+        WinSet(SubCommand, value)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinSet`, except it works even if the window is hidden.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: SubCommand
+
+            **desc**: The subCommand to set for the window. See link for available subcommands.
+
+            **type**: string
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm#SubCommands)
+
+        !!! info ""
+
+            **name**: value
+
+            **desc**: The value to apply to the subcommand. See link for values used in the subcommands.
+
+            **type**: string|number
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Control.htm#SubCommands)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinSet.htm)
+
+!!! note ""
+    ####WinShow
+    !!! tip ""
+
+        ```AutoHotKey
+        WinShow()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } A thin method wrapper for `WinShow`.
+
+
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinShow.htm)
 

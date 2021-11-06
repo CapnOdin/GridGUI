@@ -5,195 +5,327 @@
 ---
 ##Methods
 
-####__New
-**desc**: 
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __New(guiHwnd, index, tabName, DPIScale := true, showGrid := false)
+        ```
 
-> **name**: guiHwnd
 
-> **desc**: 
+    !!! abstract ""
 
-> **type**: string|number|object
+        :material-clipboard-text:{ .desc } 
 
-> **name**: index
 
-> **desc**: 
 
-> **type**: string|number|object
+    ??? example "parameters"
 
-> **name**: tabName
+        !!! info ""
 
-> **desc**: 
+            **name**: guiHwnd
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: DPIScale
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: bool
+            **name**: index
 
-> **name**: showGrid
+            **desc**: 
 
-> **desc**: 
+            **type**: string|number|object
 
-> **type**: bool
+        !!! info ""
 
-**returns**:
+            **name**: tabName
 
-> **desc**: 
+            **desc**: 
 
-> **type**: 
+            **type**: string|number|object
 
-####Add
-**desc**: 
+        !!! info ""
 
-**args**:
+            **name**: DPIScale
 
-> **name**: x
+            **desc**: 
 
-> **desc**: 
+            **type**: bool
 
-> **type**: string|number|object
+            **default**: true
 
-> **name**: y
+        !!! info ""
 
-> **desc**: 
+            **name**: showGrid
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: type
+            **type**: bool
 
-> **desc**: 
+            **default**: false
 
-> **type**: string|number|object
+    !!! question ""
 
-> **name**: options
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: 
+            **desc**: 
 
-> **type**: string
+            **type**: 
 
-> **name**: text
+!!! note ""
+    ####Add
+    !!! tip ""
 
-> **desc**: 
+        ```AutoHotKey
+        Add(x, y, type, options := "", text := "", exW := 0, exH := 0, fillW := 0, fillH := 0, justify := C)
+        ```
 
-> **type**: string
 
-> **name**: exW
+    !!! abstract ""
 
-> **desc**: 
+        :material-clipboard-text:{ .desc } 
 
-> **type**: number
 
-> **name**: exH
 
-> **desc**: 
+    ??? example "parameters"
 
-> **type**: number
+        !!! info ""
 
-> **name**: fillW
+            **name**: x
 
-> **desc**: 
+            **desc**: 
 
-> **type**: number
+            **type**: string|number|object
 
-> **name**: fillH
+        !!! info ""
 
-> **desc**: 
+            **name**: y
 
-> **type**: number
+            **desc**: 
 
-> **name**: justify
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string
+            **name**: type
 
-> **default**: C
+            **desc**: 
 
-**returns**:
+            **type**: string|number|object
 
-> **desc**: 
+        !!! info ""
 
-> **type**: 
+            **name**: options
 
-####AddControl
-**desc**: 
+            **desc**: 
 
-**args**:
+            **type**: string
 
-> **name**: x
+            **default**: ""
 
-> **desc**: 
+        !!! info ""
 
-> **type**: string|number|object
+            **name**: text
 
-> **name**: y
+            **desc**: 
 
-> **desc**: 
+            **type**: string
 
-> **type**: string|number|object
+            **default**: ""
 
-> **name**: ctrl
+        !!! info ""
 
-> **desc**: 
+            **name**: exW
 
-> **type**: string|number|object
+            **desc**: 
 
-> **name**: exW
+            **type**: number
 
-> **desc**: 
+            **default**: 0
 
-> **type**: number
+        !!! info ""
 
-> **name**: exH
+            **name**: exH
 
-> **desc**: 
+            **desc**: 
 
-> **type**: number
+            **type**: number
 
-> **name**: fillW
+            **default**: 0
 
-> **desc**: 
+        !!! info ""
 
-> **type**: number
+            **name**: fillW
 
-> **name**: fillH
+            **desc**: 
 
-> **desc**: 
+            **type**: number
 
-> **type**: number
+            **default**: 0
 
-> **name**: justify
+        !!! info ""
 
-> **desc**: 
+            **name**: fillH
 
-> **type**: string
+            **desc**: 
 
-> **default**: C
+            **type**: number
 
-**returns**:
+            **default**: 0
 
-> **desc**: 
+        !!! info ""
 
-> **type**: 
+            **name**: justify
 
-####Draw
-**desc**: 
+            **desc**: 
 
-**args**:
+            **type**: string
 
-> **name**: pos
+            **default**: C
 
-> **desc**: 
+    !!! question ""
 
-> **type**: string|number|object
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-**returns**:
+            **desc**: 
 
-> **desc**: 
+            **type**: 
 
-> **type**: 
+!!! note ""
+    ####AddControl
+    !!! tip ""
+
+        ```AutoHotKey
+        AddControl(x, y, ctrl, exW := 0, exH := 0, fillW := 0, fillH := 0, justify := C)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: x
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: y
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: ctrl
+
+            **desc**: 
+
+            **type**: string|number|object
+
+        !!! info ""
+
+            **name**: exW
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 0
+
+        !!! info ""
+
+            **name**: exH
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 0
+
+        !!! info ""
+
+            **name**: fillW
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 0
+
+        !!! info ""
+
+            **name**: fillH
+
+            **desc**: 
+
+            **type**: number
+
+            **default**: 0
+
+        !!! info ""
+
+            **name**: justify
+
+            **desc**: 
+
+            **type**: string
+
+            **default**: C
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
+
+!!! note ""
+    ####Draw
+    !!! tip ""
+
+        ```AutoHotKey
+        Draw(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } 
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: 
+
+            **type**: string|number|object
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: 
+
+            **type**: 
 

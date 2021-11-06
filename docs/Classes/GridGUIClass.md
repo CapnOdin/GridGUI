@@ -5,404 +5,779 @@
 ---
 ##Members
 
-####grid
+!!! info ""
 
-> **desc**: The grid that controls are put into.
+    ####grid
+    !!! info ""
 
-> **type**: [GridGUI.Grid](../Grid/)
+        **desc**: The grid that controls are put into.
 
-> **default**: GridGUI.Grid
+        **type**: [GridGUI.Grid](../Grid/)
 
-####gridlines
+        **default**: GridGUI.Grid
 
-> **desc**: The container for the horisontal and vertical grid line controls shown when [`GridGUI](../GridGUI/)Class.showGrid` is true.
+!!! info ""
 
-> **type**: array
+    ####gridlines
+    !!! info ""
 
-> **default**: [[], []]
+        **desc**: The container for the horisontal and vertical grid line controls shown when [`GridGUI.GridGUIClass.showGrid`](../GridGUIClass/#showgrid) is true.
 
-> **link**: [link](https://www.autohotkey.com/docs/objects/Object.htm)
+        **type**: array
 
-####margins
+        **default**: [[], []]
 
-> **desc**: The additional space that is added around controls that are added to the grid.
+        **link**: [link](https://www.autohotkey.com/docs/objects/Object.htm)
 
-> **type**: object
+!!! info ""
 
-> **default**: {x: 5, y: 5}
+    ####margins
+    !!! info ""
 
-####showGrid
+        **desc**: The additional space that is added around controls that are added to the grid.
 
-> **desc**: Used to remember what parameter the [`GridGUI.GridGUIClass`](../GridGUIClass/) instance was created with and to decide whether or not to move the debug grid when drawn.
+        **type**: object
 
-> **type**: bool
+        **default**: {x: 5, y: 5}
+
+!!! info ""
+
+    ####showGrid
+    !!! info ""
+
+        **desc**: Used to remember what parameter the [`GridGUI.GridGUIClass`](../GridGUIClass/) instance was created with and to decide whether or not to move the debug grid when drawn.
+
+        **type**: bool
 
 ##Methods
 
-####__DrawGrid
-**desc**: Moves the debug grid line controls to the appropriate locations.
+!!! note ""
+    ####__DrawGrid
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __DrawGrid(area)
+        ```
 
-> **name**: area
 
-> **desc**: the area where in the debug grid lines are moved.
+    !!! abstract ""
 
-> **type**: [GridGUI.Position](../Position/)
+        :material-clipboard-text:{ .desc } Moves the debug grid line controls to the appropriate locations.
 
-####__Init
-**desc**: Initialises the class members.
 
-**args**:
 
-> **name**: showGrid
+    ??? example "parameters"
 
-> **desc**: Whether or not to show a grid for the control that where placed on the gui before it was shown the first time.
+        !!! info ""
 
-> **type**: bool
+            **name**: area
 
-####__New
-**desc**: 
+            **desc**: the area where in the debug grid lines are moved.
 
-**args**:
+            **type**: [GridGUI.Position](../Position/)
 
-> **name**: title
+!!! note ""
+    ####__Init
+    !!! tip ""
 
-> **desc**: The title that the new gui window will have
+        ```AutoHotKey
+        __Init(showGrid)
+        ```
 
-> **type**: string
 
-> **name**: options
+    !!! abstract ""
 
-> **desc**: The ahk gui options that the window will be created with
+        :material-clipboard-text:{ .desc } Initialises the class members.
 
-> **type**: string
 
-> **name**: showGrid
 
-> **desc**: Whether or not to show a grid for the control that where placed on the gui before it was shown the first time.
+    ??? example "parameters"
 
-> **type**: bool
+        !!! info ""
 
-> **name**: justify
+            **name**: showGrid
 
-> **desc**: The position of the controls with in the grid, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+            **desc**: Whether or not to show a grid for the control that where placed on the gui before it was shown the first time.
 
-> **type**: string|false
+            **type**: bool
 
-**returns**:
+!!! note ""
+    ####__New
+    !!! tip ""
 
-> **desc**: Returns a new instance of [`GridGUI.GridGUIClass`](../GridGUIClass/)
+        ```AutoHotKey
+        __New(title := "", options := "", showGrid := false, justify := false)
+        ```
 
-> **type**: GridGUI.GridGUIClass
 
-####__TranslateGridPos
-**desc**: Transforms the cordinate syntax used when adding controls to a grid area
+    !!! abstract ""
 
-**args**:
+        :material-clipboard-text:{ .desc } Constructor.
 
-> **name**: x
 
-> **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
 
-> **type**: string|number
+    ??? example "parameters"
 
-> **name**: y
+        !!! info ""
 
-> **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
+            **name**: title
 
-> **type**: string|number
+            **desc**: The title that the new gui window will have
 
-**returns**:
+            **type**: string
 
-> **desc**: Returns the translated position as a point with a width and a height.
+            **default**: ""
 
-> **type**: GridGUI.Position
+        !!! info ""
 
-####_GuiMoved
-**desc**: A callback called when the gui was moved that calls the [`GridGUI.GUI._GuiMoved`](../GUI/#_guimoved) and shows a debug tooltip with the position if [`GridGUI.GridGUIClass.showGrid`](../GridGUIClass/#showgrid) is true.
+            **name**: options
 
-**args**:
+            **desc**: The ahk gui options that the window will be created with
 
-> **name**: pos
+            **type**: string
 
-> **desc**: The new position, only containing coordinate of the top right corner.
+            **default**: ""
 
-> **type**: [GridGUI.Position](../Position/)
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Options)
 
-####_GuiSize
-**desc**: A callback called when the gui was resized, that calls the [`GridGUI.GridGUIClass.Draw`](../GridGUIClass/#draw) method, [`GridGUI.GUI._GuiSize`](../GUI/#_guisize) and draws the debug grid if [`GridGUI.GridGUIClass.showGrid`](../GridGUIClass/#showgrid) is true.
+        !!! info ""
 
-**args**:
+            **name**: showGrid
 
-> **name**: pos
+            **desc**: Whether or not to show a grid for the control that where placed on the gui before it was shown the first time.
 
-> **desc**: The new area, only containing width and height of the gui, that is x and y is both zero.
+            **type**: bool
 
-> **type**: [GridGUI.Position](../Position/)
+            **default**: false
 
-####Add
-**desc**: Adds a new cell with any of the standard controls to the grid and gui.
+        !!! info ""
 
-**args**:
+            **name**: justify
 
-> **name**: x
+            **desc**: The position of the controls with in the grid, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
 
-> **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
+            **type**: string|false
 
-> **type**: string|number
+            **default**: false
 
-> **name**: y
+    !!! question ""
 
-> **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: string|number
+            **desc**: Returns a new instance of [`GridGUI.GridGUIClass`](../GridGUIClass/)
 
-> **name**: type
+            **type**: [GridGUI.GridGUIClass](../GridGUIClass/)
 
-> **desc**: The type of the control. Can be `Text, Edit, UpDown, Picture, Button, Checkbox, DropDownList, ComboBox, ListBox, Link, Hotkey, DateTime, MonthCal, Slider, Progress, GroupBox and ActiveX`. For `Radio, ListView, TreeView, Tab3 and StatusBar` see [AdditionalControls](AdditionalControls)
+!!! note ""
+    ####__TranslateGridPos
+    !!! tip ""
 
-> **type**: string
+        ```AutoHotKey
+        __TranslateGridPos(x, y)
+        ```
 
-> **name**: options
 
-> **desc**: The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.
+    !!! abstract ""
 
-> **type**: string
+        :material-clipboard-text:{ .desc } Transforms the cordinate syntax used when adding controls to a grid area
 
-> **name**: text
 
-> **desc**: The text that the control will be created with.
 
-> **type**: string
+    ??? example "parameters"
 
-> **name**: exW
+        !!! info ""
 
-> **desc**: How much of the excess width the cell should take up relative to the other width expanding cells. Can be an object with keys the same names as the optional arguments that this method takes.
+            **name**: x
 
-> **type**: number
+            **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
 
-> **name**: exH
+            **type**: string|number
 
-> **desc**: How much of the excess height the cell should take up relative to the other height expanding cells.
+        !!! info ""
 
-> **type**: number
+            **name**: y
 
-> **name**: fillW
+            **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
 
-> **desc**: Whether or not the control should fill the width of the cell.
+            **type**: string|number
 
-> **type**: bool
+    !!! question ""
 
-> **name**: fillH
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **desc**: Whether or not the control should fill the height of the cell.
+            **desc**: Returns the translated position as a point with a width and a height.
 
-> **type**: bool
+            **type**: [GridGUI.Position](../Position/)
 
-> **name**: justify
+!!! note ""
+    ####_GuiMoved
+    !!! tip ""
 
-> **desc**: The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+        ```AutoHotKey
+        _GuiMoved(pos)
+        ```
 
-> **type**: string
 
-> **default**: C
+    !!! abstract ""
 
-**returns**:
+        :material-clipboard-text:{ .desc } A callback called when the gui was moved that calls the [`GridGUI.GUI._GuiMoved`](../GUI/#_guimoved) and shows a debug tooltip with the position if [`GridGUI.GridGUIClass.showGrid`](../GridGUIClass/#showgrid) is true.
 
-> **desc**: Returns the added control
 
-> **type**: GridGUI.ArbitraryControl
 
-####AddControl
-**desc**: Adds a new cell to the grid and sets the cells control to the supplied control class instance.
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: x
+            **name**: pos
 
-> **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
+            **desc**: The new position, only containing coordinate of the top right corner.
 
-> **type**: string|number
+            **type**: [GridGUI.Position](../Position/)
 
-> **name**: y
+!!! note ""
+    ####_GuiSize
+    !!! tip ""
 
-> **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
+        ```AutoHotKey
+        _GuiSize(pos)
+        ```
 
-> **type**: string|number
 
-> **name**: ctrl
+    !!! abstract ""
 
-> **desc**: The control that will be put in the cell.
+        :material-clipboard-text:{ .desc } A callback called when the gui was resized, that calls the [`GridGUI.GridGUIClass.Draw`](../GridGUIClass/#draw) method, [`GridGUI.GUI._GuiSize`](../GUI/#_guisize) and draws the debug grid if [`GridGUI.GridGUIClass.showGrid`](../GridGUIClass/#showgrid) is true.
 
-> **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
 
-> **name**: exW
 
-> **desc**: How much of the excess width the cell should take up relative to the other width expanding cells. Can be an object with keys the same names as the optional arguments that this method takes.
+    ??? example "parameters"
 
-> **type**: number
+        !!! info ""
 
-> **name**: exH
+            **name**: pos
 
-> **desc**: How much of the excess height the cell should take up relative to the other height expanding cells.
+            **desc**: The new area, only containing width and height of the gui, that is x and y is both zero.
 
-> **type**: number
+            **type**: [GridGUI.Position](../Position/)
 
-> **name**: fillW
+!!! note ""
+    ####Add
+    !!! tip ""
 
-> **desc**: Whether or not the control should fill the width of the cell.
+        ```AutoHotKey
+        Add(x, y, type, options := "", text := "", exW := 0, exH := 0, fillW := false, fillH := false, justify := "C")
+        ```
 
-> **type**: bool
 
-> **name**: fillH
+    !!! abstract ""
 
-> **desc**: Whether or not the control should fill the height of the cell.
+        :material-clipboard-text:{ .desc } Adds a new cell with any of the standard controls to the grid and gui.
 
-> **type**: bool
 
-> **name**: justify
 
-> **desc**: The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+    ??? example "parameters"
 
-> **type**: string
+        !!! info ""
 
-> **default**: C
+            **name**: x
 
-**returns**:
+            **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
 
-> **desc**: Returns the control that the method was called with.
+            **type**: string|number
 
-> **type**: GridGUI.GuiControlClass
+        !!! info ""
 
-####AutoSize
-**desc**: Calculates the minimum size required to show all the controls in the grid and sets the [`GridGUI.GUI.pos`](../GUI/#pos) to the calculated width and height, as well as updates the controls in the grid to their positions. Can be used to reduce the number of controls that a noticeable misplaced when the gui is drawn the first time if called before calling [`GridGUI.GridGUIClass.Show`](../GridGUIClass/#show).
+            **name**: y
 
-####Draw
-**desc**: Calculates the new positions of the controls in the grid based on the settings of their [`GridGUI.Cell`](../Cell/) and moved them to their new positions.
+            **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
 
-**args**:
+            **type**: string|number
 
-> **name**: pos
+        !!! info ""
 
-> **desc**: The area the controls will be put into and sized to fit if [`GridGUI.Cell.exW`](../Cell/#exw), [`GridGUI.Cell.exH`](../Cell/#exh), [`GridGUI.Cell.fillW`](../Cell/#fillw) or [`GridGUI.Cell.fillH`](../Cell/#fillh) of the cell that the control occupies are set.
+            **name**: type
 
-> **type**: [GridGUI.Position](../Position/)
+            **desc**: The type of the control. Can be `Text, Edit, UpDown, Picture, Button, Checkbox, DropDownList, ComboBox, ListBox, Link, Hotkey, DateTime, MonthCal, Slider, Progress, GroupBox and ActiveX`. For `Radio, ListView, TreeView, Tab3 and StatusBar` see [AdditionalControls](AdditionalControls)
 
-####GetCellGroup
-**desc**: Retrieve a [`GridGUI.Cell`](../Cell/) by its associated control.
+            **type**: string
 
-**args**:
+        !!! info ""
 
-> **name**: Ctrl
+            **name**: options
 
-> **desc**: The control used to match the right [`GridGUI.Cell`](../Cell/)
+            **desc**: The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.
 
-> **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
+            **type**: string
 
-**returns**:
+            **default**: ""
 
-> **desc**: Returns the found [`GridGUI.Cell`](../Cell/)
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions)
 
-> **type**: GridGUI.Cell
+        !!! info ""
 
-####GetCellGroupsAt
-**desc**: Retrieve the array of [`GridGUI.Cell`](../Cell/)s that are in a grid position.
+            **name**: text
 
-**args**:
+            **desc**: The text that the control will be created with.
 
-> **name**: GridPos
+            **type**: string
 
-> **desc**: The grid position where the [`GridGUI.Cell`](../Cell/)s are retrieved from.
+            **default**: ""
 
-> **type**: [GridGUI.Position](../Position/)
+        !!! info ""
 
-**returns**:
+            **name**: exW
 
-> **desc**: returns the array of [`GridGUI.Cell`](../Cell/)s at `GridPos`
+            **desc**: How much of the excess width the cell should take up relative to the other width expanding cells. Can be an object with keys the same names as the optional arguments that this method takes.
 
-> **type**: object
+            **type**: number
 
-####GetNewestCellGroup
-**desc**: Retrieves the most recently added [`GridGUI.Cell`](../Cell/).
+            **default**: 0
 
-**returns**:
+        !!! info ""
 
-> **desc**: Retruns the most recent [`GridGUI.Cell`](../Cell/).
+            **name**: exH
 
-> **type**: GridGUI.Cell
+            **desc**: How much of the excess height the cell should take up relative to the other height expanding cells.
 
-####Margin
-**desc**: Sets the [`GridGUI.GridGUIClass.margins`](../GridGUIClass/#margins) to the supplied x and y margins and updates all [`GridGUI.Cell`](../Cell/)s in [`GridGUI.GridGUIClass.grid`](../GridGUIClass/#grid) to use the new border sizes.
+            **type**: number
 
-**args**:
+            **default**: 0
 
-> **name**: x
+        !!! info ""
 
-> **desc**: The new horisontal margin to use, that is the spacing to the right and left of cells. If set to "" the current value will be left unchanged.
+            **name**: fillW
 
-> **type**: number|string
+            **desc**: Whether or not the control should fill the width of the cell.
 
-> **name**: y
+            **type**: bool
 
-> **desc**: The new vertical margin to use, that is the spacing above and below cells. If set to "" the current value will be left unchanged.
+            **default**: false
 
-> **type**: number|string
+        !!! info ""
 
-####ReDraw
-**desc**: Resets cached calculations and calls [`GridGUI.GridGUIClass.Draw`](../GridGUIClass/#draw) with the current positions and size.
+            **name**: fillH
 
-####RemoveCell
-**desc**: Removes a [`GridGUI.Cell`](../Cell/) and the associated control from the grid and gui.
+            **desc**: Whether or not the control should fill the height of the cell.
 
-**args**:
+            **type**: bool
 
-> **name**: Cell
+            **default**: false
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) that will be removed.
+        !!! info ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **name**: justify
 
-####RemoveCellByCtrl
-**desc**: Removes a [`GridGUI.Cell`](../Cell/) with a specific control from the grid.
+            **desc**: The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
 
-**args**:
+            **type**: string
 
-> **name**: Ctrl
+            **default**: "C"
 
-> **desc**: The control that is used to search for the [`GridGUI.Cell`](../Cell/)
+    !!! question ""
 
-> **type**: [GridGUI.ControlClass](../ControlClass/)
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-####RemoveCellByPos
-**desc**: Removes a [`GridGUI.Cell`](../Cell/) in the array of [`GridGUI.Cell`](../Cell/)s at a specific position in the grid, by the array index.
+            **desc**: Returns the added control
 
-**args**:
+            **type**: [GridGUI.ArbitraryControl](../ArbitraryControl/)
 
-> **name**: GridPos
+!!! note ""
+    ####AddControl
+    !!! tip ""
 
-> **desc**: The grid position where the [`GridGUI.Cell`](../Cell/)s are retrieved from.
+        ```AutoHotKey
+        AddControl(x, y, ctrl, exW := 0, exH := 0, fillW := false, fillH := false, justify := "C")
+        ```
 
-> **type**: [GridGUI.Position](../Position/)
 
-> **name**: index
+    !!! abstract ""
 
-> **desc**: The index to be removed.
+        :material-clipboard-text:{ .desc } Adds a new cell to the grid and sets the cells control to the supplied control class instance.
 
-> **type**: number
 
-> **default**: 1
 
-####Show
-**desc**: Shows that gui by calling [`GridGUI.GUI.Show`](../GUI/#show) with the given options.
+    ??? example "parameters"
 
-**args**:
+        !!! info ""
 
-> **name**: options
+            **name**: x
 
-> **desc**: The options that is used when calling `Gui, Show`.
+            **desc**: The Columns that the cell spans over. When more than one column is wanted separate the start and end columns with a hyphen, e.g. "2-5".
 
-> **type**: string
+            **type**: string|number
 
-> **default**: AutoSize
+        !!! info ""
+
+            **name**: y
+
+            **desc**: The Rows that the cell spans over. When more than one row is wanted separate the start and end rows with a hyphen, e.g. "2-5".
+
+            **type**: string|number
+
+        !!! info ""
+
+            **name**: ctrl
+
+            **desc**: The control that will be put in the cell.
+
+            **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
+
+        !!! info ""
+
+            **name**: exW
+
+            **desc**: How much of the excess width the cell should take up relative to the other width expanding cells. Can be an object with keys the same names as the optional arguments that this method takes.
+
+            **type**: number
+
+            **default**: 0
+
+        !!! info ""
+
+            **name**: exH
+
+            **desc**: How much of the excess height the cell should take up relative to the other height expanding cells.
+
+            **type**: number
+
+            **default**: 0
+
+        !!! info ""
+
+            **name**: fillW
+
+            **desc**: Whether or not the control should fill the width of the cell.
+
+            **type**: bool
+
+            **default**: false
+
+        !!! info ""
+
+            **name**: fillH
+
+            **desc**: Whether or not the control should fill the height of the cell.
+
+            **type**: bool
+
+            **default**: false
+
+        !!! info ""
+
+            **name**: justify
+
+            **desc**: The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).
+
+            **type**: string
+
+            **default**: "C"
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Returns the control that the method was called with.
+
+            **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
+
+!!! note ""
+    ####AutoSize
+    !!! tip ""
+
+        ```AutoHotKey
+        AutoSize()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the minimum size required to show all the controls in the grid and sets the [`GridGUI.GUI.pos`](../GUI/#pos) to the calculated width and height, as well as updates the controls in the grid to their positions. Can be used to reduce the number of controls that a noticeable misplaced when the gui is drawn the first time if called before calling [`GridGUI.GridGUIClass.Show`](../GridGUIClass/#show).
+
+
+
+!!! note ""
+    ####Draw
+    !!! tip ""
+
+        ```AutoHotKey
+        Draw(pos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Calculates the new positions of the controls in the grid based on the settings of their [`GridGUI.Cell`](../Cell/) and moved them to their new positions.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: pos
+
+            **desc**: The area the controls will be put into and sized to fit if [`GridGUI.Cell.exW`](../Cell/#exw), [`GridGUI.Cell.exH`](../Cell/#exh), [`GridGUI.Cell.fillW`](../Cell/#fillw) or [`GridGUI.Cell.fillH`](../Cell/#fillh) of the cell that the control occupies are set.
+
+            **type**: [GridGUI.Position](../Position/)
+
+!!! note ""
+    ####GetCellGroup
+    !!! tip ""
+
+        ```AutoHotKey
+        GetCellGroup(Ctrl)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Retrieve a [`GridGUI.Cell`](../Cell/) by its associated control.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: Ctrl
+
+            **desc**: The control used to match the right [`GridGUI.Cell`](../Cell/)
+
+            **type**: [GridGUI.GuiControlClass](../GuiControlClass/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Returns the found [`GridGUI.Cell`](../Cell/)
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####GetCellGroupsAt
+    !!! tip ""
+
+        ```AutoHotKey
+        GetCellGroupsAt(GridPos)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Retrieve the array of [`GridGUI.Cell`](../Cell/)s that are in a grid position.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: GridPos
+
+            **desc**: The grid position where the [`GridGUI.Cell`](../Cell/)s are retrieved from.
+
+            **type**: [GridGUI.Position](../Position/)
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: returns the array of [`GridGUI.Cell`](../Cell/)s at `GridPos`
+
+            **type**: object
+
+!!! note ""
+    ####GetNewestCellGroup
+    !!! tip ""
+
+        ```AutoHotKey
+        GetNewestCellGroup()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Retrieves the most recently added [`GridGUI.Cell`](../Cell/).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: Retruns the most recent [`GridGUI.Cell`](../Cell/).
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####Margin
+    !!! tip ""
+
+        ```AutoHotKey
+        Margin(x := "", y := "")
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Sets the [`GridGUI.GridGUIClass.margins`](../GridGUIClass/#margins) to the supplied x and y margins and updates all [`GridGUI.Cell`](../Cell/)s in [`GridGUI.GridGUIClass.grid`](../GridGUIClass/#grid) to use the new border sizes.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: x
+
+            **desc**: The new horisontal margin to use, that is the spacing to the right and left of cells. If set to "" the current value will be left unchanged.
+
+            **type**: number|string
+
+            **default**: ""
+
+        !!! info ""
+
+            **name**: y
+
+            **desc**: The new vertical margin to use, that is the spacing above and below cells. If set to "" the current value will be left unchanged.
+
+            **type**: number|string
+
+            **default**: ""
+
+!!! note ""
+    ####ReDraw
+    !!! tip ""
+
+        ```AutoHotKey
+        ReDraw()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Resets cached calculations and calls [`GridGUI.GridGUIClass.Draw`](../GridGUIClass/#draw) with the current positions and size.
+
+
+
+!!! note ""
+    ####RemoveCell
+    !!! tip ""
+
+        ```AutoHotKey
+        RemoveCell(Cell)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Removes a [`GridGUI.Cell`](../Cell/) and the associated control from the grid and gui.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: Cell
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) that will be removed.
+
+            **type**: [GridGUI.Cell](../Cell/)
+
+!!! note ""
+    ####RemoveCellByCtrl
+    !!! tip ""
+
+        ```AutoHotKey
+        RemoveCellByCtrl(Ctrl)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Removes a [`GridGUI.Cell`](../Cell/) with a specific control from the grid.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: Ctrl
+
+            **desc**: The control that is used to search for the [`GridGUI.Cell`](../Cell/)
+
+            **type**: [GridGUI.ControlClass](../ControlClass/)
+
+!!! note ""
+    ####RemoveCellByPos
+    !!! tip ""
+
+        ```AutoHotKey
+        RemoveCellByPos(GridPos, index := 1)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Removes a [`GridGUI.Cell`](../Cell/) in the array of [`GridGUI.Cell`](../Cell/)s at a specific position in the grid, by the array index.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: GridPos
+
+            **desc**: The grid position where the [`GridGUI.Cell`](../Cell/)s are retrieved from.
+
+            **type**: [GridGUI.Position](../Position/)
+
+        !!! info ""
+
+            **name**: index
+
+            **desc**: The index to be removed.
+
+            **type**: number
+
+            **default**: 1
+
+!!! note ""
+    ####Show
+    !!! tip ""
+
+        ```AutoHotKey
+        Show(options := AutoSize)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Shows that gui by calling [`GridGUI.GUI.Show`](../GUI/#show) with the given options.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: options
+
+            **desc**: The options that is used when calling `Gui, Show`.
+
+            **type**: string
+
+            **default**: AutoSize
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Show)
 

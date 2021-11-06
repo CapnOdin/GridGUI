@@ -5,190 +5,357 @@
 ---
 ##Members
 
-####catched
+!!! info ""
 
-> **desc**: Whether or not the members have already been calculate.
+    ####catched
+    !!! info ""
 
-> **type**: bool
+        **desc**: Whether or not the members have already been calculate.
 
-####columns
+        **type**: bool
 
-> **desc**: A collection of the [`GridGUI.Column`](../Column/)s where one or more [`GridGUI.Cell`](../Cell/)s have been placed. That is only used columns are generated.
+        **default**: false
 
-> **type**: associative array
+!!! info ""
 
-> **default**: {}
+    ####columns
+    !!! info ""
 
-####expanders
+        **desc**: A collection of the [`GridGUI.Column`](../Column/)s where one or more [`GridGUI.Cell`](../Cell/)s have been placed. That is only used columns are generated.
 
-> **desc**: A collection of the sum of horisontal [`GridGUI.Cell`](../Cell/) expansion weights of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+        **type**: associative array
 
-> **type**: associative array
+        **default**: {}
 
-> **default**: {}
+!!! info ""
 
-####expandersMaxValue
+    ####expanders
+    !!! info ""
 
-> **desc**: A collection of the maximum horisontal [`GridGUI.Cell`](../Cell/) expansion weight of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+        **desc**: A collection of the sum of horisontal [`GridGUI.Cell`](../Cell/) expansion weights of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
 
-> **type**: associative array
+        **type**: associative array
 
-> **default**: {}
+        **default**: {}
 
-####fixedWidths
+!!! info ""
 
-> **desc**: A collection of the fixed width of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+    ####expandersMaxValue
+    !!! info ""
 
-> **type**: associative array
+        **desc**: A collection of the maximum horisontal [`GridGUI.Cell`](../Cell/) expansion weight of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
 
-> **default**: {}
+        **type**: associative array
 
-####minWidths
+        **default**: {}
 
-> **desc**: A collection of the min width of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+!!! info ""
 
-> **type**: associative array
+    ####fixedWidths
+    !!! info ""
 
-> **default**: {}
+        **desc**: A collection of the fixed width of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
 
-####nonExpanders
+        **type**: associative array
 
-> **desc**: A collection of the amount of horisontally fixed [`GridGUI.Cell`](../Cell/)s in each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+        **default**: {}
 
-> **type**: associative array
+!!! info ""
 
-> **default**: {}
+    ####minWidths
+    !!! info ""
+
+        **desc**: A collection of the min width of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+
+        **type**: associative array
+
+        **default**: {}
+
+!!! info ""
+
+    ####nonExpanders
+    !!! info ""
+
+        **desc**: A collection of the amount of horisontally fixed [`GridGUI.Cell`](../Cell/)s in each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+
+        **type**: associative array
+
+        **default**: {}
 
 ##Methods
 
-####__New
-**desc**: Constructor.
+!!! note ""
+    ####__New
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        __New()
+        ```
 
-> **desc**: A new [`GridGUI.Columns`](../Columns/) instance.
 
-> **type**: GridGUI.Columns
+    !!! abstract ""
 
-####__ResetConstants
-**desc**: Resets the cached [`GridGUI.Columns`](../Columns/) members to their default values.
+        :material-clipboard-text:{ .desc } Constructor.
 
-####Add
-**desc**: Adds a [`GridGUI.Cell`](../Cell/) to the [`GridGUI.Column`](../Column/)s that it spans over. If the [`GridGUI.Column`](../Column/)s are not already in [`GridGUI.Columns.columns`](../Columns/#columns) they are added before adding the cell.
 
-**args**:
 
-> **name**: c
+    !!! question ""
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to add to the [`GridGUI.Column`](../Column/)s.
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **desc**: A new [`GridGUI.Columns`](../Columns/) instance.
 
-####CalculateConstants
-**desc**: Calculates the values for the [`GridGUI.Columns`](../Columns/) members that are cached.
+            **type**: [GridGUI.Columns](../Columns/)
 
-####CalculateWidths
-**desc**: Calculates the part of the available width that each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns) will get.
+!!! note ""
+    ####__ResetConstants
+    !!! tip ""
 
-**args**:
+        ```AutoHotKey
+        __ResetConstants()
+        ```
 
-> **name**: width
 
-> **desc**: The width of the grid. That is the width that the grid should fill.
+    !!! abstract ""
 
-> **type**: number
+        :material-clipboard-text:{ .desc } Resets the cached [`GridGUI.Columns`](../Columns/) members to their default values.
 
-> **name**: expandersW,
 
-> **desc**: The member [`GridGUI.Columns.expanders`](../Columns/#expanders)
 
-> **type**: associative array
+!!! note ""
+    ####Add
+    !!! tip ""
 
-> **name**: nonExpandersW,
+        ```AutoHotKey
+        Add(c)
+        ```
 
-> **desc**: The member [`GridGUI.Columns.nonExpanders`](../Columns/#nonexpanders)
 
-> **type**: associative array
+    !!! abstract ""
 
-> **name**: height
+        :material-clipboard-text:{ .desc } Adds a [`GridGUI.Cell`](../Cell/) to the [`GridGUI.Column`](../Column/)s that it spans over. If the [`GridGUI.Column`](../Column/)s are not already in [`GridGUI.Columns.columns`](../Columns/#columns) they are added before adding the cell.
 
-> **desc**: The unclaimed height of the grid. That is the height of the grid that is left after removing the height of the fixed cells.
 
-> **type**: number
 
-> **name**: expandersH
+    ??? example "parameters"
 
-> **desc**: The member [`GridGUI.Rows.expanders`](../Rows/#expanders)
+        !!! info ""
 
-> **type**: associative array
+            **name**: c
 
-> **name**: nonExpandersH
+            **desc**: The [`GridGUI.Cell`](../Cell/) to add to the [`GridGUI.Column`](../Column/)s.
 
-> **desc**: The member [`GridGUI.Rows.nonExpanders`](../Rows/#nonexpanders)
+            **type**: [GridGUI.Cell](../Cell/)
 
-> **type**: associative array
+!!! note ""
+    ####CalculateConstants
+    !!! tip ""
 
-**returns**:
+        ```AutoHotKey
+        CalculateConstants()
+        ```
 
-> **desc**: The calculated widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
 
-> **type**: associative array
+    !!! abstract ""
 
-####GetFixedWidth
-**desc**: Returns the sum of the fixed widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+        :material-clipboard-text:{ .desc } Calculates the values for the [`GridGUI.Columns`](../Columns/) members that are cached.
 
-**returns**:
 
-> **desc**: The sum of the fixed widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
 
-> **type**: number
+!!! note ""
+    ####CalculateWidths
+    !!! tip ""
 
-####GetMinWidth
-**desc**: Returns the sum of the minimal widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+        ```AutoHotKey
+        CalculateWidths(width, expandersW,, nonExpandersW,, height, expandersH, nonExpandersH)
+        ```
 
-**returns**:
 
-> **desc**: The sum of the minimal widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+    !!! abstract ""
 
-> **type**: number
+        :material-clipboard-text:{ .desc } Calculates the part of the available width that each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns) will get.
 
-####ReduceToGuiSize
-**desc**: Fixes miscalculations in the width of expanding [`GridGUI.Cell`](../Cell/)s by reducing their width down until they all fit in the available width or all have reach their min width. The reduction is done starting with the widest [`GridGUI.Column`](../Column/) to the thinnest.
 
-**args**:
 
-> **name**: widths
+    ??? example "parameters"
 
-> **desc**: The calculated widths for the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+        !!! info ""
 
-> **type**: associative array
+            **name**: width
 
-> **name**: expandedWidths
+            **desc**: The width of the grid. That is the width that the grid should fill.
 
-> **desc**: An array of the widths of [`GridGUI.Column`](../Column/)s with one or more horisontally expanding [`GridGUI.Cell`](../Cell/) if the current width in `widths` corresponding to the column is larger than the minimum of the column otherwise it wont be included in the `expandedWidths`
+            **type**: number
 
-> **type**: array
+        !!! info ""
 
-> **name**: sumExpandedWidths
+            **name**: expandersW,
 
-> **desc**: The sum of the widths in `expandedWidths`.
+            **desc**: The member [`GridGUI.Columns.expanders`](../Columns/#expanders)
 
-> **type**: number
+            **type**: associative array
 
-> **name**: excessWidth
+        !!! info ""
 
-> **desc**: The amount of width that the sum of `widths` would exceed the width of the grid/gui.
+            **name**: nonExpandersW,
 
-> **type**: number
+            **desc**: The member [`GridGUI.Columns.nonExpanders`](../Columns/#nonexpanders)
 
-####Remove
-**desc**: Removes a [`GridGUI.Cell`](../Cell/) from the [`GridGUI.Column`](../Column/)s that it spans over. If the [`GridGUI.Column`](../Column/)s are empty after removing the cell the column will be removed as well.
+            **type**: associative array
 
-**args**:
+        !!! info ""
 
-> **name**: c
+            **name**: height
 
-> **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the [`GridGUI.Column`](../Column/)s.
+            **desc**: The unclaimed height of the grid. That is the height of the grid that is left after removing the height of the fixed cells.
 
-> **type**: [GridGUI.Cell](../Cell/)
+            **type**: number
+
+        !!! info ""
+
+            **name**: expandersH
+
+            **desc**: The member [`GridGUI.Rows.expanders`](../Rows/#expanders)
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: nonExpandersH
+
+            **desc**: The member [`GridGUI.Rows.nonExpanders`](../Rows/#nonexpanders)
+
+            **type**: associative array
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The calculated widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+
+            **type**: associative array
+
+!!! note ""
+    ####GetFixedWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        GetFixedWidth()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the sum of the fixed widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The sum of the fixed widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+
+            **type**: number
+
+!!! note ""
+    ####GetMinWidth
+    !!! tip ""
+
+        ```AutoHotKey
+        GetMinWidth()
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Returns the sum of the minimal widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+
+
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The sum of the minimal widths of the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+
+            **type**: number
+
+!!! note ""
+    ####ReduceToGuiSize
+    !!! tip ""
+
+        ```AutoHotKey
+        ReduceToGuiSize(widths, expandedWidths, sumExpandedWidths, excessWidth)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Fixes miscalculations in the width of expanding [`GridGUI.Cell`](../Cell/)s by reducing their width down until they all fit in the available width or all have reach their min width. The reduction is done starting with the widest [`GridGUI.Column`](../Column/) to the thinnest.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: widths
+
+            **desc**: The calculated widths for the [`GridGUI.Column`](../Column/)s in [`GridGUI.Columns.columns`](../Columns/#columns).
+
+            **type**: associative array
+
+        !!! info ""
+
+            **name**: expandedWidths
+
+            **desc**: An array of the widths of [`GridGUI.Column`](../Column/)s with one or more horisontally expanding [`GridGUI.Cell`](../Cell/) if the current width in `widths` corresponding to the column is larger than the minimum of the column otherwise it wont be included in the `expandedWidths`
+
+            **type**: array
+
+        !!! info ""
+
+            **name**: sumExpandedWidths
+
+            **desc**: The sum of the widths in `expandedWidths`.
+
+            **type**: number
+
+        !!! info ""
+
+            **name**: excessWidth
+
+            **desc**: The amount of width that the sum of `widths` would exceed the width of the grid/gui.
+
+            **type**: number
+
+!!! note ""
+    ####Remove
+    !!! tip ""
+
+        ```AutoHotKey
+        Remove(c)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Removes a [`GridGUI.Cell`](../Cell/) from the [`GridGUI.Column`](../Column/)s that it spans over. If the [`GridGUI.Column`](../Column/)s are empty after removing the cell the column will be removed as well.
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: c
+
+            **desc**: The [`GridGUI.Cell`](../Cell/) to remove from the [`GridGUI.Column`](../Column/)s.
+
+            **type**: [GridGUI.Cell](../Cell/)
 
