@@ -31,6 +31,7 @@ theme:
 extra_css:
     - css/extra.css
     - css/extra2.css
+    - css/extra3.css
 
 extra_javascript:
     - js/extra.js
@@ -42,6 +43,10 @@ markdown_extensions:
     - attr_list
     - md_in_html
     - meta
+    - def_list
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
     - Home: index.md
