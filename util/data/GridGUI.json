@@ -18,7 +18,7 @@
 						"meta": ["const"]
 					},
 					"gridlines": {
-						"desc": "The container for the horisontal and vertical grid line controls shown when `GridGUIClass.showGrid` is true.",
+						"desc": "The container for the horisontal and vertical grid line controls shown when `GridGUI.GridGUIClass.showGrid` is true.",
 						"type": "array",
 						"default": "[[], []]",
 						"meta": ["object"],
@@ -53,18 +53,18 @@
 						]
 					},
 					"__New": {
-						"desc": "",
+						"desc": "Constructor.",
 						"args": [
 							{
 								"name": "title",
 								"desc": "The title that the new gui window will have",
-								"default": "",
+								"default": "\"\"",
 								"type": "string"
 							},
 							{
 								"name": "options",
 								"desc": "The ahk gui options that the window will be created with",
-								"default": "",
+								"default": "\"\"",
 								"type": "string",
 								"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options"
 							},
@@ -146,14 +146,14 @@
 							{
 								"name": "options",
 								"desc": "The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.",
-								"default": "",
+								"default": "\"\"",
 								"type": "string",
 								"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
 							},
 							{
 								"name": "text",
 								"desc": "The text that the control will be created with.",
-								"default": "",
+								"default": "\"\"",
 								"type": "string"
 							},
 							{
@@ -183,7 +183,7 @@
 							{
 								"name": "justify",
 								"desc": "The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
-								"default": "C",
+								"default": "\"C\"",
 								"type": "string"
 							}
 						],
@@ -237,7 +237,7 @@
 							{
 								"name": "justify",
 								"desc": "The position of the control with in the cell, can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
-								"default": "C",
+								"default": "\"C\"",
 								"type": "string"
 							}
 						],
@@ -300,13 +300,13 @@
 							{
 								"name": "x",
 								"desc": "The new horisontal margin to use, that is the spacing to the right and left of cells. If set to \"\" the current value will be left unchanged.",
-								"default": "",
+								"default": "\"\"",
 								"type": "number|string"
 							},
 							{
 								"name": "y",
 								"desc": "The new vertical margin to use, that is the spacing above and below cells. If set to \"\" the current value will be left unchanged.",
-								"default": "",
+								"default": "\"\"",
 								"type": "number|string"
 							}
 						]
@@ -416,7 +416,7 @@
 						]
 					},
 					"__New": {
-						"desc": "",
+						"desc": "Constructor.",
 						"args": [
 							{
 								"name": "guiHwnd",
@@ -433,6 +433,7 @@
 								"name": "DPIScale",
 								"desc": "Whether or not to change the size of controls based on DPI. Needed since a subgrid does not make its own gui to handle the gui options.",
 								"default": true,
+								"defaultVal": "true",
 								"type": "bool"
 							},
 							{
@@ -508,18 +509,18 @@
 				"desc": "A convenience function wrapper for the command."
 			},
 			"__New": {
-				"desc": "A convenience constructor that maps to the GridGUIClass.",
+				"desc": "A convenience constructor that maps to the GridGUI.GridGUIClass.",
 				"args": [
 					{
 						"name": "title",
 						"desc": "The title that the new gui window will have",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
 						"name": "options",
 						"desc": "The ahk gui options that the window will be created with.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options"
 					},

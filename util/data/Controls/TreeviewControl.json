@@ -12,7 +12,7 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "options",
@@ -56,14 +56,14 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "ParentItemID",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "Options",
@@ -79,7 +79,7 @@
 			"Delete": {
 				"args": [
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "ItemID",
@@ -138,14 +138,14 @@
 			"GetNext": {
 				"args": [
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "ItemID",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "ItemType",
@@ -241,7 +241,7 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "IconType",

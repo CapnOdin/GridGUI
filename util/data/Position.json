@@ -235,7 +235,7 @@
 					{
 						"name": "indent",
 						"desc": "The amount of indentation to add on each line.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],

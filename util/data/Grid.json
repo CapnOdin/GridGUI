@@ -559,7 +559,7 @@
 					{
 						"name": "ratio",
 						"desc": "The ratio to set for the cell in width divided by height. An empty ratio will set the ratio to the current width of the cell divided by the current height of the cell.",
-						"default": "",
+						"default": "\"\"",
 						"type": "number|\"\""
 					}
 				]
@@ -587,7 +587,7 @@
 					{
 						"name": "indent",
 						"desc": "The amount of indentation to add on each line.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
@@ -1238,7 +1238,7 @@
 			"justify": {
 				"desc": "How the `GridGUI.Grid.cells` will be positioned in the grid when drawn. Can be any combination of `C` (Center), `N` (North), `S` (South), `W` (West) and `E` (East).",
 				"type": "string",
-				"default": ""
+				"default": "\"\""
 			}
 		},
 		"methods": {
@@ -1807,6 +1807,7 @@
 						"name": "enlarge",
 						"desc": "",
 						"default": true,
+						"defaultVal": "true",
 						"type": "bool"
 					}
 				],

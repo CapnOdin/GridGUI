@@ -28,6 +28,7 @@
 							},
 							{
 								"default": true,
+								"defaultVal": "true",
 								"desc": "",
 								"link": "",
 								"name": "DPIScale",
@@ -68,14 +69,14 @@
 								"type": "string|number|object"
 							},
 							{
-								"default": "",
+								"default": "\"\"",
 								"desc": "",
 								"link": "",
 								"name": "options",
 								"type": "string"
 							},
 							{
-								"default": "",
+								"default": "\"\"",
 								"desc": "",
 								"link": "",
 								"name": "text",
@@ -214,14 +215,14 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "options",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "text",
@@ -229,6 +230,7 @@
 					},
 					{
 						"default": true,
+						"defaultVal": "true",
 						"desc": "",
 						"link": "",
 						"name": "preDrawOtherTabs",
@@ -236,6 +238,7 @@
 					},
 					{
 						"default": true,
+						"defaultVal": "true",
 						"desc": "",
 						"link": "",
 						"name": "DPIScale",

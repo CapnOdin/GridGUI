@@ -40,7 +40,7 @@
 					{
 						"name": "indent",
 						"desc": "The amount of indentation to add on each line.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
@@ -109,7 +109,7 @@
 					{
 						"name": "indent",
 						"desc": "The amount of indentation to add on each line.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
@@ -173,25 +173,25 @@
 					{
 						"name": "x",
 						"desc": "The x coordinate that the top left corner of the window will be moved to. If left empty the x coordinate of the top left corner won't change.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
 						"name": "y",
 						"desc": "The y coordinate that the top left corner of the window will be moved to. If left empty the y coordinate of the top left corner won't change.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
 						"name": "w",
 						"desc": "The width the window should be resized to. If left empty the width won't change.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
 						"name": "h",
 						"desc": "The height the window should be resized to. If left empty the height won't change.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				]

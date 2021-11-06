@@ -28,14 +28,14 @@
 			"MinSize": {
 				"args": [
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "w",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "h",

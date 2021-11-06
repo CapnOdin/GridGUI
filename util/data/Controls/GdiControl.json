@@ -240,28 +240,28 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "x",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "y",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "w",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "h",

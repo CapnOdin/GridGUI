@@ -94,7 +94,7 @@
 			"Colour": {
 				"desc": "The colour of the controls text in RGB format as a hex string.",
 				"type": "string",
-				"default": ""
+				"default": "\"\""
 			},
 			"_Colour": {
 				"desc": "The colour of the controls text in BGR format.",

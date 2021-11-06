@@ -85,7 +85,7 @@
 					{
 						"name": "pos",
 						"desc": "The position to click at in the control, see link for the coordinate format.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/ControlClick.htm#Parameters"
 					},
@@ -105,7 +105,7 @@
 					{
 						"name": "Options",
 						"desc": "A option string to change how the click are performed, see link for supported options.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/ControlClick.htm#Parameters"
 					}
@@ -122,14 +122,14 @@
 					{
 						"name": "subCommand",
 						"desc": "The subcommand to retrieve from the control. See link for available subcommands.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/ControlGet.htm#SubCommands"
 					},
 					{
 						"name": "value",
 						"desc": "Used to specify what to retrieve when the subcommand is not specific enough.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/ControlGet.htm#SubCommands"
 					}
@@ -208,7 +208,7 @@
 					{
 						"name": "indent",
 						"desc": "The amount of indentation to add on each line.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
@@ -281,7 +281,7 @@
 					{
 						"name": "options",
 						"desc": "The ahk options string that the control was created with, used to set up min-size and glabel callback.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
@@ -294,6 +294,7 @@
 						"name": "DPIScale",
 						"desc": "Whether or not to scale unscaled values by DPI/96.",
 						"default": true,
+						"defaultVal": "true",
 						"type": "bool"
 					}
 				],
@@ -348,6 +349,7 @@
 						"desc": "Whether or not to update the min size of the control so that the text will be visible using the new font.",
 						"type": "bool",
 						"default": true,
+						"defaultVal": "true",
 						"link": "https://www.autohotkey.com/docs/misc/FontsStandard.htm"
 					}
 				]
@@ -384,14 +386,14 @@
 					{
 						"name": "subCommand",
 						"desc": "The subcommand to retrieve from the control. See link for available subcommands.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/GuiControlGet.htm#SubCommands"
 					},
 					{
 						"name": "value",
 						"desc": "Used to specify what to retrieve when the subcommand is not specific enough.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/GuiControlGet.htm#SubCommands"
 					}
@@ -422,7 +424,7 @@
 					{
 						"name": "indent",
 						"desc": "The amount of indentation to add on each line.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
@@ -439,6 +441,7 @@
 						"name": "top",
 						"desc": "If true moved the control to the top of the z-order. If false moves the control to the bottom of the z-order.",
 						"default": true,
+						"defaultVal": "true",
 						"type": "bool"
 					},
 					{

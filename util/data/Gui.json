@@ -7,6 +7,7 @@
 				"desc": "Whether or not to correct for non standard dpi.",
 				"type": "bool",
 				"default": true,
+				"defaultVal": "true",
 				"link": "https://www.autohotkey.com/docs/commands/Gui.htm#DPIScale"
 			},
 			"pos": {
@@ -113,6 +114,7 @@
 						"name": "enlarge",
 						"desc": "Whether to increase or decrease the size of `pos`.",
 						"default": true,
+						"defaultVal": "true",
 						"type": "bool"
 					}
 				],
@@ -268,20 +270,20 @@
 					{
 						"name": "title",
 						"desc": "The title of the newly created GUI.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
 						"name": "options",
 						"desc": "The gui option string that the GUI will be created with.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Options"
 					},
 					{
 						"name": "hwnd",
 						"desc": "If specified then no new GUI will be created and no `OnMessage` callbacks will be set up. Instead the `GridGUI.GUI` instance will work like a wrapper for the GUI that can be used to interact with it.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
@@ -390,14 +392,14 @@
 					{
 						"name": "options",
 						"desc": "The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
 					},
 					{
 						"name": "text",
 						"desc": "The text that the control will be created with.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
@@ -413,14 +415,14 @@
 					{
 						"name": "WindowColor",
 						"desc": "The colour of the background of the GUI. See link for the supported format.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Color"
 					},
 					{
 						"name": "ControlColor",
 						"desc": "The colour of the background of controls that are added to the GUI in the future. See link for the supported format.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#Color"
 					}
@@ -497,13 +499,13 @@
 					{
 						"name": "x",
 						"desc": "The horisontal margin of controls that are added to the GUI.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
 						"name": "y",
 						"desc": "The vertical margin of controls that are added to the GUI.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				]
@@ -519,7 +521,7 @@
 					{
 						"name": "MenuName",
 						"desc": "The name of the menu to attach to the GUI menu bar. Menues are made using the `Menu` command, see link for details.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string",
 						"link": "https://www.autohotkey.com/docs/commands/Menu.htm"
 					}
@@ -535,13 +537,13 @@
 					{
 						"name": "x",
 						"desc": "The minimal width of the GUI. If `\"\"` the min width is left unchanged.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
 						"name": "y",
 						"desc": "The minimal height of the GUI. If `\"\"` the min height is left unchanged.",
-						"default": "",
+						"default": "\"\"",
 						"type": "string"
 					}
 				]

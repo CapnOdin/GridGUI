@@ -27,14 +27,14 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "options",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "text",
@@ -138,7 +138,7 @@
 			"GetCount": {
 				"args": [
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "Mode",
@@ -161,14 +161,14 @@
 			"GetNext": {
 				"args": [
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "StartingRowNumber",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "RowType",
@@ -219,7 +219,7 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "ColumnNumber",
@@ -241,14 +241,14 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "Options",
 						"type": "string"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "ColumnTitle",
@@ -286,7 +286,7 @@
 						"type": "number"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "text",
@@ -330,7 +330,7 @@
 						"type": "string|number|object"
 					},
 					{
-						"default": "",
+						"default": "\"\"",
 						"desc": "",
 						"link": "",
 						"name": "IconType",
