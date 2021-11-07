@@ -13,7 +13,7 @@
 				"meta": ["object"]
 			},
 			"exW": {
-				"desc": "The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.",
+				"desc": "The horizontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.",
 				"type": "number",
 				"default": 0
 			},
@@ -38,7 +38,7 @@
 				"default": "C"
 			},
 			"borderX": {
-				"desc": "The horisontal border or margin of the cell that is the amount of additional width beyond what the `GridGUI.Cell.ctrl` needs that is taken up by the cell.",
+				"desc": "The horizontal border or margin of the cell that is the amount of additional width beyond what the `GridGUI.Cell.ctrl` needs that is taken up by the cell.",
 				"type": "number",
 				"default": 5
 			},
@@ -63,7 +63,7 @@
 				"meta": ["object"]
 			},
 			"othersW": {
-				"desc": "The combined horisontal expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI width that this cell should take.",
+				"desc": "The combined horizontal expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI width that this cell should take.",
 				"type": "number",
 				"default": 0
 			},
@@ -142,7 +142,7 @@
 					},
 					{
 						"name": "exW",
-						"desc": "The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.",
+						"desc": "The horizontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.",
 						"default": 0,
 						"type": "number"
 					},
@@ -172,7 +172,7 @@
 					},
 					{
 						"name": "borderX",
-						"desc": "The horisontal border or margin of the cell that is the amount of additional width beyond what the control needs that is taken up by the cell.",
+						"desc": "The horizontal border or margin of the cell that is the amount of additional width beyond what the control needs that is taken up by the cell.",
 						"default": 5,
 						"type": "number"
 					},
@@ -270,7 +270,7 @@
 					},
 					{
 						"name": "expandersW",
-						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"desc": "An array of the sum of horizontal expansion weights for each column.",
 						"type": "array"
 					},
 					{
@@ -357,7 +357,7 @@
 					},
 					{
 						"name": "expandersW",
-						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"desc": "An array of the sum of horizontal expansion weights for each column.",
 						"type": "array"
 					},
 					{
@@ -401,7 +401,7 @@
 					},
 					{
 						"name": "expanders",
-						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"desc": "An array of the sum of horizontal expansion weights for each column.",
 						"type": "array"
 					},
 					{
@@ -430,7 +430,7 @@
 					},
 					{
 						"name": "expanders",
-						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"desc": "An array of the sum of horizontal expansion weights for each column.",
 						"type": "array"
 					},
 					{
@@ -454,7 +454,7 @@
 			"GetExpansionWidthValue": {
 				"desc": "Getter for `GridGUI.Cell.exW`.",
 				"returns": {
-					"desc": "The horisontal expansion weight.",
+					"desc": "The horizontal expansion weight.",
 					"type": "number"
 				}
 			},
@@ -475,14 +475,14 @@
 			"GetFixedWidth": {
 				"desc": "Returns the fixed width of the cell and applies the aspect ratio of `GridGUI.Cell.aspectRatio` if non zero.",
 				"returns": {
-					"desc": "The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the `GridGUI.Cell.ctrl` plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.",
+					"desc": "The fixed width of the cell. For non horizontally expanding and non horizontally filling cells the min-width of the `GridGUI.Cell.ctrl` plus 2 times the horizontal margin is returned. For horizontally expanding and or horizontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.",
 					"type": "number"
 				}
 			},
 			"__GetFixedWidth": {
 				"desc": "Returns the fixed width of the cell.",
 				"returns": {
-					"desc": "The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the `GridGUI.Cell.ctrl` plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.",
+					"desc": "The fixed width of the cell. For non horizontally expanding and non horizontally filling cells the min-width of the `GridGUI.Cell.ctrl` plus 2 times the horizontal margin is returned. For horizontally expanding and or horizontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the `GridGUI.Cell.ctrl` plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.",
 					"type": "number"
 				}
 			},
@@ -503,14 +503,14 @@
 			"GetNeededWidth": {
 				"desc": "Returns the needed width of the cell and applies the aspect ratio of `GridGUI.Cell.aspectRatio` if non zero.",
 				"returns": {
-					"desc": "The needed width of the cell. That is the min-width of the `GridGUI.Cell.ctrl` plus two times the horisontal margin.",
+					"desc": "The needed width of the cell. That is the min-width of the `GridGUI.Cell.ctrl` plus two times the horizontal margin.",
 					"type": "number"
 				}
 			},
 			"__GetNeededWidth": {
 				"desc": "Returns the needed width of the cell.",
 				"returns": {
-					"desc": "The needed width of the cell. That is the min-width of the `GridGUI.Cell.ctrl` plus two times the horisontal margin.",
+					"desc": "The needed width of the cell. That is the min-width of the `GridGUI.Cell.ctrl` plus two times the horizontal margin.",
 					"type": "number"
 				}
 			},
@@ -628,13 +628,13 @@
 				"meta": ["cached"]
 			},
 			"expanders": {
-				"desc": "The sum of all the horisontal expansion weights of cells that are in this column.",
+				"desc": "The sum of all the horizontal expansion weights of cells that are in this column.",
 				"type": "number",
 				"default": 0,
 				"meta": ["cached"]
 			},
 			"expanderMaxValue": {
-				"desc": "The largest horisontal expansion weight in this column.",
+				"desc": "The largest horizontal expansion weight in this column.",
 				"type": "number",
 				"default": 0,
 				"meta": ["cached"]
@@ -651,7 +651,7 @@
 				"default": false
 			},
 			"confligtingExpanders": {
-				"desc": "A collection of cells that have horisontal expansion conflicts.",
+				"desc": "A collection of cells that have horizontal expansion conflicts.",
 				"type": "Associative Array",
 				"default": "{}",
 				"meta": ["object", "cached"]
@@ -659,7 +659,7 @@
 		},
 		"methods": {
 			"__CalculateConfligtingExpanders": {
-				"desc": "Updates `GridGUI.Column.confligtingExpanders` with the `GridGUI.Cell` for a cell if it has horisontal conflicts.",
+				"desc": "Updates `GridGUI.Column.confligtingExpanders` with the `GridGUI.Cell` for a cell if it has horizontal conflicts.",
 				"args": [
 					{
 						"name": "c",
@@ -699,7 +699,7 @@
 				]
 			},
 			"__CalculateNonExpanders": {
-				"desc": "Increments `GridGUI.Column.nonExpanders` if the `GridGUI.Cell` does not expand horisontally.",
+				"desc": "Increments `GridGUI.Column.nonExpanders` if the `GridGUI.Cell` does not expand horizontally.",
 				"args": [
 					{
 						"name": "c",
@@ -748,7 +748,7 @@
 					},
 					{
 						"name": "expandersW",
-						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"desc": "An array of the sum of horizontal expansion weights for each column.",
 						"type": "associative array"
 					},
 					{
@@ -780,14 +780,14 @@
 			"GetExpanderMaxValue": {
 				"desc": "Getter for `GridGUI.Column.expanderMaxValue`.",
 				"returns": {
-					"desc": "The largest horisontal expansion weight of a cell in the column.",
+					"desc": "The largest horizontal expansion weight of a cell in the column.",
 					"type": "number"
 				}
 			},
 			"GetExpanders": {
 				"desc": "Getter for `GridGUI.Column.expanders`.",
 				"returns": {
-					"desc": "The sum of horisontal expansion weight of cells in the column.",
+					"desc": "The sum of horizontal expansion weight of cells in the column.",
 					"type": "number"
 				}
 			},
@@ -846,19 +846,19 @@
 				"meta": ["object", "cached"]
 			},
 			"expanders": {
-				"desc": "A collection of the sum of horisontal `GridGUI.Cell` expansion weights of each `GridGUI.Column` in `GridGUI.Columns.columns`.",
+				"desc": "A collection of the sum of horizontal `GridGUI.Cell` expansion weights of each `GridGUI.Column` in `GridGUI.Columns.columns`.",
 				"type": "associative array",
 				"default": "{}",
 				"meta": ["object", "cached"]
 			},
 			"expandersMaxValue": {
-				"desc": "A collection of the maximum horisontal `GridGUI.Cell` expansion weight of each `GridGUI.Column` in `GridGUI.Columns.columns`.",
+				"desc": "A collection of the maximum horizontal `GridGUI.Cell` expansion weight of each `GridGUI.Column` in `GridGUI.Columns.columns`.",
 				"type": "associative array",
 				"default": "{}",
 				"meta": ["object", "cached"]
 			},
 			"nonExpanders": {
-				"desc": "A collection of the amount of horisontally fixed `GridGUI.Cell`s in each `GridGUI.Column` in `GridGUI.Columns.columns`.",
+				"desc": "A collection of the amount of horizontally fixed `GridGUI.Cell`s in each `GridGUI.Column` in `GridGUI.Columns.columns`.",
 				"type": "associative array",
 				"default": "{}",
 				"meta": ["object", "cached"]
@@ -956,7 +956,7 @@
 					},
 					{
 						"name": "expandedWidths",
-						"desc": "An array of the widths of `GridGUI.Column`s with one or more horisontally expanding `GridGUI.Cell` if the current width in `widths` corresponding to the column is larger than the minimum of the column otherwise it wont be included in the `expandedWidths`",
+						"desc": "An array of the widths of `GridGUI.Column`s with one or more horizontally expanding `GridGUI.Cell` if the current width in `widths` corresponding to the column is larger than the minimum of the column otherwise it wont be included in the `expandedWidths`",
 						"type": "array"
 					},
 					{
@@ -993,25 +993,25 @@
 				"meta": ["object"]
 			},
 			"Overlapping": {
-				"desc": "Two collections of which expanding `GridGUI.Cell`s overlap a given expanding `GridGUI.Cell`. That is for an expanding `GridGUI.Cell` `c` the horisontally overlapping `GridGUI.Cell`s `o` will be stored under `[\"W\"][c][o]` and similar for the vertically overlapping cells they are stored under `\"H\"`.",
+				"desc": "Two collections of which expanding `GridGUI.Cell`s overlap a given expanding `GridGUI.Cell`. That is for an expanding `GridGUI.Cell` `c` the horizontally overlapping `GridGUI.Cell`s `o` will be stored under `[\"W\"][c][o]` and similar for the vertically overlapping cells they are stored under `\"H\"`.",
 				"type": "associative array",
 				"default": "{\"W\": {}, \"H\": {}}",
 				"meta": ["object"]
 			},
 			"ReducedConflict": {
-				"desc": "Two collections of only the expanding `GridGUI.Cell`s in `GridGUI.ExpanderArbitrator.ConflictMap` that can't be ignored in relation to an expanding `GridGUI.Cell`. That is for an expanding `GridGUI.Cell` `c` the horisontally expanding `GridGUI.Cell`s `o` in another column will be stored under `[\"W\"][c][o]` and similar for the vertically expanding cells they are stored under `\"H\"`.",
+				"desc": "Two collections of only the expanding `GridGUI.Cell`s in `GridGUI.ExpanderArbitrator.ConflictMap` that can't be ignored in relation to an expanding `GridGUI.Cell`. That is for an expanding `GridGUI.Cell` `c` the horizontally expanding `GridGUI.Cell`s `o` in another column will be stored under `[\"W\"][c][o]` and similar for the vertically expanding cells they are stored under `\"H\"`.",
 				"type": "associative array",
 				"default": "{\"W\": {}, \"H\": {}}",
 				"meta": ["object"]
 			},
 			"ConflictLst": {
-				"desc": "Two collections of which expanding `GridGUI.Cell`s needs to share the available GUI size with a specific expanding `GridGUI.Cell`. That is for an expanding `GridGUI.Cell` `c` the horisontally expanding `GridGUI.Cell`s `o` in another column will be stored under `[\"W\"][c][i]` where `i` is the index of `o` and similar for the vertically expanding cells they are stored under `\"H\"`.",
+				"desc": "Two collections of which expanding `GridGUI.Cell`s needs to share the available GUI size with a specific expanding `GridGUI.Cell`. That is for an expanding `GridGUI.Cell` `c` the horizontally expanding `GridGUI.Cell`s `o` in another column will be stored under `[\"W\"][c][i]` where `i` is the index of `o` and similar for the vertically expanding cells they are stored under `\"H\"`.",
 				"type": "associative array",
 				"default": "{\"W\": {}, \"H\": {}}",
 				"meta": ["object"]
 			},
 			"ConflictMap": {
-				"desc": "Two collections of which expanding `GridGUI.Cell`s needs to share the available GUI size with a specific expanding `GridGUI.Cell`. That is for an expanding `GridGUI.Cell` `c` the horisontally expanding `GridGUI.Cell`s `o` in another column will be stored under `[\"W\"][c][o]` and similar for the vertically expanding cells they are stored under `\"H\"`.",
+				"desc": "Two collections of which expanding `GridGUI.Cell`s needs to share the available GUI size with a specific expanding `GridGUI.Cell`. That is for an expanding `GridGUI.Cell` `c` the horizontally expanding `GridGUI.Cell`s `o` in another column will be stored under `[\"W\"][c][o]` and similar for the vertically expanding cells they are stored under `\"H\"`.",
 				"type": "associative array",
 				"default": "{\"W\": {}, \"H\": {}}",
 				"meta": ["object"]
@@ -1130,7 +1130,7 @@
 				}
 			},
 			"IsInWidthConflictWith": {
-				"desc": "Checks if two `GridGUI.Cell`s are in horisontal expanding conflict with each other.",
+				"desc": "Checks if two `GridGUI.Cell`s are in horizontal expanding conflict with each other.",
 				"args": [
 					{
 						"name": "c1",
@@ -1474,7 +1474,7 @@
 					},
 					{
 						"name": "expandersW",
-						"desc": "An array of the sum of horisontal expansion weights for each column.",
+						"desc": "An array of the sum of horizontal expansion weights for each column.",
 						"type": "associative array"
 					},
 					{
