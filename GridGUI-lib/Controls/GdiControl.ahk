@@ -3,7 +3,7 @@ Class GdiControl Extends GridGUI.ArbitraryControl {
 	
 	WS_EX_LAYERED := 0x00080000
 	
-	__New(guiHwnd, options, graphic := false) {
+	__New(guiHwnd, options := "", graphic := false) {
 		Base.__New(guiHwnd, "text", options, "")
 		this.pos := new GridGUI.Position(0, 0)
 		this.graphic := graphic
