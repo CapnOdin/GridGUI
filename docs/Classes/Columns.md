@@ -32,7 +32,7 @@
     ####expanders
     !!! info ""
 
-        **desc**: A collection of the sum of horisontal [`GridGUI.Cell`](../Cell/) expansion weights of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+        **desc**: A collection of the sum of horizontal [`GridGUI.Cell`](../Cell/) expansion weights of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
 
         **type**: associative array
 
@@ -43,7 +43,7 @@
     ####expandersMaxValue
     !!! info ""
 
-        **desc**: A collection of the maximum horisontal [`GridGUI.Cell`](../Cell/) expansion weight of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+        **desc**: A collection of the maximum horizontal [`GridGUI.Cell`](../Cell/) expansion weight of each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
 
         **type**: associative array
 
@@ -76,7 +76,7 @@
     ####nonExpanders
     !!! info ""
 
-        **desc**: A collection of the amount of horisontally fixed [`GridGUI.Cell`](../Cell/)s in each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
+        **desc**: A collection of the amount of horizontally fixed [`GridGUI.Cell`](../Cell/)s in each [`GridGUI.Column`](../Column/) in [`GridGUI.Columns.columns`](../Columns/#columns).
 
         **type**: associative array
 
@@ -314,7 +314,7 @@
 
             **name**: expandedWidths
 
-            **desc**: An array of the widths of [`GridGUI.Column`](../Column/)s with one or more horisontally expanding [`GridGUI.Cell`](../Cell/) if the current width in `widths` corresponding to the column is larger than the minimum of the column otherwise it wont be included in the `expandedWidths`
+            **desc**: An array of the widths of [`GridGUI.Column`](../Column/)s with one or more horizontally expanding [`GridGUI.Cell`](../Cell/) if the current width in `widths` corresponding to the column is larger than the minimum of the column otherwise it wont be included in the `expandedWidths`
 
             **type**: array
 

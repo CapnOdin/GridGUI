@@ -32,7 +32,7 @@
     ####confligtingExpanders
     !!! info ""
 
-        **desc**: A collection of cells that have horisontal expansion conflicts.
+        **desc**: A collection of cells that have horizontal expansion conflicts.
 
         **type**: Associative Array
 
@@ -43,7 +43,7 @@
     ####expanderMaxValue
     !!! info ""
 
-        **desc**: The largest horisontal expansion weight in this column.
+        **desc**: The largest horizontal expansion weight in this column.
 
         **type**: number
 
@@ -54,7 +54,7 @@
     ####expanders
     !!! info ""
 
-        **desc**: The sum of all the horisontal expansion weights of cells that are in this column.
+        **desc**: The sum of all the horizontal expansion weights of cells that are in this column.
 
         **type**: number
 
@@ -117,7 +117,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } Updates [`GridGUI.Column.confligtingExpanders`](../Column/#confligtingexpanders) with the [`GridGUI.Cell`](../Cell/) for a cell if it has horisontal conflicts.
+        :material-clipboard-text:{ .desc } Updates [`GridGUI.Column.confligtingExpanders`](../Column/#confligtingexpanders) with the [`GridGUI.Cell`](../Cell/) for a cell if it has horizontal conflicts.
 
 
 
@@ -217,7 +217,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } Increments [`GridGUI.Column.nonExpanders`](../Column/#nonexpanders) if the [`GridGUI.Cell`](../Cell/) does not expand horisontally.
+        :material-clipboard-text:{ .desc } Increments [`GridGUI.Column.nonExpanders`](../Column/#nonexpanders) if the [`GridGUI.Cell`](../Cell/) does not expand horizontally.
 
 
 
@@ -349,7 +349,7 @@
 
             **name**: expandersW
 
-            **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: An array of the sum of horizontal expansion weights for each column.
 
             **type**: associative array
 
@@ -414,7 +414,7 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: The largest horisontal expansion weight of a cell in the column.
+            **desc**: The largest horizontal expansion weight of a cell in the column.
 
             **type**: number
 
@@ -438,7 +438,7 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: The sum of horisontal expansion weight of cells in the column.
+            **desc**: The sum of horizontal expansion weight of cells in the column.
 
             **type**: number
 

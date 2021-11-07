@@ -3,6 +3,52 @@
 
 </figure>
 ---
+##Members
+
+!!! info ""
+
+    ####minHeight
+    !!! info ""
+
+        **desc**: Whether or not the control has a minimum height.
+
+        **type**: bool
+
+        **default**: false
+
+!!! info ""
+
+    ####minHeightVal
+    !!! info ""
+
+        **desc**: The minimum height of the control. Should be disregarded if [`GridGUI.CellControl.minHeight`](../CellControl/#minheight) is **false**.
+
+        **type**: number
+
+        **default**: 0
+
+!!! info ""
+
+    ####minWidth
+    !!! info ""
+
+        **desc**: Whether or not the control has a minimum width.
+
+        **type**: bool
+
+        **default**: false
+
+!!! info ""
+
+    ####minWidthVal
+    !!! info ""
+
+        **desc**: The minimum width of the control. Should be disregarded if [`GridGUI.CellControl.minWidth`](../CellControl/#minwidth) is **false**.
+
+        **type**: number
+
+        **default**: 0
+
 ##Methods
 
 !!! note ""
@@ -16,7 +62,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Implementations of this interface should move and draw the control on the GUI in this method.
 
 
 
@@ -26,18 +72,9 @@
 
             **name**: area
 
-            **desc**: 
+            **desc**: The position to move the control to and size to draw the control at.
 
-            **type**: string|number|object
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
+            **type**: [GridGUI.Position](../Position/)
 
 !!! note ""
     ####GetPos
@@ -50,7 +87,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Implementations of this interface should return the position and size of the control.
 
 
 
@@ -59,9 +96,9 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: The position and size of the control.
 
-            **type**: 
+            **type**: [GridGUI.Position](../Position/)
 
 !!! note ""
     ####MinSize
@@ -74,7 +111,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Sets the minimum size of the control. If both `w` and `h` are left unset then the minimum size will be set to the current size of the control as returned by [`GridGUI.CellControl.GetPos`](../CellControl/#getpos)
 
 
 
@@ -84,9 +121,9 @@
 
             **name**: w
 
-            **desc**: 
+            **desc**: The minimum width to set. If left unset then the minimum width won't be changed.
 
-            **type**: string
+            **type**: number|""
 
             **default**: ""
 
@@ -94,18 +131,9 @@
 
             **name**: h
 
-            **desc**: 
+            **desc**: The minimum height to set. If left unset then the minimum height won't be changed.
 
-            **type**: string
+            **type**: number|""
 
             **default**: ""
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
 

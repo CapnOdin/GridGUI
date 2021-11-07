@@ -1107,7 +1107,7 @@
 
             **name**: x
 
-            **desc**: The horisontal margin of controls that are added to the GUI.
+            **desc**: The horizontal margin of controls that are added to the GUI.
 
             **type**: string
 

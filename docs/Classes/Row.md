@@ -373,7 +373,7 @@
 
             **name**: expandersW
 
-            **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: An array of the sum of horizontal expansion weights for each column.
 
             **type**: associative array
 

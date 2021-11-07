@@ -21,7 +21,7 @@
     ####gridlines
     !!! info ""
 
-        **desc**: The container for the horisontal and vertical grid line controls shown when [`GridGUI.GridGUIClass.showGrid`](../GridGUIClass/#showgrid) is true.
+        **desc**: The container for the horizontal and vertical grid line controls shown when [`GridGUI.GridGUIClass.showGrid`](../GridGUIClass/#showgrid) is true.
 
         **type**: array
 
@@ -636,7 +636,7 @@
 
             **name**: x
 
-            **desc**: The new horisontal margin to use, that is the spacing to the right and left of cells. If set to "" the current value will be left unchanged.
+            **desc**: The new horizontal margin to use, that is the spacing to the right and left of cells. If set to "" the current value will be left unchanged.
 
             **type**: number|string
 

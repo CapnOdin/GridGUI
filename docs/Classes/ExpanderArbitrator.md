@@ -10,7 +10,7 @@
     ####ConflictLst
     !!! info ""
 
-        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s needs to share the available GUI size with a specific expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][i]` where `i` is the index of `o` and similar for the vertically expanding cells they are stored under `"H"`.
+        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s needs to share the available GUI size with a specific expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horizontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][i]` where `i` is the index of `o` and similar for the vertically expanding cells they are stored under `"H"`.
 
         **type**: associative array
 
@@ -21,7 +21,7 @@
     ####ConflictMap
     !!! info ""
 
-        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s needs to share the available GUI size with a specific expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][o]` and similar for the vertically expanding cells they are stored under `"H"`.
+        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s needs to share the available GUI size with a specific expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horizontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][o]` and similar for the vertically expanding cells they are stored under `"H"`.
 
         **type**: associative array
 
@@ -65,7 +65,7 @@
     ####Overlapping
     !!! info ""
 
-        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s overlap a given expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally overlapping [`GridGUI.Cell`](../Cell/)s `o` will be stored under `["W"][c][o]` and similar for the vertically overlapping cells they are stored under `"H"`.
+        **desc**: Two collections of which expanding [`GridGUI.Cell`](../Cell/)s overlap a given expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horizontally overlapping [`GridGUI.Cell`](../Cell/)s `o` will be stored under `["W"][c][o]` and similar for the vertically overlapping cells they are stored under `"H"`.
 
         **type**: associative array
 
@@ -76,7 +76,7 @@
     ####ReducedConflict
     !!! info ""
 
-        **desc**: Two collections of only the expanding [`GridGUI.Cell`](../Cell/)s in [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) that can't be ignored in relation to an expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horisontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][o]` and similar for the vertically expanding cells they are stored under `"H"`.
+        **desc**: Two collections of only the expanding [`GridGUI.Cell`](../Cell/)s in [`GridGUI.ExpanderArbitrator.ConflictMap`](../ExpanderArbitrator/#conflictmap) that can't be ignored in relation to an expanding [`GridGUI.Cell`](../Cell/). That is for an expanding [`GridGUI.Cell`](../Cell/) `c` the horizontally expanding [`GridGUI.Cell`](../Cell/)s `o` in another column will be stored under `["W"][c][o]` and similar for the vertically expanding cells they are stored under `"H"`.
 
         **type**: associative array
 
@@ -336,7 +336,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } Checks if two [`GridGUI.Cell`](../Cell/)s are in horisontal expanding conflict with each other.
+        :material-clipboard-text:{ .desc } Checks if two [`GridGUI.Cell`](../Cell/)s are in horizontal expanding conflict with each other.
 
 
 

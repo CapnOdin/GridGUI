@@ -30,7 +30,7 @@
     ####borderX
     !!! info ""
 
-        **desc**: The horisontal border or margin of the cell that is the amount of additional width beyond what the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) needs that is taken up by the cell.
+        **desc**: The horizontal border or margin of the cell that is the amount of additional width beyond what the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) needs that is taken up by the cell.
 
         **type**: number
 
@@ -90,7 +90,7 @@
     ####exW
     !!! info ""
 
-        **desc**: The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
+        **desc**: The horizontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
 
         **type**: number
 
@@ -176,7 +176,7 @@
     ####othersW
     !!! info ""
 
-        **desc**: The combined horisontal expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI width that this cell should take.
+        **desc**: The combined horizontal expansion weight of other cells that this cell is in conflict with. This is used to calculate the part of the additional GUI width that this cell should take.
 
         **type**: number
 
@@ -419,7 +419,7 @@
 
             **name**: expanders
 
-            **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: An array of the sum of horizontal expansion weights for each column.
 
             **type**: array
 
@@ -477,7 +477,7 @@
 
             **name**: expanders
 
-            **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: An array of the sum of horizontal expansion weights for each column.
 
             **type**: array
 
@@ -542,7 +542,7 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
+            **desc**: The fixed width of the cell. For non horizontally expanding and non horizontally filling cells the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the horizontal margin is returned. For horizontally expanding and or horizontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
 
             **type**: number
 
@@ -590,7 +590,7 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: The needed width of the cell. That is the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the horisontal margin.
+            **desc**: The needed width of the cell. That is the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the horizontal margin.
 
             **type**: number
 
@@ -631,7 +631,7 @@
 
             **name**: exW
 
-            **desc**: The horisontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
+            **desc**: The horizontal expansion weight of the cell. This is used to calculate the part of the additional GUI width that this cell should take.
 
             **type**: number
 
@@ -681,7 +681,7 @@
 
             **name**: borderX
 
-            **desc**: The horisontal border or margin of the cell that is the amount of additional width beyond what the control needs that is taken up by the cell.
+            **desc**: The horizontal border or margin of the cell that is the amount of additional width beyond what the control needs that is taken up by the cell.
 
             **type**: number
 
@@ -918,7 +918,7 @@
 
             **name**: expandersW
 
-            **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: An array of the sum of horizontal expansion weights for each column.
 
             **type**: array
 
@@ -976,7 +976,7 @@
 
             **name**: expandersW
 
-            **desc**: An array of the sum of horisontal expansion weights for each column.
+            **desc**: An array of the sum of horizontal expansion weights for each column.
 
             **type**: array
 
@@ -1065,7 +1065,7 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: The horisontal expansion weight.
+            **desc**: The horizontal expansion weight.
 
             **type**: number
 
@@ -1113,7 +1113,7 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: The fixed width of the cell. For non horisontally expanding and non horisontally filling cells the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the horisontal margin is returned. For horisontally expanding and or horisontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
+            **desc**: The fixed width of the cell. For non horizontally expanding and non horizontally filling cells the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 times the horizontal margin is returned. For horizontally expanding and or horizontally filling cells 0 is returned unless an min-width where specified in which case the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus 2 time the vertical margin is returned unless the min-width is 0 then 0 is returned.
 
             **type**: number
 
@@ -1161,7 +1161,7 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: The needed width of the cell. That is the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the horisontal margin.
+            **desc**: The needed width of the cell. That is the min-width of the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) plus two times the horizontal margin.
 
             **type**: number
 

@@ -3,6 +3,61 @@
 
 </figure>
 ---
+##Members
+
+!!! info ""
+
+    ####G
+    !!! info ""
+
+        **desc**: A pointer to the graphics object that is associated with the drawing buffer ([`GridGUI.GdiControl.hbm`](../GdiControl/#hbm)). Updated each timer the control is drawn with a new size.
+
+        **type**: GpGraphics*
+
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/gdiplus/-gdiplus-graphics-flat)
+
+!!! info ""
+
+    ####graphic
+    !!! info ""
+
+        **desc**: Callback that is called each time the underlying control is drawn, but before the [`GridGUI.GdiControl.hbm`](../GdiControl/#hbm) has been drawn on the underlying control. Bind the instance of [`GridGUI.GdiControl`](../GdiControl/) to the callback and draw what you want the [`GridGUI.GdiControl`](../GdiControl/) to show using the [`GridGUI.GdiControl.G`](../GdiControl/#g).
+
+        **type**: Func|BoundFunc|false
+
+        **default**: false
+
+!!! info ""
+
+    ####hbm
+    !!! info ""
+
+        **desc**: A handle to bitmap with the same size as the underlying control. Updated each timer the control is drawn with a new size.
+
+        **type**: HBITMAP
+
+        **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/Wingdi/ns-wingdi-bitmap)
+
+!!! info ""
+
+    ####hdc
+    !!! info ""
+
+        **desc**: The device context allowing drawing on the [`GridGUI.GdiControl.hbm`](../GdiControl/#hbm) by means of [`GridGUI.GdiControl.G`](../GdiControl/#g).
+
+        **type**: HDC
+
+!!! info ""
+
+    ####pos
+    !!! info ""
+
+        **desc**: The last position that this control was drawn at.
+
+        **type**: [GridGUI.Position](../Position/)
+
+        **default**: new GridGUI.Position(0, 0)
+
 ##Methods
 
 !!! note ""
@@ -16,18 +71,9 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Deletes or releases the GDI objects that the members point to.
 
 
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
 
 !!! note ""
     ####__CreateCompatibleDC
@@ -40,7 +86,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } This function creates a memory device context (DC) compatible with the specified device.
 
 
 
@@ -50,33 +96,35 @@
 
             **name**: hdc
 
-            **desc**: 
+            **desc**: Handle to an existing device context. If this handle is 0 (by default), the function creates a memory device context compatible with the application's current screen
 
-            **type**: number
+            **type**: HDC|number
 
             **default**: 0
+
+    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createcompatibledc)
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: returns the handle to a device context or 0 on failure.
 
-            **type**: 
+            **type**: HDC
 
 !!! note ""
     ####__CreateDIBSection
     !!! tip ""
 
         ```AutoHotKey
-        __CreateDIBSection(w, h, bpp := 32, ByRef := ppvBits)
+        __CreateDIBSection(w, h, bpp := 32, ppvBits := 0)
         ```
 
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } The CreateDIBSection function creates a DIB (Device Independent Bitmap) that applications can write to directly.
 
 
 
@@ -86,23 +134,23 @@
 
             **name**: w
 
-            **desc**: 
+            **desc**: width of the bitmap to create.
 
-            **type**: string|number|object
+            **type**: number
 
         !!! info ""
 
             **name**: h
 
-            **desc**: 
+            **desc**: height of the bitmap to create.
 
-            **type**: string|number|object
+            **type**: number
 
         !!! info ""
 
             **name**: bpp
 
-            **desc**: 
+            **desc**: bits per pixel (32 = ARGB).
 
             **type**: number
 
@@ -110,35 +158,37 @@
 
         !!! info ""
 
-            **name**: ByRef
+            **name**: ppvBits
 
-            **desc**: 
+            **desc**: A pointer to a variable that receives a pointer to the location of the DIB bit values.
 
-            **type**: string
+            **type**: pointer
 
-            **default**: ppvBits
+            **default**: 0
+
+    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createdibsection)
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: A handle to a bitmap with width `w` and height `h`.
 
-            **type**: 
+            **type**: HBITMAP
 
 !!! note ""
     ####__CreateRect
     !!! tip ""
 
         ```AutoHotKey
-        __CreateRect(ByRef := Rect, x, y, w, h)
+        __CreateRect(Rect, x, y, w, h)
         ```
 
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Creates a Rect object, containing a the coordinates and dimensions of a rectangle.
 
 
 
@@ -146,54 +196,43 @@
 
         !!! info ""
 
-            **name**: ByRef
+            **name**: Rect
 
-            **desc**: 
+            **desc**: Name to call the Rect object.
 
-            **type**: string
-
-            **default**: Rect
+            **type**: HRECT
 
         !!! info ""
 
             **name**: x
 
-            **desc**: 
+            **desc**: x-coordinate of the upper left corner of the rectangle.
 
-            **type**: string|number|object
+            **type**: number
 
         !!! info ""
 
             **name**: y
 
-            **desc**: 
+            **desc**: y-coordinate of the upper left corner of the rectangle.
 
-            **type**: string|number|object
+            **type**: number
 
         !!! info ""
 
             **name**: w
 
-            **desc**: 
+            **desc**: Width of the rectangle.
 
-            **type**: string|number|object
+            **type**: number
 
         !!! info ""
 
             **name**: h
 
-            **desc**: 
+            **desc**: Height of the rectangle.
 
-            **type**: string|number|object
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
+            **type**: number
 
 !!! note ""
     ####__DeleteDC
@@ -206,7 +245,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } The DeleteDC function deletes the specified device context (DC).
 
 
 
@@ -216,18 +255,18 @@
 
             **name**: hDC
 
-            **desc**: 
+            **desc**: A handle to the device context. An application must not delete a DC whose handle was obtained by calling the GetDC function. Instead, it must call the ReleaseDC function to free the DC
 
-            **type**: string|number|object
+            **type**: HDC
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: If the function succeeds, the return value is nonzero.
 
-            **type**: 
+            **type**: number
 
 !!! note ""
     ####__DeleteGraphics
@@ -240,7 +279,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Deletes the graphics object pointed to by a pointer.
 
 
 
@@ -250,18 +289,18 @@
 
             **name**: pGraphics
 
-            **desc**: 
+            **desc**: The pointer to the graphics object that should be deleted.
 
-            **type**: string|number|object
+            **type**: GpGraphics*
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: Probably nonzero on success.
 
-            **type**: 
+            **type**: number
 
 !!! note ""
     ####__DeleteObject
@@ -274,7 +313,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } This function deletes a logical pen, brush, font, bitmap, region, or palette, freeing all system resources associated with the object. After the object is deleted, the specified handle is no longer valid
 
 
 
@@ -284,18 +323,18 @@
 
             **name**: hObject
 
-            **desc**: 
+            **desc**: Handle to a logical pen, brush, font, bitmap, region, or palette to delete.
 
-            **type**: string|number|object
+            **type**: HGDIOBJ
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: Nonzero indicates success. Zero indicates that the specified handle is not valid or that the handle is currently selected into a device context.
 
-            **type**: 
+            **type**: number
 
 !!! note ""
     ####__GraphicsFromHDC
@@ -308,7 +347,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } This function gets the graphics from the handle to a device context.
 
 
 
@@ -318,31 +357,31 @@
 
             **name**: hdc
 
-            **desc**: 
+            **desc**: A handle to the device context.
 
-            **type**: string|number|object
+            **type**: HDC
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: Returns a pointer to the graphics of a bitmap.
 
-            **type**: 
+            **type**: GpGraphics*
 
 !!! note ""
     ####__New
     !!! tip ""
 
         ```AutoHotKey
-        __New(guiHwnd, options, graphic := false)
+        __New(guiHwnd, options := "", graphic := false)
         ```
 
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Constructor.
 
 
 
@@ -352,25 +391,29 @@
 
             **name**: guiHwnd
 
-            **desc**: 
+            **desc**: The hwnd of the gui that the GuiControl should be added to.
 
-            **type**: string|number|object
+            **type**: hwnd
 
         !!! info ""
 
             **name**: options
 
-            **desc**: 
+            **desc**: The options that the GuiControl will be created with. Does not accept vVars.
 
-            **type**: string|number|object
+            **type**: string
+
+            **default**: ""
+
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions)
 
         !!! info ""
 
             **name**: graphic
 
-            **desc**: 
+            **desc**: Callback that will be called each time the underlying control is drawn, but before the [`GridGUI.GdiControl.hbm`](../GdiControl/#hbm) has been drawn on the underlying control. Bind the instance of [`GridGUI.GdiControl`](../GdiControl/) to the callback and draw what you want the [`GridGUI.GdiControl`](../GdiControl/) to show using the [`GridGUI.GdiControl.G`](../GdiControl/#g).
 
-            **type**: bool
+            **type**: Func|BoundFunc|false
 
             **default**: false
 
@@ -379,9 +422,9 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: A new [`GridGUI.GdiControl`](../GdiControl/) instance.
 
-            **type**: 
+            **type**: [GridGUI.GdiControl](../GdiControl/)
 
 !!! note ""
     ####__Prepare
@@ -394,7 +437,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Checks if the controls position or size has changed and if it has then recreated the gdi members.
 
 
 
@@ -404,18 +447,9 @@
 
             **name**: area
 
-            **desc**: 
+            **desc**: The new position to check.
 
-            **type**: string|number|object
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
+            **type**: [GridGUI.Position](../Position/)
 
 !!! note ""
     ####__SelectObject
@@ -428,7 +462,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } The SelectObject function selects an object into the specified device context (DC). The new object replaces the previous object of the same type. See link for additional details.
 
 
 
@@ -438,26 +472,28 @@
 
             **name**: hdc
 
-            **desc**: 
+            **desc**: Handle to a DC
 
-            **type**: string|number|object
+            **type**: HDC
 
         !!! info ""
 
             **name**: hgdiobj
 
-            **desc**: 
+            **desc**: A handle to the object to be selected into the DC.
 
-            **type**: string|number|object
+            **type**: HGDIOBJ
+
+    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-selectobject)
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: If the selected object is not a region and the function succeeds, the return value is a handle to the object being replaced.
 
-            **type**: 
+            **type**: HGDIOBJ|number
 
 !!! note ""
     ####__UpdateLayeredWindow
@@ -470,7 +506,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Updates a layered window with the handle to the DC of a gdi bitmap.
 
 
 
@@ -480,25 +516,25 @@
 
             **name**: hwnd
 
-            **desc**: 
+            **desc**: Handle of the layered window to update.
 
-            **type**: string|number|object
+            **type**: hwnd
 
         !!! info ""
 
             **name**: hdc
 
-            **desc**: 
+            **desc**: Handle to the DC of the GDI bitmap to update the window with.
 
-            **type**: string|number|object
+            **type**: HDC
 
         !!! info ""
 
             **name**: x
 
-            **desc**: 
+            **desc**: X position to place the window. If omitted then the layered window will use its current x coordinate.
 
-            **type**: string
+            **type**: number|""
 
             **default**: ""
 
@@ -506,9 +542,9 @@
 
             **name**: y
 
-            **desc**: 
+            **desc**: Y position to place the window. If omitted then the layered window will use its current y coordinate.
 
-            **type**: string
+            **type**: number|""
 
             **default**: ""
 
@@ -516,9 +552,9 @@
 
             **name**: w
 
-            **desc**: 
+            **desc**: Width of the window. If omitted then the layered window will use its current width.
 
-            **type**: string
+            **type**: number|""
 
             **default**: ""
 
@@ -526,9 +562,9 @@
 
             **name**: h
 
-            **desc**: 
+            **desc**: Height of the window. If omitted then the layered window will use its current height.
 
-            **type**: string
+            **type**: number|""
 
             **default**: ""
 
@@ -536,7 +572,7 @@
 
             **name**: Alpha
 
-            **desc**: 
+            **desc**: The value in the range (0-255) to set the window transparency.
 
             **type**: number
 
@@ -547,9 +583,9 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: If the function succeeds, the return value is nonzero.
 
-            **type**: 
+            **type**: number
 
 !!! note ""
     ####Draw
@@ -562,7 +598,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Draws the underlying control at the new position and size. As well as calling [`GridGUI.GdiControl.UpdateGraphic`](../GdiControl/#updategraphic).
 
 
 
@@ -572,18 +608,9 @@
 
             **name**: pos
 
-            **desc**: 
+            **desc**: The position and size to draw the control with.
 
-            **type**: string|number|object
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
+            **type**: [GridGUI.Position](../Position/)
 
 !!! note ""
     ####GDIDraw
@@ -596,18 +623,9 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Draws the [`GridGUI.GdiControl.hbm`](../GdiControl/#hbm) (bitmap) on the underlying control, and updates the position and size of the control to the one in [`GridGUI.GdiControl.pos`](../GdiControl/#pos).
 
 
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
 
 !!! note ""
     ####UpdateGraphic
@@ -620,16 +638,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Calls the user callback [`GridGUI.GdiControl.graphic`](../GdiControl/#graphic) if defined, before calling [`GridGUI.GdiControl.GDIDraw`](../GdiControl/#gdidraw).
 
 
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
 
