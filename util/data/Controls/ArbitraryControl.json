@@ -1,49 +1,45 @@
 {
 	"ArbitraryControl": {
 		"desc": "A class representing most ahk GUI control types.",
-		"members": {},
+		"extends": "GridGUI.GuiControlClass",
 		"methods": {
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "guiHwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the gui that the GuiControl should be added to.",
+						"type": "hwnd"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "type",
-						"type": "string|number|object"
+						"desc": "The type of the control. Can be `Text, Edit, UpDown, Picture, Button, Checkbox, DropDownList, ComboBox, ListBox, Link, Hotkey, DateTime, MonthCal, Slider, Progress, GroupBox and ActiveX`. For `Radio, ListView, TreeView, Tab3 and StatusBar` see [AdditionalControls](AdditionalControls).",
+						"type": "string"
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string"
-					},
-					{
+						"desc": "The options that the GuiControl will be created with. Does not accept vVars.",
 						"default": "\"\"",
-						"desc": "",
-						"link": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
+					},
+					{
 						"name": "text",
+						"desc": "The text that the GuiControl will be created with.",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
-						"default": true,
-						"defaultVal": "true",
-						"desc": "",
-						"link": "",
 						"name": "DPIScale",
+						"desc": "Whether or not to correct for non standard dpi.",
+						"default": true,
 						"type": "bool"
+						"defaultVal": "true"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.ArbitraryControl` instance.",
+					"type": "GridGUI.ArbitraryControl"
 				}
 			}
 		}
