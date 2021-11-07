@@ -1,314 +1,312 @@
 {
 	"GdiControl": {
-		"classes": {},
-		"members": {},
+		"extends": "GridGUI.ArbitraryControl",
+		"desc": "A control that maintains an area on a gui where GDI+ drawings can be done and provides a callback that lets a user draw in the area each time the control is drawn.",
+		"members": {
+			"graphic": {
+				"desc": "Callback that is called each time the underlying control is drawn, but before the `GridGUI.GdiControl.hbm` has been drawn on the underlying control. Bind the instance of `GridGUI.GdiControl` to the callback and draw what you want the `GridGUI.GdiControl` to show using the `GridGUI.GdiControl.G`.",
+				"type": "Func|BoundFunc|false",
+				"default": false,
+				"defaultVal": "false",
+				"meta": ["object"]
+			},
+			"hbm": {
+				"desc": "A handle to bitmap with the same size as the underlying control. Updated each timer the control is drawn with a new size.",
+				"type": "HBITMAP",
+				"meta": ["pointer"],
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/Wingdi/ns-wingdi-bitmap"
+			},
+			"hdc": {
+				"desc": "The device context allowing drawing on the `GridGUI.GdiControl.hbm` by means of `GridGUI.GdiControl.G`.",
+				"type": "HDC",
+				"meta": ["pointer"]
+			},
+			"G": {
+				"desc": "A pointer to the graphics object that is associated with the drawing buffer (`GridGUI.GdiControl.hbm`). Updated each timer the control is drawn with a new size.",
+				"type": "GpGraphics*",
+				"meta": ["pointer"],
+				"link": "https://docs.microsoft.com/en-us/windows/win32/gdiplus/-gdiplus-graphics-flat"
+			},
+			"pos": {
+				"desc": "The last position that this control was drawn at.",
+				"type": "GridGUI.Position",
+				"default": "new GridGUI.Position(0, 0)",
+				"meta": ["object"]
+			}
+		},
 		"methods": {
 			"__CleanUp": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Deletes or releases the GDI objects that the members point to."
 			},
 			"__CreateCompatibleDC": {
+				"desc": "This function creates a memory device context (DC) compatible with the specified device.",
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createcompatibledc",
 				"args": [
 					{
-						"default": 0,
-						"desc": "",
-						"link": "",
 						"name": "hdc",
-						"type": "number"
+						"desc": "Handle to an existing device context. If this handle is 0 (by default), the function creates a memory device context compatible with the application's current screen",
+						"default": 0,
+						"type": "HDC|number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "returns the handle to a device context or 0 on failure.",
+					"type": "HDC"
+				},
+				"meta": ["description and code taken from Gdip_All.ahk"]
 			},
 			"__CreateDIBSection": {
+				"desc": "The CreateDIBSection function creates a DIB (Device Independent Bitmap) that applications can write to directly.",
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createdibsection",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "w",
-						"type": "string|number|object"
-					},
-					{
-						"desc": "",
-						"link": "",
-						"name": "h",
-						"type": "string|number|object"
-					},
-					{
-						"default": 32,
-						"desc": "",
-						"link": "",
-						"name": "bpp",
+						"desc": "width of the bitmap to create.",
 						"type": "number"
 					},
 					{
-						"default": "ppvBits",
-						"desc": "",
-						"link": "",
-						"name": "ByRef",
-						"type": "string"
+						"name": "h",
+						"desc": "height of the bitmap to create.",
+						"type": "number"
+					},
+					{
+						"name": "bpp",
+						"desc": "bits per pixel (32 = ARGB).",
+						"default": 32,
+						"type": "number"
+					},
+					{
+						"name": "ppvBits",
+						"desc": "A pointer to a variable that receives a pointer to the location of the DIB bit values.",
+						"default": 0,
+						"type": "pointer",
+						"meta": ["ByRef", "pointer"]
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "A handle to a bitmap with width `w` and height `h`.",
+					"type": "HBITMAP"
+				},
+				"meta": ["description and code taken from Gdip_All.ahk"]
 			},
 			"__CreateRect": {
+				"desc": "Creates a Rect object, containing a the coordinates and dimensions of a rectangle.",
 				"args": [
 					{
-						"default": "Rect",
-						"desc": "",
-						"link": "",
-						"name": "ByRef",
-						"type": "string"
+						"name": "Rect",
+						"desc": "Name to call the Rect object.",
+						"type": "HRECT",
+						"meta": ["ByRef"]
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "x",
-						"type": "string|number|object"
+						"desc": "x-coordinate of the upper left corner of the rectangle.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "y",
-						"type": "string|number|object"
+						"desc": "y-coordinate of the upper left corner of the rectangle.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "w",
-						"type": "string|number|object"
+						"desc": "Width of the rectangle.",
+						"type": "number"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "h",
-						"type": "string|number|object"
+						"desc": "Height of the rectangle.",
+						"type": "number"
 					}
 				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"meta": ["description and code taken from Gdip_All.ahk"]
 			},
 			"__DeleteDC": {
+				"desc": "The DeleteDC function deletes the specified device context (DC).",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hDC",
-						"type": "string|number|object"
+						"desc": "A handle to the device context. An application must not delete a DC whose handle was obtained by calling the GetDC function. Instead, it must call the ReleaseDC function to free the DC",
+						"type": "HDC"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "If the function succeeds, the return value is nonzero.",
+					"type": "number"
+				},
+				"meta": ["description and code taken from Gdip_All.ahk"]
 			},
 			"__DeleteGraphics": {
+				"desc": "Deletes the graphics object pointed to by a pointer.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pGraphics",
-						"type": "string|number|object"
+						"desc": "The pointer to the graphics object that should be deleted.",
+						"type": "GpGraphics*"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "Probably nonzero on success.",
+					"type": "number"
+				},
+				"meta": ["code taken from Gdip_All.ahk"]
 			},
 			"__DeleteObject": {
+				"desc": "This function deletes a logical pen, brush, font, bitmap, region, or palette, freeing all system resources associated with the object. After the object is deleted, the specified handle is no longer valid",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hObject",
-						"type": "string|number|object"
+						"desc": "Handle to a logical pen, brush, font, bitmap, region, or palette to delete.",
+						"type": "HGDIOBJ"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "Nonzero indicates success. Zero indicates that the specified handle is not valid or that the handle is currently selected into a device context.",
+					"type": "number"
+				},
+				"meta": ["description and code taken from Gdip_All.ahk"]
 			},
 			"__GraphicsFromHDC": {
+				"desc": "This function gets the graphics from the handle to a device context.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hdc",
-						"type": "string|number|object"
+						"desc": "A handle to the device context.",
+						"type": "HDC"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "Returns a pointer to the graphics of a bitmap.",
+					"type": "GpGraphics*"
+				},
+				"meta": ["description and code taken from Gdip_All.ahk"]
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "guiHwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the gui that the GuiControl should be added to.",
+						"type": "hwnd"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string|number|object"
+						"desc": "The options that the GuiControl will be created with. Does not accept vVars.",
+						"default": "\"\"",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "graphic",
-						"type": "bool"
+						"desc": "Callback that will be called each time the underlying control is drawn, but before the `GridGUI.GdiControl.hbm` has been drawn on the underlying control. Bind the instance of `GridGUI.GdiControl` to the callback and draw what you want the `GridGUI.GdiControl` to show using the `GridGUI.GdiControl.G`.",
+						"default": false,
+						"type": "Func|BoundFunc|false",
+						"defaultVal": "false"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.GdiControl` instance.",
+					"type": "GridGUI.GdiControl"
 				}
 			},
 			"__Prepare": {
+				"desc": "Checks if the controls position or size has changed and if it has then recreated the gdi members.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "area",
-						"type": "string|number|object"
+						"desc": "The new position to check.",
+						"type": "GridGUI.Position"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__SelectObject": {
+				"desc": "The SelectObject function selects an object into the specified device context (DC). The new object replaces the previous object of the same type. See link for additional details.",
+				"link": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-selectobject",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hdc",
-						"type": "string|number|object"
+						"desc": "Handle to a DC",
+						"type": "HDC"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hgdiobj",
-						"type": "string|number|object"
+						"desc": "A handle to the object to be selected into the DC.",
+						"type": "HGDIOBJ"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "If the selected object is not a region and the function succeeds, the return value is a handle to the object being replaced.",
+					"type": "HGDIOBJ|number"
+				},
+				"meta": ["description and code taken from Gdip_All.ahk"]
 			},
 			"__UpdateLayeredWindow": {
+				"desc": "Updates a layered window with the handle to the DC of a gdi bitmap.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "hwnd",
-						"type": "string|number|object"
+						"desc": "Handle of the layered window to update.",
+						"type": "hwnd"
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "hdc",
-						"type": "string|number|object"
+						"desc": "Handle to the DC of the GDI bitmap to update the window with.",
+						"type": "HDC"
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "x",
-						"type": "string"
+						"desc": "X position to place the window. If omitted then the layered window will use its current x coordinate.",
+						"default": "\"\"",
+						"type": "number|\"\""
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "y",
-						"type": "string"
+						"desc": "Y position to place the window. If omitted then the layered window will use its current y coordinate.",
+						"default": "\"\"",
+						"type": "number|\"\""
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "w",
-						"type": "string"
-					},
-					{
+						"desc": "Width of the window. If omitted then the layered window will use its current width.",
 						"default": "\"\"",
-						"desc": "",
-						"link": "",
-						"name": "h",
-						"type": "string"
+						"type": "number|\"\"",
+						"link": ""
 					},
 					{
-						"default": 255,
-						"desc": "",
-						"link": "",
+						"name": "h",
+						"desc": "Height of the window. If omitted then the layered window will use its current height.",
+						"default": "\"\"",
+						"type": "number|\"\"",
+						"link": ""
+					},
+					{
 						"name": "Alpha",
+						"desc": "The value in the range (0-255) to set the window transparency.",
+						"default": 255,
 						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
-				}
+					"desc": "If the function succeeds, the return value is nonzero.",
+					"type": "number"
+				},
+				"meta": ["description and code taken from Gdip_All.ahk"]
 			},
 			"Draw": {
+				"desc": "Draws the underlying control at the new position and size. As well as calling `GridGUI.GdiControl.UpdateGraphic`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "pos",
-						"type": "string|number|object"
+						"desc": "The position and size to draw the control with.",
+						"type": "GridGUI.Position"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"GDIDraw": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Draws the `GridGUI.GdiControl.hbm` (bitmap) on the underlying control, and updates the position and size of the control to the one in `GridGUI.GdiControl.pos`."
 			},
 			"UpdateGraphic": {
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Calls the user callback `GridGUI.GdiControl.graphic` if defined, before calling `GridGUI.GdiControl.GDIDraw`."
 			}
 		}
 	}
