@@ -33,7 +33,7 @@
 						"name": "DPIScale",
 						"desc": "Whether or not to correct for non standard dpi.",
 						"default": true,
-						"type": "bool"
+						"type": "bool",
 						"defaultVal": "true"
 					}
 				],
