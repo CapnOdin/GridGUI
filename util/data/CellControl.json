@@ -1,52 +1,66 @@
 {
 	"CellControl": {
-		"classes": {},
-		"members": {},
+		"desc": "The interface a control needs to implement to be managed by a `GridGUI.Cell`.",
+		"members": {
+			"minWidth": {
+				"desc": "Whether or not the control has a minimum width.",
+				"type": "bool",
+				"default": false,
+				"defaultVal": "false"
+			},
+			"minHeight": {
+				"desc": "Whether or not the control has a minimum height.",
+				"type": "bool",
+				"default": false,
+				"defaultVal": "false"
+			},
+			"minWidthVal": {
+				"desc": "The minimum width of the control. Should be disregarded if `GridGUI.CellControl.minWidth` is **false**.",
+				"type": "number",
+				"default": 0,
+				"defaultVal": "0"
+			},
+			"minHeightVal": {
+				"desc": "The minimum height of the control. Should be disregarded if `GridGUI.CellControl.minHeight` is **false**.",
+				"type": "number",
+				"default": 0,
+				"defaultVal": "0"
+			}
+		},
 		"methods": {
 			"Draw": {
+				"desc": "Implementations of this interface should move and draw the control on the GUI in this method.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "area",
-						"type": "string|number|object"
+						"desc": "The position to move the control to and size to draw the control at.",
+						"type": "GridGUI.Position"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"GetPos": {
-				"desc": "",
+				"desc": "Implementations of this interface should return the position and size of the control.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The position and size of the control.",
+					"type": "GridGUI.Position"
 				}
 			},
 			"MinSize": {
+				"desc": "Sets the minimum size of the control. If both `w` and `h` are left unset then the minimum size will be set to the current size of the control as returned by `GridGUI.CellControl.GetPos`",
 				"args": [
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "w",
-						"type": "string"
+						"desc": "The minimum width to set. If left unset then the minimum width won't be changed.",
+						"default": "\"\"",
+						"type": "number|\"\""
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "h",
-						"type": "string"
+						"desc": "The minimum height to set. If left unset then the minimum height won't be changed.",
+						"default": "\"\"",
+						"type": "number|\"\""
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			}
 		}
 	}
