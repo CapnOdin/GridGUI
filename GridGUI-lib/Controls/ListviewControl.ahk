@@ -87,7 +87,7 @@ Class ListviewControl Extends GridGUI.ArbitraryControl {
 	}
 	
 	; Retrieves the text at the specified row and column.
-	GetText(ByRef OutputVar, RowNumber, ColumnNumber := "") {
+	GetText(ByRef OutputVar, RowNumber, ColumnNumber := 1) {
 		local prev, bool
 		prev := this.__SetCurrentLV()
 		bool := LV_GetText(OutputVar, RowNumber, ColumnNumber)
