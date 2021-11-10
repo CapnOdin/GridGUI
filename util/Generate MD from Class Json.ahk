@@ -107,12 +107,10 @@ AddVariable2(name, json, indent := "") {
 	if(json.HasKey("default")) {
 		variable .= "`n`n" indent locIndent locIndent "**default**: " DefaultToValue(json)
 	}
-	/*
-	if(json["meta"]) {
-		variable .= "`n`n" indent locIndent locIndent "**meta**: " json["meta"]
+	if(json.HasKey("meta")) {
+		variable .= "`n`n" indent locIndent locIndent "**meta**: [" Join(", ", json["meta"]) "]"
 	}
-	*/
-	if(json["link"]) {
+	if(json.HasKey("link")) {
 		variable .= "`n`n" indent locIndent locIndent "**link**: [link](" json["link"] ")"
 	}
 	return variable
@@ -124,17 +122,20 @@ AddFunction2(name, json, indent := "") {
 			. indent locIndent "####" name "`n"
 			. AddDefinition3(name, json["args"], indent . locIndent) "`n"
 			. AddDescription2(json["desc"], indent . locIndent)
-	if(json["args"]) {
+	if(json.HasKey("args")) {
 		mkdocs .= "`n`n" indent locIndent "??? example " """parameters"""
 		for i, arg in json["args"] {
 			mkdocs .= "`n`n" AddArgument2(arg, indent . locIndent . locIndent)
 		}
 	}
-	if(json["link"]) {
-		mkdocs .= "`n`n" indent locIndent "**link**: [link](" json["link"] ")"
-	}
-	if(json["returns"]) {
+	if(json.HasKey("returns")) {
 		mkdocs .= "`n`n" AddReturns2(json["returns"], indent . locIndent)
+	}
+	if(json.HasKey("meta")) {
+		mkdocs .= "`n`n" indent locIndent "**meta**: [" Join(", ", json["meta"]) "]"
+	}
+	if(json.HasKey("link")) {
+		mkdocs .= "`n`n" indent locIndent "**link**: [link](" json["link"] ")"
 	}
 	return mkdocs
 }
@@ -162,9 +163,14 @@ AddDefinition3(name, json, indent := "") {
 		. indent locIndent name "("
 	args := ""
 	for i, arg in json {
+		if(arg.HasKey("meta") && ValInArray("ByRef", arg["meta"])) {
+			args .= "ByRef "
+		}
 		args .= arg["name"]
 		if(arg.HasKey("default")) {
 			args .= " := " DefaultToValue(arg)
+		} else if(arg.HasKey("meta") && ValInArray("variadic", arg["meta"])) {
+			args .= "*"
 		}
 		args .= ", "
 	}
@@ -191,7 +197,10 @@ AddArgument2(json, indent := "") {
 	if(json.HasKey("default")) {
 		argument .= "`n`n" indent locIndent "**default**: " DefaultToValue(json)
 	}
-	if(json["link"]) {
+	if(json.HasKey("meta")) {
+		argument .= "`n`n" indent locIndent "**meta**: [" Join(", ", json["meta"]) "]"
+	}
+	if(json.HasKey("link")) {
 		argument .= "`n`n" indent locIndent "**link**: [link](" json["link"] ")"
 	}
 	return argument
@@ -297,3 +306,20 @@ RegExMatchAll(Haystack, NeedleRegEx, StartingPosition := 1) {
 getMatchLength(match) {
 	return StrLen(IsObject(match) ? match[0] : match)
 }
+
+ValInArray(val, array) {
+	for i, value in array {
+		if(value = val) {
+			return true
+		}
+	}
+	return false
+}
+
+Join(sep, params) {
+	for index, param in params {
+		str .= param . sep
+	}
+	return SubStr(str, 1, -StrLen(sep))
+}
+
