@@ -1,346 +1,446 @@
 {
 	"ListviewControl": {
+		"extends": "GridGUI.ArbitraryControl",
 		"desc": "A class representing a ListView.",
-		"members": {},
+		"members": {
+			"gui": {
+				"desc": "The parent GUI of the `ListView`.",
+				"type": "GridGUI.GUI",
+				"meta": ["object"]
+			}
+		},
 		"methods": {
 			"__GetRow": {
+				"desc": "Retrieves a row as an array of strings, without changing the currently selected ListView.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "index",
-						"type": "string|number|object"
+						"desc": "The index of the row to retrieve.",
+						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The contents of the row at `index`.",
+					"type": "array"
 				}
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "guiHwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the gui that the GuiControl should be added to.",
+						"type": "hwnd"
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string"
+						"desc": "The options that the ListView will be created with. Does not accept vVars.",
+						"default": "\"\"",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ListView.htm#Options"
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "text",
+						"desc": "A list of the initial column titles separated by `|`, e.g. \"ColumnTitle1|ColumnTitle2|...\".",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.ListviewControl` instance.",
+					"type": "GridGUI.ListviewControl"
 				}
 			},
 			"__ResetCurrentLV": {
+				"desc": "Sets the default `GUI` and `ListView`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "previous",
-						"type": "string|number|object"
+						"desc": "An object of the hwnds that should be set as the default `GUI` and `ListView` indexed under the keys \"gui\" and \"lv\".",
+						"type": "object"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__SetCurrentLV": {
-				"desc": "",
+				"desc": "Selects this `ListView` and sets the default `GUI` to `GridGUI.ListviewControl.gui` so that the [LV_Functions](https://www.autohotkey.com/docs/commands/ListView.htm#BuiltIn) work on the right `ListView`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The hwnd of the previous default `GUI` and `ListView` as an object with the keys \"gui\" and \"lv\".",
+					"type": "object"
+				}
+			},
+			"Add": {
+				"desc": "Adds a new row to the bottom of the list.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_Add",
+				"args": [
+					{
+						"name": "Options",
+						"desc": "The row options to apply to the new row. See link for a list of available options.",
+						"default": "\"\"",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ListView.htm#RowOptions"
+					},
+					{
+						"name": "Fields",
+						"desc": "The columns of the new row, which can be text or numeric. If there are too few fields to fill all the columns, the columns at the end are left blank. If there are too many fields, the fields at the end are completely ignored.",
+						"type": "string|number",
+						"meta": ["variadic"]
+					}
+				],
+				"returns": {
+					"desc": "Returns **0** upon failure. Upon success, it returns the new row number, which is not necessarily the last row if the ListView has the `Sort` or `SortDesc` style.",
+					"type": "number"
 				}
 			},
 			"AddArray": {
+				"desc": "Adds an array of rows to the `ListView`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "lst",
-						"type": "string|number|object"
+						"desc": "The array of rows to add. Each row should be an array of the text that should be in each column.",
+						"type": "array"
+					}
+				]
+			},
+			"Delete": {
+				"desc": "Deletes the specified row or all rows.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_Delete",
+				"args": [
+					{
+						"name": "RowNumber",
+						"desc": "The index of the row to delete. If the parameter is omitted, all rows in the ListView are deleted.",
+						"default": "Null",
+						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "Returns **1** upon success and **0** upon failure.",
+					"type": "number"
 				}
 			},
 			"DeleteCol": {
+				"desc": "Deletes the specified column and all of the contents beneath it.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_DeleteCol",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "ColumnNumber",
-						"type": "string|number|object"
+						"desc": "The index of the column to delete. Once a column is deleted, the column numbers of any that lie to its right are reduced by **1**. Consequently, calling LV_DeleteCol(**2**) twice would delete the second and third columns.",
+						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "It returns **1** upon success and **0** upon failure.",
+					"type": "number"
 				}
 			},
 			"DeleteHeaders": {
-				"desc": "",
+				"desc": "Deletes all headers of the `ListView`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "Returns **1** if all the headers where removed successfully or **0**  if one or more headers could not be deleted.",
+					"type": "bool"
 				}
 			},
 			"FindItem": {
+				"desc": "Finds the index of a row containing a given string.",
+				"link": "https://docs.microsoft.com/en-us/windows/win32/controls/lvm-finditem",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "text",
-						"type": "string|number|object"
+						"desc": "The text to search for.",
+						"type": "string",
+						"link": ""
 					},
 					{
-						"default": 0,
-						"desc": "",
-						"link": "",
 						"name": "index",
-						"type": "number"
+						"desc": "The index to start the search from, the index itself won't be part of the search. **0** searches from the top of the list.",
+						"default": 0,
+						"type": "number",
+						"defaultVal": "0",
+						"link": ""
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "partial",
-						"type": "bool"
+						"desc": "Whether or not to detect partial matches.",
+						"default": false,
+						"type": "bool",
+						"defaultVal": "false"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The index of the found row or **-1** on failure.",
+					"type": "number"
 				}
 			},
 			"GetCount": {
+				"desc": "Retrieves the total number of rows or columns, or the number of selected rows only.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_GetCount",
 				"args": [
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "Mode",
+						"desc": "When the parameter is omitted, the function returns the total number of rows in the control. When the parameter is \"S\" or \"Selected\", the count includes only the selected/highlighted rows. When the parameter is \"Col\" or \"Column\", the function returns the number of columns in the control. This function is always instantaneous because the control keeps track of these counts.",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The number of rows or columns of the type specified in `Mode`.",
+					"type": "number"
 				}
 			},
 			"GetHeaders": {
-				"desc": "",
+				"desc": "Retrieves the column titles as an array.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The column titles in an array.",
+					"type": "array"
 				}
 			},
 			"GetNext": {
+				"desc": "Retrieves the row number of the next selected, checked, or focused row.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_GetNext",
 				"args": [
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "StartingRowNumber",
+						"desc": "The row index to search from. If `StartingRowNumber` is omitted or less than **1**, the search begins at the top of the list. Otherwise, the search begins at the row after `StartingRowNumber`.",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "RowType",
+						"desc": "The type of row to find. If RowType is omitted, the function searches for the next selected/highlighted row. Otherwise, specify \"C\" or \"Checked\" to find the next checked row; or \"F\" or \"Focused\" to find the focused row.",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The row number of the next selected, checked, or focused row.",
+					"type": "number"
 				}
 			},
 			"GetRow": {
+				"desc": "Retrieves a row as an array of strings.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "index",
-						"type": "string|number|object"
+						"desc": "The index of the row to retrieve.",
+						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The contents of the row at `index`.",
+					"type": "array"
 				}
 			},
 			"GetSelection": {
-				"desc": "",
+				"desc": "Retrieves an array of the selected rows.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The selected rows in an array.",
+					"type": "array"
 				}
 			},
 			"GetText": {
+				"desc": "Retrieves the text at the specified RowNumber and ColumnNumber and stores it in OutputVar.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_GetText",
 				"args": [
 					{
-						"default": "OutputVar",
-						"desc": "",
-						"link": "",
-						"name": "ByRef",
-						"type": "string"
+						"name": "OutputVar",
+						"desc": "The variable to put the text in to. Upon failure, OutputVar is made blank.",
+						"type": "string",
+						"meta": ["ByRef"]
 					},
 					{
-						"desc": "",
-						"link": "",
 						"name": "RowNumber",
-						"type": "string|number|object"
-					},
-					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
-						"name": "ColumnNumber",
-						"type": "string"
-					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
-			},
-			"InsertCol": {
-				"args": [
-					{
-						"desc": "",
-						"link": "",
-						"name": "ColumnNumber",
-						"type": "string|number|object"
-					},
-					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
-						"name": "Options",
-						"type": "string"
-					},
-					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
-						"name": "ColumnTitle",
-						"type": "string"
-					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
-			},
-			"Redraw": {
-				"args": [
-					{
-						"desc": "",
-						"link": "",
-						"name": "bool",
-						"type": "string|number|object"
-					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
-			},
-			"ScrollTo": {
-				"args": [
-					{
-						"default": 0,
-						"desc": "",
-						"link": "",
-						"name": "index",
+						"desc": "The index of the row to retrieve the text from. If RowNumber is **0**, the column header text is retrieved. If the text is longer than 8191, only the first **8191** characters are retrieved.",
 						"type": "number"
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
-						"name": "text",
-						"type": "string"
+						"name": "ColumnNumber",
+						"desc": "The index of the column to retrieve the text from. Column numbers seen by the script are not altered by any dragging and dropping of columns the user may have done.",
+						"default": 1,
+						"type": "number"
+					}
+				],
+				"returns": {
+					"desc": "returns **1** upon success and **0** upon failure.",
+					"type": "number"
+				}
+			},
+			"Insert": {
+				"desc": "Inserts a new row at the specified row number.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_Insert",
+				"args": [
+					{
+						"name": "RowNumber",
+						"desc": "The index to insert the new row at. Any rows at or beneath RowNumber are shifted downward to make room for the new row. If RowNumber is greater than the number of rows in the list (even as high as 2147483647), the new row is added to the end of the list.",
+						"type": "number"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
-						"name": "partial",
+						"name": "Options",
+						"desc": "The row options to apply to the new row. See link for a list of available options.",
+						"default": "\"\"",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ListView.htm#RowOptions"
+					},
+					{
+						"name": "Cols",
+						"desc": "The columns of the new row, which can be text or numeric. If there are too few fields to fill all the columns, the columns at the end are left blank. If there are too many fields, the fields at the end are completely ignored.",
+						"type": "string|number",
+						"meta": ["variadic"]
+					}
+				],
+				"returns": {
+					"desc": "Returns **0** upon failure. Upon success, it returns the new row number, which is not necessarily the last row if the ListView has the `Sort` or `SortDesc` style.",
+					"type": "number"
+				}
+			},
+			"InsertCol": {
+				"desc": "Inserts a new column at the specified column number and shifting any other columns to the right to make room",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_InsertCol",
+				"args": [
+					{
+						"name": "ColumnNumber",
+						"desc": "The index to place the new column at. If ColumnNumber is larger than the number of columns currently in the control, the new column is added to the end of the list.",
+						"type": "number"
+					},
+					{
+						"name": "Options",
+						"desc": "The options to apply to the new column. The new column's attributes always start off at their defaults unless changed via `Options`.",
+						"default": "\"\"",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ListView.htm#ColOptions"
+					},
+					{
+						"name": "ColumnTitle",
+						"desc": "The title of the column.",
+						"default": "\"\"",
+						"type": "string"
+					}
+				],
+				"returns": {
+					"desc": "The index of the newly added column or **0** on failure.",
+					"type": "number"
+				}
+			},
+			"Modify": {
+				"desc": "Modifies the attributes and/or text of a row. See link for details.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_Modify",
+				"args": [
+					{
+						"name": "RowNumber",
+						"desc": "The index of the row to modify. If RowNumber is **0**, all rows in the control are modified.",
+						"type": "number"
+					},
+					{
+						"name": "Options",
+						"desc": "The row options to apply to the row. See link for a list of available options.",
+						"default": "\"\"",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ListView.htm#RowOptions"
+					},
+					{
+						"name": "NewCols",
+						"desc": "The optional new text to set each column to.",
+						"type": "string",
+						"meta": ["variadic"]
+					}
+				],
+				"returns": {
+					"desc": "Returns 1 upon success and 0 upon failure. If `RowNumber` is **0** then **1** is returned on complete success and **0** is returned if any part of the operation failed.",
+					"type": "number"
+				}
+			},
+			"ModifyCol": {
+				"desc": "Modifies the attributes and/or text of the specified column and its header. If all parameters are omitted, the width of every column is adjusted to fit the contents of the rows. If only the first parameter is present, only the specified column is auto-sized. Auto-sizing has no effect when not in Report (Details) view.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_ModifyCol",
+				"args": [
+					{
+						"name": "ColumnNumber",
+						"desc": "The index of the column to modify.",
+						"default": "Null",
+						"type": "number"
+					},
+					{
+						"name": "Options",
+						"desc": "The options to apply to the column.",
+						"default": "Null",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/ListView.htm#ColOptions"
+					},
+					{
+						"name": "ColumnTitle",
+						"desc": "The title of the column.",
+						"default": "Null",
+						"type": "string"
+					}
+				],
+				"returns": {
+					"desc": "Returns **1** upon success and **0** upon failure.",
+					"type": "number"
+				}
+			},
+			"Redraw": {
+				"desc": "Enables or disables redrawing of the `GridGUI.ListviewControl`. While redrawing is disabled then any changes to the rows or columns won't be shown in the GUI. Used to improve performance when performing lots of changes at once.",
+				"args": [
+					{
+						"name": "bool",
+						"desc": "Whether to enable or disable redrawing of the `GridGUI.ListviewControl`.",
 						"type": "bool"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
-			"SetHeaders": {
+			"ScrollTo": {
+				"desc": "Scrolls the `ListView` so that a given row index is visible, or so that a row with a given string is visible.",
+				"link": "https://docs.microsoft.com/en-us/windows/win32/controls/lvm-ensurevisible",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
-						"name": "headers",
-						"type": "string|number|object"
-					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
-			},
-			"SetImageList": {
-				"args": [
-					{
-						"desc": "",
-						"link": "",
-						"name": "ImageListID",
-						"type": "string|number|object"
+						"name": "index",
+						"desc": "The row index to ensure the viability of. If `index` is negative then it will count from the bottom of the `ListView`. If `text` is `true` then `index` will be where the search is started from. See `GridGUI.ListviewControl.FindItem`.",
+						"default": 0,
+						"type": "number",
+						"defaultVal": "0"
 					},
 					{
+						"name": "text",
+						"desc": "Ignored if left unset otherwise it is the text of the row that should be visible. See `GridGUI.ListviewControl.FindItem`.",
 						"default": "\"\"",
-						"desc": "",
-						"link": "",
+						"type": "string"
+					},
+					{
+						"name": "partial",
+						"desc": "If `text` is `true` then `partial` is whether or not a complete match is need. See `GridGUI.ListviewControl.FindItem`.",
+						"default": false,
+						"type": "bool",
+						"defaultVal": "false"
+					}
+				]
+			},
+			"SetHeaders": {
+				"desc": "Sets the column titles to the ones passed in the argument `headers`. The number of columns after this call will be equal to the length of `headers`, meaning that columns will be deleted or added as needed.",
+				"args": [
+					{
+						"name": "headers",
+						"desc": "An array of the new header titles to set.",
+						"type": "array"
+					}
+				]
+			},
+			"SetImageList": {
+				"desc": "Sets or replaces an ImageList for displaying icons. See link for details.",
+				"link": "https://www.autohotkey.com/docs/commands/ListView.htm#LV_SetImageList",
+				"args": [
+					{
+						"name": "ImageListID",
+						"desc": "The id of an image list returned from a previous call to `IL_Create()`.",
+						"type": "number"
+					},
+					{
 						"name": "IconType",
+						"desc": "The type of the icons in the image list. specify **0** for large icons, **1** for small icons, and **2** for state icons. If omitted, the type of icons in the ImageList is detected automatically as large or small.",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "If successful, LV_SetImageList() returns the ImageListID that was previously associated with the ListView (or 0 if none).",
+					"type": "number"
 				}
 			}
 		}
