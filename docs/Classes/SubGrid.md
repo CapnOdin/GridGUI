@@ -14,6 +14,8 @@
 
         **type**: bool
 
+        **meta**: [const]
+
 !!! info ""
 
     ####hwnd
@@ -77,6 +79,8 @@
         **type**: [GridGUI.Position](../Position/)
 
         **default**: GridGUI.Position(0, 0, 0, 0)
+
+        **meta**: [object]
 
 ##Methods
 

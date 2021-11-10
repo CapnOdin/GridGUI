@@ -305,8 +305,6 @@
 
             **link**: [link](https://www.autohotkey.com/docs/commands/ControlGet.htm#SubCommands)
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGet.htm)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -315,6 +313,8 @@
             **desc**: The retrieved value.
 
             **type**: any
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGet.htm)
 
 !!! note ""
     ####ControlGetPos
@@ -331,8 +331,6 @@
 
 
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetPos.htm)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -341,6 +339,8 @@
             **desc**: The position and size of the control.
 
             **type**: [GridGUI.Position](../Position/)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetPos.htm)
 
 !!! note ""
     ####ControlGetText
@@ -357,8 +357,6 @@
 
 
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetText.htm)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -367,6 +365,8 @@
             **desc**: The text of the control.
 
             **type**: string
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ControlGetText.htm)
 
 !!! note ""
     ####ControlMove

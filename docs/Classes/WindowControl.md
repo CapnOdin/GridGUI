@@ -30,6 +30,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: lParam
@@ -37,6 +39,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -46,6 +50,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: hwnd
@@ -53,6 +59,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -88,6 +96,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: hwnd
@@ -95,6 +105,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -105,6 +117,8 @@
             **type**: string
 
             **default**: ""
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -164,6 +178,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: value
@@ -171,6 +187,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -230,6 +248,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -263,6 +283,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
     !!! question ""
 

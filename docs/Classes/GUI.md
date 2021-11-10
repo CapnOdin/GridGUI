@@ -16,6 +16,8 @@
 
         **default**: []
 
+        **meta**: [object]
+
         **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles)
 
 !!! info ""
@@ -42,6 +44,8 @@
 
         **default**: {}
 
+        **meta**: [object]
+
 !!! info ""
 
     ####ForegroundCtrls
@@ -53,6 +57,8 @@
 
         **default**: []
 
+        **meta**: [object]
+
 !!! info ""
 
     ####GuiActivate
@@ -63,6 +69,8 @@
         **type**: Func|BoundFunc|false
 
         **default**: false
+
+        **meta**: [object]
 
         **link**: [link](https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate)
 
@@ -77,6 +85,8 @@
 
         **default**: false
 
+        **meta**: [object]
+
         **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiClose)
 
 !!! info ""
@@ -90,6 +100,8 @@
 
         **default**: false
 
+        **meta**: [object]
+
         **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiContextMenu)
 
 !!! info ""
@@ -102,6 +114,8 @@
         **type**: Func|BoundFunc|false
 
         **default**: false
+
+        **meta**: [object]
 
         **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move)
 
@@ -126,6 +140,8 @@
         **type**: Func|BoundFunc|false
 
         **default**: false
+
+        **meta**: [object]
 
         **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#GuiSize)
 
@@ -161,6 +177,8 @@
         **type**: [GridGUI.Position](../Position/)
 
         **default**: GridGUI.Position(0, 0)
+
+        **meta**: [object]
 
 ##Methods
 
@@ -1075,8 +1093,6 @@
 
             **type**: hwnd
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/ListView.htm#BuiltIn)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -1085,6 +1101,8 @@
             **desc**: The hwnd of the `ListView` that was previously the default.
 
             **type**: hwnd
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/ListView.htm#BuiltIn)
 
 !!! note ""
     ####Margin
@@ -1441,8 +1459,6 @@
 
             **type**: hwnd
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/TreeView.htm#BuiltIn)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -1451,4 +1467,6 @@
             **desc**: The hwnd of the `TreeView` that was previously the default.
 
             **type**: hwnd
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/TreeView.htm#BuiltIn)
 

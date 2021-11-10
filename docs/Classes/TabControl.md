@@ -30,6 +30,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: options
@@ -39,6 +41,8 @@
             **type**: string
 
             **default**: ""
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -50,6 +54,8 @@
 
             **default**: ""
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: preDrawOtherTabs
@@ -59,6 +65,8 @@
             **type**: bool
 
             **default**: true
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -70,6 +78,8 @@
 
             **default**: true
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: showGrid
@@ -79,6 +89,8 @@
             **type**: bool
 
             **default**: false
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -114,6 +126,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -147,6 +161,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
     !!! question ""
 

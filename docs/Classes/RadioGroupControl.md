@@ -30,6 +30,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -64,6 +66,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: callback
@@ -73,6 +77,8 @@
             **type**: bool
 
             **default**: false
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -107,6 +113,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -144,6 +152,8 @@
 
             **default**: ""
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: text
@@ -154,6 +164,8 @@
 
             **default**: ""
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: guiHwnd
@@ -163,6 +175,8 @@
             **type**: bool
 
             **default**: false
+
+            **link**: [link]()
 
     !!! question ""
 

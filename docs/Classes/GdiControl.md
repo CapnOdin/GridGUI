@@ -14,6 +14,8 @@
 
         **type**: GpGraphics*
 
+        **meta**: [pointer]
+
         **link**: [link](https://docs.microsoft.com/en-us/windows/win32/gdiplus/-gdiplus-graphics-flat)
 
 !!! info ""
@@ -27,6 +29,8 @@
 
         **default**: false
 
+        **meta**: [object]
+
 !!! info ""
 
     ####hbm
@@ -35,6 +39,8 @@
         **desc**: A handle to bitmap with the same size as the underlying control. Updated each timer the control is drawn with a new size.
 
         **type**: HBITMAP
+
+        **meta**: [pointer]
 
         **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/Wingdi/ns-wingdi-bitmap)
 
@@ -47,6 +53,8 @@
 
         **type**: HDC
 
+        **meta**: [pointer]
+
 !!! info ""
 
     ####pos
@@ -57,6 +65,8 @@
         **type**: [GridGUI.Position](../Position/)
 
         **default**: new GridGUI.Position(0, 0)
+
+        **meta**: [object]
 
 ##Methods
 
@@ -102,8 +112,6 @@
 
             **default**: 0
 
-    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createcompatibledc)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -113,12 +121,16 @@
 
             **type**: HDC
 
+    **meta**: [description and code taken from Gdip_All.ahk]
+
+    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createcompatibledc)
+
 !!! note ""
     ####__CreateDIBSection
     !!! tip ""
 
         ```AutoHotKey
-        __CreateDIBSection(w, h, bpp := 32, ppvBits := 0)
+        __CreateDIBSection(w, h, bpp := 32, ByRef ppvBits := 0)
         ```
 
 
@@ -166,7 +178,7 @@
 
             **default**: 0
 
-    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createdibsection)
+            **meta**: [ByRef, pointer]
 
     !!! question ""
 
@@ -177,12 +189,16 @@
 
             **type**: HBITMAP
 
+    **meta**: [description and code taken from Gdip_All.ahk]
+
+    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createdibsection)
+
 !!! note ""
     ####__CreateRect
     !!! tip ""
 
         ```AutoHotKey
-        __CreateRect(Rect, x, y, w, h)
+        __CreateRect(ByRef Rect, x, y, w, h)
         ```
 
 
@@ -201,6 +217,8 @@
             **desc**: Name to call the Rect object.
 
             **type**: HRECT
+
+            **meta**: [ByRef]
 
         !!! info ""
 
@@ -233,6 +251,8 @@
             **desc**: Height of the rectangle.
 
             **type**: number
+
+    **meta**: [description and code taken from Gdip_All.ahk]
 
 !!! note ""
     ####__DeleteDC
@@ -268,6 +288,8 @@
 
             **type**: number
 
+    **meta**: [description and code taken from Gdip_All.ahk]
+
 !!! note ""
     ####__DeleteGraphics
     !!! tip ""
@@ -301,6 +323,8 @@
             **desc**: Probably nonzero on success.
 
             **type**: number
+
+    **meta**: [code taken from Gdip_All.ahk]
 
 !!! note ""
     ####__DeleteObject
@@ -336,6 +360,8 @@
 
             **type**: number
 
+    **meta**: [description and code taken from Gdip_All.ahk]
+
 !!! note ""
     ####__GraphicsFromHDC
     !!! tip ""
@@ -369,6 +395,8 @@
             **desc**: Returns a pointer to the graphics of a bitmap.
 
             **type**: GpGraphics*
+
+    **meta**: [description and code taken from Gdip_All.ahk]
 
 !!! note ""
     ####__New
@@ -484,8 +512,6 @@
 
             **type**: HGDIOBJ
 
-    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-selectobject)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -494,6 +520,10 @@
             **desc**: If the selected object is not a region and the function succeeds, the return value is a handle to the object being replaced.
 
             **type**: HGDIOBJ|number
+
+    **meta**: [description and code taken from Gdip_All.ahk]
+
+    **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-selectobject)
 
 !!! note ""
     ####__UpdateLayeredWindow
@@ -558,6 +588,8 @@
 
             **default**: ""
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: h
@@ -567,6 +599,8 @@
             **type**: number|""
 
             **default**: ""
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -586,6 +620,8 @@
             **desc**: If the function succeeds, the return value is nonzero.
 
             **type**: number
+
+    **meta**: [description and code taken from Gdip_All.ahk]
 
 !!! note ""
     ####Draw

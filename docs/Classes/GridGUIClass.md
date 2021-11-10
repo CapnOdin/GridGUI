@@ -16,6 +16,8 @@
 
         **default**: GridGUI.Grid
 
+        **meta**: [object]
+
 !!! info ""
 
     ####gridlines
@@ -26,6 +28,8 @@
         **type**: array
 
         **default**: [[], []]
+
+        **meta**: [object]
 
         **link**: [link](https://www.autohotkey.com/docs/objects/Object.htm)
 
@@ -40,6 +44,8 @@
 
         **default**: {x: 5, y: 5}
 
+        **meta**: [object]
+
 !!! info ""
 
     ####showGrid
@@ -48,6 +54,8 @@
         **desc**: Used to remember what parameter the [`GridGUI.GridGUIClass`](../GridGUIClass/) instance was created with and to decide whether or not to move the debug grid when drawn.
 
         **type**: bool
+
+        **meta**: [const]
 
 ##Methods
 

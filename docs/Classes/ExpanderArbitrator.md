@@ -16,6 +16,8 @@
 
         **default**: {"W": {}, "H": {}}
 
+        **meta**: [object]
+
 !!! info ""
 
     ####ConflictMap
@@ -26,6 +28,8 @@
         **type**: associative array
 
         **default**: {"W": {}, "H": {}}
+
+        **meta**: [object]
 
 !!! info ""
 
@@ -38,6 +42,8 @@
 
         **default**: []
 
+        **meta**: [object]
+
 !!! info ""
 
     ####Ignore
@@ -48,6 +54,8 @@
         **type**: associative array
 
         **default**: {"W": {}, "H": {}}
+
+        **meta**: [object]
 
 !!! info ""
 
@@ -71,6 +79,8 @@
 
         **default**: {"W": {}, "H": {}}
 
+        **meta**: [object]
+
 !!! info ""
 
     ####ReducedConflict
@@ -81,6 +91,8 @@
         **type**: associative array
 
         **default**: {"W": {}, "H": {}}
+
+        **meta**: [object]
 
 ##Methods
 

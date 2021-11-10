@@ -16,6 +16,8 @@
 
         **default**: false
 
+        **meta**: [object]
+
 !!! info ""
 
     ####hwnd
@@ -202,8 +204,6 @@
 
 
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/WinActive.htm)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -212,6 +212,8 @@
             **desc**: The hwnd of the window associated with this class instance if it is the active window otherwise `false`.
 
             **type**: hwnd|false
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinActive.htm)
 
 !!! note ""
     ####WinExist
@@ -228,8 +230,6 @@
 
 
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/WinExist.htm)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -238,6 +238,8 @@
             **desc**: The hwnd of the window associated with this class instance if it exists otherwise `false`.
 
             **type**: hwnd|false
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinExist.htm)
 
 !!! note ""
     ####WinGet
@@ -266,8 +268,6 @@
 
             **link**: [link](https://www.autohotkey.com/docs/commands/WinGet.htm#SubCommands)
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/WinGet.htm)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -276,6 +276,8 @@
             **desc**: The retrieved value.
 
             **type**: any
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinGet.htm)
 
 !!! note ""
     ####WinGetPos
@@ -292,8 +294,6 @@
 
 
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/WinGetPos.htm)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -302,6 +302,8 @@
             **desc**: The position and size of the window.
 
             **type**: [GridGUI.Position](../Position/)
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/WinGetPos.htm)
 
 !!! note ""
     ####WinHide

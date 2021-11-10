@@ -16,6 +16,8 @@
 
         **default**: false
 
+        **meta**: [object]
+
         **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#Events)
 
 !!! info ""
@@ -46,6 +48,8 @@
         **desc**: An instance of [`GridGUI.LOGFONT`](../LOGFONT/) which hold information on the font and colour of the control.
 
         **type**: [GridGUI.LOGFONT](../LOGFONT/)
+
+        **meta**: [object]
 
 !!! info ""
 
@@ -384,8 +388,6 @@
 
             **link**: [link](https://www.autohotkey.com/docs/commands/GuiControlGet.htm#SubCommands)
 
-    **link**: [link](https://www.autohotkey.com/docs/commands/GuiControlGet.htm)
-
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
@@ -394,6 +396,8 @@
             **desc**: The retrieved value.
 
             **type**: any
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/GuiControlGet.htm)
 
 !!! note ""
     ####Options

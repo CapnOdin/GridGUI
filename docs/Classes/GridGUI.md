@@ -16,6 +16,8 @@
 
         **default**: +WS_CLIPSIBLINGS
 
+        **meta**: [static, const]
+
         **link**: [link](https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles)
 
 !!! info ""
@@ -28,6 +30,8 @@
         **type**: bound function
 
         **default**: GridGUI.__ExitApp
+
+        **meta**: [static, const]
 
 ##Methods
 

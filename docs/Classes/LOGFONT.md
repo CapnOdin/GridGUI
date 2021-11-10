@@ -167,6 +167,8 @@
 
         **default**: 0
 
+        **meta**: [composite]
+
         **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta#members)
 
 !!! info ""
@@ -345,7 +347,7 @@
     !!! tip ""
 
         ```AutoHotKey
-        GetData(buff)
+        GetData(ByRef buff)
         ```
 
 
@@ -364,6 +366,8 @@
             **desc**: A buffer holding a LOGFONT struct.
 
             **type**: pointer
+
+            **meta**: [ByRef]
 
             **link**: [link](https://docs.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-logfonta)
 

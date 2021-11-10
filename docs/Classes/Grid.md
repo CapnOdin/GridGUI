@@ -14,6 +14,8 @@
 
         **type**: [GridGUI.ExpanderArbitrator](../ExpanderArbitrator/)
 
+        **meta**: [object]
+
 !!! info ""
 
     ####cells
@@ -25,6 +27,8 @@
 
         **default**: []
 
+        **meta**: [object]
+
 !!! info ""
 
     ####columns
@@ -33,6 +37,8 @@
         **desc**: An instance of [`GridGUI.Columns`](../Columns/) that keeps tack of the [`GridGUI.Column`](../Column/)s comprising the grid.
 
         **type**: [GridGUI.Columns](../Columns/)
+
+        **meta**: [object]
 
 !!! info ""
 
@@ -44,6 +50,8 @@
         **type**: array
 
         **default**: []
+
+        **meta**: [object]
 
 !!! info ""
 
@@ -65,6 +73,8 @@
 
         **type**: [GridGUI.Rows](../Rows/)
 
+        **meta**: [object]
+
 !!! info ""
 
     ####widths
@@ -75,6 +85,8 @@
         **type**: array
 
         **default**: []
+
+        **meta**: [object]
 
 ##Methods
 

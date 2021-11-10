@@ -30,6 +30,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: index
@@ -38,6 +40,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: tabName
@@ -45,6 +49,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -56,6 +62,8 @@
 
             **default**: true
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: showGrid
@@ -65,6 +73,8 @@
             **type**: bool
 
             **default**: false
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -100,6 +110,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: y
@@ -108,6 +120,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: type
@@ -115,6 +129,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -126,6 +142,8 @@
 
             **default**: ""
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: text
@@ -135,6 +153,8 @@
             **type**: string
 
             **default**: ""
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -146,6 +166,8 @@
 
             **default**: 0
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: exH
@@ -155,6 +177,8 @@
             **type**: number
 
             **default**: 0
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -166,6 +190,8 @@
 
             **default**: 0
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: fillH
@@ -176,6 +202,8 @@
 
             **default**: 0
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: justify
@@ -185,6 +213,8 @@
             **type**: string
 
             **default**: C
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -220,6 +250,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: y
@@ -228,6 +260,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: ctrl
@@ -235,6 +269,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -246,6 +282,8 @@
 
             **default**: 0
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: exH
@@ -255,6 +293,8 @@
             **type**: number
 
             **default**: 0
+
+            **link**: [link]()
 
         !!! info ""
 
@@ -266,6 +306,8 @@
 
             **default**: 0
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: fillH
@@ -276,6 +318,8 @@
 
             **default**: 0
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: justify
@@ -285,6 +329,8 @@
             **type**: string
 
             **default**: C
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -319,6 +365,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
     !!! question ""
 

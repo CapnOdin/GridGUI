@@ -25,6 +25,8 @@
 
         **type**: [GridGUI.Position](../Position/)
 
+        **meta**: [object]
+
 !!! info ""
 
     ####borderX
@@ -56,6 +58,8 @@
 
         **type**: [GridGUI.Control](../GridGUI/#control)
 
+        **meta**: [object]
+
 !!! info ""
 
     ####ctrlInitialPos
@@ -65,6 +69,8 @@
 
         **type**: [GridGUI.Position](../Position/)
 
+        **meta**: [object]
+
 !!! info ""
 
     ####ctrlPos
@@ -73,6 +79,8 @@
         **desc**: The position and size when the [`GridGUI.Cell.ctrl`](../Cell/#ctrl) was last drawn.
 
         **type**: [GridGUI.Position](../Position/)
+
+        **meta**: [object]
 
 !!! info ""
 
@@ -126,6 +134,8 @@
         **desc**: The position and size of the cell in the grid in columns and rows. That is in the same coordinate system that is used when adding cells to a [`GridGUI.GridGUIClass`](../GridGUIClass/).
 
         **type**: [GridGUI.Position](../Position/)
+
+        **meta**: [object]
 
 !!! info ""
 
@@ -190,6 +200,8 @@
         **desc**: The position and size of the cell.
 
         **type**: [GridGUI.Position](../Position/)
+
+        **meta**: [object]
 
 ##Methods
 

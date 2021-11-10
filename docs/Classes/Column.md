@@ -27,6 +27,8 @@
 
         **default**: {}
 
+        **meta**: [object]
+
 !!! info ""
 
     ####confligtingExpanders
@@ -37,6 +39,8 @@
         **type**: Associative Array
 
         **default**: {}
+
+        **meta**: [object, cached]
 
 !!! info ""
 
@@ -49,6 +53,8 @@
 
         **default**: 0
 
+        **meta**: [cached]
+
 !!! info ""
 
     ####expanders
@@ -60,6 +66,8 @@
 
         **default**: 0
 
+        **meta**: [cached]
+
 !!! info ""
 
     ####fixedWidth
@@ -70,6 +78,8 @@
         **type**: number
 
         **default**: 0
+
+        **meta**: [cached]
 
 !!! info ""
 
@@ -93,6 +103,8 @@
 
         **default**: 0
 
+        **meta**: [cached]
+
 !!! info ""
 
     ####nonExpanders
@@ -103,6 +115,8 @@
         **type**: number
 
         **default**: 0
+
+        **meta**: [cached]
 
 ##Methods
 

@@ -14,6 +14,8 @@
 
         **type**: Func|BoundFunc
 
+        **meta**: [object]
+
 !!! info ""
 
     ####msgNum

@@ -16,6 +16,8 @@
 
         **default**: empty array
 
+        **meta**: [object]
+
 !!! info ""
 
     ####function
@@ -24,6 +26,8 @@
         **desc**: The function that has arguments bound to it.
 
         **type**: Func|BoundFunc
+
+        **meta**: [object]
 
 ##Methods
 
@@ -142,7 +146,7 @@
     !!! tip ""
 
         ```AutoHotKey
-        __New(fun, arguments)
+        __New(fun, arguments*)
         ```
 
 
@@ -169,6 +173,8 @@
             **desc**: The arguments that will be passed to the [`GridGUI.BoundFunc.function`](../BoundFunc/#function) when it is called. If the function is a method then the class instance is passed as the first variadic arg.
 
             **type**: any
+
+            **meta**: [variadic]
 
     !!! question ""
 

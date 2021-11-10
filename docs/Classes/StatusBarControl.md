@@ -30,6 +30,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: options
@@ -40,6 +42,8 @@
 
             **default**: ""
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: text
@@ -49,6 +53,8 @@
             **type**: string
 
             **default**: ""
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -83,6 +89,8 @@
             **desc**: 
 
             **type**: string|number|object
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -142,6 +150,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: IconNumber
@@ -152,6 +162,8 @@
 
             **default**: 1
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: PartNumber
@@ -161,6 +173,8 @@
             **type**: number
 
             **default**: 1
+
+            **link**: [link]()
 
     !!! question ""
 
@@ -196,6 +210,8 @@
 
             **type**: string|number|object
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: PartNumber
@@ -206,6 +222,8 @@
 
             **default**: 1
 
+            **link**: [link]()
+
         !!! info ""
 
             **name**: Style
@@ -215,6 +233,8 @@
             **type**: number
 
             **default**: 0
+
+            **link**: [link]()
 
     !!! question ""
 

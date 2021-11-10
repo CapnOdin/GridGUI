@@ -27,6 +27,8 @@
 
         **default**: {}
 
+        **meta**: [object, cached]
+
 !!! info ""
 
     ####expandersMaxValue
@@ -37,6 +39,8 @@
         **type**: associative array
 
         **default**: {}
+
+        **meta**: [object, cached]
 
 !!! info ""
 
@@ -49,6 +53,8 @@
 
         **default**: {}
 
+        **meta**: [object, cached]
+
 !!! info ""
 
     ####minHeights
@@ -59,6 +65,8 @@
         **type**: associative array
 
         **default**: {}
+
+        **meta**: [object, cached]
 
 !!! info ""
 
@@ -71,6 +79,8 @@
 
         **default**: {}
 
+        **meta**: [object, cached]
+
 !!! info ""
 
     ####rows
@@ -81,6 +91,8 @@
         **type**: associative array
 
         **default**: {}
+
+        **meta**: [object]
 
 ##Methods
 
