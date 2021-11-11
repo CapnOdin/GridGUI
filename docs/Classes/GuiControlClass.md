@@ -10,7 +10,7 @@
     ####callback
     !!! info ""
 
-        **desc**: A callback that will be called whenever a glabel would be called.
+        **desc**: A callback that will be called whenever a glabel would be called. If set to `false` the callback will be ignored.
 
         **type**: Func|BoundFunc|false
 
