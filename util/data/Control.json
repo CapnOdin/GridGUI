@@ -220,6 +220,7 @@
 		}
 	},
 	"GuiControlClass": {
+		"extends": "GridGUI.ControlClass",
 		"desc": "A class representing a control that is part of an ahk GUI.",
 		"members": {
 			"type": {
@@ -227,7 +228,7 @@
 				"type": "string"
 			},
 			"callback": {
-				"desc": "A callback that will be called whenever a glabel would be called.",
+				"desc": "A callback that will be called whenever a glabel would be called. If set to `false` the callback will be ignored.",
 				"type": "Func|BoundFunc|false",
 				"default": false,
 				"meta": ["object"],
