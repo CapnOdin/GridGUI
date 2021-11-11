@@ -1,88 +1,98 @@
 {
 	"RadioGroupControl": {
 		"desc": "A class representing a linked group of RadioButtons. Can not be added to a gui, use `GridGUI.RadioGroupControl.New` to added radio buttons to a GUI.",
-		"members": {},
+		"members": {
+			"RadioButtons": {
+				"desc": "An array of the `RadioButton`s that are associated with this RadioGroup.",
+				"type": "array",
+				"default": "[]",
+				"meta": ["object"]
+			},
+			"Checked": {
+				"desc": "An object containing information on the most recently checked `RadioButton`. The object contains the index under the key `\"index\"`, the `GridGUI.ArbitraryControl` object under the key `\"ctrl\"` and the text of the `RadioButton` under the key `\"text\"`.",
+				"type": "object",
+				"default": "{}",
+				"meta": ["object"]
+			},
+			"guiHwnd": {
+				"desc": "The hwnd of the GUI that new `RadioButton`s will be added to if the `guiHwnd` parameter is not set when calling `GridGUI.RadioGroupControl.New`.",
+				"type": "hwnd"
+			},
+			"callback": {
+				"desc": "A callback that will be called whenever a `RadioButton` in this RadioGroup is pressed, it is called with `GridGUI.RadioGroupControl.Checked` as an argument. If set to `false` the callback will be ignored.",
+				"type": "Func|BoundFunc|false",
+				"default": false,
+				"meta": ["object"]
+			}
+		},
 		"methods": {
 			"__Callback": {
+				"desc": "An internal callback that is registered to all the `RadioButton`s of this RadioGroup. The callback is used to uncheck the `RadioButton`s what where not clicked, to update the `GridGUI.RadioGroupControl.Checked` member and to call the user defined callback `GridGUI.RadioGroupControl.callback`.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "ctrl",
-						"type": "string|number|object"
+						"desc": "The control object of the `RadioButton` that was clicked.",
+						"type": "GridGUI.ArbitraryControl"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"__New": {
+				"desc": "Constructor.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "guiHwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the GUI that the `RadioButton`s that are added to this RadioGroup should be added to by default.",
+						"type": "hwnd"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "callback",
-						"type": "bool"
+						"desc": "The callback that should be called whenever a `RadioButton` in this RadioGroup is pressed, it is called with `GridGUI.RadioGroupControl.Checked` as an argument. If set to `false` the callback will be ignored.",
+						"type": "Func|BoundFunc|false",
+						"default": false,
+						"meta": ["object"]
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.RadioGroupControl` instance.",
+					"type": "GridGUI.RadioGroupControl"
 				}
 			},
 			"Check": {
+				"desc": "Checks a `RadioButton` in `GridGUI.RadioGroupControl.RadioButtons` by its index.",
 				"args": [
 					{
-						"desc": "",
-						"link": "",
 						"name": "index",
-						"type": "string|number|object"
+						"desc": "The index of the `RadioButton` to check.",
+						"type": "number"
 					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				]
 			},
 			"New": {
+				"desc": "Adds a new `RadioButton` to this RadioGroup and to a GUI.",
 				"args": [
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string"
-					},
-					{
+						"desc": "The options that the `RadioButton` will be created with. Does not accept vVars and gLabels.",
 						"default": "\"\"",
-						"desc": "",
-						"link": "",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
+					},
+					{
 						"name": "text",
+						"desc": "The text that will be displayed next to the new `RadioButton`.",
+						"default": "\"\"",
 						"type": "string"
 					},
 					{
-						"default": false,
-						"desc": "",
-						"link": "",
 						"name": "guiHwnd",
+						"desc": "The hwnd of the GUI that the new `RadioButton` will be added to. If left unset then the `RadioButton` will be added to `GridGUI.RadioGroupControl.guiHwnd`.",
+						"default": false,
 						"type": "bool"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The control object for the newly added `RadioButton`.",
+					"type": "GridGUI.ArbitraryControl"
 				}
 			}
 		}
