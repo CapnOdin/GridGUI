@@ -3,6 +3,19 @@
 
 </figure>
 ---
+##Members
+
+!!! info ""
+
+    ####gui
+    !!! info ""
+
+        **desc**: The parent `GUI` of the `StatusBar`.
+
+        **type**: [GridGUI.GUI](../GUI/)
+
+        **meta**: [object]
+
 ##Methods
 
 !!! note ""
@@ -16,7 +29,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Constructor.
 
 
 
@@ -26,44 +39,40 @@
 
             **name**: guiHwnd
 
-            **desc**: 
+            **desc**: The hwnd of the `GUI` that the `StatusBar` should be added to.
 
-            **type**: string|number|object
-
-            **link**: [link]()
+            **type**: hwnd
 
         !!! info ""
 
             **name**: options
 
-            **desc**: 
+            **desc**: The options that the `StatusBar` will be created with. Does not accept vVars.
 
             **type**: string
 
             **default**: ""
 
-            **link**: [link]()
+            **link**: [link](https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions)
 
         !!! info ""
 
             **name**: text
 
-            **desc**: 
+            **desc**: The text that the `StatusBar` will be created with.
 
             **type**: string
 
             **default**: ""
-
-            **link**: [link]()
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: A new [`GridGUI.StatusBarControl`](../StatusBarControl/) instance.
 
-            **type**: 
+            **type**: [GridGUI.StatusBarControl](../StatusBarControl/)
 
 !!! note ""
     ####__ResetDefaultGui
@@ -76,7 +85,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Sets the default `GUI`. Used to restore the old default `GUI`, so that using the methods of the class won't have any side effects.
 
 
 
@@ -86,20 +95,9 @@
 
             **name**: previous
 
-            **desc**: 
+            **desc**: The hwnd that should be set as the default `GUI`
 
             **type**: string|number|object
-
-            **link**: [link]()
-
-    !!! question ""
-
-        :material-arrow-u-left-bottom-bold:{ .return } **return value**
-        !!! question ""
-
-            **desc**: 
-
-            **type**: 
 
 !!! note ""
     ####__SetDefaultGui
@@ -112,7 +110,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Sets the default `GUI` to [`GridGUI.StatusBarControl.gui`](../StatusBarControl/#gui) so that the [SB_Functions](https://www.autohotkey.com/docs/commands/GuiControls.htm#StatusBar_Functions) work on the right `StatusBar`.
 
 
 
@@ -121,9 +119,9 @@
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: The hwnd of the previous default `GUI`
 
-            **type**: 
+            **type**: hwnd
 
 !!! note ""
     ####SetIcon
@@ -136,7 +134,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Displays a small icon to the left of the text in the specified part. See link for details.
 
 
 
@@ -146,44 +144,78 @@
 
             **name**: Filename
 
-            **desc**: 
+            **desc**: The path to an icon resource, can be any of the following formats `ico`, `cur`, `ani`, `exe`, `dll`, `cpl` and `scr`. See link for details.
 
-            **type**: string|number|object
-
-            **link**: [link]()
+            **type**: string|Image-Handle
 
         !!! info ""
 
             **name**: IconNumber
 
-            **desc**: 
+            **desc**: The icon index in the file pointed to by `Filename`. See link for details.
 
             **type**: number
 
             **default**: 1
-
-            **link**: [link]()
 
         !!! info ""
 
             **name**: PartNumber
 
-            **desc**: 
+            **desc**: The part of the `StatusBar` to put the icon in.
 
             **type**: number
 
             **default**: 1
-
-            **link**: [link]()
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: The handle to the icon that was added or **0** on failure.
 
-            **type**: 
+            **type**: HICON
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/GuiControls.htm#SB_SetIcon)
+
+!!! note ""
+    ####SetParts
+    !!! tip ""
+
+        ```AutoHotKey
+        SetParts(Widths*)
+        ```
+
+
+    !!! abstract ""
+
+        :material-clipboard-text:{ .desc } Divides the bar into multiple sections according to the specified widths (in pixels).
+
+
+
+    ??? example "parameters"
+
+        !!! info ""
+
+            **name**: Widths
+
+            **desc**: The widths of the parts of the `StatusBar` except for the last part as it will fill the remaining width of the `GUI`. If no widths are provided then the `StatusBar` will have only one part that has the width of the `GUI`.
+
+            **type**: number
+
+            **meta**: [variadic]
+
+    !!! question ""
+
+        :material-arrow-u-left-bottom-bold:{ .return } **return value**
+        !!! question ""
+
+            **desc**: The hwnd of the `StatusBar` or **0** upon failure.
+
+            **type**: hwnd
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/GuiControls.htm#SB_SetParts)
 
 !!! note ""
     ####SetText
@@ -196,7 +228,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } 
+        :material-clipboard-text:{ .desc } Sets the text in the specified part of the `StatusBar`.
 
 
 
@@ -206,42 +238,38 @@
 
             **name**: NewText
 
-            **desc**: 
+            **desc**: The text to change a part of the `StatusBar` to.
 
-            **type**: string|number|object
-
-            **link**: [link]()
+            **type**: string
 
         !!! info ""
 
             **name**: PartNumber
 
-            **desc**: 
+            **desc**: The number of the part of the `StatusBar` to change the text of.
 
             **type**: number
 
             **default**: 1
 
-            **link**: [link]()
-
         !!! info ""
 
             **name**: Style
 
-            **desc**: 
+            **desc**: Specify **0** for a traditional border that makes that part of the bar look sunken. Specify **1** to have no border or **2** to have border that makes that part of the bar look raised.
 
             **type**: number
 
             **default**: 0
-
-            **link**: [link]()
 
     !!! question ""
 
         :material-arrow-u-left-bottom-bold:{ .return } **return value**
         !!! question ""
 
-            **desc**: 
+            **desc**: Returns **1** upon success or **0** upon failure.
 
-            **type**: 
+            **type**: bool
+
+    **link**: [link](https://www.autohotkey.com/docs/commands/GuiControls.htm#SB_SetText)
 

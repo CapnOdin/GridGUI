@@ -119,7 +119,7 @@
 
     !!! abstract ""
 
-        :material-clipboard-text:{ .desc } Sets the default `GUI` and `ListView`.
+        :material-clipboard-text:{ .desc } Sets the default `GUI` and `ListView`. Used to restore the old default `GUI` and `ListView`, so that using the methods of the class won't have any side effects.
 
 
 
