@@ -1,115 +1,120 @@
 {
 	"StatusBarControl": {
+		"extends": "GridGUI.ArbitraryControl",
 		"desc": "A class representing a StatusBar.",
-		"members": {},
+		"members": {
+			"gui": {
+				"desc": "The parent `GUI` of the `StatusBar`.",
+				"type": "GridGUI.GUI",
+				"meta": ["object"]
+			}
+		},
 		"methods": {
 			"__New": {
-				"args": [
-					{
-						"desc": "",
-						"link": "",
+				"desc": "Constructor.",
+				"args": [{
 						"name": "guiHwnd",
-						"type": "string|number|object"
+						"desc": "The hwnd of the `GUI` that the `StatusBar` should be added to.",
+						"type": "hwnd"
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "options",
-						"type": "string"
+						"desc": "The options that the `StatusBar` will be created with. Does not accept vVars.",
+						"default": "\"\"",
+						"type": "string",
+						"link": "https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions"
 					},
 					{
-						"default": "\"\"",
-						"desc": "",
-						"link": "",
 						"name": "text",
+						"desc": "The text that the `StatusBar` will be created with.",
+						"default": "\"\"",
 						"type": "string"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "A new `GridGUI.StatusBarControl` instance.",
+					"type": "GridGUI.StatusBarControl"
 				}
 			},
 			"__ResetDefaultGui": {
-				"args": [
-					{
-						"desc": "",
-						"link": "",
-						"name": "previous",
-						"type": "string|number|object"
-					}
-				],
-				"desc": "",
-				"returns": {
-					"desc": "",
-					"type": ""
-				}
+				"desc": "Sets the default `GUI`. Used to restore the old default `GUI`, so that using the methods of the class won't have any side effects.",
+				"args": [{
+					"name": "previous",
+					"desc": "The hwnd that should be set as the default `GUI`",
+					"type": "string|number|object"
+				}]
 			},
 			"__SetDefaultGui": {
-				"desc": "",
+				"desc": "Sets the default `GUI` to `GridGUI.StatusBarControl.gui` so that the [SB_Functions](https://www.autohotkey.com/docs/commands/GuiControls.htm#StatusBar_Functions) work on the right `StatusBar`.",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The hwnd of the previous default `GUI`",
+					"type": "hwnd"
 				}
 			},
 			"SetIcon": {
-				"args": [
-					{
-						"desc": "",
-						"link": "",
+				"desc": "Displays a small icon to the left of the text in the specified part. See link for details.",
+				"link": "https://www.autohotkey.com/docs/commands/GuiControls.htm#SB_SetIcon",
+				"args": [{
 						"name": "Filename",
-						"type": "string|number|object"
+						"desc": "The path to an icon resource, can be any of the following formats `ico`, `cur`, `ani`, `exe`, `dll`, `cpl` and `scr`. See link for details.",
+						"type": "string|Image-Handle"
 					},
 					{
-						"default": 1,
-						"desc": "",
-						"link": "",
 						"name": "IconNumber",
+						"desc": "The icon index in the file pointed to by `Filename`. See link for details.",
+						"default": 1,
 						"type": "number"
 					},
 					{
-						"default": 1,
-						"desc": "",
-						"link": "",
 						"name": "PartNumber",
+						"desc": "The part of the `StatusBar` to put the icon in.",
+						"default": 1,
 						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "The handle to the icon that was added or **0** on failure.",
+					"type": "HICON"
+				}
+			},
+			"SetParts": {
+				"desc": "Divides the bar into multiple sections according to the specified widths (in pixels).",
+				"link": "https://www.autohotkey.com/docs/commands/GuiControls.htm#SB_SetParts",
+				"args": [{
+					"name": "Widths",
+					"desc": "The widths of the parts of the `StatusBar` except for the last part as it will fill the remaining width of the `GUI`. If no widths are provided then the `StatusBar` will have only one part that has the width of the `GUI`.",
+					"type": "number",
+					"meta": ["variadic"]
+				}],
+				"returns": {
+					"desc": "The hwnd of the `StatusBar` or **0** upon failure.",
+					"type": "hwnd"
 				}
 			},
 			"SetText": {
-				"args": [
-					{
-						"desc": "",
-						"link": "",
+				"desc": "Sets the text in the specified part of the `StatusBar`.",
+				"link": "https://www.autohotkey.com/docs/commands/GuiControls.htm#SB_SetText",
+				"args": [{
 						"name": "NewText",
-						"type": "string|number|object"
+						"desc": "The text to change a part of the `StatusBar` to.",
+						"type": "string"
 					},
 					{
-						"default": 1,
-						"desc": "",
-						"link": "",
 						"name": "PartNumber",
+						"desc": "The number of the part of the `StatusBar` to change the text of.",
+						"default": 1,
 						"type": "number"
 					},
 					{
-						"default": 0,
-						"desc": "",
-						"link": "",
 						"name": "Style",
+						"desc": "Specify **0** for a traditional border that makes that part of the bar look sunken. Specify **1** to have no border or **2** to have border that makes that part of the bar look raised.",
+						"default": 0,
 						"type": "number"
 					}
 				],
-				"desc": "",
 				"returns": {
-					"desc": "",
-					"type": ""
+					"desc": "Returns **1** upon success or **0** upon failure.",
+					"type": "bool"
 				}
 			}
 		}
