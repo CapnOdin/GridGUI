@@ -1,0 +1,3238 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../imgs/Gradient Icon.webp">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>GUI - GridGUI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/extra2.css">
+    
+      <link rel="stylesheet" href="../../css/extra3.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gui" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="GridGUI" class="md-header__button md-logo" aria-label="GridGUI" data-md-component="logo">
+      
+  <img src="../../imgs/Gradient Icon.webp" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GridGUI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GUI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/CapnOdin/GridGUI" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CapnOdin/GridGUI
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../How%20to%20Use/" class="md-tabs__link">
+      How to Use
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../GridGUI/" class="md-tabs__link md-tabs__link--active">
+        Class Reference
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Examples/Example%201/" class="md-tabs__link">
+        Examples
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../Changelog/" class="md-tabs__link">
+      Changelog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GridGUI" class="md-nav__button md-logo" aria-label="GridGUI" data-md-component="logo">
+      
+  <img src="../../imgs/Gradient Icon.webp" alt="logo">
+
+    </a>
+    GridGUI
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/CapnOdin/GridGUI" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CapnOdin/GridGUI
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../How%20to%20Use/" class="md-nav__link">
+        How to Use
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Class Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Class Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Class Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          GUI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GUI" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          GUI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GridGUI/" class="md-nav__link">
+        GridGUI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GridGUIClass/" class="md-nav__link">
+        GridGUIClass
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SubGrid/" class="md-nav__link">
+        SubGrid
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GUI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        GUI
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#members" class="md-nav__link">
+    Members
+  </a>
+  
+    <nav class="md-nav" aria-label="Members">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backgroundctrls" class="md-nav__link">
+    BackgroundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpiscale" class="md-nav__link">
+    DPIScale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#droptarges" class="md-nav__link">
+    DropTarges
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foregroundctrls" class="md-nav__link">
+    ForegroundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guiactivate" class="md-nav__link">
+    GuiActivate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guiclose" class="md-nav__link">
+    GuiClose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guicontextmenu" class="md-nav__link">
+    GuiContextMenu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guimoved" class="md-nav__link">
+    GuiMoved
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guimoveddelay" class="md-nav__link">
+    GuiMovedDelay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guisize" class="md-nav__link">
+    GuiSize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guisizedelay" class="md-nav__link">
+    GuiSizeDelay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onpaintdelay" class="md-nav__link">
+    OnPaintDelay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pos" class="md-nav__link">
+    pos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__checkoptions" class="md-nav__link">
+    __CheckOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__dpiscale" class="md-nav__link">
+    __DPIScale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guiactivate" class="md-nav__link">
+    __GuiActivate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guicontextmenu" class="md-nav__link">
+    __GuiContextMenu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guidropfiles" class="md-nav__link">
+    __GuiDropFiles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guiinit" class="md-nav__link">
+    __GuiInit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guimoved" class="md-nav__link">
+    __GuiMoved
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guisize" class="md-nav__link">
+    __GuiSize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__lowerbackgoundctrls" class="md-nav__link">
+    __LowerBackgoundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__new" class="md-nav__link">
+    __New
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__onadd" class="md-nav__link">
+    __OnAdd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__onpaint" class="md-nav__link">
+    __OnPaint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__raiseforgoundctrls" class="md-nav__link">
+    __RaiseForgoundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__redrawforgoundctrls" class="md-nav__link">
+    __ReDrawForgoundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__syscommand" class="md-nav__link">
+    __SysCommand
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_guimoved" class="md-nav__link">
+    _GuiMoved
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_guisize" class="md-nav__link">
+    _GuiSize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    Add
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    Color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlgetfocus" class="md-nav__link">
+    ControlGetFocus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    Default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destroy" class="md-nav__link">
+    Destroy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flash" class="md-nav__link">
+    Flash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font" class="md-nav__link">
+    Font
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hide" class="md-nav__link">
+    Hide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listview" class="md-nav__link">
+    ListView
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#margin" class="md-nav__link">
+    Margin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximize" class="md-nav__link">
+    Maximize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menu" class="md-nav__link">
+    Menu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimize" class="md-nav__link">
+    Minimize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minsize" class="md-nav__link">
+    MinSize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registerbackground" class="md-nav__link">
+    RegisterBackground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registerdroptarget" class="md-nav__link">
+    RegisterDropTarget
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registerforeground" class="md-nav__link">
+    RegisterForeground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore" class="md-nav__link">
+    Restore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show" class="md-nav__link">
+    Show
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submit" class="md-nav__link">
+    Submit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#treeview" class="md-nav__link">
+    TreeView
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GuiCallback/" class="md-nav__link">
+        GuiCallback
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Controls
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Controls" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Controls
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CellControl/" class="md-nav__link">
+        CellControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ControlClass/" class="md-nav__link">
+        ControlClass
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GuiControlClass/" class="md-nav__link">
+        GuiControlClass
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ArbitraryControl/" class="md-nav__link">
+        ArbitraryControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GdiControl/" class="md-nav__link">
+        GdiControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListviewControl/" class="md-nav__link">
+        ListviewControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RadioGroupControl/" class="md-nav__link">
+        RadioGroupControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StatusBarControl/" class="md-nav__link">
+        StatusBarControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TabControl/" class="md-nav__link">
+        TabControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TreeviewControl/" class="md-nav__link">
+        TreeviewControl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WindowControl/" class="md-nav__link">
+        WindowControl
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" data-md-state="indeterminate" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Grid
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Grid" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Grid
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grid/" class="md-nav__link">
+        Grid
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cell/" class="md-nav__link">
+        Cell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Column/" class="md-nav__link">
+        Column
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Columns/" class="md-nav__link">
+        Columns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Row/" class="md-nav__link">
+        Row
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rows/" class="md-nav__link">
+        Rows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExpanderArbitrator/" class="md-nav__link">
+        ExpanderArbitrator
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" data-md-state="indeterminate" type="checkbox" id="__nav_3_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Misc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Misc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Misc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BoundFunc/" class="md-nav__link">
+        BoundFunc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LOGFONT/" class="md-nav__link">
+        LOGFONT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Position/" class="md-nav__link">
+        Position
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tab/" class="md-nav__link">
+        Tab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Util/" class="md-nav__link">
+        Util
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Window/" class="md-nav__link">
+        Window
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%201/" class="md-nav__link">
+        One
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Background/" class="md-nav__link">
+        Background
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20CellGroups/" class="md-nav__link">
+        CellGroups
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20CSV%20Viewer/" class="md-nav__link">
+        CSV Viewer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Exp%20Fight/" class="md-nav__link">
+        Exp Fight
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Expanding%20Buttons/" class="md-nav__link">
+        Expanding Buttons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Expansion%20Battle%201/" class="md-nav__link">
+        Expansion Battle 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Find%20Text%20in%20Files/" class="md-nav__link">
+        Find Text in Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Font/" class="md-nav__link">
+        Font
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20GDI/" class="md-nav__link">
+        GDI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Grid%20Button/" class="md-nav__link">
+        Grid Button
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Grid%20Game/" class="md-nav__link">
+        Grid Game
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Grid%20Test/" class="md-nav__link">
+        Grid Test
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20GroupBox%20Simple/" class="md-nav__link">
+        GroupBox Simple
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20GroupBox/" class="md-nav__link">
+        GroupBox
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Gui%20Events/" class="md-nav__link">
+        Gui Events
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Keyword%20Arguments/" class="md-nav__link">
+        Keyword Arguments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Margin/" class="md-nav__link">
+        Margin
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20RadioGroups%202/" class="md-nav__link">
+        RadioGroups 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20RadioGroups/" class="md-nav__link">
+        RadioGroups
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Scale/" class="md-nav__link">
+        Scale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Serial%20Terminal/" class="md-nav__link">
+        Serial Terminal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20SubGrids/" class="md-nav__link">
+        SubGrids
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Tabs/" class="md-nav__link">
+        Tabs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Transparent/" class="md-nav__link">
+        Transparent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Unicode/" class="md-nav__link">
+        Unicode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20User%20Input/" class="md-nav__link">
+        User Input
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Examples/Example%20Window%20Grid/" class="md-nav__link">
+        Window Grid
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#members" class="md-nav__link">
+    Members
+  </a>
+  
+    <nav class="md-nav" aria-label="Members">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backgroundctrls" class="md-nav__link">
+    BackgroundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpiscale" class="md-nav__link">
+    DPIScale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#droptarges" class="md-nav__link">
+    DropTarges
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foregroundctrls" class="md-nav__link">
+    ForegroundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guiactivate" class="md-nav__link">
+    GuiActivate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guiclose" class="md-nav__link">
+    GuiClose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guicontextmenu" class="md-nav__link">
+    GuiContextMenu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guimoved" class="md-nav__link">
+    GuiMoved
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guimoveddelay" class="md-nav__link">
+    GuiMovedDelay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guisize" class="md-nav__link">
+    GuiSize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guisizedelay" class="md-nav__link">
+    GuiSizeDelay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onpaintdelay" class="md-nav__link">
+    OnPaintDelay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pos" class="md-nav__link">
+    pos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__checkoptions" class="md-nav__link">
+    __CheckOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__dpiscale" class="md-nav__link">
+    __DPIScale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guiactivate" class="md-nav__link">
+    __GuiActivate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guicontextmenu" class="md-nav__link">
+    __GuiContextMenu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guidropfiles" class="md-nav__link">
+    __GuiDropFiles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guiinit" class="md-nav__link">
+    __GuiInit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guimoved" class="md-nav__link">
+    __GuiMoved
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__guisize" class="md-nav__link">
+    __GuiSize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__lowerbackgoundctrls" class="md-nav__link">
+    __LowerBackgoundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__new" class="md-nav__link">
+    __New
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__onadd" class="md-nav__link">
+    __OnAdd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__onpaint" class="md-nav__link">
+    __OnPaint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__raiseforgoundctrls" class="md-nav__link">
+    __RaiseForgoundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__redrawforgoundctrls" class="md-nav__link">
+    __ReDrawForgoundCtrls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__syscommand" class="md-nav__link">
+    __SysCommand
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_guimoved" class="md-nav__link">
+    _GuiMoved
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_guisize" class="md-nav__link">
+    _GuiSize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    Add
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    Color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlgetfocus" class="md-nav__link">
+    ControlGetFocus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    Default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destroy" class="md-nav__link">
+    Destroy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flash" class="md-nav__link">
+    Flash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font" class="md-nav__link">
+    Font
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hide" class="md-nav__link">
+    Hide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listview" class="md-nav__link">
+    ListView
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#margin" class="md-nav__link">
+    Margin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximize" class="md-nav__link">
+    Maximize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menu" class="md-nav__link">
+    Menu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimize" class="md-nav__link">
+    Minimize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minsize" class="md-nav__link">
+    MinSize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registerbackground" class="md-nav__link">
+    RegisterBackground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registerdroptarget" class="md-nav__link">
+    RegisterDropTarget
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registerforeground" class="md-nav__link">
+    RegisterForeground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore" class="md-nav__link">
+    Restore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show" class="md-nav__link">
+    Show
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submit" class="md-nav__link">
+    Submit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#treeview" class="md-nav__link">
+    TreeView
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="gui">GUI</h1>
+<figure></figure>
+<hr />
+<h2 id="members">Members</h2>
+<div class="admonition info">
+<h4 id="backgroundctrls">BackgroundCtrls</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: An array of controls that should be lowered below all newly added controls and which have the style <code>WS_CLIPSIBLINGS</code> applied. To register a background control see <a href="../GUI/#registerbackground"><code>GridGUI.GUI.RegisterBackground</code></a>.</p>
+<p><strong>type</strong>: array</p>
+<p><strong>default</strong>: []</p>
+<p><strong>meta</strong>: [object]</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles">link</a></p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="dpiscale">DPIScale</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: Whether or not to correct for non standard dpi.</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>default</strong>: true</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#DPIScale">link</a></p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="droptarges">DropTarges</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: An object of hwnds mapping to callbacks that will be call on <code>WM_DROPFILES</code> if the event was on a control with the corresponding hwnd. To register a callback see <a href="../GUI/#registerdroptarget"><code>GridGUI.GUI.RegisterDropTarget</code></a>.</p>
+<p><strong>type</strong>: object</p>
+<p><strong>default</strong>: {}</p>
+<p><strong>meta</strong>: [object]</p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="foregroundctrls">ForegroundCtrls</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: An array of controls that should be raised above all newly added controls and which are redrawn after other controls have been drawn. To register a foreground control see <a href="../GUI/#registerforeground"><code>GridGUI.GUI.RegisterForeground</code></a>.</p>
+<p><strong>type</strong>: array</p>
+<p><strong>default</strong>: []</p>
+<p><strong>meta</strong>: [object]</p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="guiactivate">GuiActivate</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The callback that will be called on <code>WM_ACTIVATE</code>.</p>
+<p><strong>type</strong>: Func|BoundFunc|false</p>
+<p><strong>default</strong>: false</p>
+<p><strong>meta</strong>: [object]</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate">link</a></p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="guiclose">GuiClose</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The callback that will be called on <code>WM_SYSCOMMAND</code> if <code>wParam</code> equals <code>SC_CLOSE</code>.</p>
+<p><strong>type</strong>: Func|BoundFunc|false</p>
+<p><strong>default</strong>: false</p>
+<p><strong>meta</strong>: [object]</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#GuiClose">link</a></p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="guicontextmenu">GuiContextMenu</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The callback that will be called on <code>WM_CONTEXTMENU</code>.</p>
+<p><strong>type</strong>: Func|BoundFunc|false</p>
+<p><strong>default</strong>: false</p>
+<p><strong>meta</strong>: [object]</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#GuiContextMenu">link</a></p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="guimoved">GuiMoved</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The callback that will be called on <code>WM_MOVE</code>.</p>
+<p><strong>type</strong>: Func|BoundFunc|false</p>
+<p><strong>default</strong>: false</p>
+<p><strong>meta</strong>: [object]</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move">link</a></p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="guimoveddelay">GuiMovedDelay</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The delay to wait before the user defined callback <a href="../GUI/#guimoved"><code>GridGUI.GUI.GuiMoved</code></a> will be called. A delay of <strong>0</strong> will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>default</strong>: 50</p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="guisize">GuiSize</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The callback that will be called on <code>WM_SIZE</code>.</p>
+<p><strong>type</strong>: Func|BoundFunc|false</p>
+<p><strong>default</strong>: false</p>
+<p><strong>meta</strong>: [object]</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#GuiSize">link</a></p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="guisizedelay">GuiSizeDelay</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The delay to wait before the user defined callback <a href="../GUI/#guisize"><code>GridGUI.GUI.GuiSize</code></a> will be called. A delay of <strong>0</strong> will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>default</strong>: 50</p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="onpaintdelay">OnPaintDelay</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The delay to wait before the callback that redraws the controls in <a href="../GUI/#foregroundctrls"><code>GridGUI.GUI.ForegroundCtrls</code></a> will be called. A delay of <strong>0</strong> will make the callback be called directly in the OnMessage callback function and a delay above 0 will be triggered using a timer.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>default</strong>: 10</p>
+</div>
+</div>
+<div class="admonition info">
+<h4 id="pos">pos</h4>
+<div class="admonition info">
+<p><strong>desc</strong>: The position of this GUI.</p>
+<p><strong>type</strong>: <a href="../Position/">GridGUI.Position</a></p>
+<p><strong>default</strong>: GridGUI.Position(0, 0)</p>
+<p><strong>meta</strong>: [object]</p>
+</div>
+</div>
+<h2 id="methods">Methods</h2>
+<div class="admonition note">
+<h4 id="__checkoptions">__CheckOptions</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__CheckOptions</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Parses option strings for values that are used by the class and updated the instance based on the values.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: options</p>
+<p><strong>desc</strong>: An ahk GUI option string.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Options">link</a></p>
+</div>
+</details>
+<div class="admonition question">
+<p><span class="twemoji return"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6 7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5S15.43 7 13.5 7H6V3h7.5c4.14 0 7.5 3.36 7.5 7.5z"/></svg></span> <strong>return value</strong></p>
+<div class="admonition question">
+<p><strong>desc</strong>: The <code>options</code> argument minus anything that class handles, currently only <code>gLabels</code> are removed.</p>
+<p><strong>type</strong>: string</p>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="__dpiscale">__DPIScale</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__DPIScale</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">enlarge</span> <span class="o">:=</span> <span class="nv">true</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Scale a position by the dpi ratio, that is <code>A_ScreenDPI / 96</code>.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: pos</p>
+<p><strong>desc</strong>: The <a href="../Position/"><code>GridGUI.Position</code></a> instance to scale.</p>
+<p><strong>type</strong>: <a href="../Position/">GridGUI.Position</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: enlarge</p>
+<p><strong>desc</strong>: Whether to increase or decrease the size of <code>pos</code>.</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>default</strong>: true</p>
+</div>
+</details>
+<div class="admonition question">
+<p><span class="twemoji return"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6 7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5S15.43 7 13.5 7H6V3h7.5c4.14 0 7.5 3.36 7.5 7.5z"/></svg></span> <strong>return value</strong></p>
+<div class="admonition question">
+<p><strong>desc</strong>: The scaled position.</p>
+<p><strong>type</strong>: <a href="../Position/">GridGUI.Position</a></p>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="__guiactivate">__GuiActivate</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__GuiActivate</span><span class="p">(</span><span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> The internal callback on <code>WM_ACTIVATE</code> that calls the user defined <a href="../GUI/#guiactivate"><code>GridGUI.GUI.GuiActivate</code></a> if it evaluates to true. The callback is called with the low-order word of <code>wParam</code>.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: wParam</p>
+<p><strong>desc</strong>: Low-order word is the active state of the changed window, the high-order word is whether the window was minimised. If the low-order word is <strong>1</strong> the window was activated, if it is <strong>2</strong> the window was activated by a mouse click and if it is <strong>0</strong> the window is deactivated.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: lParam</p>
+<p><strong>desc</strong>: The hwnd of the window where the active state of the window changed.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-activate">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: msg</p>
+<p><strong>desc</strong>: WM_ACTIVATE (0x0006).</p>
+<p><strong>type</strong>: number</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the window or control that recieved the message.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="__guicontextmenu">__GuiContextMenu</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__GuiContextMenu</span><span class="p">(</span><span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> The internal callback on <code>WM_CONTEXTMENU</code> that calls the user defined <a href="../GUI/#guicontextmenu"><code>GridGUI.GUI.GuiContextMenu</code></a> if it evaluates to true. The callback is called with the clicked coordinate as a <a href="../Position/"><code>GridGUI.Position</code></a> and with the hwnd of the windows that was right-clicked.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: wParam</p>
+<p><strong>desc</strong>: The hwnd of the windows that was right-clicked.</p>
+<p><strong>type</strong>: hwnd</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/menurc/wm-contextmenu">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: lParam</p>
+<p><strong>desc</strong>: The clicked coordinate. The low-order word is the x coordinate. The high-order word is the y coordinate.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/menurc/wm-contextmenu">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: msg</p>
+<p><strong>desc</strong>: WM_CONTEXTMENU (0x007B).</p>
+<p><strong>type</strong>: number</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the window or control that recieved the message.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="__guidropfiles">__GuiDropFiles</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__GuiDropFiles</span><span class="p">(</span><span class="n">hDrop</span><span class="p">,</span> <span class="n">lParam</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> The internal callback on <code>WM_DROPFILES</code> that calls the user defined <a href="../GUI/#droptarges"><code>GridGUI.GUI.DropTarges</code></a> if the callback associated array has the <code>hwnd</code> argument as one of its key. The callback is called with an array of the dropped files.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: hDrop</p>
+<p><strong>desc</strong>: A handle to an internal structure describing the dropped files.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/shell/wm-dropfiles">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: lParam</p>
+<p><strong>desc</strong>: Always zero.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/shell/wm-dropfiles">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: msg</p>
+<p><strong>desc</strong>: WM_DROPFILES (0x0233).</p>
+<p><strong>type</strong>: number</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the window or control that recieved the message.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="__guiinit">__GuiInit</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__GuiInit</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Initialises all the members of the GUI class.</p>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="__guimoved">__GuiMoved</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__GuiMoved</span><span class="p">(</span><span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> The internal callback on <code>WM_MOVE</code> that calls <a href="../GUI/#_guimoved"><code>GridGUI.GUI._GuiMoved</code></a> with the new location as a <a href="../Position/"><code>GridGUI.Position</code></a>.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: wParam</p>
+<p><strong>desc</strong>: Unused.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: lParam</p>
+<p><strong>desc</strong>: The coordinate of the top left corner of the window. The low-order word is the x coordinate and the high-order word is the y coordinate.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-move">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: msg</p>
+<p><strong>desc</strong>: WM_MOVE (0x0003).</p>
+<p><strong>type</strong>: number</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the window or control that recieved the message.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="__guisize">__GuiSize</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__GuiSize</span><span class="p">(</span><span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> The internal callback on <code>WM_SIZE</code> that calls <a href="../GUI/#_guisize"><code>GridGUI.GUI._GuiSize</code></a> with the new area as a <a href="../Position/"><code>GridGUI.Position</code></a> where x and y are both zero and with the <code>wParam</code> argument.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: wParam</p>
+<p><strong>desc</strong>: The type of resizing that have occurred. <strong>0</strong> is normal resizing, <strong>1</strong> means that the window was minimised and <strong>2</strong> means that it was maximised.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: lParam</p>
+<p><strong>desc</strong>: The new area of the window. The low-order word is the width and the high-order word is the height.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: msg</p>
+<p><strong>desc</strong>: WM_SIZE (0x0005).</p>
+<p><strong>type</strong>: number</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the window or control that recieved the message.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="__lowerbackgoundctrls">__LowerBackgoundCtrls</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__LowerBackgoundCtrls</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Lowers the z-order of all registered controls in <a href="../GUI/#backgroundctrls"><code>GridGUI.GUI.BackgroundCtrls</code></a>. To register controls as background controls see <a href="../GUI/#registerbackground"><code>GridGUI.GUI.RegisterBackground</code></a>.</p>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="__new">__New</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__New</span><span class="p">(</span><span class="n">title</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">options</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Constructor.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: title</p>
+<p><strong>desc</strong>: The title of the newly created GUI.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: options</p>
+<p><strong>desc</strong>: The gui option string that the GUI will be created with.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Options">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: If specified then no new GUI will be created and no <code>OnMessage</code> callbacks will be set up. Instead the <a href="../GUI/"><code>GridGUI.GUI</code></a> instance will work like a wrapper for the GUI that can be used to interact with it.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+</div>
+</details>
+<div class="admonition question">
+<p><span class="twemoji return"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6 7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5S15.43 7 13.5 7H6V3h7.5c4.14 0 7.5 3.36 7.5 7.5z"/></svg></span> <strong>return value</strong></p>
+<div class="admonition question">
+<p><strong>desc</strong>: A new <a href="../GUI/"><code>GridGUI.GUI</code></a> instance.</p>
+<p><strong>type</strong>: <a href="../GUI/">GridGUI.GUI</a></p>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="__onadd">__OnAdd</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__OnAdd</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Updates the z-order of registered controls. Called when a control is added to the GUI.</p>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="__onpaint">__OnPaint</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__OnPaint</span><span class="p">(</span><span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> The internal callback on <code>WM_PAINT</code> that calls <a href="../GUI/#__redrawforgoundctrls"><code>GridGUI.GUI.__ReDrawForgoundCtrls</code></a> to fix issues with overlapping controls for controls registered in <a href="../GUI/#foregroundctrls"><code>GridGUI.GUI.ForegroundCtrls</code></a>.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: wParam</p>
+<p><strong>desc</strong>: Unused.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/gdi/wm-paint">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: lParam</p>
+<p><strong>desc</strong>: Unused.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/gdi/wm-paint">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: msg</p>
+<p><strong>desc</strong>: WM_PAINT (0x000F).</p>
+<p><strong>type</strong>: number</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the window or control that recieved the message.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="__raiseforgoundctrls">__RaiseForgoundCtrls</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__RaiseForgoundCtrls</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Raises the z-order of all registered controls in <a href="../GUI/#foregroundctrls"><code>GridGUI.GUI.ForegroundCtrls</code></a>. To register controls as background controls see <a href="../GUI/#registerforeground"><code>GridGUI.GUI.RegisterForeground</code></a>.</p>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="__redrawforgoundctrls">__ReDrawForgoundCtrls</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__ReDrawForgoundCtrls</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Redraws the controls registered with <a href="../GUI/#registerforeground"><code>GridGUI.GUI.RegisterForeground</code></a>. Called on <code>WM_PAINT</code>.</p>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="__syscommand">__SysCommand</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">__SysCommand</span><span class="p">(</span><span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> The internal callback on <code>WM_SYSCOMMAND</code> that calls the user defined <a href="../GUI/#guiclose"><code>GridGUI.GUI.GuiClose</code></a> callback on <code>SC_CLOSE</code> if the callback variable evaluates to true.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: wParam</p>
+<p><strong>desc</strong>: The type of system command requested, see link for a list of values.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: lParam</p>
+<p><strong>desc</strong>: The coordinate of the mouse, if this message was triggered by a menu selection, otherwise the argument is unused. The low-order word is the x coordinate and the high-order word is the y coordinate.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: msg</p>
+<p><strong>desc</strong>: WM_SYSCOMMAND (0x0112).</p>
+<p><strong>type</strong>: number</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the window or control that recieved the message.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="_guimoved">_GuiMoved</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">_GuiMoved</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> An internal callback used to update the x and y coordinate of <a href="../GUI/#pos"><code>GridGUI.GUI.pos</code></a> and to call the user defined <a href="../GUI/#guimoved"><code>GridGUI.GUI.GuiMoved</code></a> callback</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: pos</p>
+<p><strong>desc</strong>: The new coordinate of the top left corner of the GUI. The width and height are both zero.</p>
+<p><strong>type</strong>: <a href="../Position/">GridGUI.Position</a></p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="_guisize">_GuiSize</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">_GuiSize</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">resizeEvent</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> An internal callback used to update the width and height of <a href="../GUI/#pos"><code>GridGUI.GUI.pos</code></a> and to call the user defined <a href="../GUI/#guisize"><code>GridGUI.GUI.GuiSize</code></a> callback</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: pos</p>
+<p><strong>desc</strong>: The new area of the GUI. The x and y coordinate are both zero.</p>
+<p><strong>type</strong>: <a href="../Position/">GridGUI.Position</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: resizeEvent</p>
+<p><strong>desc</strong>: A number indicating whether the GUI was maximised, minimised or neither that is passed on to the user defined <a href="../GUI/#guisize"><code>GridGUI.GUI.GuiSize</code></a> callback. See the link for what the numbers mean.</p>
+<p><strong>type</strong>: number</p>
+<p><strong>link</strong>: <a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-size">link</a></p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="add">Add</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Add</span><span class="p">(</span><span class="n">controlType</span><span class="p">,</span> <span class="n">options</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Adds most standard ahk controls to the GUI.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: controlType</p>
+<p><strong>desc</strong>: The type of the control. Can be <code>Text, Edit, UpDown, Picture, Button, Checkbox, DropDownList, ComboBox, ListBox, Link, Hotkey, DateTime, MonthCal, Slider, Progress, GroupBox and ActiveX</code>. For <code>Radio, ListView, TreeView, Tab3 and StatusBar</code> see <a href="AdditionalControls">AdditionalControls</a></p>
+<p><strong>type</strong>: string</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: options</p>
+<p><strong>desc</strong>: The options that the GuiControl will be created with. Does not accept vVars. Can be an object with keys the same names as the optional arguments that this method takes.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#OtherOptions">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: text</p>
+<p><strong>desc</strong>: The text that the control will be created with.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+</div>
+</details>
+<div class="admonition question">
+<p><span class="twemoji return"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6 7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5S15.43 7 13.5 7H6V3h7.5c4.14 0 7.5 3.36 7.5 7.5z"/></svg></span> <strong>return value</strong></p>
+<div class="admonition question">
+<p><strong>desc</strong>: The added control instance.</p>
+<p><strong>type</strong>: <a href="../ArbitraryControl/">GridGUI.ArbitraryControl</a></p>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="color">Color</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Color</span><span class="p">(</span><span class="n">WindowColor</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">ControlColor</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Color</code>.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: WindowColor</p>
+<p><strong>desc</strong>: The colour of the background of the GUI. See link for the supported format.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Color">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: ControlColor</p>
+<p><strong>desc</strong>: The colour of the background of controls that are added to the GUI in the future. See link for the supported format.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Color">link</a></p>
+</div>
+</details>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Color">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="controlgetfocus">ControlGetFocus</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="nb">ControlGetFocus</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Retrives the hwnd of the control with input focus.</p>
+</div>
+<div class="admonition question">
+<p><span class="twemoji return"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6 7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5S15.43 7 13.5 7H6V3h7.5c4.14 0 7.5 3.36 7.5 7.5z"/></svg></span> <strong>return value</strong></p>
+<div class="admonition question">
+<p><strong>desc</strong>: The hwnd of the focused control.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<h4 id="default">Default</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Default</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Default</code>.</p>
+</div>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Default">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="destroy">Destroy</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Destroy</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Destroy</code>.</p>
+</div>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Destroy">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="flash">Flash</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Flash</span><span class="p">(</span><span class="n">Off</span> <span class="o">:=</span> <span class="nv">false</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Flash</code>, except that it used a bool instead of a string to indicate that the colour should be restored.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: Off</p>
+<p><strong>desc</strong>: If <code>false</code> the GUI flashes. If <code>true</code> the colour of the GUI is restored.</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>default</strong>: false</p>
+</div>
+</details>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Flash">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="font">Font</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Font</span><span class="p">(</span><span class="n">Options</span><span class="p">,</span> <span class="n">FontName</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Font</code></p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: Options</p>
+<p><strong>desc</strong>: Styling option string, see link for detail of what options are available.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Font">link</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: FontName</p>
+<p><strong>desc</strong>: The name of the font to apply.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/misc/FontsStandard.htm">link</a></p>
+</div>
+</details>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Font">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="hide">Hide</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Hide</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Hide</code></p>
+</div>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Hide">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="listview">ListView</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">ListView</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Changes the default <code>ListView</code> to the specified hwnd. See the link for what changing the default <code>ListView</code> does.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the <code>ListView</code> to set as the default.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+<div class="admonition question">
+<p><span class="twemoji return"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6 7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5S15.43 7 13.5 7H6V3h7.5c4.14 0 7.5 3.36 7.5 7.5z"/></svg></span> <strong>return value</strong></p>
+<div class="admonition question">
+<p><strong>desc</strong>: The hwnd of the <code>ListView</code> that was previously the default.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</div>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/ListView.htm#BuiltIn">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="margin">Margin</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Margin</span><span class="p">(</span><span class="n">x</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Margin</code></p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: x</p>
+<p><strong>desc</strong>: The horizontal margin of controls that are added to the GUI.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: y</p>
+<p><strong>desc</strong>: The vertical margin of controls that are added to the GUI.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+</div>
+</details>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Margin">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="maximize">Maximize</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Maximize</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Maximize</code></p>
+</div>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Minimize">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="menu">Menu</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="nb">Menu</span><span class="p">(</span><span class="n">MenuName</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Menu</code></p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: MenuName</p>
+<p><strong>desc</strong>: The name of the menu to attach to the GUI menu bar. Menues are made using the <code>Menu</code> command, see link for details.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Menu.htm">link</a></p>
+</div>
+</details>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Menu">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="minimize">Minimize</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Minimize</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Minimize</code></p>
+</div>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Minimize">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="minsize">MinSize</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">MinSize</span><span class="p">(</span><span class="n">x</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Sets the minsize of the GUI, that is the size that the GUI can't be reduced beyond by drag resizing.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: x</p>
+<p><strong>desc</strong>: The minimal width of the GUI. If <code>""</code> the min width is left unchanged.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: y</p>
+<p><strong>desc</strong>: The minimal height of the GUI. If <code>""</code> the min height is left unchanged.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: ""</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="options">Options</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Options</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Applies styles and options to the GUI.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: options</p>
+<p><strong>desc</strong>: The ahk GUI style and option string to apply to the GUI. See link for supported styles and options.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Options">link</a></p>
+</div>
+</details>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Options">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="registerbackground">RegisterBackground</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">RegisterBackground</span><span class="p">(</span><span class="n">ctrl</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Registers a control as a background control, that is their z-order is lowered below any current and future controls.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: ctrl</p>
+<p><strong>desc</strong>: The <a href="../GuiControlClass/"><code>GridGUI.GuiControlClass</code></a> instance that will be registered.</p>
+<p><strong>type</strong>: <a href="../GuiControlClass/">GridGUI.GuiControlClass</a></p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="registerdroptarget">RegisterDropTarget</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">RegisterDropTarget</span><span class="p">(</span><span class="n">ctrl</span><span class="p">,</span> <span class="n">Callback</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Registers a control as a file drag and drop target. Any registered control will have its callback called whenever files are dropped on the control.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: ctrl</p>
+<p><strong>desc</strong>: The <a href="../ControlClass/"><code>GridGUI.ControlClass</code></a> instance that will be registered.</p>
+<p><strong>type</strong>: <a href="../ControlClass/">GridGUI.ControlClass</a></p>
+</div>
+<div class="admonition info">
+<p><strong>name</strong>: Callback</p>
+<p><strong>desc</strong>: The callback to call when files are dropped on the control.</p>
+<p><strong>type</strong>: Func|BoundFunc</p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="registerforeground">RegisterForeground</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">RegisterForeground</span><span class="p">(</span><span class="n">ctrl</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Registers a control to be redrawn after all other controls as well as their z-order is raised above any current and future controls.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: ctrl</p>
+<p><strong>desc</strong>: The <a href="../GuiControlClass/"><code>GridGUI.GuiControlClass</code></a> instance that will be registered.</p>
+<p><strong>type</strong>: <a href="../GuiControlClass/">GridGUI.GuiControlClass</a></p>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<h4 id="restore">Restore</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Restore</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Restore</code></p>
+</div>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Minimize">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="show">Show</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Show</span><span class="p">(</span><span class="n">options</span> <span class="o">:=</span> <span class="n">AutoSize</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Show</code></p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: options</p>
+<p><strong>desc</strong>: The options string describing how to show the GUI. See link for available options.</p>
+<p><strong>type</strong>: string</p>
+<p><strong>default</strong>: AutoSize</p>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Show">link</a></p>
+</div>
+</details>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Show">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="submit">Submit</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">Submit</span><span class="p">(</span><span class="n">NoHide</span> <span class="o">:=</span> <span class="nv">false</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> A thin method wrapper for <code>Gui, Submit</code></p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: NoHide</p>
+<p><strong>desc</strong>: Whether or not to hide the GUI after submitting it.</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>default</strong>: false</p>
+</div>
+</details>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/Gui.htm#Submit">link</a></p>
+</div>
+<div class="admonition note">
+<h4 id="treeview">TreeView</h4>
+<div class="admonition tip">
+<div class="highlight"><pre><span></span><code><span class="n">TreeView</span><span class="p">(</span><span class="n">hwnd</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p><span class="twemoji desc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Changes the default <code>TreeView</code> to the specified hwnd. See the link for what changing the default <code>TreeView</code> does.</p>
+</div>
+<details class="example"><summary>parameters</summary><div class="admonition info">
+<p><strong>name</strong>: hwnd</p>
+<p><strong>desc</strong>: The hwnd of the <code>TreeView</code> to set as the default.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</details>
+<div class="admonition question">
+<p><span class="twemoji return"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6 7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5S15.43 7 13.5 7H6V3h7.5c4.14 0 7.5 3.36 7.5 7.5z"/></svg></span> <strong>return value</strong></p>
+<div class="admonition question">
+<p><strong>desc</strong>: The hwnd of the <code>TreeView</code> that was previously the default.</p>
+<p><strong>type</strong>: hwnd</p>
+</div>
+</div>
+<p><strong>link</strong>: <a href="https://www.autohotkey.com/docs/commands/TreeView.htm#BuiltIn">link</a></p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../SubGrid/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SubGrid" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SubGrid
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../GuiCallback/" class="md-footer__link md-footer__link--next" aria-label="Next: GuiCallback" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              GuiCallback
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.expand", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

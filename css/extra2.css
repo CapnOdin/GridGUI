@@ -1,0 +1,40 @@
+h1:first-of-type {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 300;
+	margin: 0 0 0em;
+}
+
+/*
+p:first-of-type {
+    text-align: center;
+}
+*/
+
+p.admonition-title:first-of-type {
+    text-align: left;
+}
+
+h1:first-of-type .headerlink {
+    display: none;
+}
+
+/* How to Use */
+
+.how-to-use .md-sidebar--primary {
+    display: none;
+}
+
+/* Examples */
+
+.examples .md-sidebar--secondary {
+    display: none;
+}
+
+/* Homepage */
+
+.home .md-sidebar {
+    display: none;
+}
+
+

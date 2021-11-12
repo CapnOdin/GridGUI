@@ -1,0 +1,21 @@
+
+.desc {
+	color: #00B0FF;
+	width: 1rem;
+	margin-left: 0.2rem;
+	transform: scale(1.35,1.35);
+}
+
+.definition {
+	color: #00BFA5;
+	width: 1rem;
+	margin-left: 0.2rem;
+	transform: scale(1.35,1.35);
+}
+
+.return {
+	color: #64DD17;
+	width: 1rem;
+	margin-left: 0.2rem;
+	transform: scale(1.35,1.35);
+}
